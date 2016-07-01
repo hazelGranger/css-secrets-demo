@@ -14,12 +14,24 @@
 		<a class="btn" href="https://github.com/hazelGranger/css-secrets-demo" class="btn">View on GitHub</a>
 		<a class="btn" href="https://github.com/hazelGranger/css-secrets-demo/zipball/master" class="btn">Download .zip</a>
 		<a class="btn" href="https://github.com/hazelGranger/css-secrets-demo/tarball/master" class="btn">Download .tar.gz</a>
-		<section>
+		<div class="index" id="index">
+			<h2>Index 目录</h2>
+			<ul>
+				<li>
+					<a href="#c-1">Backgrounds &amp;Borders  背景与边框</a>
+					<ul>
+						<li><a href="#c-1-1">Translucent borders 半透明边框</a></li>
+						<li><a href="#c-1-2">Multiple borders 多重边框</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<section id="c-1">
 			<h2>Backgrounds &amp;Borders  背景与边框</h2>
-			<section>
+			<section id="c-1-1">
 				<h3>Translucent borders 半透明边框</h3>
-				<div id="c-1-1">
-					<div id="c-1-1-1">
+				<div id="eg-1-1">
+					<div id="eg-1-1-1">
 						semitransparent borders<br/>
 						semitransparent borders<br/>
 						semitransparent borders<br/>
@@ -32,10 +44,10 @@
 					background-clip: padding-box;
 				</code>
 			</section>
-			<section>
+			<section id="c-1-2">
 				<h3>Multiple borders 多重边框</h3>
 				<h4>box-shadow solution</h4>
-				<div id="c-1-2-1"></div>
+				<div id="eg-1-2-1"></div>
 				<code>
 					background: yellowgreen;<br/>
 					box-shadow: 0 0 0 10px #655,
@@ -43,7 +55,7 @@
 					0 2px 5px 15px rgba(0,0,0,.6);
 				</code>
 				<h4>outline solution</h4>
-				<div id="c-1-2-2"></div>
+				<div id="eg-1-2-2"></div>
 				<code>
 					background: yellowgreen;<br/>
 					border: 10px solid #655;<br/>
@@ -51,6 +63,9 @@
 				</code>
 			</section>
 		</section>
+	</div>
+	<div class="back">
+		<a href="#index">返回目录</a>
 	</div>
 </body>
 </html>

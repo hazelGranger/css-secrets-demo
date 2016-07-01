@@ -11,9 +11,23 @@ body{
 	margin-left: auto;
 	margin-right: auto;
 	padding: 0 20px;
+	padding-left: 10em;
 }
 section{
 	padding-bottom: 5em;
+}
+
+.index>ul{
+	padding-left: 0;
+}
+li{
+	list-style: none;
+}
+
+.back{
+	position: fixed;
+	bottom: 0;
+	right: 2em;
 }
 
 h1,h2,h3{
@@ -64,7 +78,7 @@ a.btn:hover{
 	background-color: rgb(177, 218, 115);
 }
 
-#c-1-1{
+#eg-1-1{
 	background-image: url(http://img3.redocn.com/20120414/Redocn_2012041212205539.jpg);
 	background-position: 0 -30px;
 	width: 50%;
@@ -72,7 +86,7 @@ a.btn:hover{
 	position: relative;
 }
 
-#c-1-1-1{
+#eg-1-1-1{
 	padding: 1em;
 	width: 60%;
 	border: 20px solid hsla(0,0%,100%,.5);
@@ -84,7 +98,7 @@ a.btn:hover{
 }
 
 
-#c-1-2-1{
+#eg-1-2-1{
 	width: 50%;
 	height: 10em;
 	background-color: yellowgreen;
@@ -92,7 +106,7 @@ a.btn:hover{
 	margin-left: 15px;
 }
 
-#c-1-2-2{
+#eg-1-2-2{
 	width: 50%;
 	height: 10em;
 	background: yellowgreen;
