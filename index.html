@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Css Secrets Demos</title>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Css Secrets Demos</h1>
+		<section>
+			<h2>Backgrounds &amp;Borders  背景与边框</h2>
+			<section>
+				<h3>Translucent borders 半透明边框</h3>
+				<div id="c-1-1">
+					<div id="c-1-1-1">
+						semitransparent borders<br/>
+						semitransparent borders<br/>
+						semitransparent borders<br/>
+						semitransparent borders
+					</div>
+				</div>
+				<code>
+					border: 10px solid hsla(0,0%,100%,.5);<br/>
+					background: white;<br/>
+					background-clip: padding-box;
+				</code>
+			</section>
+			<section>
+				<h3>Multiple borders 多重边框</h3>
+				<h4>box-shadow solution</h4>
+				<div id="c-1-2-1"></div>
+				<code>
+					background: yellowgreen;<br/>
+					box-shadow: 0 0 0 10px #655,
+					0 0 0 15px deeppink,
+					0 2px 5px 15px rgba(0,0,0,.6);
+				</code>
+				<h4>outline solution</h4>
+				<div id="c-1-2-2"></div>
+				<code>
+					background: yellowgreen;<br/>
+					border: 10px solid #655;<br/>
+					outline: 15px solid deeppink;<br/>
+				</code>
+			</section>
+		</section>
+	</div>
+</body>
+</html>
