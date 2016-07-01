@@ -10,10 +10,10 @@
 		<h1>Css Secrets Demos</h1>
 		<img src="https://cloud.githubusercontent.com/assets/1231359/14773652/5bf7c006-0adf-11e6-8712-70be89b3b97d.jpg" alt="[CSS Secrets 简体中文版 - 封面]" style="max-width:100%;margin-left: -11%;">
 		<p>《CSS Secrets》一书中各章节的 demo</p>
-		<p>相关链接：<br/><a href="https://github.com/cssmagic/CSS-Secrets/" target="_blank">https://github.com/cssmagic/CSS-Secrets/ </a></p>
 		<a class="btn" href="https://github.com/hazelGranger/css-secrets-demo" class="btn">View on GitHub</a>
 		<a class="btn" href="https://github.com/hazelGranger/css-secrets-demo/zipball/master" class="btn">Download .zip</a>
 		<a class="btn" href="https://github.com/hazelGranger/css-secrets-demo/tarball/master" class="btn">Download .tar.gz</a>
+		<p>相关链接：<br/><a href="https://github.com/cssmagic/CSS-Secrets/" target="_blank">https://github.com/cssmagic/CSS-Secrets/ </a></p>
 		<div class="index" id="index">
 			<h2>Index 目录</h2>
 			<ul>
@@ -33,13 +33,11 @@
 				<div id="eg-1-1">
 					<div id="eg-1-1-1">
 						semitransparent borders<br/>
-						semitransparent borders<br/>
-						semitransparent borders<br/>
 						semitransparent borders
 					</div>
 				</div>
 				<code>
-					border: 10px solid hsla(0,0%,100%,.5);<br/>
+					border: 10px solid rgba(0, 0, 0, 0.3);<br/>
 					background: white;<br/>
 					background-clip: padding-box;
 				</code>
@@ -60,6 +58,29 @@
 					background: yellowgreen;<br/>
 					border: 10px solid #655;<br/>
 					outline: 15px solid deeppink;<br/>
+				</code>
+			</section>
+			<section id="c-1-3">
+				<h3>Flexible background positioning  灵活的背景定位</h3>
+				<h4>Extended background-position solution</h4>
+				<div id="eg-1-3-1"></div>
+				<code>
+					background: url(img/water.svg) no-repeat bottom right #CEE2EF;<br/>
+					background-position: right 20px bottom 10px;
+				</code>
+				<h4>background-origin solution</h4>
+				<div id="eg-1-3-2"></div>
+				<code>
+					padding: 20px;<br/>
+					background: url("img/water.svg") no-repeat #CEE2EF
+					bottom right; /* or 100% 100% */<br/>
+					background-origin: content-box;
+				</code>
+				<h4>calc() solution</h4>
+				<div id="eg-1-3-3"></div>
+				<code>
+					background: url("img/water.svg") no-repeat #CEE2EF;<br/>
+					background-position: calc(100% - 20px) calc(100% - 20px);
 				</code>
 			</section>
 		</section>
