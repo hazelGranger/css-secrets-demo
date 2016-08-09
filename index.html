@@ -240,6 +240,104 @@
 					</p>
 				</section>
 			</section>
+			<section id="c-1-7">
+				<h3>Continuous image borders</h3>
+				<section>
+					<div id="eg-1-7-1">content</div>
+					<code>
+						padding: 1em;<br/>
+						border: 1em solid transparent;<br/>
+						background: linear-gradient(white, white) padding-box,
+						repeating-linear-gradient(-45deg,
+						red 0, red 12.5%,
+						transparent 0, transparent 25%,
+						#58a 0, #58a 37.5%,
+						transparent 0, transparent 50%)
+						0 / 5em 5em;
+					</code>
+				</section>
+				<section>
+					<div id="eg-1-7-2">content</div>
+					<code>
+						@keyframes ants { to { background-position: 100% } }<br/>
+						<br/>
+						#eg-1-7-2{<br/>
+							&nbsp;padding: 1em;<br/>
+							&nbsp;border: 1px solid transparent;<br/>
+							&nbsp;background:
+							linear-gradient(white, white) padding-box,
+							repeating-linear-gradient(-45deg,
+							black 0, black 25%, white 0, white 50%
+							) 0 / .6em .6em;<br/>
+							&nbsp;animation: ants 12s linear infinite;<br/>
+						}
+					</code>
+				</section>
+			</section>
+		</section>
+		<section id="c-2">
+			<h2>Shapes 形状</h2>
+			<section id="c-2-1">
+				<h3>Flexible ellipses</h3>
+				<div id="eg-2-1-1"></div>
+				<code>
+					background-color: #FFDD00;<br/>
+					border-radius: 50px / 10px;<br/>
+					border-radius: 50% / 50%;
+				</code>
+				<div id="eg-2-1-2"></div>
+				<code>
+					border-radius: 100% 0 0 100% / 50%;
+				</code>
+				<div id="eg-2-1-3"></div>
+				<code>
+					border-radius: 100% 0 0 0 ;
+				</code>
+			</section>
+			<section id="c-2-2">
+				<h3>Parallelograms</h3>
+				<h4>Nested elements solution</h4>
+				<div id="eg-2-2-1">
+					<a href="#yolo" class="button">
+						<div>Click me</div>
+					</a>
+					<br/>
+					<code>
+						.button{<br/>
+							transform: skewX(-45deg);<br/>
+							display: inline-block;<br/>
+							background: #0066aa;<br/>
+							text-decoration: none;<br/>
+						}<br/>
+
+						.button > div{<br/>
+							transform: skewX(45deg);<br/>
+						}
+					</code>
+				</div>
+				<h4>Pseudo-element solution</h4>
+				<div id="eg-2-2-2">
+					<a href="#yolo" class="button">
+						Click me
+					</a>
+					<br/>
+					<code>
+						.button {<br/>
+						position: relative;<br/>
+						}<br/>
+						.button::before {<br/>
+						content: ''; <br/>
+						position: absolute;<br/>
+						top: 0; right: 0; bottom: 0; left: 0;<br/>
+						z-index: -1;<br/>
+						background: #58a;<br/>
+						transform: skew(45deg);<br/>
+						}
+					</code>
+				</div>
+				<p><a href="https://www.oneasp.com/" target="_blink">点击查看我的应用案例</a></p>
+			</section>
+			<section id="c-2-3"></section>
 		</section>
 	</div>
 	<div class="back" >
