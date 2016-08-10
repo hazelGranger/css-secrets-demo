@@ -337,7 +337,103 @@
 				</div>
 				<p><a href="https://www.oneasp.com/" target="_blink">点击查看我的应用案例</a></p>
 			</section>
-			<section id="c-2-3"></section>
+			<section id="c-2-3">
+				<h3>Diamond images</h3>
+				<section>
+					<h4>transform-based solution</h4>
+					<div id="eg-2-3-1">
+						<img src="/img/pokemon.jpg">
+					</div>
+					<code>
+						width: 180px;<br/>
+						transform: rotate(45deg);<br/>
+						overflow: hidden;
+					</code>
+				</section>
+				<section>
+					<h4>Clipping path solution</h4>
+					<div id="eg-2-3-2">
+						<img src="/img/pokemon.jpg">
+					</div>
+					<code>
+						-webkit-clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);<br/>
+						clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+					</code>
+				</section>
+			</section>
+			<section id="c-2-4">
+				<h3>Cutout corners</h3>
+				<section>
+					<div id="eg-2-4-1">
+					</div>
+					<code>
+						background: #58a;<br/>
+						background: linear-gradient(-45deg, transparent 15px, #58a 0);
+					</code>
+				</section>
+				<section>
+					<div id="eg-2-4-2"></div>
+					<code>
+						background: #58a;<br/>
+						background:<br/>
+						linear-gradient(-45deg, transparent 15px, #58a 0)
+						right,<br/>
+						linear-gradient(45deg, transparent 15px, #655 0)
+						left;<br/>
+						background-size: 50% 100%;
+					</code>
+				</section>
+				<section>
+					<div id="eg-2-4-3"></div>
+					<code>
+						background: #58a;<br/>
+						background:<br/>
+						linear-gradient(-45deg, transparent 15px, #58a 0)
+						right,<br/>
+						linear-gradient(45deg, transparent 15px, #655 0)
+						left;<br/>
+						background-size: 50% 100%;<br/>
+						background-repeat: no-repeat;
+					</code>
+				</section>
+				<section>
+					<div id="eg-2-4-4"></div>
+					<code>
+						background: #58a;<br/>
+						background:<br/>
+						linear-gradient(135deg, transparent 15px, #58a 0)
+						top left,<br/>
+						linear-gradient(-135deg, transparent 15px, #655 0)
+						top right,<br/>
+						linear-gradient(-45deg, transparent 15px, #58a 0)
+						bottom right,<br/>
+						linear-gradient(45deg, transparent 15px, #655 0)
+						bottom left;<br/>
+						background-size: 50% 50%;<br/>
+						background-repeat: no-repeat;<br/>
+					</code>
+				</section>
+				<section>
+					<div id="eg-2-4-5"></div>
+					<code>
+						background: #58a;<br/>
+						background:
+						radial-gradient(circle at top left,
+						transparent 15px, #58a 0) top left,<br/>
+						radial-gradient(circle at top right,
+						transparent 15px, #58a 0) top right,<br/>
+						radial-gradient(circle at bottom right,
+						transparent 15px, #58a 0) bottom right,<br/>
+						radial-gradient(circle at bottom left,
+						transparent 15px, #58a 0) bottom left;<br/>
+						background-size: 50% 50%;<br/>
+						background-repeat: no-repeat;
+					</code>
+				</section>
+				<section>
+					<div id="eg-2-4-6"></div>
+				</section>
+			</section>
 		</section>
 	</div>
 	<div class="back" >
