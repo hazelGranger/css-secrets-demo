@@ -396,6 +396,11 @@ section div{
 
 #eg-2-4-6{
 	background: #58a;
+	-webkit-clip-path: polygon(
+	20px 0, calc(100% - 20px) 0, 100% 20px,
+	100% calc(100% - 20px), calc(100% - 20px) 100%,
+	20px 100%, 0 calc(100% - 20px), 0 20px
+	);
 	clip-path: polygon(
 	20px 0, calc(100% - 20px) 0, 100% 20px,
 	100% calc(100% - 20px), calc(100% - 20px) 100%,
