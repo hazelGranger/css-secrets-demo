@@ -432,6 +432,140 @@
 				</section>
 				<section>
 					<div id="eg-2-4-6"></div>
+					<code>
+						background: #58a;<br/>
+						-webkit-clip-path: polygon(
+						20px 0, calc(100% - 20px) 0, 100% 20px,
+						100% calc(100% - 20px), calc(100% - 20px) 100%,
+						20px 100%, 0 calc(100% - 20px), 0 20px
+						);<br/>
+						clip-path: polygon(
+						20px 0, calc(100% - 20px) 0, 100% 20px,
+						100% calc(100% - 20px), calc(100% - 20px) 100%,
+						20px 100%, 0 calc(100% - 20px), 0 20px
+						);<br/>
+					</code>
+				</section>
+			</section>
+			<section id="c-2-5">
+				<h3>Trapezoid tabs</h3>
+				<section>
+					<div id="eg-2-5-1"></div>
+					<code>
+						transform: perspective(5em) rotateX(5deg);<br/>
+						background: #58a;
+					</code>
+				</section>
+				<section>
+					<div id="eg-2-5-2">
+						<div class="tab"></div>
+					</div>
+					<code>
+						.tab{<br/>
+							position: relative;<br/>
+							display: inline-block;<br/>
+							padding: .5em 1em .35em;<br/>
+							color: white;<br/>
+						}<br/>
+
+						.tab:before{<br/>
+							content: '';<br/>
+							position: absolute;<br/>
+							top: 0; right: 0; bottom: 0; left: 0;<br/>
+							z-index: -1;<br/>
+							background: #58a;<br/>
+							transform: scaleY(1.3) perspective(.5em) rotateX(5deg);<br/>
+							transform-origin: bottom;
+						}
+					</code>
+				</section>
+				<section>
+					<div id="eg-2-5-3">
+						<nav>
+							<a>home</a>
+							<a>A</a>
+							<a>B</a>
+						</nav>
+						<div class="content" style="background: #eee"></div>
+					</div>
+					<code>
+						nav > a{<br/>
+							position: relative;<br/>
+							display: inline-block;<br/>
+							padding: .3em 1em 0;<br/>
+							cursor: pointer;<br/>
+						}<br/>
+
+						nav > a:before{<br/>
+							content: '';<br/>
+							position: absolute;<br/>
+							top: 0; right: 0; bottom: 0; left: 0;<br/>
+							z-index: -1;<br/>
+							background: #ccc;<br/>
+							background-image: linear-gradient(<br/>
+							hsla(0,0%,100%,.6),<br/>
+							hsla(0,0%,100%,0));<br/>
+							border: 1px solid rgba(0,0,0,.4);<br/>
+							border-bottom: none;<br/>
+							border-radius: .5em .5em 0 0;<br/>
+							box-shadow: 0 .15em white inset;<br/>
+							transform: perspective(.5em) rotateX(5deg);<br/>
+							transform-origin: bottom;<br/>
+						}
+					</code>
+				</section>
+			</section>
+			<section id="c-2-6">
+				<h3>Simple pie charts</h3>
+				<section>
+					<h4>div solution</h4>
+					<div id="eg-2-6-1">
+						<div class="pie"></div>
+					</div>
+				</section>
+				<section>
+					<h4>svg solution</h4>
+					<div id="eg-2-6-2">
+						<div class="pie">
+							<svg viewBox="0 0 32 32">
+								<title>20%</title>
+								<circle r="16" cx="16" cy="16" stroke-dasharray="20 100"></circle>
+							</svg>
+							<svg viewBox="0 0 32 32">
+								<circle r="16" cx="16" cy="16" stroke-dasharray="60 100"></circle>
+							</svg>
+							<svg viewBox="0 0 32 32">
+								<circle r="16" cx="16" cy="16" stroke-dasharray="0 100" class="grow"></circle>
+							</svg>
+						</div>
+					</div>
+				</section>
+			</section>
+		</section>
+		<section id="c-3">
+			<h2>Visual Effects</h2>
+			<section id="c-3-1">
+				<h3>One-sided shadows</h3>
+				<section id="eg-3-1-1">
+					<h4>Shadow on one side</h4>
+					<div></div>
+					<code>
+						box-shadow: 0 5px 4px -4px black;
+					</code>
+				</section>
+				<section id="eg-3-1-2">
+					<h4>Shadow on two adjacent sides</h4>
+					<div></div>
+					<code>
+						box-shadow: 3px 3px 6px -3px black;
+					</code>
+				</section>
+				<section id="eg-3-1-3">
+					<h4>Shadow on two opposite sides</h4>
+					<div></div>
+					<code>
+						box-shadow: 5px 0 5px -5px black,-5px 0 5px -5px black;
+					</code>
 				</section>
 			</section>
 		</section>
