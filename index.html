@@ -568,6 +568,46 @@
 					</code>
 				</section>
 			</section>
+			<section id="c-3-2">
+				<h3>Irregular drop shadows</h3>
+				<section id="eg-3-2-1">
+					<div class="speech"></div>
+					<div class="dot"></div>
+					<div class="cutout"></div>
+					<code>
+						-webkit-filter: drop-shadow(.1em .1em .1em rgba(0,0,0,.5));<br/>
+						filter: drop-shadow(.1em .1em .1em rgba(0,0,0,.5));
+					</code>
+				</section>
+				<section id="eg-3-2-2">
+					<h4>shadow's shadow</h4>
+					<div>shadows</div>
+					<code>
+						text-shadow: .1em .2em yellow;<br/>
+						-webkit-filter: drop-shadow(.1em .1em .1em rgba(0,0,0,.5));<br/>
+						filter: drop-shadow(.1em .1em .1em rgba(0,0,0,.5));
+					</code>
+				</section>
+			</section>
+			<section id="c-3-3">
+				<h3>Color tinting</h3>
+				<section id="eg-3-3-1">
+					<h4>Filter-based solution</h4>
+					<img src="http://csssecrets.io/images/tiger.jpg" alt="">
+					<code>
+						filter: sepia() saturate(4) hue-rotate(295deg);<br/>
+						-webkit-filter: sepia() saturate(4) hue-rotate(295deg);
+					</code>
+				</section>
+				<section id="eg-3-3-2">
+					<h4>Blending mode solution</h4>
+					<div></div>
+					<code>
+						background-color: hsl(335, 100%, 50%);<br/>
+						background-blend-mode: luminosity;
+					</code>
+				</section>
+			</section>
 		</section>
 	</div>
 	<div class="back" >

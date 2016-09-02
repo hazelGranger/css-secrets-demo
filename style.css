@@ -525,3 +525,83 @@ section div{
 	background-color: #4391FF;
 	box-shadow: 5px 0 5px -5px black,-5px 0 5px -5px black;
 }
+
+#eg-3-2-1 div{
+	background: #fb3;
+	position: relative;
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 10em;
+	margin-right: 4em;
+	/*box-shadow: .1em .1em .3em rgba(0,0,0,.5);*/
+	-webkit-filter: drop-shadow(.1em .1em .1em rgba(0,0,0,.5));
+	filter: drop-shadow(.1em .1em .1em rgba(0,0,0,.5));
+}
+
+#eg-3-2-1 div.speech{
+	border-radius: 3em;
+}
+
+#eg-3-2-1 div.speech:before{
+	content: '';
+	position: absolute;
+	right: -0.7em;
+	width: 0;
+	height: 0;
+	border: 1em solid transparent;
+	border-left-color: #fb3;
+	border-right-width: 0;
+}
+
+#eg-3-2-1 div.dot{
+	background: transparent;
+	border: .5em dotted #fb3;
+}
+
+#eg-3-2-1 div.cutout{
+	border: .5em solid #58a;
+	border-image: 1 url('data:image/svg+xml,\
+	                     <svg xmlns="http://www.w3.org/2000/svg"\
+		                 width="3" height="3" fill="%23fb3">\
+		     	         <polygon points="0,1 1,0 2,0 3,1 3,2 2,3 1,3 0,2"/>\
+		     	</svg>');
+	background-clip: padding-box;
+}
+
+#eg-3-2-2 div{
+	color: deeppink;
+	border: 2px solid;
+	text-shadow: .1em .2em yellow;
+	-webkit-filter: drop-shadow(.1em .1em .1em rgba(0,0,0,.5));
+	filter: drop-shadow(.1em .1em .1em rgba(0,0,0,.5));
+	text-align: center;
+	font-size: 3em;
+	font-weight: bold;
+	height: 3em;
+}
+
+#eg-3-3-1 img{
+	width: 40em;
+	transition: .5s filter,.5s -webkit-filter;
+	filter: sepia() saturate(4) hue-rotate(295deg);
+	-webkit-filter: sepia() saturate(4) hue-rotate(295deg);
+}
+
+#eg-3-3-1 img:hover{
+	filter: none;
+	-webkit-filter: none;
+}
+
+#eg-3-3-2 div{
+	width: 640px; height: 440px;
+	background-size: cover;
+	background-color: hsl(335, 100%, 50%);
+	background-blend-mode: luminosity;
+	transition: .5s background-color;
+	background-image: url('http://csssecrets.io/images/tiger.jpg');
+}
+
+#eg-3-3-2 div:hover{
+	background-color: transparent;
+}
