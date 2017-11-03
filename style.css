@@ -102,7 +102,7 @@ section div{
 
 #eg-1-2-1{
 	background-color: yellowgreen;
-	box-shadow: 0 0 0 10px #655,0 0 0 15px deeppink,0 0px 5px 15px rgba(0, 0, 0, 0.5); 
+	box-shadow: 0 0 0 10px #655,0 0 0 15px deeppink,0 0px 5px 15px rgba(0, 0, 0, 0.5);
 	margin-left: 15px;
 }
 
@@ -605,3 +605,66 @@ section div{
 #eg-3-3-2 div:hover{
 	background-color: transparent;
 }
+
+#eg-3-4-1 .bg,#eg-3-4-2 .bg{
+	background-image: url('http://csssecrets.io/images/tiger.jpg');
+	background-size: cover;
+	overflow: hidden;
+	width: 640px;
+	height: 440px;
+	margin: 0;
+}
+
+#eg-3-4-1 div{
+	position: relative;
+	margin: auto;
+	margin-top: 20px;
+	padding: 5px;
+}
+
+#eg-3-4-1 div:before{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(255,255,255,0.5);
+}
+
+#eg-3-4-2 div{
+	position: relative;
+	margin: auto;
+	margin-top: 20px;
+	padding: 5px;
+	background: hsla(0,0%,100%,.3);
+}
+#eg-3-4-2 div:before{
+	content: '';
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+	filter: blur(20px);
+	margin: -30px;
+}
+
+#eg-3-5-1 div{
+	background: #58a; /* Fallback */
+	background:
+	    linear-gradient(to left bottom,
+	        transparent 50%, rgba(0,0,0,.4) 0)
+	        no-repeat 100% 0 / 2em 2em,
+	    linear-gradient(-135deg,
+	        transparent 1.4em, #58a 0);
+}
+
+#eg-3-5-2 div{
+	background: #58a; /* Fallback */
+	background:
+	    linear-gradient(to left bottom,
+	        transparent 50%, rgba(0,0,0,.4) 0)
+	        no-repeat 100% 0 / 3em 1.73em,
+	    linear-gradient(-150deg,
+	        transparent 1.5em, #58a 0);
+}
+
+#eg-3
