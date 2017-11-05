@@ -1,0 +1,23 @@
+{
+  "name": "css-secrets-demo",
+  "version": "1.0.0",
+  "description": "《CSS Secrets》一书中各章节的 demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hazelGranger/css-secrets-demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hazelGranger/css-secrets-demo/issues"
+  },
+  "homepage": "https://github.com/hazelGranger/css-secrets-demo#readme",
+  "dependencies": {
+    "vue": "^2.5.3",
+    "vue-router": "^3.0.1"
+  }
+}
