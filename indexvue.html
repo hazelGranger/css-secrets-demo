@@ -15,10 +15,16 @@
     <router-link to="/a">AAAAA</router-link>
     <router-link to="/b">BBBBB</router-link>
     <router-view></router-view>
+    <ul>
+      <li v-for=>
+        <a href=""></a>
+      </li>
+    </ul>
   </div>
   <script type="text/babel" data-presets="es2017,react,stage-0" data-plugins="transform-decorators-legacy">
     const A = { template: '<div>AAAAA</div>' }
     const B = { template: '<div>BBBBB</div>' }
+
     const routes =[
       { path: '/a',component: A},
       {path: '/b',component: B}
