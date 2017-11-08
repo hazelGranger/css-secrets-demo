@@ -4,7 +4,9 @@
   "description": "《CSS Secrets》一书中各章节的 demo",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": " rm -rf dist/  webpack && webpack-dev-server",
+    "build": " rm -rf dist/ webpack"
   },
   "repository": {
     "type": "git",
@@ -25,7 +27,11 @@
     "html-webpack-plugin": "^2.9.0",
     "style-loader": "^0.19.0",
     "vue": "^2.5.3",
+    "vue-html-loader": "^1.2.4",
+    "vue-loader": "^13.5.0",
     "vue-router": "^3.0.1",
+    "vue-style-loader": "^3.0.3",
+    "vue-template-compiler": "^2.5.3",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.4"
   }

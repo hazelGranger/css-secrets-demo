@@ -11,7 +11,7 @@ var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 
 
 var config = {
-  entry: 'src/main.js',
+  entry: './src/main.js',
   output: {
     path: path.join(__dirname,'dist'),
     publicPath: '/dist/',
@@ -36,8 +36,30 @@ var config = {
         loader: 'url'
       },{
         test: /.vue$/,
-        loader: 'vue'
+        loader: 'vue-loader'
       }
     ]
+  },
+  plugins:[
+    new webpack.DefinePlugin({
+			'ENV': JSON.stringify(process.env.ENV)
+		}),
+    new ExtractTextPlugin('css/[name].css'),
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+      alwaysWriteToDisk: true,
+      filename: '../dist/index.html',
+      inject: false
+    })
+  ],
+  devServer: {
+    contentBase: './dist/',
+    host: '0.0.0.0',
+    port: 9090,
+    inline: true,
+    hot: true,
+    quiet: true
   }
 }
+
+module.exports = config;
