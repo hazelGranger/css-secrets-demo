@@ -1,9 +1,10 @@
-const routers = {
-  '/index': {
-    component() {
-      require(['./views/index.vue'],resolve)
-    }
-  }
-}
 
-export default routers;
+import Index from './views/index.vue'
+
+export default [{
+  path: '/',
+  component: Index
+},{
+  path: '/index',
+  component: Index
+}]

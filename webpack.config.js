@@ -24,7 +24,7 @@ var config = {
         loader: ExtractTextPlugin.extract('style-loader','css-loader')
       },{
         test: /\.html$/,
-        loader: 'html?attrs=img:src img:data-src'
+        loader: 'html-loader?attrs=img:src img:data-src'
       },{
         test: /fonts\.(woff|woff2|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'file-loader?name=./fonts/[name].[ext]',
@@ -33,10 +33,15 @@ var config = {
         loader: 'dist'
       },{
         test: /\.json$/,
-        loader: 'url'
+        loader: 'url-loader'
       },{
         test: /.vue$/,
         loader: 'vue-loader'
+      },
+      {
+        test: /.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
       }
     ]
   },
@@ -45,13 +50,22 @@ var config = {
 			'ENV': JSON.stringify(process.env.ENV)
 		}),
     new ExtractTextPlugin('css/[name].css'),
-    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       alwaysWriteToDisk: true,
       filename: '../dist/index.html',
+      template: './indexvue.html',
       inject: false
-    })
+    }),
+    new HtmlWebpackHarddiskPlugin({
+      outputPath: path.resolve(__dirname,'dist')
+    }),
+    new webpack.HotModuleReplacementPlugin(),
   ],
+  resolve: {
+    alias: {
+      'vue': 'vue/dist/vue.js'
+    }
+  },
   devServer: {
     contentBase: './dist/',
     host: '0.0.0.0',

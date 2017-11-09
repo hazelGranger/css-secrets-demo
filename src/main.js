@@ -1,12 +1,32 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import VueResource from 'vue-resource'
+
 import App from './app.vue';
-import Routers from './router';
+// import routermaps from './router';
 
-Vue.use(VueRouter);
 
-var router = new VueRouter()
+import Index from './views/index.vue'
 
-Routers(router)
+Vue.use(VueRouter)
+Vue.use(VueResource)
 
-router.start(App,'#css-secrets-demo')
+
+const routes = [{
+  path: '/',
+  component: Index
+},{
+  path: '/index',
+  component: Index
+}]
+
+const router = new VueRouter({
+  routes
+})
+
+new Vue({
+  el: '#css-secrets-demo',
+  router,
+  template: '<App/>',
+  components: { App }
+})
