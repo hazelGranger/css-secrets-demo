@@ -56,10 +56,10 @@ var config = {
       template: './indexvue.html',
       inject: false
     }),
+    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackHarddiskPlugin({
       outputPath: path.resolve(__dirname,'dist')
-    }),
-    new webpack.HotModuleReplacementPlugin(),
+    })
   ],
   resolve: {
     alias: {
@@ -72,7 +72,7 @@ var config = {
     port: 9090,
     inline: true,
     hot: true,
-    quiet: true
+    quiet: false
   }
 }
 

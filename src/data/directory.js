@@ -1,6 +1,5 @@
-{
-  "directory": [
-    {
+
+const directory =  [{
       "chapter": "Backgrounds & Borders 背景与边框",
       "sections": [
         "Translucent borders 半透明边框",
@@ -80,6 +79,6 @@
         "Smooth state animations  状态平滑的动画",
         "Animation along a circular path  沿环形路径平移的动画"
       ]
-    }
-  ]
-}
+    }]
+
+export default directory

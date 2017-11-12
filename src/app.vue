@@ -1,7 +1,7 @@
 <template >
   <div>
-    <h1>app hah</h1>
-    <router-link to="/index">Go to Index</router-link>
+    <h1>app</h1>
+    <div >Go to Index </div>
     <router-view></router-view>
   </div>
 </template>

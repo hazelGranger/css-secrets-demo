@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import VueResource from 'vue-resource'
+// import VueResource from 'vue-resource'
 
 import App from './app.vue';
 // import routermaps from './router';
@@ -9,7 +9,7 @@ import App from './app.vue';
 import Index from './views/index.vue'
 
 Vue.use(VueRouter)
-Vue.use(VueResource)
+// Vue.use(VueResource)
 
 
 const routes = [{
