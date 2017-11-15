@@ -1,6 +1,7 @@
 
 const directory =  [{
       "chapter": "Backgrounds & Borders 背景与边框",
+      "componentName": "bgAndBorder",
       "sections": [
         "Translucent borders 半透明边框",
         "Multiple borders 多重边框",
@@ -13,6 +14,7 @@ const directory =  [{
     },
     {
       "chapter": "Shapes 形状",
+      "componentName": "bgAndBorder",
       "sections": [
         "Flexible ellipses 自适应的椭圆",
         "Parallelograms 平行四边形",
@@ -24,6 +26,7 @@ const directory =  [{
     },
     {
       "chapter": "Visual Effects 视觉效果",
+      "componentName": "bgAndBorder",
       "sections": [
         "One-sided shadows 单侧投影",
         "Irregular drop shadows 不规则投影",
@@ -34,6 +37,7 @@ const directory =  [{
     },
     {
       "chapter": "Typography 字体排印",
+      "componentName": "bgAndBorder",
       "sections": [
         "Hyphenation 连字符断行",
         "Inserting line breaks 插入换行",
@@ -48,6 +52,7 @@ const directory =  [{
     },
     {
       "chapter": "User Experience 用户体验",
+      "componentName": "bgAndBorder",
       "sections": [
         "Picking the right cursor 选用合适的鼠标光标",
         "Extending the clickable area 扩大可点击区域",
@@ -60,6 +65,7 @@ const directory =  [{
     },
     {
       "chapter": "Structure & Layout 结构与布局",
+      "componentName": "bgAndBorder",
       "sections": [
         "Intrinsic sizing 自适应内部元素",
         "Taming table column widths 精确控制表格列宽",
@@ -71,6 +77,7 @@ const directory =  [{
     },
     {
       "chapter": "Tranistions & Animations 过渡与动画",
+      "componentName": "bgAndBorder",
       "sections": [
         "Elastic tranistions 缓动效果",
         "Frame-by-frame animations 逐帧动画",

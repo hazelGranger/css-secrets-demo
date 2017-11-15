@@ -1,0 +1,157 @@
+.eg-1-1{
+	background-image: url(img/pokemon.jpg);
+	background-position: 0 -30px;
+	height: 20em;
+	position: relative;
+}
+
+.eg-1-1-1{
+	padding: 1em;
+	border: 20px solid rgba(0, 0, 0, 0.3);
+	background: white;
+	background-clip: padding-box;
+	position: absolute;
+	left: 10%;
+	top: 10%;
+}
+
+.eg-1-2-1{
+	background-color: yellowgreen;
+	box-shadow: 0 0 0 10px #655,0 0 0 15px deeppink,0 0px 5px 15px rgba(0, 0, 0, 0.5);
+	margin-left: 15px;
+}
+
+.eg-1-2-2{
+	background: yellowgreen;
+	border: 10px solid #655;
+	outline: 5px solid deeppink;
+}
+
+.eg-1-3-1{
+	background: url("img/water.svg") bottom right no-repeat #CEE2EF;
+	background-position: right 20px bottom 20px;
+}
+
+.eg-1-3-2{
+	padding: 20px;
+	background: url("img/water.svg") no-repeat #CEE2EF;
+	bottom right; /* or 100% 100% */
+	background-origin: content-box;
+}
+
+.eg-1-3-3{
+	background: url("img/water.svg") no-repeat #CEE2EF;
+	background-position: calc(100% - 20px) calc(100% - 20px);
+}
+
+.eg-1-4-1{
+	background: tan;
+	border-radius: .8em;
+	padding: 1em;
+	box-shadow: 0 0 0 .6em #655;
+	outline: .65em solid #655;
+}
+.eg-1-5-1{
+	background: linear-gradient(#fb3, #58a);
+	background: linear-gradient(#fb3 0%, #58a 100%);
+}
+.eg-1-5-2{
+	background: linear-gradient(#fb3 20%, #58a 80%);
+}
+.eg-1-5-3{
+	background: linear-gradient(#fb3 40%, #58a 60%);
+}
+.eg-1-5-4{
+	background: linear-gradient(#fb3 50%, #58a 50%);
+}
+.eg-1-5-5{
+	background: linear-gradient(#fb3 30%, #58a 0);
+	background-size: 100% 30px;
+}
+.eg-1-5-6{
+	background: linear-gradient(#fb3 33.3%,#58a 0, #58a 66.6%, yellowgreen 0);
+	background-size: 100% 45px;
+}
+.eg-1-5-7{
+	background: linear-gradient(to right,#fb3 50%, #58a 0);
+	background: linear-gradient(90deg,#fb3 50%, #58a 0);
+	background-size: 30px 100%;
+}
+.eg-1-5-8{
+	background: linear-gradient(45deg,#fb3 50%, #58a 0);
+	background-size: 30px 30px;
+}
+.eg-1-5-9{
+	background: linear-gradient(45deg,#fb3 25%, #58a 0, #58a 50%,#fb3 0, #fb3 75%, #58a 0);
+	background-size: 30px 30px;
+}
+.eg-1-5-10{
+	background: repeating-linear-gradient(45deg,#fb3, #58a 30px);
+}
+.eg-1-5-11{
+	background: repeating-linear-gradient(60deg,#fb3, #fb3 15px, #58a 0, #58a 30px);
+}
+.eg-1-5-12{
+	background: #58a;
+	background-image: repeating-linear-gradient(30deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,.1) 15px,transparent 0, transparent 30px);
+}
+.eg-1-6-1{
+	background: white;
+	background-image: linear-gradient(90deg,rgba(200,0,0,.5) 50%, transparent 0),linear-gradient(rgba(200,0,0,.5) 50%, transparent 0);
+	background-size: 31px 30px;
+}
+.eg-1-6-2{
+	background: #58a;
+	background-image:linear-gradient(white 1px, transparent 0),linear-gradient(90deg, white 1px, transparent 0);
+	background-size: 30px 30px;
+}
+.eg-1-6-3{
+	background: #58a;
+	background-image:linear-gradient(white 2px, transparent 0),
+	linear-gradient(90deg, white 2px, transparent 0),
+	linear-gradient(hsla(0,0%,100%,.3) 1px,transparent 0),
+	linear-gradient(90deg, hsla(0,0%,100%,.3) 1px,transparent 0);
+	background-size: 75px 75px, 75px 75px,
+	15px 15px, 15px 15px;
+}
+.eg-1-6-4{
+	background: #655;
+	background-image: radial-gradient(tan 30%, transparent 0),
+	radial-gradient(tan 30%, transparent 0);
+	background-size: 30px 30px;
+	background-position: 0 0, 15px 15px;
+}
+.eg-1-6-5{
+	background: #eee;
+	background-image:
+	linear-gradient(45deg, #bbb 25%, transparent 0),
+	linear-gradient(45deg, transparent 75%, #bbb 0),
+	linear-gradient(45deg, #bbb 25%, transparent 0),
+	linear-gradient(45deg, transparent 75%, #bbb 0);
+	background-size: 30px 30px;
+	background-position: 0 0, 15px 15px,15px 15px,30px 30px;
+}
+.eg-1-7-1{
+	padding: 1em;
+	border: 1em solid transparent;
+	background: linear-gradient(white, white) padding-box,
+	repeating-linear-gradient(-45deg,
+	red 0, red 12.5%,
+	transparent 0, transparent 25%,
+	#58a 0, #58a 37.5%,
+	transparent 0, transparent 50%)
+	0 / 5em 5em;
+}
+
+@keyframes ants { to { background-position: 100% } }
+
+.eg-1-7-2{
+	padding: 1em;
+	border: 1px solid transparent;
+	background:
+	linear-gradient(white, white) padding-box,
+	repeating-linear-gradient(-45deg,
+	black 0, black 25%, white 0, white 50%
+	) 0 / .6em .6em;
+	animation: ants 12s linear infinite;
+}

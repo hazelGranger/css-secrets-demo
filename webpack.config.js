@@ -14,7 +14,7 @@ var config = {
   entry: './src/main.js',
   output: {
     path: path.join(__dirname,'dist'),
-    publicPath: '/dist/',
+    publicPath: '/',//这个路径的设置居然还和实时修改更新有关。。。
     filename: 'build.js'
   },
   module: {
@@ -22,6 +22,9 @@ var config = {
       {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract('style-loader','css-loader')
+      },{
+        test: /\.less$/,
+        loader: ExtractTextPlugin.extract('css-loader!less-loader')
       },{
         test: /\.html$/,
         loader: 'html-loader?attrs=img:src img:data-src'
@@ -42,6 +45,9 @@ var config = {
         test: /.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
+      },{
+        test: /\.(png|jpg|gif|svg)$/,
+				loader: 'url-loader?limit=8192&name=./img/[name][hash].[ext]'
       }
     ]
   },

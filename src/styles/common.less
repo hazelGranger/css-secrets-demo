@@ -1,0 +1,81 @@
+html{
+	height: 100%;
+}
+body{
+	font-family: "Hiragino Sans GB","Helvetica Neue",Helvetica,Arial,Verdana,"Microsoft Yahei",sans-serif;
+	color:#333;
+	height: 100%;
+	margin: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+a{
+	color: #0086ee;
+	text-decoration: none;
+	&:hover{
+		text-decoration: underline;
+	}
+}
+
+h1,h2,h3,h4{
+	color: #ff0066;
+  opacity: 0.8;
+}
+
+ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.wrapper{
+	display: flex;
+	height: 100%;
+	.content{
+		flex: 1;
+	}
+}
+
+.btn{
+	padding: 0.4rem 0.8rem;
+	font-size: 0.9rem;
+	display: inline-block;
+	margin-bottom: 1rem;
+	color: rgb(177, 218, 115);
+	border-color: rgb(177, 218, 115);
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 0.3rem;
+	transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+	&:hover{
+		color: #fff;
+		background-color: rgb(177, 218, 115);
+		text-decoration: none;
+	}
+}
+
+section div{
+	width: 50%;
+	height: 10em;
+}
+
+code{
+	display: inline-block;
+	background-color: #FDEFDA;
+	font-family: "Menlo", "Liberation Mono", "Consolas", "DejaVu Sans Mono", "Ubuntu Mono", "Courier New", "andale mono", "lucida console", monospace;
+	padding: 1em;
+	margin-top: 2em;
+	border-radius: 0.25em;
+}

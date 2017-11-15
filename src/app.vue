@@ -1,12 +1,19 @@
 <template >
-  <div>
-    <h1>app</h1>
-    <div >Go to Index </div>
+  <div class="wrapper">
+    <navigator></navigator>
     <router-view></router-view>
   </div>
 </template>
 <script>
+import navigator from './components/Navigator.vue'
 export default {
-  name: 'app'
+  data() {
+    return{
+      title: "css-secret-demo"
+    }
+  },
+  components :{
+    navigator
+  }
 }
 </script>
