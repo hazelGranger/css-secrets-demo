@@ -21,7 +21,7 @@ var config = {
     loaders: [
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style-loader','css-loader')
+        loader: 'style-loader!css-loader'
       },{
         test: /\.less$/,
         loader: ExtractTextPlugin.extract('css-loader!less-loader')
@@ -31,9 +31,6 @@ var config = {
       },{
         test: /fonts\.(woff|woff2|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'file-loader?name=./fonts/[name].[ext]',
-      },{
-        test: /\.(png|jpg|gif|svg)$/,
-        loader: 'dist'
       },{
         test: /\.json$/,
         loader: 'url-loader'

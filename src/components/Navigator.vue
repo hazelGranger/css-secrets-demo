@@ -4,10 +4,10 @@
     <ul class="chapter">
       <li v-for="dir in dirs">
         <a href="#" class="chapter-link"></a>
-        <router-link to="/bgAndBorders">{{dir.chapter}}</router-link>
+        <router-link :to="{path: dir.componentName}">{{dir.chapter}}</router-link>
         <ul class="section">
-          <li v-for="sec in dir.sections">
-            <a href="#" class="section-link">{{sec}}</a>
+          <li v-for="(sec,index) in dir.sections">
+            <a href="#c-1-3" class="section-link">{{sec}}</a>
           </li>
         </ul>
       </li>
@@ -28,7 +28,7 @@ export default {
 
 <style lang="less">
   .navigator{
-    // position: absolute;
+    position: fixed;
     // left: -100%;
     width: 350px;
     // border: 6px solid #ff0066;
