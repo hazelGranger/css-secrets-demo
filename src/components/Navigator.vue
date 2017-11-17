@@ -1,13 +1,14 @@
 <template lang="html">
   <div class="navigator">
-    <h2>Index 目录</h2>
+    <h2 class="title">
+      <router-link :to="{ path: 'index'}" class="link">Index 目录</router-link>
+    </h2>
     <ul class="chapter">
       <li v-for="dir in dirs">
-        <a href="#" class="chapter-link"></a>
-        <router-link :to="{path: dir.componentName}">{{dir.chapter}}</router-link>
+        <router-link :to="{path: dir.componentName}" class="link">{{dir.chapter}}</router-link>
         <ul class="section">
           <li v-for="(sec,index) in dir.sections">
-            <a href="#c-1-3" class="section-link">{{sec}}</a>
+            <router-link :to="{ path: dir.componentName+'#c-1-'+ (index+1)}" class="link">{{sec}}</router-link>
           </li>
         </ul>
       </li>
@@ -29,39 +30,26 @@ export default {
 <style lang="less">
   .navigator{
     position: fixed;
-    // left: -100%;
     width: 350px;
-    // border: 6px solid #ff0066;
-    // border-radius: 16px;
-    // background: #ffebf3;
-    // box-shadow: #ff0066 8px 0px 20px -5px;
+    .title{
+      text-indent: 15px;
+    }
+    .link{
+      color: #ff0066;
+      opacity: 0.8;
+    }
     .chapter{
       & > li{
         padding: 15px;
         font-size: 15px;
-        &:hover{
-          .section{
-            max-height: 100%;
-            transform: translateY(0px);
-            opacity: 1;
-          }
-        }
-        .chapter-link{
-          color: #ff0066;
-          opacity: 0.8;
-        }
       }
     }
     .section{
-      max-height: 0;
-      overflow: hidden;
-      transform: translateY(-20px);
-      opacity: 0;
-      transition: opacity .3s ease-in-out,transform .3s ease-in-out;
-      .section-link{
-        color: #ff0066;
-        opacity: 0.8;
-      }
+      //max-height: 0;
+      // overflow: hidden;
+      // transform: translateY(-20px);
+      // //opacity: 0;
+      // transition: opacity .3s ease-in-out,transform .3s ease-in-out;
       & > li {
         padding: 15px;
         font-size: 14px;
