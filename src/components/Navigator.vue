@@ -30,6 +30,13 @@ export default {
 <style lang="less">
   .navigator{
     position: fixed;
+    //为了局部滚动
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    overflow-y: auto;
     width: 350px;
     .title{
       text-indent: 15px;

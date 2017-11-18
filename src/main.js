@@ -29,6 +29,7 @@ const routes = [{
 
 const scrollBehavior = (to,from,savedPosition) =>{
   if (savedPosition) {
+    console.log(savedPosition,"save")
     return savedPosition
   }else {
     const position = {}
@@ -39,6 +40,7 @@ const scrollBehavior = (to,from,savedPosition) =>{
       position.x = 0;
       position.y = 0;
     }
+    console.log(position)
     return position
   }
 }
