@@ -1,5 +1,5 @@
 #eg-1-1{
-	background-image: url('../../img/pokemon.jpg');
+	background-image: url('../img/pokemon.jpg');
 	background-position: 0 -30px;
 	height: 20em;
 	position: relative;
@@ -28,19 +28,19 @@
 }
 
 #eg-1-3-1{
-	background: url("../../img/water.svg") bottom right no-repeat #CEE2EF;
+	background: url("../img/water.svg") bottom right no-repeat #CEE2EF;
 	background-position: right 20px bottom 20px;
 }
 
 #eg-1-3-2{
 	padding: 20px;
-	background: url("../../img/water.svg") no-repeat #CEE2EF
+	background: url("../img/water.svg") no-repeat #CEE2EF
 	bottom right; /* or 100% 100% */
 	background-origin: content-box;
 }
 
 #eg-1-3-3{
-	background: url("../../img/water.svg") no-repeat #CEE2EF;
+	background: url("../img/water.svg") no-repeat #CEE2EF;
 	background-position: calc(100% - 20px) calc(100% - 20px);
 }
 

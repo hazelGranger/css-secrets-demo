@@ -14,7 +14,7 @@ const directory =  [{
     },
     {
       "chapter": "Shapes 形状",
-      "componentName": "bgAndBorders",
+      "componentName": "shapes",
       "sections": [
         "Flexible ellipses 自适应的椭圆",
         "Parallelograms 平行四边形",
@@ -26,7 +26,7 @@ const directory =  [{
     },
     {
       "chapter": "Visual Effects 视觉效果",
-      "componentName": "bgAndBorders",
+      "componentName": "visualEffects",
       "sections": [
         "One-sided shadows 单侧投影",
         "Irregular drop shadows 不规则投影",
