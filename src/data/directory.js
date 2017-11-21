@@ -37,7 +37,7 @@ const directory =  [{
     },
     {
       "chapter": "Typography 字体排印",
-      "componentName": "bgAndBorders",
+      "componentName": "typography",
       "sections": [
         "Hyphenation 连字符断行",
         "Inserting line breaks 插入换行",

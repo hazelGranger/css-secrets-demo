@@ -8,12 +8,14 @@ require('./styles/common.less');
 require('./styles/bgAndBorders.css');
 require('./styles/shapes.css');
 require('./styles/visualEffects.css');
+require('./styles/typography.less');
 
 
 import Index from './views/index.vue';
 import BgAndBorders from './views/bgAndBorders.vue'
 import Shapes from './views/shapes.vue'
 import VisualEffects from './views/visualEffects.vue'
+import Typography from './views/typography.vue'
 
 Vue.use(VueRouter)
 // Vue.use(VueResource)
@@ -36,6 +38,10 @@ const routes = [{
 },{
   path: '/visualEffects',
   component: VisualEffects,
+  meta: { scrollToTop: true }
+},{
+  path: '/typography',
+  component: Typography,
   meta: { scrollToTop: true }
 }]
 

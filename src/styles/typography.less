@@ -1,0 +1,46 @@
+#eg-4-1-1{
+  width: 5em;
+  font-size: 18px;
+  text-align: justify;
+  hyphens: auto;
+  height: auto;
+}
+
+#eg-4-2-1{
+  padding: 10px;
+  border: 2px solid yellowgreen;
+  dt,dd{
+    display: inline;
+  }
+  dd{
+    margin: 0;
+    font-weight: bold;
+    &::after{
+      content: '\A';
+      white-space: pre;
+    }
+  }
+}
+
+#eg-4-2-2{
+  padding: 10px;
+  margin-top: 30px;
+  width: 80%;
+  border: 2px solid yellowgreen;
+  dt,dd{
+    display: inline;
+  }
+  dd{
+    margin: 0;
+    font-weight: bold;
+    & + dt::before{
+      content: '\A';
+      white-space: pre;
+    }
+    & + dd::before{
+      content: ', ';
+      font-weight: normal;
+      margin-left: -.25em;
+    }
+  }
+}

@@ -33,7 +33,7 @@
 					<div class="dot"></div>
 					<div class="cutout"></div>
 					<code>
-						-webkit-filter: drop-shadow(.1em .1em .1em rgba(0,0,0,.5));<br/>
+						-webkit-filter: drop-shadow(.1em .1em .1em rgba(0,0,0,.5));
 						filter: drop-shadow(.1em .1em .1em rgba(0,0,0,.5));
 					</code>
 				</section>
@@ -41,8 +41,8 @@
 					<h4>shadow's shadow</h4>
 					<div>shadows</div>
 					<code>
-						text-shadow: .1em .2em yellow;<br/>
-						-webkit-filter: drop-shadow(.1em .1em .1em rgba(0,0,0,.5));<br/>
+						text-shadow: .1em .2em yellow;
+						-webkit-filter: drop-shadow(.1em .1em .1em rgba(0,0,0,.5));
 						filter: drop-shadow(.1em .1em .1em rgba(0,0,0,.5));
 					</code>
 				</section>
@@ -53,7 +53,7 @@
 					<h4>Filter-based solution</h4>
 					<img src="http://csssecrets.io/images/tiger.jpg" alt="">
 					<code>
-						filter: sepia() saturate(4) hue-rotate(295deg);<br/>
+						filter: sepia() saturate(4) hue-rotate(295deg);
 						-webkit-filter: sepia() saturate(4) hue-rotate(295deg);
 					</code>
 				</section>
@@ -61,7 +61,7 @@
 					<h4>Blending mode solution</h4>
 					<div></div>
 					<code>
-						background-color: hsl(335, 100%, 50%);<br/>
+						background-color: hsl(335, 100%, 50%);
 						background-blend-mode: luminosity;
 					</code>
 				</section>
@@ -72,13 +72,17 @@
 					<div class="bg">
 						<div>This is an awesome paragraph.This is an awesome paragraph.This is an awesome paragraph.This is an awesome paragraph.This is an awesome paragraph.This is an awesome paragraph.</div>
 					</div>
-					<code>background-color: rgba(255,255,255,0.5);</code>
+					<code>
+            background-color: rgba(255,255,255,0.5);
+          </code>
 				</section>
 				<section id="eg-3-4-2">
 					<div class="bg">
 						<div>This is an awesome paragraph.This is an awesome paragraph.This is an awesome paragraph.This is an awesome paragraph.This is an awesome paragraph.This is an awesome paragraph.</div>
 					</div>
-					<code>filter: blur(20px);</code>
+					<code>
+            filter: blur(20px);
+          </code>
 				</section>
 			</section>
 			<section id="c-3-5">
@@ -87,12 +91,12 @@
 					<h4>The 45° solution</h4>
 					<div></div>
 					<code>
-						background: #58a; /* Fallback */<br/>
-						background:<br/>
-						    linear-gradient(to left bottom,<br/>
-						        transparent 50%, rgba(0,0,0,.4) 0)<br/>
-						        no-repeat 100% 0 / 2em 2em,<br/>
-						    linear-gradient(-135deg,<br/>
+						background: #58a; /* Fallback */
+						background:
+						    linear-gradient(to left bottom,
+						        transparent 50%, rgba(0,0,0,.4) 0)
+						        no-repeat 100% 0 / 2em 2em,
+						    linear-gradient(-135deg,
 						        transparent 1.4em, #58a 0);
 					</code>
 				</section>
@@ -100,12 +104,12 @@
 					<h4>Solution for other angles</h4>
 					<div></div>
 					<code>
-						background: #58a; /* Fallback */<br/>
-						linear-gradient(to left bottom,<br/>
-	        transparent 50%, rgba(0,0,0,.4) 0)<br/>
-	        no-repeat 100% 0 / 3em 1.73em,<br/>
-	    linear-gradient(-150deg,<br/>
-	        transparent 1.5em, #58a 0)<br/>
+						background: #58a; /* Fallback */
+						linear-gradient(to left bottom,
+	        transparent 50%, rgba(0,0,0,.4) 0)
+	        no-repeat 100% 0 / 3em 1.73em,
+	    linear-gradient(-150deg,
+	        transparent 1.5em, #58a 0)
 					</code>
 				</section>
 			</section>
