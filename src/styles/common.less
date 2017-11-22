@@ -33,6 +33,9 @@ h1,h2,h3,h4{
 	color: #ff0066;
   opacity: 0.8;
 }
+p{
+	line-height: 2;
+}
 
 ul{
 	list-style: none;
@@ -77,7 +80,7 @@ section{
 	padding-bottom: 5em;
 	div{
 		width: 50%;
-		height: 10em;
+		min-height: 10em;
 	}
 	.ele-wrapper{
 		width: auto;
@@ -96,4 +99,8 @@ code{
 	max-width: 800px;
 	white-space: pre-line;
 	line-height: 1.5;
+	&.inline{
+		padding: 0;
+		margin: 0;
+	}
 }

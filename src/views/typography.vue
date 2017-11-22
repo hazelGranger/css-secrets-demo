@@ -28,7 +28,8 @@
             <dd>Earth</dd>
           </dl>
         </div>
-        <code>dt,dd{
+        <code>
+          dt,dd{
             display: inline;
           }
           dd{
@@ -63,6 +64,122 @@
             margin-left: -.25em;
           }
         </code>
+      </section>
+      <section id="c-4-3">
+        <h3>Zebra-striped text lines 文本行的斑马条纹</h3>
+        <p>条纹会随着字体的大小改变而自适应地变化，注意background-size 第二个参数是行高的 2倍</p>
+        <div id="eg-4-3-1">
+          <pre>
+            <code class="code">while (true) {
+  var d = new Date();
+  if (d.getDate()==1 &&
+      d.getMonth()==3) {
+    alert("TROLOLOL");
+  }
+}</code></pre>
+            <code>
+              font-size: 20px;
+              padding: 0.5em;
+              line-height: 1.5;
+              background: beige;
+              background-size: auto 3em;
+              background-image: linear-gradient(rgba(0, 0, 0, 0.2) 50%, transparent 0);
+              background-origin: content-box;
+              white-space: pre;
+            </code>
+        </div>
+      </section>
+      <section id="c-4-4">
+        <h3>Adjusting tab width 调整 Tab 的宽度</h3>
+        <div id="eg-4-4-1">
+          <pre class="pre-2">
+            <code class="code">while (true) {
+	var d = new Date();
+	if (d.getDate()==1 &&
+	    d.getMonth()==3) {
+		alert("TROLOLOL");
+	}
+}</code>
+          </pre>
+          <code>
+            tab-size: 2;
+          </code>
+          <pre class="pre-4">
+            <code class="code">while (true) {
+	var d = new Date();
+	if (d.getDate()==1 &&
+	    d.getMonth()==3) {
+		alert("TROLOLOL");
+	}
+}</code>
+          </pre>
+          <code>
+            tab-size: 4;
+          </code>
+        </div>
+      </section>
+      <section id="c-4-5">
+        <h3>Ligatures 连字</h3>
+        <div id="eg-4-5-1">
+          <p>Common ligatures: fi ff fl ffi ffl</p>
+          <p>Discretionary ligatures: st ct</p>
+        </div>
+        <code>
+          font: 150%/1.6 "Adobe Caslon Pro", Baskerville, serif;
+          font-variant: common-ligatures discretionary-ligatures historical-ligatures;
+        </code>
+      </section>
+      <section id="c-4-6">
+        <h3>Fancy ampersands 华丽的 &amp; 符号</h3>
+        <div id="eg-4-6-1">
+          <p>HTML &amp; CSS</p>
+        </div>
+        <code>
+          font-family: Ampersand;
+          src: local('Baskerville-Italic'),
+               local('GoudyOldStyleT-Italic'),
+               local('Palatino-Italic'),
+               local('BookAntiqua-Italic');
+          unicode-range: U+26;
+
+          p{
+            font-family: Ampersand, Helvetica, sans-serif;
+          }
+        </code>
+        <p >unicode-range不是css属性，但是它能告诉浏览器，只把字体应用在某个编码范围内；<br/>
+          如果需要下载远程的字体文件，有的浏览器甚至只会下载会运用的那一部分；<br/>
+          26是 <code class="inline">"&amp;".charCodeAt(0).toString(16);</code> 这么来的；<br/>
+          local() 里需要加 Italic，而不能用 font-style，因为只希望运用在符号上。
+        </p>
+      </section>
+      <section id="c-4-7">
+        <h3>Custom underlines 自定义下划线</h3>
+        <div id="eg-4-7-1">
+          <h4>Normal underlines 横线</h4>
+          <p class="normal">“The only way to <a>get rid of a temp­ta­tion</a> is to <a>yield</a> to it."</p>
+          <code>
+            background: linear-gradient(gray, gray) no-repeat;
+            background-size: 100% 1px;
+            background-position: 0 1.05em;
+            text-shadow: .05em 0 white, -.05em 0 white;
+          </code>
+          <h4>Dashed underlines 虚线</h4>
+          <p class="dashed">“The only way to <a>get rid of a temp­ta­tion</a> is to <a>yield</a> to it."</p>
+          <code>
+            background: linear-gradient(90deg,gray 66%, transparent 0) repeat-x;
+            background-size: .2em 2px;
+            background-position: 0 1.05em;
+            text-shadow: .05em 0 white, -.05em 0 white;
+          </code>
+          <h4>Wavy underlines 波浪线</h4>
+          <p class="wavy">“The only way to <a>get rid of a temp­ta­tion</a> is to <a>yield</a> to it."</p>
+          <code>
+            background: linear-gradient(90deg,gray 66%, transparent 0) repeat-x;
+            background-size: .2em 2px;
+            background-position: 0 1.05em;
+            text-shadow: .05em 0 white, -.05em 0 white;
+          </code>
+        </div>
       </section>
     </section>
   </div>
