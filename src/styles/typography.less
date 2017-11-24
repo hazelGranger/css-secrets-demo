@@ -132,3 +132,54 @@
   }
 
 }
+
+#eg-4-8-1{
+  p{
+    padding: 1em;
+    font-size: 2em;
+  }
+  .letterpress-1{
+    background: hsl(210, 13%, 60%);
+    color: hsl(210, 13%, 30%);
+    text-shadow: 0 1px 1px hsla(0,0%,100%,.8);
+  }
+  .letterpress-2{
+    background: hsl(210, 13%, 30%);
+    color: hsl(210, 13%, 60%);
+    text-shadow: 0 -1px 1px black;
+  }
+  .strokeText{
+    font: 500%/1 Rockwell, serif;
+    background: deeppink;
+    color: white;
+    text{
+      fill: currentColor;
+    }
+    use{
+      stroke: black;
+	    stroke-width: 6;
+	    stroke-linejoin: round;
+    }
+  }
+  .glowingText{
+    background: #203;
+    font: bold;
+    color: #ffc;
+    text-decoration: none;
+    transition: 1s;
+    &:hover{
+      text-shadow: 0 0 .1em,0 0 .3em;
+    }
+  }
+  .extrudedText{
+    background: #58a;
+    color: #fff;
+    text-shadow: 0 1px hsl(0,0%,85%),
+                 0 2px hsl(0, 0%,80%),
+                 0 3px hsl(0,0%,75%),
+                 0 4px hsl(0,0%,70%),
+                 0 5px hsl(0,0%,65%),
+                 0 5px 10px black;
+    font: bold 400%/1 Rockwell,serif;
+  }
+}

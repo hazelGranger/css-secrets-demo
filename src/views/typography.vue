@@ -181,6 +181,77 @@
           </code>
         </div>
       </section>
+      <section id="c-4-8">
+        <h3>Realistic text effects 现实中的文字效果</h3>
+        <div id="eg-4-8-1">
+          <h4>Letterpress</h4>
+          <p class="letterpress-1">CSS Secrets Demos</p>
+          <code>
+            background: hsl(210, 13%, 60%);
+            color: hsl(210, 13%, 30%);
+            text-shadow: 0 1px 1px hsla(0,0%,100%,.8);
+          </code>
+          <p class="letterpress-2">CSS Secrets Demos</p>
+          <code>
+            background: hsl(210, 13%, 30%);
+            color: hsl(210, 13%, 60%);
+            text-shadow: 0 -1px 1px black;
+          </code>
+          <h4>Stroked text</h4>
+          <p class="strokeText">
+            <svg width="2em" height="1.2em">
+              <use xlink:href="#css"/>
+              <text id="css" y="1em">css</text>
+            </svg>
+          </p>
+          <code>
+            .strokeText{
+              font: 500%/1 Rockwell, serif;
+              background: deeppink;
+              color: white;
+              text{
+                fill: currentColor;
+              }
+              use{
+                stroke: black;
+          	    stroke-width: 6;
+          	    stroke-linejoin: round;
+              }
+            }
+          </code>
+          <h4>Glowing text</h4>
+          <p class="glowingText">
+            Hover to glow
+          </p>
+          <code>
+            .glowingText{
+              background: #203;
+              font: bold;
+              color: #ffc;
+              text-decoration: none;
+              transition: 1s;
+              &amp;:hover{
+                text-shadow: 0 0 .1em,0 0 .3em;
+              }
+            }
+          </code>
+          <h4>Extruded text</h4>
+          <p class="extrudedText">
+            CSS 3D
+          </p>
+          <code>
+            background: #58a;
+            color: #fff;
+            text-shadow: 0 1px hsl(0,0%,85%),
+                         0 2px hsl(0, 0%,80%),
+                         0 3px hsl(0,0%,75%),
+                         0 4px hsl(0,0%,70%),
+                         0 5px hsl(0,0%,65%),
+                         0 5px 10px black;
+            font: bold 400%/1 Rockwell,serif;
+          </code>
+        </div>
+      </section>
     </section>
   </div>
 </template>
