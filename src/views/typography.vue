@@ -252,6 +252,46 @@
           </code>
         </div>
       </section>
+      <section id="c-4-9">
+        <h3>Circular text 环形文字</h3>
+        <div id="eg-4-9-1">
+          <div class="circle">
+            <svg viewBox="0 0 100 100">
+              <path d="M0,50 a50,50 0 1,1 0,1z" id="circle"></path>
+              <text>
+                <textPath xlink:href="#circle">
+                  Welcome to the World of CSS :)
+                </textPath>
+              </text>
+            </svg>
+          </div>
+          <code>
+            .circle{
+              width: 10em;
+              height: 10em;
+              margin: 4em auto 0;
+              font: bold 120% Helvetica, sans-serif;
+            }
+
+            .circle svg{
+              display: block;
+        	    overflow: visible;
+        	    transition: 10s linear transform;
+              &amp;:hover{
+                transform: rotate(-2turn);
+              }
+            }
+
+            .circle text{
+              fill: black;
+            }
+            .circle path{
+              fill: none;
+            }
+
+          </code>
+        </div>
+      </section>
     </section>
   </div>
 </template>

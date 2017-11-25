@@ -183,3 +183,26 @@
     font: bold 400%/1 Rockwell,serif;
   }
 }
+
+#eg-4-9-1{
+  .circle{
+    width: 10em;
+    height: 10em;
+    margin: 4em auto 2em;
+    font: bold 120% Helvetica, sans-serif;
+    svg{
+      display: block;
+	    overflow: visible;
+	    transition: 10s linear transform;
+      &:hover{
+        transform: rotate(-2turn);
+      }
+    }
+    text{
+      fill: black;
+    }
+    path{
+      fill: none;
+    }
+  }
+}
