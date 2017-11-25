@@ -1,0 +1,208 @@
+#eg-4-1-1{
+  width: 5em;
+  font-size: 18px;
+  text-align: justify;
+  hyphens: auto;
+  height: auto;
+}
+
+#eg-4-2-1{
+  padding: 10px;
+  border: 2px solid yellowgreen;
+  dt,dd{
+    display: inline;
+  }
+  dd{
+    margin: 0;
+    font-weight: bold;
+    &::after{
+      content: '\A';
+      white-space: pre;
+    }
+  }
+}
+
+#eg-4-2-2{
+  padding: 10px;
+  margin-top: 30px;
+  width: 80%;
+  border: 2px solid yellowgreen;
+  dt,dd{
+    display: inline;
+  }
+  dd{
+    margin: 0;
+    font-weight: bold;
+    & + dt::before{
+      content: '\A';
+      white-space: pre;
+    }
+    & + dd::before{
+      content: ', ';
+      font-weight: normal;
+      margin-left: -.25em;
+    }
+  }
+}
+
+#eg-4-3-1{
+  .code{
+    font-size: 20px;
+    padding: 0.5em;
+    line-height: 1.5;
+    background: beige;
+    background-size: auto 3em;
+    background-image: linear-gradient(rgba(0,0,0,.2) 50%,transparent 0);
+    background-origin: content-box;
+    white-space: pre;
+    display: block;
+  }
+}
+
+#eg-4-4-1{
+  .pre-2{
+    tab-size: 2;
+  }
+  .pre-4{
+    tab-size: 4;
+  }
+  .code{
+    display: block;
+    white-space: inherit;
+    background: beige;
+    padding: 1em;
+  }
+}
+
+#eg-4-5-1{
+  font: 180%/1.6 "Adobe Caslon Pro", Baskerville, serif;
+  font-variant: common-ligatures discretionary-ligatures historical-ligatures;
+  min-height: auto;
+}
+
+@font-face {
+  font-family: Ampersand;
+  src: local('Baskerville-Italic'),
+       local('GoudyOldStyleT-Italic'),
+       local('Palatino-Italic'),
+       local('BookAntiqua-Italic');
+  unicode-range: U+26;
+}
+
+#eg-4-6-1{
+  font-family: Ampersand, Helvetica, sans-serif;
+  font-size: 180%;
+  min-height: auto;
+}
+
+#eg-4-7-1{
+  p{
+    font: 180%/1.6 Baskerville, Palatino, serif;
+  }
+  a{
+    color: #333;
+    &:hover{
+      text-decoration: none;
+    }
+  }
+  .normal{
+    a{
+      background: linear-gradient(gray, gray) no-repeat;
+      background-size: 100% 1px;
+      background-position: 0 1.05em;
+      text-shadow: .05em 0 white, -.05em 0 white;
+    }
+  }
+  .dashed{
+    a{
+      background: linear-gradient(90deg,gray 66%, transparent 0) repeat-x;
+      background-size: .2em 2px;
+      background-position: 0 1.05em;
+      text-shadow: .05em 0 white, -.05em 0 white;
+    }
+  }
+  .wavy{
+    a{
+      background: linear-gradient(-45deg, transparent 40%, red 0, red 60%, transparent 0) 0 1em,
+	            linear-gradient(45deg, transparent 40%, red 0, red 60%, transparent 0) .1em 1em;
+      background-size: .2em .1em;
+      background-repeat: repeat-x;
+      text-shadow: .05em 0 white, -.05em 0 white;
+    }
+  }
+
+}
+
+#eg-4-8-1{
+  p{
+    padding: 1em;
+    font-size: 2em;
+  }
+  .letterpress-1{
+    background: hsl(210, 13%, 60%);
+    color: hsl(210, 13%, 30%);
+    text-shadow: 0 1px 1px hsla(0,0%,100%,.8);
+  }
+  .letterpress-2{
+    background: hsl(210, 13%, 30%);
+    color: hsl(210, 13%, 60%);
+    text-shadow: 0 -1px 1px black;
+  }
+  .strokeText{
+    font: 500%/1 Rockwell, serif;
+    background: deeppink;
+    color: white;
+    text{
+      fill: currentColor;
+    }
+    use{
+      stroke: black;
+	    stroke-width: 6;
+	    stroke-linejoin: round;
+    }
+  }
+  .glowingText{
+    background: #203;
+    font: bold;
+    color: #ffc;
+    text-decoration: none;
+    transition: 1s;
+    &:hover{
+      text-shadow: 0 0 .1em,0 0 .3em;
+    }
+  }
+  .extrudedText{
+    background: #58a;
+    color: #fff;
+    text-shadow: 0 1px hsl(0,0%,85%),
+                 0 2px hsl(0, 0%,80%),
+                 0 3px hsl(0,0%,75%),
+                 0 4px hsl(0,0%,70%),
+                 0 5px hsl(0,0%,65%),
+                 0 5px 10px black;
+    font: bold 400%/1 Rockwell,serif;
+  }
+}
+
+#eg-4-9-1{
+  .circle{
+    width: 10em;
+    height: 10em;
+    margin: 4em auto 2em;
+    font: bold 120% Helvetica, sans-serif;
+    svg{
+      display: block;
+	    overflow: visible;
+	    transition: 10s linear transform;
+      &:hover{
+        transform: rotate(-2turn);
+      }
+    }
+    text{
+      fill: black;
+    }
+    path{
+      fill: none;
+    }
+  }
+}

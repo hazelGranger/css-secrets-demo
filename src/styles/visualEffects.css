@@ -1,0 +1,155 @@
+#eg-3-1-1 div{
+	background-color: #4391FF;
+	box-shadow: 0 5px 4px -4px black;
+}
+
+#eg-3-1-2 div{
+	background-color: #4391FF;
+	box-shadow: 3px 3px 6px -3px black;
+}
+
+#eg-3-1-3 div{
+	background-color: #4391FF;
+	box-shadow: 5px 0 5px -5px black,-5px 0 5px -5px black;
+}
+
+#eg-3-2-1 div{
+	background: #fb3;
+	position: relative;
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 10em;
+	margin-right: 4em;
+	/*box-shadow: .1em .1em .3em rgba(0,0,0,.5);*/
+	-webkit-filter: drop-shadow(.1em .1em .1em rgba(0,0,0,.5));
+	filter: drop-shadow(.1em .1em .1em rgba(0,0,0,.5));
+}
+
+#eg-3-2-1 div.speech{
+	border-radius: 3em;
+}
+
+#eg-3-2-1 div.speech:before{
+	content: '';
+	position: absolute;
+	right: -0.7em;
+	width: 0;
+	height: 0;
+	border: 1em solid transparent;
+	border-left-color: #fb3;
+	border-right-width: 0;
+}
+
+#eg-3-2-1 div.dot{
+	background: transparent;
+	border: .5em dotted #fb3;
+}
+
+#eg-3-2-1 div.cutout{
+	border: .5em solid #58a;
+	border-image: 1 url('data:image/svg+xml,\
+	                     <svg xmlns="http://www.w3.org/2000/svg"\
+		                 width="3" height="3" fill="%23fb3">\
+		     	         <polygon points="0,1 1,0 2,0 3,1 3,2 2,3 1,3 0,2"/>\
+		     	</svg>');
+	background-clip: padding-box;
+}
+
+#eg-3-2-2 div{
+	color: deeppink;
+	border: 2px solid;
+	text-shadow: .1em .2em yellow;
+	-webkit-filter: drop-shadow(.1em .1em .1em rgba(0,0,0,.5));
+	filter: drop-shadow(.1em .1em .1em rgba(0,0,0,.5));
+	text-align: center;
+	font-size: 3em;
+	font-weight: bold;
+	height: 3em;
+}
+
+#eg-3-3-1 img{
+	width: 40em;
+	transition: .5s filter,.5s -webkit-filter;
+	filter: sepia() saturate(4) hue-rotate(295deg);
+	-webkit-filter: sepia() saturate(4) hue-rotate(295deg);
+}
+
+#eg-3-3-1 img:hover{
+	filter: none;
+	-webkit-filter: none;
+}
+
+#eg-3-3-2 div{
+	width: 640px; height: 440px;
+	background-size: cover;
+	background-color: hsl(335, 100%, 50%);
+	background-blend-mode: luminosity;
+	transition: .5s background-color;
+	background-image: url('http://csssecrets.io/images/tiger.jpg');
+}
+
+#eg-3-3-2 div:hover{
+	background-color: transparent;
+}
+
+#eg-3-4-1 .bg,#eg-3-4-2 .bg{
+	background-image: url('http://csssecrets.io/images/tiger.jpg');
+	background-size: cover;
+	overflow: hidden;
+	width: 640px;
+	height: 440px;
+	margin: 0;
+}
+
+#eg-3-4-1 div{
+	position: relative;
+	margin: auto;
+	margin-top: 20px;
+	padding: 5px;
+}
+
+#eg-3-4-1 div:before{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(255,255,255,0.5);
+}
+
+#eg-3-4-2 div{
+	position: relative;
+	margin: auto;
+	margin-top: 20px;
+	padding: 5px;
+	background: hsla(0,0%,100%,.3);
+}
+#eg-3-4-2 div:before{
+	content: '';
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+	filter: blur(20px);
+	margin: -30px;
+}
+
+#eg-3-5-1 div{
+	background: #58a; /* Fallback */
+	background:
+	    linear-gradient(to left bottom,
+	        transparent 50%, rgba(0,0,0,.4) 0)
+	        no-repeat 100% 0 / 2em 2em,
+	    linear-gradient(-135deg,
+	        transparent 1.4em, #58a 0);
+}
+
+#eg-3-5-2 div{
+	background: #58a; /* Fallback */
+	background:
+	    linear-gradient(to left bottom,
+	        transparent 50%, rgba(0,0,0,.4) 0)
+	        no-repeat 100% 0 / 3em 1.73em,
+	    linear-gradient(-150deg,
+	        transparent 1.5em, #58a 0);
+}
