@@ -266,3 +266,8 @@ code.inline {
 #eg-4-9-1 .circle path {
   fill: none;
 }
+#eg-5-1-1 :disabled,
+#eg-5-1-1 [disabled],
+#eg-5-1-1 [aria-disabled="true"] {
+  cursor: not-allowed;
+}

@@ -9,6 +9,7 @@ require('./styles/bgAndBorders.css');
 require('./styles/shapes.css');
 require('./styles/visualEffects.css');
 require('./styles/typography.less');
+require('./styles/userExperience.less');
 
 
 import Index from './views/index.vue';
@@ -16,6 +17,7 @@ import BgAndBorders from './views/bgAndBorders.vue'
 import Shapes from './views/shapes.vue'
 import VisualEffects from './views/visualEffects.vue'
 import Typography from './views/typography.vue'
+import UserExperience from './views/userExperience.vue'
 
 Vue.use(VueRouter)
 // Vue.use(VueResource)
@@ -43,6 +45,10 @@ const routes = [{
   path: '/typography',
   component: Typography,
   meta: { scrollToTop: true }
+},{
+  path: '/userExperience',
+  component: UserExperience,
+  meta: {scrollToTop: true }
 }]
 
 const scrollBehavior = (to,from,savedPosition) =>{

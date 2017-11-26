@@ -52,7 +52,7 @@ const directory =  [{
     },
     {
       "chapter": "User Experience 用户体验",
-      "componentName": "bgAndBorders",
+      "componentName": "userExperience",
       "sections": [
         "Picking the right cursor 选用合适的鼠标光标",
         "Extending the clickable area 扩大可点击区域",
