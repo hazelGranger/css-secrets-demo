@@ -266,8 +266,18 @@ code.inline {
 #eg-4-9-1 .circle path {
   fill: none;
 }
+#eg-5-1-1 {
+  min-height: auto;
+}
+#eg-5-1-1 button {
+  padding: 10px;
+  cursor: pointer;
+}
 #eg-5-1-1 :disabled,
 #eg-5-1-1 [disabled],
 #eg-5-1-1 [aria-disabled="true"] {
   cursor: not-allowed;
+}
+#eg-5-1-2 button {
+  background: #58a;
 }

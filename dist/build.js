@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "a9ab5edd01942ccf21d4"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "12ee937c6cac16099f1f"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -12794,7 +12794,7 @@ const routes = [{
   component: __WEBPACK_IMPORTED_MODULE_7__views_typography_vue__["a" /* default */],
   meta: { scrollToTop: true }
 }, {
-  path: 'userExperience',
+  path: '/userExperience',
   component: __WEBPACK_IMPORTED_MODULE_8__views_userExperience_vue__["a" /* default */],
   meta: { scrollToTop: true }
 }];
@@ -15958,7 +15958,7 @@ const directory = [{
   "sections": ["Hyphenation 连字符断行", "Inserting line breaks 插入换行", "Zebra-striped text lines 文本行的斑马条纹", "Adjusting tab width 调整 Tab 的宽度", "Ligatures 连字", "Fancy ampersands 华丽的 & 符号", "Custom underlines 自定义下划线", "Realistic text effects 现实中的文字效果", "Circular text 环形文字"]
 }, {
   "chapter": "User Experience 用户体验",
-  "componentName": "bgAndBorders",
+  "componentName": "userExperience",
   "sections": ["Picking the right cursor 选用合适的鼠标光标", "Extending the clickable area 扩大可点击区域", "Custom checkboxes 自定义复选框", "De-emphasize by dimming 通过阴影来弱化背景", "De-emphasize by blurring 通过模糊来弱化背景", "Scrolling hints 滚动提示", "Interactive image comparison 交互式的图片对比控件"]
 }, {
   "chapter": "Structure & Layout 结构与布局",
@@ -18958,6 +18958,22 @@ if (true) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({});
 
@@ -18990,6 +19006,30 @@ var staticRenderFns = [
             _c("button", { attrs: { disabled: "" } }, [
               _vm._v("Disabled Button")
             ])
+          ]),
+          _vm._v(" "),
+          _c("code", [
+            _vm._v(
+              '\n        :disabled, [disabled], [aria-disabled="true"]{\n          cursor: not-allowed;\n        }\n      '
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("section", { attrs: { id: "c-5-2" } }, [
+          _c("h3", [_vm._v("Extending the clickable area 扩大可点击区域")]),
+          _vm._v(" "),
+          _c("div", { attrs: { id: "eg-5-2-1" } }, [
+            _c("h2", [_vm._v("Border solution")]),
+            _vm._v(" "),
+            _c("button", { staticClass: "border" }),
+            _vm._v(" "),
+            _c("code"),
+            _vm._v(" "),
+            _c("h2", [_vm._v("Pseudo-elements solution")]),
+            _vm._v(" "),
+            _c("button", { staticClass: "pseudo" }, [_vm._v("+")]),
+            _vm._v(" "),
+            _c("code")
           ])
         ])
       ])
