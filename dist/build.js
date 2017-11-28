@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "12ee937c6cac16099f1f"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "2525115d58ad1ad2c0fb"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -11843,6 +11843,12 @@ function toComment(sourceMap) {
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
+module.exports = __webpack_require__.p + "./img/pokemon46344874704d804bd7ee43417cb3ee23.jpg";
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
 exports = module.exports = __webpack_require__(3)(undefined);
 // imports
 
@@ -11854,7 +11860,7 @@ exports.push([module.i, "\n.navigator {\n  position: fixed;\n  top: 0;\n  left: 
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(undefined);
@@ -11862,16 +11868,10 @@ exports = module.exports = __webpack_require__(3)(undefined);
 
 
 // module
-exports.push([module.i, "#eg-1-1{\n\tbackground-image: url(" + __webpack_require__(6) + ");\n\tbackground-position: 0 -30px;\n\theight: 20em;\n\tposition: relative;\n}\n\n#eg-1-1-1{\n\tpadding: 1em;\n\tborder: 20px solid rgba(0, 0, 0, 0.3);\n\tbackground: white;\n\tbackground-clip: padding-box;\n\tposition: absolute;\n\tleft: 10%;\n\ttop: 10%;\n}\n\n#eg-1-2-1{\n\tbackground-color: yellowgreen;\n\tbox-shadow: 0 0 0 10px #655,0 0 0 15px deeppink,0 0px 5px 15px rgba(0, 0, 0, 0.5);\n\tmargin-left: 15px;\n}\n\n#eg-1-2-2{\n\tbackground: yellowgreen;\n\tborder: 10px solid #655;\n\toutline: 5px solid deeppink;\n}\n\n#eg-1-3-1{\n\tbackground: url(" + __webpack_require__(7) + ") bottom right no-repeat #CEE2EF;\n\tbackground-position: right 20px bottom 20px;\n}\n\n#eg-1-3-2{\n\tpadding: 20px;\n\tbackground: url(" + __webpack_require__(7) + ") no-repeat #CEE2EF\n\tbottom right; /* or 100% 100% */\n\tbackground-origin: content-box;\n}\n\n#eg-1-3-3{\n\tbackground: url(" + __webpack_require__(7) + ") no-repeat #CEE2EF;\n\tbackground-position: calc(100% - 20px) calc(100% - 20px);\n}\n\n#eg-1-4-1{\n\tbackground: tan;\n\tborder-radius: .8em;\n\tpadding: 1em;\n\tbox-shadow: 0 0 0 .6em #655;\n\toutline: .65em solid #655;\n}\n#eg-1-5-1{\n\tbackground: linear-gradient(#fb3, #58a);\n\tbackground: linear-gradient(#fb3 0%, #58a 100%);\n}\n#eg-1-5-2{\n\tbackground: linear-gradient(#fb3 20%, #58a 80%);\n}\n#eg-1-5-3{\n\tbackground: linear-gradient(#fb3 40%, #58a 60%);\n}\n#eg-1-5-4{\n\tbackground: linear-gradient(#fb3 50%, #58a 50%);\n}\n#eg-1-5-5{\n\tbackground: linear-gradient(#fb3 30%, #58a 0);\n\tbackground-size: 100% 30px;\n}\n#eg-1-5-6{\n\tbackground: linear-gradient(#fb3 33.3%,#58a 0, #58a 66.6%, yellowgreen 0);\n\tbackground-size: 100% 45px;\n}\n#eg-1-5-7{\n\tbackground: linear-gradient(to right,#fb3 50%, #58a 0);\n\tbackground: linear-gradient(90deg,#fb3 50%, #58a 0);\n\tbackground-size: 30px 100%;\n}\n#eg-1-5-8{\n\tbackground: linear-gradient(45deg,#fb3 50%, #58a 0);\n\tbackground-size: 30px 30px;\n}\n#eg-1-5-9{\n\tbackground: linear-gradient(45deg,#fb3 25%, #58a 0, #58a 50%,#fb3 0, #fb3 75%, #58a 0);\n\tbackground-size: 30px 30px;\n}\n#eg-1-5-10{\n\tbackground: repeating-linear-gradient(45deg,#fb3, #58a 30px);\n}\n#eg-1-5-11{\n\tbackground: repeating-linear-gradient(60deg,#fb3, #fb3 15px, #58a 0, #58a 30px);\n}\n#eg-1-5-12{\n\tbackground: #58a;\n\tbackground-image: repeating-linear-gradient(30deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,.1) 15px,transparent 0, transparent 30px);\n}\n#eg-1-6-1{\n\tbackground: white;\n\tbackground-image: linear-gradient(90deg,rgba(200,0,0,.5) 50%, transparent 0),linear-gradient(rgba(200,0,0,.5) 50%, transparent 0);\n\tbackground-size: 31px 30px;\n}\n#eg-1-6-2{\n\tbackground: #58a;\n\tbackground-image:linear-gradient(white 1px, transparent 0),linear-gradient(90deg, white 1px, transparent 0);\n\tbackground-size: 30px 30px;\n}\n#eg-1-6-3{\n\tbackground: #58a;\n\tbackground-image:linear-gradient(white 2px, transparent 0),\n\tlinear-gradient(90deg, white 2px, transparent 0),\n\tlinear-gradient(hsla(0,0%,100%,.3) 1px,transparent 0),\n\tlinear-gradient(90deg, hsla(0,0%,100%,.3) 1px,transparent 0);\n\tbackground-size: 75px 75px, 75px 75px,\n\t15px 15px, 15px 15px;\n}\n#eg-1-6-4{\n\tbackground: #655;\n\tbackground-image: radial-gradient(tan 30%, transparent 0),\n\tradial-gradient(tan 30%, transparent 0);\n\tbackground-size: 30px 30px;\n\tbackground-position: 0 0, 15px 15px;\n}\n#eg-1-6-5{\n\tbackground: #eee;\n\tbackground-image:\n\tlinear-gradient(45deg, #bbb 25%, transparent 0),\n\tlinear-gradient(45deg, transparent 75%, #bbb 0),\n\tlinear-gradient(45deg, #bbb 25%, transparent 0),\n\tlinear-gradient(45deg, transparent 75%, #bbb 0);\n\tbackground-size: 30px 30px;\n\tbackground-position: 0 0, 15px 15px,15px 15px,30px 30px;\n}\n#eg-1-7-1{\n\tpadding: 1em;\n\tborder: 1em solid transparent;\n\tbackground: linear-gradient(white, white) padding-box,\n\trepeating-linear-gradient(-45deg,\n\tred 0, red 12.5%,\n\ttransparent 0, transparent 25%,\n\t#58a 0, #58a 37.5%,\n\ttransparent 0, transparent 50%)\n\t0 / 5em 5em;\n}\n\n@keyframes ants { to { background-position: 100% } }\n\n#eg-1-7-2{\n\tpadding: 1em;\n\tborder: 1px solid transparent;\n\tbackground:\n\tlinear-gradient(white, white) padding-box,\n\trepeating-linear-gradient(-45deg,\n\tblack 0, black 25%, white 0, white 50%\n\t) 0 / .6em .6em;\n\tanimation: ants 12s linear infinite;\n}\n", ""]);
+exports.push([module.i, "#eg-1-1{\n\tbackground-image: url(" + __webpack_require__(4) + ");\n\tbackground-position: 0 -30px;\n\theight: 20em;\n\tposition: relative;\n}\n\n#eg-1-1-1{\n\tpadding: 1em;\n\tborder: 20px solid rgba(0, 0, 0, 0.3);\n\tbackground: white;\n\tbackground-clip: padding-box;\n\tposition: absolute;\n\tleft: 10%;\n\ttop: 10%;\n}\n\n#eg-1-2-1{\n\tbackground-color: yellowgreen;\n\tbox-shadow: 0 0 0 10px #655,0 0 0 15px deeppink,0 0px 5px 15px rgba(0, 0, 0, 0.5);\n\tmargin-left: 15px;\n}\n\n#eg-1-2-2{\n\tbackground: yellowgreen;\n\tborder: 10px solid #655;\n\toutline: 5px solid deeppink;\n}\n\n#eg-1-3-1{\n\tbackground: url(" + __webpack_require__(7) + ") bottom right no-repeat #CEE2EF;\n\tbackground-position: right 20px bottom 20px;\n}\n\n#eg-1-3-2{\n\tpadding: 20px;\n\tbackground: url(" + __webpack_require__(7) + ") no-repeat #CEE2EF\n\tbottom right; /* or 100% 100% */\n\tbackground-origin: content-box;\n}\n\n#eg-1-3-3{\n\tbackground: url(" + __webpack_require__(7) + ") no-repeat #CEE2EF;\n\tbackground-position: calc(100% - 20px) calc(100% - 20px);\n}\n\n#eg-1-4-1{\n\tbackground: tan;\n\tborder-radius: .8em;\n\tpadding: 1em;\n\tbox-shadow: 0 0 0 .6em #655;\n\toutline: .65em solid #655;\n}\n#eg-1-5-1{\n\tbackground: linear-gradient(#fb3, #58a);\n\tbackground: linear-gradient(#fb3 0%, #58a 100%);\n}\n#eg-1-5-2{\n\tbackground: linear-gradient(#fb3 20%, #58a 80%);\n}\n#eg-1-5-3{\n\tbackground: linear-gradient(#fb3 40%, #58a 60%);\n}\n#eg-1-5-4{\n\tbackground: linear-gradient(#fb3 50%, #58a 50%);\n}\n#eg-1-5-5{\n\tbackground: linear-gradient(#fb3 30%, #58a 0);\n\tbackground-size: 100% 30px;\n}\n#eg-1-5-6{\n\tbackground: linear-gradient(#fb3 33.3%,#58a 0, #58a 66.6%, yellowgreen 0);\n\tbackground-size: 100% 45px;\n}\n#eg-1-5-7{\n\tbackground: linear-gradient(to right,#fb3 50%, #58a 0);\n\tbackground: linear-gradient(90deg,#fb3 50%, #58a 0);\n\tbackground-size: 30px 100%;\n}\n#eg-1-5-8{\n\tbackground: linear-gradient(45deg,#fb3 50%, #58a 0);\n\tbackground-size: 30px 30px;\n}\n#eg-1-5-9{\n\tbackground: linear-gradient(45deg,#fb3 25%, #58a 0, #58a 50%,#fb3 0, #fb3 75%, #58a 0);\n\tbackground-size: 30px 30px;\n}\n#eg-1-5-10{\n\tbackground: repeating-linear-gradient(45deg,#fb3, #58a 30px);\n}\n#eg-1-5-11{\n\tbackground: repeating-linear-gradient(60deg,#fb3, #fb3 15px, #58a 0, #58a 30px);\n}\n#eg-1-5-12{\n\tbackground: #58a;\n\tbackground-image: repeating-linear-gradient(30deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,.1) 15px,transparent 0, transparent 30px);\n}\n#eg-1-6-1{\n\tbackground: white;\n\tbackground-image: linear-gradient(90deg,rgba(200,0,0,.5) 50%, transparent 0),linear-gradient(rgba(200,0,0,.5) 50%, transparent 0);\n\tbackground-size: 31px 30px;\n}\n#eg-1-6-2{\n\tbackground: #58a;\n\tbackground-image:linear-gradient(white 1px, transparent 0),linear-gradient(90deg, white 1px, transparent 0);\n\tbackground-size: 30px 30px;\n}\n#eg-1-6-3{\n\tbackground: #58a;\n\tbackground-image:linear-gradient(white 2px, transparent 0),\n\tlinear-gradient(90deg, white 2px, transparent 0),\n\tlinear-gradient(hsla(0,0%,100%,.3) 1px,transparent 0),\n\tlinear-gradient(90deg, hsla(0,0%,100%,.3) 1px,transparent 0);\n\tbackground-size: 75px 75px, 75px 75px,\n\t15px 15px, 15px 15px;\n}\n#eg-1-6-4{\n\tbackground: #655;\n\tbackground-image: radial-gradient(tan 30%, transparent 0),\n\tradial-gradient(tan 30%, transparent 0);\n\tbackground-size: 30px 30px;\n\tbackground-position: 0 0, 15px 15px;\n}\n#eg-1-6-5{\n\tbackground: #eee;\n\tbackground-image:\n\tlinear-gradient(45deg, #bbb 25%, transparent 0),\n\tlinear-gradient(45deg, transparent 75%, #bbb 0),\n\tlinear-gradient(45deg, #bbb 25%, transparent 0),\n\tlinear-gradient(45deg, transparent 75%, #bbb 0);\n\tbackground-size: 30px 30px;\n\tbackground-position: 0 0, 15px 15px,15px 15px,30px 30px;\n}\n#eg-1-7-1{\n\tpadding: 1em;\n\tborder: 1em solid transparent;\n\tbackground: linear-gradient(white, white) padding-box,\n\trepeating-linear-gradient(-45deg,\n\tred 0, red 12.5%,\n\ttransparent 0, transparent 25%,\n\t#58a 0, #58a 37.5%,\n\ttransparent 0, transparent 50%)\n\t0 / 5em 5em;\n}\n\n@keyframes ants { to { background-position: 100% } }\n\n#eg-1-7-2{\n\tpadding: 1em;\n\tborder: 1px solid transparent;\n\tbackground:\n\tlinear-gradient(white, white) padding-box,\n\trepeating-linear-gradient(-45deg,\n\tblack 0, black 25%, white 0, white 50%\n\t) 0 / .6em .6em;\n\tanimation: ants 12s linear infinite;\n}\n", ""]);
 
 // exports
 
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "./img/pokemon46344874704d804bd7ee43417cb3ee23.jpg";
 
 /***/ }),
 /* 7 */
@@ -15848,7 +15848,7 @@ if (true) {(function () {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(4);
+var content = __webpack_require__(5);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -15857,8 +15857,8 @@ var update = __webpack_require__(14)("128a62dd", content, false);
 if(true) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept(4, function() {
-     var newContent = __webpack_require__(4);
+   module.hot.accept(5, function() {
+     var newContent = __webpack_require__(5);
      if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
      update(newContent);
    });
@@ -16098,7 +16098,7 @@ if (true) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(5);
+var content = __webpack_require__(6);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -16112,8 +16112,8 @@ if(content.locals) module.exports = content.locals;
 if(true) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept(5, function() {
-			var newContent = __webpack_require__(5);
+		module.hot.accept(6, function() {
+			var newContent = __webpack_require__(6);
 			if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
 			update(newContent);
 		});
@@ -17599,7 +17599,7 @@ var staticRenderFns = [
         _c("h4", [_vm._v("transform-based solution")]),
         _vm._v(" "),
         _c("div", { attrs: { id: "eg-2-3-1" } }, [
-          _c("img", { attrs: { src: __webpack_require__(6) } })
+          _c("img", { attrs: { src: __webpack_require__(4) } })
         ]),
         _vm._v(" "),
         _c("code", [
@@ -17613,7 +17613,7 @@ var staticRenderFns = [
         _c("h4", [_vm._v("Clipping path solution")]),
         _vm._v(" "),
         _c("div", { attrs: { id: "eg-2-3-2" } }, [
-          _c("img", { attrs: { src: __webpack_require__(6) } })
+          _c("img", { attrs: { src: __webpack_require__(4) } })
         ]),
         _vm._v(" "),
         _c("code", [
@@ -18974,6 +18974,131 @@ if (true) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({});
 
@@ -19019,17 +19144,104 @@ var staticRenderFns = [
           _c("h3", [_vm._v("Extending the clickable area 扩大可点击区域")]),
           _vm._v(" "),
           _c("div", { attrs: { id: "eg-5-2-1" } }, [
-            _c("h2", [_vm._v("Border solution")]),
+            _c("h4", [_vm._v("Border solution")]),
             _vm._v(" "),
-            _c("button", { staticClass: "border" }),
+            _c("button", { staticClass: "border" }, [_vm._v("+")]),
+            _c("br"),
             _vm._v(" "),
-            _c("code"),
+            _c("code", [
+              _vm._v(
+                "\n          button{\n            background: #58a;\n            color: #fff;\n            cursor: pointer;\n            border-radius: 50%;\n            padding: .3em .5em;\n            font: 150% bold;\n            line-height: 1;\n            border: 10px solid transparent;\n            background-clip: padding-box;\n            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset;\n          }\n        "
+              )
+            ]),
             _vm._v(" "),
-            _c("h2", [_vm._v("Pseudo-elements solution")]),
+            _c("h4", [_vm._v("Pseudo-elements solution")]),
             _vm._v(" "),
             _c("button", { staticClass: "pseudo" }, [_vm._v("+")]),
+            _c("br"),
             _vm._v(" "),
-            _c("code")
+            _c("code", [
+              _vm._v(
+                "\n          button{\n            position: relative;\n            background: #58a;\n            color: #fff;\n            cursor: pointer;\n            border-radius: 50%;\n            padding: .3em .5em;\n            font: 150% bold;\n            line-height: 1;\n            border: 10px solid transparent;\n            background-clip: padding-box;\n            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset;\n          }\n          button::before{\n            position: absolute;\n            content: '';\n            top: -10px;\n            right: -10px;\n            bottom: -10px;\n            left: -10px;\n          }\n        "
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("section", { attrs: { id: "c-5-3" } }, [
+          _c("h3", [_vm._v("Custom checkboxes 自定义复选框")]),
+          _vm._v(" "),
+          _c("h4", [_vm._v("checkboxes")]),
+          _vm._v(" "),
+          _c("div", { attrs: { id: "eg-5-3-1" } }, [
+            _c("input", { attrs: { type: "checkbox", id: "checkbox1" } }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "checkbox1" } }, [_vm._v("option 1")]),
+            _c("br"),
+            _vm._v(" "),
+            _c("input", {
+              attrs: { type: "checkbox", id: "checkbox2", checked: "" }
+            }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "checkbox2" } }, [_vm._v("option 2")]),
+            _c("br"),
+            _vm._v(" "),
+            _c("input", {
+              attrs: { type: "checkbox", id: "checkbox3", disabled: "" }
+            }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "checkbox3" } }, [_vm._v("option 3")]),
+            _c("br"),
+            _vm._v(" "),
+            _c("input", {
+              attrs: {
+                type: "checkbox",
+                id: "checkbox4",
+                checked: "",
+                disabled: ""
+              }
+            }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "checkbox4" } }, [_vm._v("option 4")]),
+            _c("br")
+          ]),
+          _vm._v(" "),
+          _c("code", [
+            _vm._v(
+              '\n        input[type="checkbox"] {\n        \tposition: absolute;\n        \tclip: rect(0,0,0,0);\n        }\n\n        input[type="checkbox"] + label::before {\n        \tcontent: \'\\a0\';\n        \tdisplay: inline-block;\n        \tvertical-align: .2em;\n        \twidth: .8em;\n        \theight: .8em;\n        \tmargin-right: .2em;\n        \tborder-radius: .2em;\n        \tbackground: silver;\n        \ttext-indent: .15em;\n        \tline-height: .65;\n        }\n\n        input[type="checkbox"]:checked + label::before {\n        \tcontent: \'\\2713\';\n        \tbackground: yellowgreen;\n        }\n\n        input[type="checkbox"]:focus + label::before {\n        \tbox-shadow: 0 0 .1em .1em #58a;\n        }\n\n        input[type="checkbox"]:disabled + label::before {\n        \tbackground: gray;\n        \tbox-shadow: none;\n        \tcolor: #555;\n        \tcursor: not-allowed;\n        }\n      '
+            )
+          ]),
+          _vm._v(" "),
+          _c("h4", [_vm._v("Toggle buttons")]),
+          _vm._v(" "),
+          _c("div", { attrs: { id: "eg-5-3-2" } }, [
+            _c("input", { attrs: { type: "checkbox", id: "btn1" } }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "btn1" } }, [_vm._v("Button 1")]),
+            _vm._v(" "),
+            _c("input", { attrs: { type: "checkbox", id: "btn2" } }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "btn2" } }, [_vm._v("Button 2")]),
+            _vm._v(" "),
+            _c("code", [
+              _vm._v(
+                '\n          input[type="checkbox"]{\n            position: absolute;\n            clip: rect(0,0,0,0);\n          }\n\n          input[type="checkbox"]& + label{\n            display: inline-block;\n            padding: .3em .5em;\n            background: yellowgreen;\n            background-image: linear-gradient(yellowgreen, #6fa600);\n            border-radius: 10px;\n            border: 1px solid #6fa600;\n            box-shadow: 0 1px white inset;\n            text-align: center;\n            text-shadow: 0 1px 1px white;\n            cursor: pointer;\n            transition: all .3s ease-in-out;\n          }\n\n          input[type="checkbox"]&:checked + label{\n            box-shadow: 0 0 .2em .2em rgba(6, 114, 0, 0.6) inset;\n            background: #6fa600;\n            border: 1px solid rgba(0,0,0,.3);\n          }\n        '
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("section", { attrs: { id: "c-5-4" } }, [
+          _c("h3", [_vm._v("De-emphasize by dimming 通过阴影来弱化背景")]),
+          _vm._v(" "),
+          _c("h4", [_vm._v("box-shadow solution")]),
+          _vm._v(" "),
+          _c("div", { attrs: { id: "eg-5-4-1" } }, [
+            _c("button", [_vm._v(" click me")]),
+            _vm._v(" "),
+            _c("img", {
+              attrs: { src: __webpack_require__(4), alt: "pokemon-img" }
+            })
           ])
         ])
       ])

@@ -18,6 +18,7 @@ import Shapes from './views/shapes.vue'
 import VisualEffects from './views/visualEffects.vue'
 import Typography from './views/typography.vue'
 import UserExperience from './views/userExperience.vue'
+import BlurDialog from './views/blurDialog.vue'
 
 Vue.use(VueRouter)
 // Vue.use(VueResource)
@@ -49,6 +50,9 @@ const routes = [{
   path: '/userExperience',
   component: UserExperience,
   meta: {scrollToTop: true }
+},{
+  path: '/blurDialog',
+  component: BlurDialog
 }]
 
 const scrollBehavior = (to,from,savedPosition) =>{

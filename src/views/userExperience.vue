@@ -142,11 +142,47 @@
           </code>
         </div>
       </section>
+      <section id="c-5-4">
+        <h3>De-emphasize by dimming 通过阴影来弱化背景</h3>
+        <h4>box-shadow solution</h4>
+        <div id="eg-5-4-1">
+          <button v-on:click="showLightbox">Show Modal</button>
+          <div class="lightbox" v-if="lightboxShow">
+            <span class="close-btn" title="关闭" v-on:click="hideLightBox">X</span>
+            <img src="../img/pokemon.jpg" alt="pokemon-img">
+          </div>
+          <code>
+            box-shadow: 0 0 0 50vmax rgba(0,0,0,.8);</code>
+          <p>注意由于此方法用 box-shadow 来做黑色阴影，所以无法捕获到鼠标焦点，
+            鼠标仍可以操作后层的元素;这个方法比较适合做原型等简易场景时使用</p>
+        </div>
+        <h4>backdrop solution</h4>
+        <p>这种方法需要使用浏览器自带的 showModal() 方法，但是支持的浏览器有限，<br>
+          并且需要直接操作DOM元素，在此不做展示</p>
+      </section>
+      <section id="c-5-5">
+        <h3>De-emphasize by blurring 通过模糊来弱化背景</h3>
+        <router-link :to="{ path: 'blurDialog' }" target ="_blank">查看示例</router-link>
+      </section>
     </section>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return{
+      lightboxShow: false,
+      blurDialogShow: false
+    }
+  },
+  methods: {
+    showLightbox() {
+      this.lightboxShow = true;
+    },
+    hideLightBox() {
+      this.lightboxShow = false;
+    }
+  }
 }
 </script>
