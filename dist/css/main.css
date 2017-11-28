@@ -357,3 +357,22 @@ code.inline {
   background: #6fa600;
   border: 1px solid rgba(0, 0, 0, 0.3);
 }
+#eg-5-4-1 .lightbox {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin: -200px;
+  box-shadow: 0 0 0 50vmax rgba(0, 0, 0, 0.8);
+  z-index: 2;
+  width: auto;
+  height: auto;
+}
+#eg-5-4-1 .lightbox img {
+  display: block;
+}
+#eg-5-4-1 .close-btn {
+  position: absolute;
+  right: 10px;
+  font: 26px bold;
+  cursor: pointer;
+}

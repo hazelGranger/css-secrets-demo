@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "2525115d58ad1ad2c0fb"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "61a6cc8bbbfbd90abae2"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -722,7 +722,7 @@
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire(15)(__webpack_require__.s = 15);
+/******/ 	return hotCreateRequire(16)(__webpack_require__.s = 16);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -11646,7 +11646,7 @@ return Vue$3;
 
 })));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12), __webpack_require__(16).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(14), __webpack_require__(17).setImmediate))
 
 /***/ }),
 /* 2 */
@@ -11863,24 +11863,245 @@ exports.push([module.i, "\n.navigator {\n  position: fixed;\n  top: 0;\n  left: 
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+  Modified by Evan You @yyx990803
+*/
+
+var hasDocument = typeof document !== 'undefined'
+
+if (typeof DEBUG !== 'undefined' && DEBUG) {
+  if (!hasDocument) {
+    throw new Error(
+    'vue-style-loader cannot be used in a non-browser environment. ' +
+    "Use { target: 'node' } in your Webpack config to indicate a server-rendering environment."
+  ) }
+}
+
+var listToStyles = __webpack_require__(24)
+
+/*
+type StyleObject = {
+  id: number;
+  parts: Array<StyleObjectPart>
+}
+
+type StyleObjectPart = {
+  css: string;
+  media: string;
+  sourceMap: ?string
+}
+*/
+
+var stylesInDom = {/*
+  [id: number]: {
+    id: number,
+    refs: number,
+    parts: Array<(obj?: StyleObjectPart) => void>
+  }
+*/}
+
+var head = hasDocument && (document.head || document.getElementsByTagName('head')[0])
+var singletonElement = null
+var singletonCounter = 0
+var isProduction = false
+var noop = function () {}
+
+// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+// tags it will allow on a page
+var isOldIE = typeof navigator !== 'undefined' && /msie [6-9]\b/.test(navigator.userAgent.toLowerCase())
+
+module.exports = function (parentId, list, _isProduction) {
+  isProduction = _isProduction
+
+  var styles = listToStyles(parentId, list)
+  addStylesToDom(styles)
+
+  return function update (newList) {
+    var mayRemove = []
+    for (var i = 0; i < styles.length; i++) {
+      var item = styles[i]
+      var domStyle = stylesInDom[item.id]
+      domStyle.refs--
+      mayRemove.push(domStyle)
+    }
+    if (newList) {
+      styles = listToStyles(parentId, newList)
+      addStylesToDom(styles)
+    } else {
+      styles = []
+    }
+    for (var i = 0; i < mayRemove.length; i++) {
+      var domStyle = mayRemove[i]
+      if (domStyle.refs === 0) {
+        for (var j = 0; j < domStyle.parts.length; j++) {
+          domStyle.parts[j]()
+        }
+        delete stylesInDom[domStyle.id]
+      }
+    }
+  }
+}
+
+function addStylesToDom (styles /* Array<StyleObject> */) {
+  for (var i = 0; i < styles.length; i++) {
+    var item = styles[i]
+    var domStyle = stylesInDom[item.id]
+    if (domStyle) {
+      domStyle.refs++
+      for (var j = 0; j < domStyle.parts.length; j++) {
+        domStyle.parts[j](item.parts[j])
+      }
+      for (; j < item.parts.length; j++) {
+        domStyle.parts.push(addStyle(item.parts[j]))
+      }
+      if (domStyle.parts.length > item.parts.length) {
+        domStyle.parts.length = item.parts.length
+      }
+    } else {
+      var parts = []
+      for (var j = 0; j < item.parts.length; j++) {
+        parts.push(addStyle(item.parts[j]))
+      }
+      stylesInDom[item.id] = { id: item.id, refs: 1, parts: parts }
+    }
+  }
+}
+
+function createStyleElement () {
+  var styleElement = document.createElement('style')
+  styleElement.type = 'text/css'
+  head.appendChild(styleElement)
+  return styleElement
+}
+
+function addStyle (obj /* StyleObjectPart */) {
+  var update, remove
+  var styleElement = document.querySelector('style[data-vue-ssr-id~="' + obj.id + '"]')
+
+  if (styleElement) {
+    if (isProduction) {
+      // has SSR styles and in production mode.
+      // simply do nothing.
+      return noop
+    } else {
+      // has SSR styles but in dev mode.
+      // for some reason Chrome can't handle source map in server-rendered
+      // style tags - source maps in <style> only works if the style tag is
+      // created and inserted dynamically. So we remove the server rendered
+      // styles and inject new ones.
+      styleElement.parentNode.removeChild(styleElement)
+    }
+  }
+
+  if (isOldIE) {
+    // use singleton mode for IE9.
+    var styleIndex = singletonCounter++
+    styleElement = singletonElement || (singletonElement = createStyleElement())
+    update = applyToSingletonTag.bind(null, styleElement, styleIndex, false)
+    remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true)
+  } else {
+    // use multi-style-tag mode in all other cases
+    styleElement = createStyleElement()
+    update = applyToTag.bind(null, styleElement)
+    remove = function () {
+      styleElement.parentNode.removeChild(styleElement)
+    }
+  }
+
+  update(obj)
+
+  return function updateStyle (newObj /* StyleObjectPart */) {
+    if (newObj) {
+      if (newObj.css === obj.css &&
+          newObj.media === obj.media &&
+          newObj.sourceMap === obj.sourceMap) {
+        return
+      }
+      update(obj = newObj)
+    } else {
+      remove()
+    }
+  }
+}
+
+var replaceText = (function () {
+  var textStore = []
+
+  return function (index, replacement) {
+    textStore[index] = replacement
+    return textStore.filter(Boolean).join('\n')
+  }
+})()
+
+function applyToSingletonTag (styleElement, index, remove, obj) {
+  var css = remove ? '' : obj.css
+
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = replaceText(index, css)
+  } else {
+    var cssNode = document.createTextNode(css)
+    var childNodes = styleElement.childNodes
+    if (childNodes[index]) styleElement.removeChild(childNodes[index])
+    if (childNodes.length) {
+      styleElement.insertBefore(cssNode, childNodes[index])
+    } else {
+      styleElement.appendChild(cssNode)
+    }
+  }
+}
+
+function applyToTag (styleElement, obj) {
+  var css = obj.css
+  var media = obj.media
+  var sourceMap = obj.sourceMap
+
+  if (media) {
+    styleElement.setAttribute('media', media)
+  }
+
+  if (sourceMap) {
+    // https://developer.chrome.com/devtools/docs/javascript-debugging
+    // this makes source maps inside style tags work properly in Chrome
+    css += '\n/*# sourceURL=' + sourceMap.sources[0] + ' */'
+    // http://stackoverflow.com/a/26603875
+    css += '\n/*# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + ' */'
+  }
+
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = css
+  } else {
+    while (styleElement.firstChild) {
+      styleElement.removeChild(styleElement.firstChild)
+    }
+    styleElement.appendChild(document.createTextNode(css))
+  }
+}
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
 exports = module.exports = __webpack_require__(3)(undefined);
 // imports
 
 
 // module
-exports.push([module.i, "#eg-1-1{\n\tbackground-image: url(" + __webpack_require__(4) + ");\n\tbackground-position: 0 -30px;\n\theight: 20em;\n\tposition: relative;\n}\n\n#eg-1-1-1{\n\tpadding: 1em;\n\tborder: 20px solid rgba(0, 0, 0, 0.3);\n\tbackground: white;\n\tbackground-clip: padding-box;\n\tposition: absolute;\n\tleft: 10%;\n\ttop: 10%;\n}\n\n#eg-1-2-1{\n\tbackground-color: yellowgreen;\n\tbox-shadow: 0 0 0 10px #655,0 0 0 15px deeppink,0 0px 5px 15px rgba(0, 0, 0, 0.5);\n\tmargin-left: 15px;\n}\n\n#eg-1-2-2{\n\tbackground: yellowgreen;\n\tborder: 10px solid #655;\n\toutline: 5px solid deeppink;\n}\n\n#eg-1-3-1{\n\tbackground: url(" + __webpack_require__(7) + ") bottom right no-repeat #CEE2EF;\n\tbackground-position: right 20px bottom 20px;\n}\n\n#eg-1-3-2{\n\tpadding: 20px;\n\tbackground: url(" + __webpack_require__(7) + ") no-repeat #CEE2EF\n\tbottom right; /* or 100% 100% */\n\tbackground-origin: content-box;\n}\n\n#eg-1-3-3{\n\tbackground: url(" + __webpack_require__(7) + ") no-repeat #CEE2EF;\n\tbackground-position: calc(100% - 20px) calc(100% - 20px);\n}\n\n#eg-1-4-1{\n\tbackground: tan;\n\tborder-radius: .8em;\n\tpadding: 1em;\n\tbox-shadow: 0 0 0 .6em #655;\n\toutline: .65em solid #655;\n}\n#eg-1-5-1{\n\tbackground: linear-gradient(#fb3, #58a);\n\tbackground: linear-gradient(#fb3 0%, #58a 100%);\n}\n#eg-1-5-2{\n\tbackground: linear-gradient(#fb3 20%, #58a 80%);\n}\n#eg-1-5-3{\n\tbackground: linear-gradient(#fb3 40%, #58a 60%);\n}\n#eg-1-5-4{\n\tbackground: linear-gradient(#fb3 50%, #58a 50%);\n}\n#eg-1-5-5{\n\tbackground: linear-gradient(#fb3 30%, #58a 0);\n\tbackground-size: 100% 30px;\n}\n#eg-1-5-6{\n\tbackground: linear-gradient(#fb3 33.3%,#58a 0, #58a 66.6%, yellowgreen 0);\n\tbackground-size: 100% 45px;\n}\n#eg-1-5-7{\n\tbackground: linear-gradient(to right,#fb3 50%, #58a 0);\n\tbackground: linear-gradient(90deg,#fb3 50%, #58a 0);\n\tbackground-size: 30px 100%;\n}\n#eg-1-5-8{\n\tbackground: linear-gradient(45deg,#fb3 50%, #58a 0);\n\tbackground-size: 30px 30px;\n}\n#eg-1-5-9{\n\tbackground: linear-gradient(45deg,#fb3 25%, #58a 0, #58a 50%,#fb3 0, #fb3 75%, #58a 0);\n\tbackground-size: 30px 30px;\n}\n#eg-1-5-10{\n\tbackground: repeating-linear-gradient(45deg,#fb3, #58a 30px);\n}\n#eg-1-5-11{\n\tbackground: repeating-linear-gradient(60deg,#fb3, #fb3 15px, #58a 0, #58a 30px);\n}\n#eg-1-5-12{\n\tbackground: #58a;\n\tbackground-image: repeating-linear-gradient(30deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,.1) 15px,transparent 0, transparent 30px);\n}\n#eg-1-6-1{\n\tbackground: white;\n\tbackground-image: linear-gradient(90deg,rgba(200,0,0,.5) 50%, transparent 0),linear-gradient(rgba(200,0,0,.5) 50%, transparent 0);\n\tbackground-size: 31px 30px;\n}\n#eg-1-6-2{\n\tbackground: #58a;\n\tbackground-image:linear-gradient(white 1px, transparent 0),linear-gradient(90deg, white 1px, transparent 0);\n\tbackground-size: 30px 30px;\n}\n#eg-1-6-3{\n\tbackground: #58a;\n\tbackground-image:linear-gradient(white 2px, transparent 0),\n\tlinear-gradient(90deg, white 2px, transparent 0),\n\tlinear-gradient(hsla(0,0%,100%,.3) 1px,transparent 0),\n\tlinear-gradient(90deg, hsla(0,0%,100%,.3) 1px,transparent 0);\n\tbackground-size: 75px 75px, 75px 75px,\n\t15px 15px, 15px 15px;\n}\n#eg-1-6-4{\n\tbackground: #655;\n\tbackground-image: radial-gradient(tan 30%, transparent 0),\n\tradial-gradient(tan 30%, transparent 0);\n\tbackground-size: 30px 30px;\n\tbackground-position: 0 0, 15px 15px;\n}\n#eg-1-6-5{\n\tbackground: #eee;\n\tbackground-image:\n\tlinear-gradient(45deg, #bbb 25%, transparent 0),\n\tlinear-gradient(45deg, transparent 75%, #bbb 0),\n\tlinear-gradient(45deg, #bbb 25%, transparent 0),\n\tlinear-gradient(45deg, transparent 75%, #bbb 0);\n\tbackground-size: 30px 30px;\n\tbackground-position: 0 0, 15px 15px,15px 15px,30px 30px;\n}\n#eg-1-7-1{\n\tpadding: 1em;\n\tborder: 1em solid transparent;\n\tbackground: linear-gradient(white, white) padding-box,\n\trepeating-linear-gradient(-45deg,\n\tred 0, red 12.5%,\n\ttransparent 0, transparent 25%,\n\t#58a 0, #58a 37.5%,\n\ttransparent 0, transparent 50%)\n\t0 / 5em 5em;\n}\n\n@keyframes ants { to { background-position: 100% } }\n\n#eg-1-7-2{\n\tpadding: 1em;\n\tborder: 1px solid transparent;\n\tbackground:\n\tlinear-gradient(white, white) padding-box,\n\trepeating-linear-gradient(-45deg,\n\tblack 0, black 25%, white 0, white 50%\n\t) 0 / .6em .6em;\n\tanimation: ants 12s linear infinite;\n}\n", ""]);
+exports.push([module.i, "#eg-1-1{\n\tbackground-image: url(" + __webpack_require__(4) + ");\n\tbackground-position: 0 -30px;\n\theight: 20em;\n\tposition: relative;\n}\n\n#eg-1-1-1{\n\tpadding: 1em;\n\tborder: 20px solid rgba(0, 0, 0, 0.3);\n\tbackground: white;\n\tbackground-clip: padding-box;\n\tposition: absolute;\n\tleft: 10%;\n\ttop: 10%;\n}\n\n#eg-1-2-1{\n\tbackground-color: yellowgreen;\n\tbox-shadow: 0 0 0 10px #655,0 0 0 15px deeppink,0 0px 5px 15px rgba(0, 0, 0, 0.5);\n\tmargin-left: 15px;\n}\n\n#eg-1-2-2{\n\tbackground: yellowgreen;\n\tborder: 10px solid #655;\n\toutline: 5px solid deeppink;\n}\n\n#eg-1-3-1{\n\tbackground: url(" + __webpack_require__(8) + ") bottom right no-repeat #CEE2EF;\n\tbackground-position: right 20px bottom 20px;\n}\n\n#eg-1-3-2{\n\tpadding: 20px;\n\tbackground: url(" + __webpack_require__(8) + ") no-repeat #CEE2EF\n\tbottom right; /* or 100% 100% */\n\tbackground-origin: content-box;\n}\n\n#eg-1-3-3{\n\tbackground: url(" + __webpack_require__(8) + ") no-repeat #CEE2EF;\n\tbackground-position: calc(100% - 20px) calc(100% - 20px);\n}\n\n#eg-1-4-1{\n\tbackground: tan;\n\tborder-radius: .8em;\n\tpadding: 1em;\n\tbox-shadow: 0 0 0 .6em #655;\n\toutline: .65em solid #655;\n}\n#eg-1-5-1{\n\tbackground: linear-gradient(#fb3, #58a);\n\tbackground: linear-gradient(#fb3 0%, #58a 100%);\n}\n#eg-1-5-2{\n\tbackground: linear-gradient(#fb3 20%, #58a 80%);\n}\n#eg-1-5-3{\n\tbackground: linear-gradient(#fb3 40%, #58a 60%);\n}\n#eg-1-5-4{\n\tbackground: linear-gradient(#fb3 50%, #58a 50%);\n}\n#eg-1-5-5{\n\tbackground: linear-gradient(#fb3 30%, #58a 0);\n\tbackground-size: 100% 30px;\n}\n#eg-1-5-6{\n\tbackground: linear-gradient(#fb3 33.3%,#58a 0, #58a 66.6%, yellowgreen 0);\n\tbackground-size: 100% 45px;\n}\n#eg-1-5-7{\n\tbackground: linear-gradient(to right,#fb3 50%, #58a 0);\n\tbackground: linear-gradient(90deg,#fb3 50%, #58a 0);\n\tbackground-size: 30px 100%;\n}\n#eg-1-5-8{\n\tbackground: linear-gradient(45deg,#fb3 50%, #58a 0);\n\tbackground-size: 30px 30px;\n}\n#eg-1-5-9{\n\tbackground: linear-gradient(45deg,#fb3 25%, #58a 0, #58a 50%,#fb3 0, #fb3 75%, #58a 0);\n\tbackground-size: 30px 30px;\n}\n#eg-1-5-10{\n\tbackground: repeating-linear-gradient(45deg,#fb3, #58a 30px);\n}\n#eg-1-5-11{\n\tbackground: repeating-linear-gradient(60deg,#fb3, #fb3 15px, #58a 0, #58a 30px);\n}\n#eg-1-5-12{\n\tbackground: #58a;\n\tbackground-image: repeating-linear-gradient(30deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,.1) 15px,transparent 0, transparent 30px);\n}\n#eg-1-6-1{\n\tbackground: white;\n\tbackground-image: linear-gradient(90deg,rgba(200,0,0,.5) 50%, transparent 0),linear-gradient(rgba(200,0,0,.5) 50%, transparent 0);\n\tbackground-size: 31px 30px;\n}\n#eg-1-6-2{\n\tbackground: #58a;\n\tbackground-image:linear-gradient(white 1px, transparent 0),linear-gradient(90deg, white 1px, transparent 0);\n\tbackground-size: 30px 30px;\n}\n#eg-1-6-3{\n\tbackground: #58a;\n\tbackground-image:linear-gradient(white 2px, transparent 0),\n\tlinear-gradient(90deg, white 2px, transparent 0),\n\tlinear-gradient(hsla(0,0%,100%,.3) 1px,transparent 0),\n\tlinear-gradient(90deg, hsla(0,0%,100%,.3) 1px,transparent 0);\n\tbackground-size: 75px 75px, 75px 75px,\n\t15px 15px, 15px 15px;\n}\n#eg-1-6-4{\n\tbackground: #655;\n\tbackground-image: radial-gradient(tan 30%, transparent 0),\n\tradial-gradient(tan 30%, transparent 0);\n\tbackground-size: 30px 30px;\n\tbackground-position: 0 0, 15px 15px;\n}\n#eg-1-6-5{\n\tbackground: #eee;\n\tbackground-image:\n\tlinear-gradient(45deg, #bbb 25%, transparent 0),\n\tlinear-gradient(45deg, transparent 75%, #bbb 0),\n\tlinear-gradient(45deg, #bbb 25%, transparent 0),\n\tlinear-gradient(45deg, transparent 75%, #bbb 0);\n\tbackground-size: 30px 30px;\n\tbackground-position: 0 0, 15px 15px,15px 15px,30px 30px;\n}\n#eg-1-7-1{\n\tpadding: 1em;\n\tborder: 1em solid transparent;\n\tbackground: linear-gradient(white, white) padding-box,\n\trepeating-linear-gradient(-45deg,\n\tred 0, red 12.5%,\n\ttransparent 0, transparent 25%,\n\t#58a 0, #58a 37.5%,\n\ttransparent 0, transparent 50%)\n\t0 / 5em 5em;\n}\n\n@keyframes ants { to { background-position: 100% } }\n\n#eg-1-7-2{\n\tpadding: 1em;\n\tborder: 1px solid transparent;\n\tbackground:\n\tlinear-gradient(white, white) padding-box,\n\trepeating-linear-gradient(-45deg,\n\tblack 0, black 25%, white 0, white 50%\n\t) 0 / .6em .6em;\n\tanimation: ants 12s linear infinite;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCAyMDAgMjAwIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbCkBmb250LWZhY2UgeyBmb250LWZhbWlseTogaWZvbnQ7IHNyYzogdXJsKGh0dHA6Ly9hdC5hbGljZG4uY29tL3QvZm9udF8xNDQyMzczODk2XzQ3NTQ0NTUuZW90PyNpZWZpeCkgZm9ybWF0KGVtYmVkZGVkLW9wZW50eXBlKSwgdXJsKGh0dHA6Ly9hdC5hbGljZG4uY29tL3QvZm9udF8xNDQyMzczODk2XzQ3NTQ0NTUud29mZikgZm9ybWF0KHdvZmYpLCB1cmwoaHR0cDovL2F0LmFsaWNkbi5jb20vdC9mb250XzE0NDIzNzM4OTZfNDc1NDQ1NS50dGYpIGZvcm1hdCh0cnVldHlwZSksIHVybChodHRwOi8vYXQuYWxpY2RuLmNvbS90L2ZvbnRfMTQ0MjM3Mzg5Nl80NzU0NDU1LnN2ZyNpZm9udCkgZm9ybWF0KHN2Zyk7IH0KCl1dPjwvc3R5bGU+PC9kZWZzPjxnIGNsYXNzPSJ0cmFuc2Zvcm0tZ3JvdXAiPjxnIHRyYW5zZm9ybT0ic2NhbGUoMC4xOTUzMTI1LCAwLjE5NTMxMjUpIj48cGF0aCBkPSJNODY0Ljc2MzQ4MiA0NzIuNjc0ODk0Yy02Ni45NTU4ODEtMTg0Ljg3MDMxMy0yMDQuODY1Njk2LTM0Ni43NTcxOTItMzUyLjc2Mzk5My00NzIuNjc0ODk0LTE0Ny44OTgyOTcgMTI1LjkxNzcwMi0yODUuODA5MTM2IDI4Ny44MDQ1ODEtMzUyLjc2Mzk5MyA0NzIuNjc0ODk0LTM5Ljk3MDMgMTEzLjkyNDU2NS00NC45NjQwMjkgMjM3Ljg0NjgyMiAxMi45OTU5NzYgMzQ1Ljc2NDU4NiA2Ni45NTQ4NTggMTIyLjkxOTQxOCAxOTcuODY2Mjg5IDIwNC44NjU2OTYgMzM5Ljc2ODAxOCAyMDQuODY1Njk2czI3Mi44MTMxNi04MS45NDYyNzggMzM5Ljc2ODAxOC0yMDQuODY1Njk2QzkwOS43Mjc1MTEgNzEwLjUyMTcxNiA5MDQuNzMzNzgyIDU4Ni41OTk0NTkgODY0Ljc2MzQ4MiA0NzIuNjc0ODk0TDg2NC43NjM0ODIgNDcyLjY3NDg5NHpNNzM4Ljg0NTc4IDc1OC40ODQwMjljLTQzLjk3MTQyMyA4Mi45NDkxMTgtMTMzLjkwODY5MiAxMzYuOTA3OTk5LTIyNi44NDYyOTEgMTM2LjkwNzk5OS01NC45NjE3MjEgMC0xMDcuOTI3OTk3LTE4Ljk4MjMxMS0xNTEuODk5NDItNTAuOTYwNTk4IDEyLjk5NTk3NiAyLjk4ODA1MSAyNi45ODQ1NTcgMi45ODgwNTEgMzkuOTgwNTMzIDIuOTg4MDUxIDExNS45MjAwMSAwIDIyOS44MzUzNjYtNjYuOTQ0NjI1IDI4Mi44MDA2MTgtMTcwLjg4MTczMSA0NC45NzQyNjItODQuOTQ0NTYzIDQwLjk3MzEzOS0xNzMuODgwMDE1IDIzLjk4NTI1LTI0NC44MzU5OTYgMTQuOTkxNDIxIDI4Ljk5MDIzNiAyNy45NzcxNjQgNTYuOTY3Mzk5IDM2Ljk3MjAxNiA4My45NTE5NTcgMTAuOTkwMjk4IDMxLjk3ODI4NyAxOC45OTM1NjcgNjkuOTUyMTE5IDIyLjk4MzQzNCAxMTIuOTIxNzI2Qzc3MC44MjQwNjYgNjcxLjU0NDAyMiA3NjEuODI5MjE0IDcxNS41MTU0NDUgNzM4Ljg0NTc4IDc1OC40ODQwMjl6IiBmaWxsPSIjMTE5NGU1Ij48L3BhdGg+PC9nPjwvZz48L3N2Zz4="
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -11936,7 +12157,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(30);
+var	fixUrls = __webpack_require__(31);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -12252,7 +12473,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(undefined);
@@ -12266,7 +12487,7 @@ exports.push([module.i, "#eg-2-1-1{\n\tbackground-color: #FFDD00;\n\tborder-radi
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(undefined);
@@ -12280,7 +12501,7 @@ exports.push([module.i, "#eg-3-1-1 div{\n\tbackground-color: #4391FF;\n\tbox-sha
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(undefined);
@@ -12294,7 +12515,21 @@ exports.push([module.i, "\n.cover {\n  overflow: hidden;\n  position: relative;\
 
 
 /***/ }),
-/* 12 */
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(3)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "\n.navigator {\n  display: none;\n}\n.content {\n  margin-left: 0!important;\n}\nmain {\n  padding: 30px;\n}\nmain.deEmphasized {\n  z-index: 1;\n  -webkit-filter: blur(3px);\n  filter: blur(3px);\n}\n.cover-img {\n  width: 500px;\n  margin-left: -80px;\n}\nbutton {\n  font-size: 20px;\n}\n.dialog {\n  position: fixed;\n  width: 300px;\n  height: 250px;\n  top: 50%;\n  left: 50%;\n  margin: -150px;\n  z-index: 2;\n  border: 1px solid silver;\n  border-radius: 6px;\n  box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.5), 0 0 0 100vmax rgba(0, 0, 0, 0.2);\n  background: #fff;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.dialog .close-btn {\n  position: absolute;\n  top: 10px;\n  right: 10px;\n  font-weight: bold;\n  cursor: pointer;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 14 */
 /***/ (function(module, exports) {
 
 var g;
@@ -12321,7 +12556,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 13 */
+/* 15 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -12511,254 +12746,35 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/*
-  MIT License http://www.opensource.org/licenses/mit-license.php
-  Author Tobias Koppers @sokra
-  Modified by Evan You @yyx990803
-*/
-
-var hasDocument = typeof document !== 'undefined'
-
-if (typeof DEBUG !== 'undefined' && DEBUG) {
-  if (!hasDocument) {
-    throw new Error(
-    'vue-style-loader cannot be used in a non-browser environment. ' +
-    "Use { target: 'node' } in your Webpack config to indicate a server-rendering environment."
-  ) }
-}
-
-var listToStyles = __webpack_require__(23)
-
-/*
-type StyleObject = {
-  id: number;
-  parts: Array<StyleObjectPart>
-}
-
-type StyleObjectPart = {
-  css: string;
-  media: string;
-  sourceMap: ?string
-}
-*/
-
-var stylesInDom = {/*
-  [id: number]: {
-    id: number,
-    refs: number,
-    parts: Array<(obj?: StyleObjectPart) => void>
-  }
-*/}
-
-var head = hasDocument && (document.head || document.getElementsByTagName('head')[0])
-var singletonElement = null
-var singletonCounter = 0
-var isProduction = false
-var noop = function () {}
-
-// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-// tags it will allow on a page
-var isOldIE = typeof navigator !== 'undefined' && /msie [6-9]\b/.test(navigator.userAgent.toLowerCase())
-
-module.exports = function (parentId, list, _isProduction) {
-  isProduction = _isProduction
-
-  var styles = listToStyles(parentId, list)
-  addStylesToDom(styles)
-
-  return function update (newList) {
-    var mayRemove = []
-    for (var i = 0; i < styles.length; i++) {
-      var item = styles[i]
-      var domStyle = stylesInDom[item.id]
-      domStyle.refs--
-      mayRemove.push(domStyle)
-    }
-    if (newList) {
-      styles = listToStyles(parentId, newList)
-      addStylesToDom(styles)
-    } else {
-      styles = []
-    }
-    for (var i = 0; i < mayRemove.length; i++) {
-      var domStyle = mayRemove[i]
-      if (domStyle.refs === 0) {
-        for (var j = 0; j < domStyle.parts.length; j++) {
-          domStyle.parts[j]()
-        }
-        delete stylesInDom[domStyle.id]
-      }
-    }
-  }
-}
-
-function addStylesToDom (styles /* Array<StyleObject> */) {
-  for (var i = 0; i < styles.length; i++) {
-    var item = styles[i]
-    var domStyle = stylesInDom[item.id]
-    if (domStyle) {
-      domStyle.refs++
-      for (var j = 0; j < domStyle.parts.length; j++) {
-        domStyle.parts[j](item.parts[j])
-      }
-      for (; j < item.parts.length; j++) {
-        domStyle.parts.push(addStyle(item.parts[j]))
-      }
-      if (domStyle.parts.length > item.parts.length) {
-        domStyle.parts.length = item.parts.length
-      }
-    } else {
-      var parts = []
-      for (var j = 0; j < item.parts.length; j++) {
-        parts.push(addStyle(item.parts[j]))
-      }
-      stylesInDom[item.id] = { id: item.id, refs: 1, parts: parts }
-    }
-  }
-}
-
-function createStyleElement () {
-  var styleElement = document.createElement('style')
-  styleElement.type = 'text/css'
-  head.appendChild(styleElement)
-  return styleElement
-}
-
-function addStyle (obj /* StyleObjectPart */) {
-  var update, remove
-  var styleElement = document.querySelector('style[data-vue-ssr-id~="' + obj.id + '"]')
-
-  if (styleElement) {
-    if (isProduction) {
-      // has SSR styles and in production mode.
-      // simply do nothing.
-      return noop
-    } else {
-      // has SSR styles but in dev mode.
-      // for some reason Chrome can't handle source map in server-rendered
-      // style tags - source maps in <style> only works if the style tag is
-      // created and inserted dynamically. So we remove the server rendered
-      // styles and inject new ones.
-      styleElement.parentNode.removeChild(styleElement)
-    }
-  }
-
-  if (isOldIE) {
-    // use singleton mode for IE9.
-    var styleIndex = singletonCounter++
-    styleElement = singletonElement || (singletonElement = createStyleElement())
-    update = applyToSingletonTag.bind(null, styleElement, styleIndex, false)
-    remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true)
-  } else {
-    // use multi-style-tag mode in all other cases
-    styleElement = createStyleElement()
-    update = applyToTag.bind(null, styleElement)
-    remove = function () {
-      styleElement.parentNode.removeChild(styleElement)
-    }
-  }
-
-  update(obj)
-
-  return function updateStyle (newObj /* StyleObjectPart */) {
-    if (newObj) {
-      if (newObj.css === obj.css &&
-          newObj.media === obj.media &&
-          newObj.sourceMap === obj.sourceMap) {
-        return
-      }
-      update(obj = newObj)
-    } else {
-      remove()
-    }
-  }
-}
-
-var replaceText = (function () {
-  var textStore = []
-
-  return function (index, replacement) {
-    textStore[index] = replacement
-    return textStore.filter(Boolean).join('\n')
-  }
-})()
-
-function applyToSingletonTag (styleElement, index, remove, obj) {
-  var css = remove ? '' : obj.css
-
-  if (styleElement.styleSheet) {
-    styleElement.styleSheet.cssText = replaceText(index, css)
-  } else {
-    var cssNode = document.createTextNode(css)
-    var childNodes = styleElement.childNodes
-    if (childNodes[index]) styleElement.removeChild(childNodes[index])
-    if (childNodes.length) {
-      styleElement.insertBefore(cssNode, childNodes[index])
-    } else {
-      styleElement.appendChild(cssNode)
-    }
-  }
-}
-
-function applyToTag (styleElement, obj) {
-  var css = obj.css
-  var media = obj.media
-  var sourceMap = obj.sourceMap
-
-  if (media) {
-    styleElement.setAttribute('media', media)
-  }
-
-  if (sourceMap) {
-    // https://developer.chrome.com/devtools/docs/javascript-debugging
-    // this makes source maps inside style tags work properly in Chrome
-    css += '\n/*# sourceURL=' + sourceMap.sources[0] + ' */'
-    // http://stackoverflow.com/a/26603875
-    css += '\n/*# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + ' */'
-  }
-
-  if (styleElement.styleSheet) {
-    styleElement.styleSheet.cssText = css
-  } else {
-    while (styleElement.firstChild) {
-      styleElement.removeChild(styleElement.firstChild)
-    }
-    styleElement.appendChild(document.createTextNode(css))
-  }
-}
-
-
-/***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_vue__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__views_index_vue__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__views_bgAndBorders_vue__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__views_shapes_vue__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__views_visualEffects_vue__ = __webpack_require__(45);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__views_typography_vue__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__views_userExperience_vue__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_vue__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__views_index_vue__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__views_bgAndBorders_vue__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__views_shapes_vue__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__views_visualEffects_vue__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__views_typography_vue__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__views_userExperience_vue__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__views_blurDialog_vue__ = __webpack_require__(55);
 
 
 // import VueResource from 'vue-resource'
 
 
 // import routermaps from './router';
-__webpack_require__(28);
 __webpack_require__(29);
-__webpack_require__(31);
+__webpack_require__(30);
 __webpack_require__(32);
 __webpack_require__(33);
 __webpack_require__(34);
+__webpack_require__(35);
+
 
 
 
@@ -12797,6 +12813,9 @@ const routes = [{
   path: '/userExperience',
   component: __WEBPACK_IMPORTED_MODULE_8__views_userExperience_vue__["a" /* default */],
   meta: { scrollToTop: true }
+}, {
+  path: '/blurDialog',
+  component: __WEBPACK_IMPORTED_MODULE_9__views_blurDialog_vue__["a" /* default */]
 }];
 
 const scrollBehavior = (to, from, savedPosition) => {
@@ -12828,7 +12847,7 @@ new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
 });
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var apply = Function.prototype.apply;
@@ -12881,13 +12900,13 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(17);
+__webpack_require__(18);
 exports.setImmediate = setImmediate;
 exports.clearImmediate = clearImmediate;
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -13077,10 +13096,10 @@ exports.clearImmediate = clearImmediate;
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12), __webpack_require__(13)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(14), __webpack_require__(15)))
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -15708,15 +15727,15 @@ if (inBrowser && window.Vue) {
 
 /* harmony default export */ __webpack_exports__["a"] = (VueRouter);
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(13)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(15)))
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_app_vue__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5ef48958_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_app_vue__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_app_vue__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5ef48958_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_app_vue__ = __webpack_require__(28);
 var disposed = false
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -15762,11 +15781,11 @@ if (true) {(function () {
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Navigator_vue__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Navigator_vue__ = __webpack_require__(22);
 //
 //
 //
@@ -15787,16 +15806,16 @@ if (true) {(function () {
 });
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_Navigator_vue__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_6331c252_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_Navigator_vue__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_Navigator_vue__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_6331c252_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_Navigator_vue__ = __webpack_require__(27);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(22)
+  __webpack_require__(23)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -15842,7 +15861,7 @@ if (true) {(function () {
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
@@ -15852,7 +15871,7 @@ var content = __webpack_require__(5);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(14)("128a62dd", content, false);
+var update = __webpack_require__(6)("128a62dd", content, false);
 // Hot Module Replacement
 if(true) {
  // When the styles change, update the <style> tags
@@ -15868,7 +15887,7 @@ if(true) {
 }
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports) {
 
 /**
@@ -15901,11 +15920,11 @@ module.exports = function listToStyles (parentId, list) {
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__data_directory_js__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__data_directory_js__ = __webpack_require__(26);
 //
 //
 //
@@ -15935,7 +15954,7 @@ module.exports = function listToStyles (parentId, list) {
 });
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -15973,7 +15992,7 @@ const directory = [{
 /* harmony default export */ __webpack_exports__["a"] = (directory);
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16059,7 +16078,7 @@ if (true) {
 }
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16086,19 +16105,19 @@ if (true) {
 }
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(6);
+var content = __webpack_require__(7);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -16106,14 +16125,14 @@ var transform;
 var options = {"hmr":true}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(8)(content, options);
+var update = __webpack_require__(9)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(true) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept(6, function() {
-			var newContent = __webpack_require__(6);
+		module.hot.accept(7, function() {
+			var newContent = __webpack_require__(7);
 			if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
 			update(newContent);
 		});
@@ -16123,7 +16142,7 @@ if(true) {
 }
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports) {
 
 
@@ -16218,37 +16237,6 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 31 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(9);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {"hmr":true}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(8)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(true) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept(9, function() {
-			var newContent = __webpack_require__(9);
-			if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
 /* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16263,7 +16251,7 @@ var transform;
 var options = {"hmr":true}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(8)(content, options);
+var update = __webpack_require__(9)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(true) {
@@ -16281,9 +16269,34 @@ if(true) {
 
 /***/ }),
 /* 33 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-// removed by extract-text-webpack-plugin
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(11);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {"hmr":true}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(9)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(true) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept(11, function() {
+			var newContent = __webpack_require__(11);
+			if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
 
 /***/ }),
 /* 34 */
@@ -16293,15 +16306,21 @@ if(true) {
 
 /***/ }),
 /* 35 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 36 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_index_vue__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_a83bd3b0_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_index_vue__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_index_vue__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_a83bd3b0_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_index_vue__ = __webpack_require__(39);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(36)
+  __webpack_require__(37)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -16347,23 +16366,23 @@ if (true) {(function () {
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(11);
+var content = __webpack_require__(12);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(14)("7608ca1e", content, false);
+var update = __webpack_require__(6)("7608ca1e", content, false);
 // Hot Module Replacement
 if(true) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept(11, function() {
-     var newContent = __webpack_require__(11);
+   module.hot.accept(12, function() {
+     var newContent = __webpack_require__(12);
      if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
      update(newContent);
    });
@@ -16373,7 +16392,7 @@ if(true) {
 }
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16405,7 +16424,7 @@ if(true) {
 });
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16463,12 +16482,12 @@ if (true) {
 }
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_bgAndBorders_vue__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_356d1ea2_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_bgAndBorders_vue__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_bgAndBorders_vue__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_356d1ea2_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_bgAndBorders_vue__ = __webpack_require__(42);
 var disposed = false
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -16514,7 +16533,7 @@ if (true) {(function () {
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16772,7 +16791,7 @@ if (true) {(function () {
 /* harmony default export */ __webpack_exports__["a"] = ({});
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17106,12 +17125,12 @@ if (true) {
 }
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_shapes_vue__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_59b5dae8_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_shapes_vue__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_shapes_vue__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_59b5dae8_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_shapes_vue__ = __webpack_require__(45);
 var disposed = false
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -17157,7 +17176,7 @@ if (true) {(function () {
 
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17439,7 +17458,7 @@ if (true) {(function () {
 /* harmony default export */ __webpack_exports__["a"] = ({});
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17766,12 +17785,12 @@ if (true) {
 }
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_visualEffects_vue__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_394a48f8_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_visualEffects_vue__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_visualEffects_vue__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_394a48f8_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_visualEffects_vue__ = __webpack_require__(48);
 var disposed = false
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -17817,7 +17836,7 @@ if (true) {(function () {
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17944,7 +17963,7 @@ if (true) {(function () {
 /* harmony default export */ __webpack_exports__["a"] = ({});
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18139,12 +18158,12 @@ if (true) {
 }
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_typography_vue__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_08dcab49_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_typography_vue__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_typography_vue__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_08dcab49_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_typography_vue__ = __webpack_require__(51);
 var disposed = false
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -18190,7 +18209,7 @@ if (true) {(function () {
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18496,7 +18515,7 @@ if (true) {(function () {
 /* harmony default export */ __webpack_exports__["a"] = ({});
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18888,12 +18907,12 @@ if (true) {
 }
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_userExperience_vue__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5cd061af_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_userExperience_vue__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_userExperience_vue__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5cd061af_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_userExperience_vue__ = __webpack_require__(54);
 var disposed = false
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -18939,7 +18958,7 @@ if (true) {(function () {
 
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19099,11 +19118,58 @@ if (true) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-/* harmony default export */ __webpack_exports__["a"] = ({});
+/* harmony default export */ __webpack_exports__["a"] = ({
+  data() {
+    return {
+      lightboxShow: false,
+      blurDialogShow: false
+    };
+  },
+  methods: {
+    showLightbox() {
+      this.lightboxShow = true;
+    },
+    hideLightBox() {
+      this.lightboxShow = false;
+    }
+  }
+});
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19111,138 +19177,244 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0, false, false)
+  return _c("div", { staticClass: "content" }, [
+    _c("section", { attrs: { id: "c-5" } }, [
+      _c("h2", [_vm._v("User Experience 用户体验")]),
+      _vm._v(" "),
+      _vm._m(0, false, false),
+      _vm._v(" "),
+      _vm._m(1, false, false),
+      _vm._v(" "),
+      _vm._m(2, false, false),
+      _vm._v(" "),
+      _c("section", { attrs: { id: "c-5-4" } }, [
+        _c("h3", [_vm._v("De-emphasize by dimming 通过阴影来弱化背景")]),
+        _vm._v(" "),
+        _c("h4", [_vm._v("box-shadow solution")]),
+        _vm._v(" "),
+        _c("div", { attrs: { id: "eg-5-4-1" } }, [
+          _c("button", { on: { click: _vm.showLightbox } }, [
+            _vm._v("Show Modal")
+          ]),
+          _vm._v(" "),
+          _vm.lightboxShow
+            ? _c("div", { staticClass: "lightbox" }, [
+                _c(
+                  "span",
+                  {
+                    staticClass: "close-btn",
+                    attrs: { title: "关闭" },
+                    on: { click: _vm.hideLightBox }
+                  },
+                  [_vm._v("X")]
+                ),
+                _vm._v(" "),
+                _c("img", {
+                  attrs: {
+                    src: __webpack_require__(4),
+                    alt: "pokemon-img"
+                  }
+                })
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _c("code", [
+            _vm._v("\n          box-shadow: 0 0 0 50vmax rgba(0,0,0,.8);")
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "注意由于此方法用 box-shadow 来做黑色阴影，所以无法捕获到鼠标焦点，\n          鼠标仍可以操作后层的元素;这个方法比较适合做原型等简易场景时使用"
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("h4", [_vm._v("backdrop solution")]),
+        _vm._v(" "),
+        _vm._m(3, false, false)
+      ]),
+      _vm._v(" "),
+      _c(
+        "section",
+        { attrs: { id: "c-5-5" } },
+        [
+          _c("h3", [_vm._v("De-emphasize by blurring 通过模糊来弱化背景")]),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            { attrs: { to: { path: "blurDialog" }, target: "_blank" } },
+            [_vm._v("查看示例")]
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm._m(4, false, false)
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content" }, [
-      _c("section", { attrs: { id: "c-5" } }, [
-        _c("h2", [_vm._v("User Experience 用户体验")]),
+    return _c("section", { attrs: { id: "c-5-1" } }, [
+      _c("h3", [_vm._v("Picking the right cursor 选用合适的鼠标光标")]),
+      _vm._v(" "),
+      _c("div", { attrs: { id: "eg-5-1-1" } }, [
+        _c("button", [_vm._v("Button")]),
         _vm._v(" "),
-        _c("section", { attrs: { id: "c-5-1" } }, [
-          _c("h3", [_vm._v("Picking the right cursor 选用合适的鼠标光标")]),
-          _vm._v(" "),
-          _c("div", { attrs: { id: "eg-5-1-1" } }, [
-            _c("button", [_vm._v("Button")]),
-            _vm._v(" "),
-            _c("button", { attrs: { disabled: "" } }, [
-              _vm._v("Disabled Button")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("code", [
-            _vm._v(
-              '\n        :disabled, [disabled], [aria-disabled="true"]{\n          cursor: not-allowed;\n        }\n      '
-            )
-          ])
+        _c("button", { attrs: { disabled: "" } }, [_vm._v("Disabled Button")])
+      ]),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          '\n        :disabled, [disabled], [aria-disabled="true"]{\n          cursor: not-allowed;\n        }\n      '
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { attrs: { id: "c-5-2" } }, [
+      _c("h3", [_vm._v("Extending the clickable area 扩大可点击区域")]),
+      _vm._v(" "),
+      _c("div", { attrs: { id: "eg-5-2-1" } }, [
+        _c("h4", [_vm._v("Border solution")]),
+        _vm._v(" "),
+        _c("button", { staticClass: "border" }, [_vm._v("+")]),
+        _c("br"),
+        _vm._v(" "),
+        _c("code", [
+          _vm._v(
+            "\n          button{\n            background: #58a;\n            color: #fff;\n            cursor: pointer;\n            border-radius: 50%;\n            padding: .3em .5em;\n            font: 150% bold;\n            line-height: 1;\n            border: 10px solid transparent;\n            background-clip: padding-box;\n            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset;\n          }\n        "
+          )
         ]),
         _vm._v(" "),
-        _c("section", { attrs: { id: "c-5-2" } }, [
-          _c("h3", [_vm._v("Extending the clickable area 扩大可点击区域")]),
-          _vm._v(" "),
-          _c("div", { attrs: { id: "eg-5-2-1" } }, [
-            _c("h4", [_vm._v("Border solution")]),
-            _vm._v(" "),
-            _c("button", { staticClass: "border" }, [_vm._v("+")]),
-            _c("br"),
-            _vm._v(" "),
-            _c("code", [
-              _vm._v(
-                "\n          button{\n            background: #58a;\n            color: #fff;\n            cursor: pointer;\n            border-radius: 50%;\n            padding: .3em .5em;\n            font: 150% bold;\n            line-height: 1;\n            border: 10px solid transparent;\n            background-clip: padding-box;\n            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset;\n          }\n        "
-              )
-            ]),
-            _vm._v(" "),
-            _c("h4", [_vm._v("Pseudo-elements solution")]),
-            _vm._v(" "),
-            _c("button", { staticClass: "pseudo" }, [_vm._v("+")]),
-            _c("br"),
-            _vm._v(" "),
-            _c("code", [
-              _vm._v(
-                "\n          button{\n            position: relative;\n            background: #58a;\n            color: #fff;\n            cursor: pointer;\n            border-radius: 50%;\n            padding: .3em .5em;\n            font: 150% bold;\n            line-height: 1;\n            border: 10px solid transparent;\n            background-clip: padding-box;\n            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset;\n          }\n          button::before{\n            position: absolute;\n            content: '';\n            top: -10px;\n            right: -10px;\n            bottom: -10px;\n            left: -10px;\n          }\n        "
-              )
-            ])
-          ])
-        ]),
+        _c("h4", [_vm._v("Pseudo-elements solution")]),
         _vm._v(" "),
-        _c("section", { attrs: { id: "c-5-3" } }, [
-          _c("h3", [_vm._v("Custom checkboxes 自定义复选框")]),
-          _vm._v(" "),
-          _c("h4", [_vm._v("checkboxes")]),
-          _vm._v(" "),
-          _c("div", { attrs: { id: "eg-5-3-1" } }, [
-            _c("input", { attrs: { type: "checkbox", id: "checkbox1" } }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "checkbox1" } }, [_vm._v("option 1")]),
-            _c("br"),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "checkbox", id: "checkbox2", checked: "" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "checkbox2" } }, [_vm._v("option 2")]),
-            _c("br"),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "checkbox", id: "checkbox3", disabled: "" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "checkbox3" } }, [_vm._v("option 3")]),
-            _c("br"),
-            _vm._v(" "),
-            _c("input", {
-              attrs: {
-                type: "checkbox",
-                id: "checkbox4",
-                checked: "",
-                disabled: ""
-              }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "checkbox4" } }, [_vm._v("option 4")]),
-            _c("br")
-          ]),
-          _vm._v(" "),
-          _c("code", [
-            _vm._v(
-              '\n        input[type="checkbox"] {\n        \tposition: absolute;\n        \tclip: rect(0,0,0,0);\n        }\n\n        input[type="checkbox"] + label::before {\n        \tcontent: \'\\a0\';\n        \tdisplay: inline-block;\n        \tvertical-align: .2em;\n        \twidth: .8em;\n        \theight: .8em;\n        \tmargin-right: .2em;\n        \tborder-radius: .2em;\n        \tbackground: silver;\n        \ttext-indent: .15em;\n        \tline-height: .65;\n        }\n\n        input[type="checkbox"]:checked + label::before {\n        \tcontent: \'\\2713\';\n        \tbackground: yellowgreen;\n        }\n\n        input[type="checkbox"]:focus + label::before {\n        \tbox-shadow: 0 0 .1em .1em #58a;\n        }\n\n        input[type="checkbox"]:disabled + label::before {\n        \tbackground: gray;\n        \tbox-shadow: none;\n        \tcolor: #555;\n        \tcursor: not-allowed;\n        }\n      '
-            )
-          ]),
-          _vm._v(" "),
-          _c("h4", [_vm._v("Toggle buttons")]),
-          _vm._v(" "),
-          _c("div", { attrs: { id: "eg-5-3-2" } }, [
-            _c("input", { attrs: { type: "checkbox", id: "btn1" } }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "btn1" } }, [_vm._v("Button 1")]),
-            _vm._v(" "),
-            _c("input", { attrs: { type: "checkbox", id: "btn2" } }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "btn2" } }, [_vm._v("Button 2")]),
-            _vm._v(" "),
-            _c("code", [
-              _vm._v(
-                '\n          input[type="checkbox"]{\n            position: absolute;\n            clip: rect(0,0,0,0);\n          }\n\n          input[type="checkbox"]& + label{\n            display: inline-block;\n            padding: .3em .5em;\n            background: yellowgreen;\n            background-image: linear-gradient(yellowgreen, #6fa600);\n            border-radius: 10px;\n            border: 1px solid #6fa600;\n            box-shadow: 0 1px white inset;\n            text-align: center;\n            text-shadow: 0 1px 1px white;\n            cursor: pointer;\n            transition: all .3s ease-in-out;\n          }\n\n          input[type="checkbox"]&:checked + label{\n            box-shadow: 0 0 .2em .2em rgba(6, 114, 0, 0.6) inset;\n            background: #6fa600;\n            border: 1px solid rgba(0,0,0,.3);\n          }\n        '
-              )
-            ])
-          ])
-        ]),
+        _c("button", { staticClass: "pseudo" }, [_vm._v("+")]),
+        _c("br"),
         _vm._v(" "),
-        _c("section", { attrs: { id: "c-5-4" } }, [
-          _c("h3", [_vm._v("De-emphasize by dimming 通过阴影来弱化背景")]),
+        _c("code", [
+          _vm._v(
+            "\n          button{\n            position: relative;\n            background: #58a;\n            color: #fff;\n            cursor: pointer;\n            border-radius: 50%;\n            padding: .3em .5em;\n            font: 150% bold;\n            line-height: 1;\n            border: 10px solid transparent;\n            background-clip: padding-box;\n            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset;\n          }\n          button::before{\n            position: absolute;\n            content: '';\n            top: -10px;\n            right: -10px;\n            bottom: -10px;\n            left: -10px;\n          }\n        "
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { attrs: { id: "c-5-3" } }, [
+      _c("h3", [_vm._v("Custom checkboxes 自定义复选框")]),
+      _vm._v(" "),
+      _c("h4", [_vm._v("checkboxes")]),
+      _vm._v(" "),
+      _c("div", { attrs: { id: "eg-5-3-1" } }, [
+        _c("input", { attrs: { type: "checkbox", id: "checkbox1" } }),
+        _vm._v(" "),
+        _c("label", { attrs: { for: "checkbox1" } }, [_vm._v("option 1")]),
+        _c("br"),
+        _vm._v(" "),
+        _c("input", {
+          attrs: { type: "checkbox", id: "checkbox2", checked: "" }
+        }),
+        _vm._v(" "),
+        _c("label", { attrs: { for: "checkbox2" } }, [_vm._v("option 2")]),
+        _c("br"),
+        _vm._v(" "),
+        _c("input", {
+          attrs: { type: "checkbox", id: "checkbox3", disabled: "" }
+        }),
+        _vm._v(" "),
+        _c("label", { attrs: { for: "checkbox3" } }, [_vm._v("option 3")]),
+        _c("br"),
+        _vm._v(" "),
+        _c("input", {
+          attrs: {
+            type: "checkbox",
+            id: "checkbox4",
+            checked: "",
+            disabled: ""
+          }
+        }),
+        _vm._v(" "),
+        _c("label", { attrs: { for: "checkbox4" } }, [_vm._v("option 4")]),
+        _c("br")
+      ]),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          '\n        input[type="checkbox"] {\n        \tposition: absolute;\n        \tclip: rect(0,0,0,0);\n        }\n\n        input[type="checkbox"] + label::before {\n        \tcontent: \'\\a0\';\n        \tdisplay: inline-block;\n        \tvertical-align: .2em;\n        \twidth: .8em;\n        \theight: .8em;\n        \tmargin-right: .2em;\n        \tborder-radius: .2em;\n        \tbackground: silver;\n        \ttext-indent: .15em;\n        \tline-height: .65;\n        }\n\n        input[type="checkbox"]:checked + label::before {\n        \tcontent: \'\\2713\';\n        \tbackground: yellowgreen;\n        }\n\n        input[type="checkbox"]:focus + label::before {\n        \tbox-shadow: 0 0 .1em .1em #58a;\n        }\n\n        input[type="checkbox"]:disabled + label::before {\n        \tbackground: gray;\n        \tbox-shadow: none;\n        \tcolor: #555;\n        \tcursor: not-allowed;\n        }\n      '
+        )
+      ]),
+      _vm._v(" "),
+      _c("h4", [_vm._v("Toggle buttons")]),
+      _vm._v(" "),
+      _c("div", { attrs: { id: "eg-5-3-2" } }, [
+        _c("input", { attrs: { type: "checkbox", id: "btn1" } }),
+        _vm._v(" "),
+        _c("label", { attrs: { for: "btn1" } }, [_vm._v("Button 1")]),
+        _vm._v(" "),
+        _c("input", { attrs: { type: "checkbox", id: "btn2" } }),
+        _vm._v(" "),
+        _c("label", { attrs: { for: "btn2" } }, [_vm._v("Button 2")]),
+        _vm._v(" "),
+        _c("code", [
+          _vm._v(
+            '\n          input[type="checkbox"]{\n            position: absolute;\n            clip: rect(0,0,0,0);\n          }\n\n          input[type="checkbox"]& + label{\n            display: inline-block;\n            padding: .3em .5em;\n            background: yellowgreen;\n            background-image: linear-gradient(yellowgreen, #6fa600);\n            border-radius: 10px;\n            border: 1px solid #6fa600;\n            box-shadow: 0 1px white inset;\n            text-align: center;\n            text-shadow: 0 1px 1px white;\n            cursor: pointer;\n            transition: all .3s ease-in-out;\n          }\n\n          input[type="checkbox"]&:checked + label{\n            box-shadow: 0 0 .2em .2em rgba(6, 114, 0, 0.6) inset;\n            background: #6fa600;\n            border: 1px solid rgba(0,0,0,.3);\n          }\n        '
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _vm._v(
+        "这种方法需要使用浏览器自带的 showModal() 方法，但是支持的浏览器有限，"
+      ),
+      _c("br"),
+      _vm._v("\n        并且需要直接操作DOM元素，在此不做展示")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { attrs: { id: "c-5-6" } }, [
+      _c("h3", [_vm._v("Scrolling hints 滚动提示")]),
+      _vm._v(" "),
+      _c("div", { attrs: { id: "c-5-6-1" } }, [
+        _c("ul", [
+          _c("li", [_vm._v("Ada Catlace")]),
           _vm._v(" "),
-          _c("h4", [_vm._v("box-shadow solution")]),
+          _c("li", [_vm._v("Alan Purring")]),
           _vm._v(" "),
-          _c("div", { attrs: { id: "eg-5-4-1" } }, [
-            _c("button", [_vm._v(" click me")]),
-            _vm._v(" "),
-            _c("img", {
-              attrs: { src: __webpack_require__(4), alt: "pokemon-img" }
-            })
-          ])
+          _c("li", [_vm._v("Schrödingcat")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("Tim Purrners-Lee")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("Webkitty")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("Json")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("Void")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("Neko")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("NaN")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("Cat5")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("Vector")])
         ])
       ])
     ])
@@ -19255,6 +19427,182 @@ if (true) {
   module.hot.accept()
   if (module.hot.data) {
     __webpack_require__(0)      .rerender("data-v-5cd061af", esExports)
+  }
+}
+
+/***/ }),
+/* 55 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_blurDialog_vue__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_eaa712ae_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_blurDialog_vue__ = __webpack_require__(58);
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(56)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+
+/* template */
+
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_blurDialog_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_eaa712ae_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_blurDialog_vue__["a" /* default */],
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "src/views/blurDialog.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (true) {(function () {
+  var hotAPI = __webpack_require__(0)
+  hotAPI.install(__webpack_require__(1), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-eaa712ae", Component.options)
+  } else {
+    hotAPI.reload("data-v-eaa712ae", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+/* harmony default export */ __webpack_exports__["a"] = (Component.exports);
+
+
+/***/ }),
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(13);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(6)("44a4b741", content, false);
+// Hot Module Replacement
+if(true) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept(13, function() {
+     var newContent = __webpack_require__(13);
+     if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 57 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  data() {
+    return {
+      blurDialogShow: false
+    };
+  },
+  methods: {
+    showBlurDialog() {
+      this.blurDialogShow = true;
+    },
+    hideBlurDialog() {
+      this.blurDialogShow = false;
+    }
+  }
+});
+
+/***/ }),
+/* 58 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "content" }, [
+    _c("main", { class: { deEmphasized: _vm.blurDialogShow } }, [
+      _c("img", {
+        staticClass: "cover-img",
+        attrs: {
+          src:
+            "https://cloud.githubusercontent.com/assets/1231359/14773652/5bf7c006-0adf-11e6-8712-70be89b3b97d.jpg",
+          alt: "[CSS Secrets 简体中文版 - 封面]"
+        }
+      }),
+      _vm._v(" "),
+      _c("p", [_vm._v("Welocome to this page!")]),
+      _vm._v(" "),
+      _c("button", { on: { click: _vm.showBlurDialog } }, [
+        _vm._v("Show Dialog")
+      ]),
+      _c("br")
+    ]),
+    _vm._v(" "),
+    _vm.blurDialogShow
+      ? _c("div", { staticClass: "dialog" }, [
+          _c(
+            "span",
+            {
+              staticClass: "close-btn",
+              attrs: { title: "关闭" },
+              on: { click: _vm.hideBlurDialog }
+            },
+            [_vm._v("X")]
+          ),
+          _vm._v("\n    Hello I'am a dialog!"),
+          _c("br"),
+          _vm._v("\n    Enjoy the Blur!\n  ")
+        ])
+      : _vm._e()
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+if (true) {
+  module.hot.accept()
+  if (module.hot.data) {
+    __webpack_require__(0)      .rerender("data-v-eaa712ae", esExports)
   }
 }
 

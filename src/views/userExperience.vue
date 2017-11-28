@@ -164,6 +164,42 @@
         <h3>De-emphasize by blurring 通过模糊来弱化背景</h3>
         <router-link :to="{ path: 'blurDialog' }" target ="_blank">查看示例</router-link>
       </section>
+      <section id="c-5-6">
+        <h3>Scrolling hints 滚动提示</h3>
+        <div id="eg-5-6-1">
+          <ul class="list">
+            <li>Ada Catlace</li>
+            <li>Alan Purring</li>
+            <li>Schrödingcat</li>
+            <li>Tim Purrners-Lee</li>
+            <li>Webkitty</li>
+            <li>Json</li>
+            <li>Void</li>
+            <li>Neko</li>
+            <li>NaN</li>
+            <li>Cat5</li>
+            <li>Vector</li>
+          </ul>
+        </div>
+        <code>
+          display: inline-block;
+          overflow: auto;
+          width: 12em;
+          height: 8em;
+          border: 1px solid silver;
+          padding: .3em .5em;
+          list-style: none;
+          font-size: 200%;
+          background: linear-gradient(#fff 15px,hsla(0,0%,100%,0)) 0 0,
+                      radial-gradient(at center top,rgba(0,0,0,0.2),transparent 70%) 0 0,
+                      linear-gradient(to top,white 15px,hsla(0,0%,100%,0)) bottom,
+                      radial-gradient(at center bottom, rgba(0,0,0,0.2),transparent 70%) bottom;
+          background-size: 100% 15px,100% 15px,100% 15px,100% 15px;
+          background-repeat: no-repeat;
+          background-attachment: local,scroll,local,scroll;
+          margin-top: 30px;
+        </code>
+      </section>
     </section>
   </div>
 </template>
