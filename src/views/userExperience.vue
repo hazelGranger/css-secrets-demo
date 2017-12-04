@@ -200,6 +200,61 @@
           margin-top: 30px;
         </code>
       </section>
+      <section id="c-5-7">
+        <h3>Interactive image comparison 交互式的图片对比控件</h3>
+        <h4>CSS resize solution</h4>
+        <div id="eg-5-7-1">
+          <div class="img-slider">
+            <div class="slider">
+              <img src="http://csssecrets.io/images/adamcatlace-before.jpg" alt="after">
+            </div>
+            <img src="http://csssecrets.io/images/adamcatlace.jpg" alt="now" class="img">
+          </div>
+        </div>
+        <code>
+          .image-slider {
+          	position:relative;
+          	display: inline-block;
+          }
+
+          .image-slider > .slider {
+          	position: absolute;
+          	top: 0; bottom: 0; left: 0;
+          	width: 50%;
+          	max-width: 100%;
+          	overflow: hidden;
+          	resize: horizontal;
+          }
+
+          .image-slider > .slider:before {
+          	content: '';
+          	position: absolute;
+          	right: 0; bottom: 0;
+          	width: 12px; height: 12px;
+          	padding: 5px;
+          	background: linear-gradient(-45deg, white 50%, transparent 0);
+          	background-clip: content-box;
+          	cursor: ew-resize;
+          	-webkit-filter: drop-shadow(0 0 2px black);
+          	filter: drop-shadow(0 0 2px black);
+          }
+
+          .image-slider img {
+          	display: block;
+          	user-select: none;
+          }
+        </code>
+        <h4>Range input solution</h4>
+        <div id="eg-5-7-2">
+          <div class="img-slider">
+            <div class="slider" v-bind:style="{ width: imgSliderRange +'%'}">
+              <img src="http://csssecrets.io/images/adamcatlace-before.jpg" alt="after">
+            </div>
+            <img src="http://csssecrets.io/images/adamcatlace.jpg" alt="now" class="img">
+            <input type="range" class="range" v-model="imgSliderRange">
+          </div>
+        </div>
+      </section>
     </section>
   </div>
 </template>
@@ -209,7 +264,8 @@ export default {
   data() {
     return{
       lightboxShow: false,
-      blurDialogShow: false
+      blurDialogShow: false,
+      imgSliderRange: 50
     }
   },
   methods: {

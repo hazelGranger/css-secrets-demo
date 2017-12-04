@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "61a6cc8bbbfbd90abae2"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "e3bd9232e45b52c3ab5a"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -19150,6 +19150,36 @@ if (true) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   data() {
@@ -19249,7 +19279,9 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _vm._m(4, false, false)
+      _vm._m(4, false, false),
+      _vm._v(" "),
+      _vm._m(5, false, false)
     ])
   ])
 }
@@ -19392,8 +19424,8 @@ var staticRenderFns = [
     return _c("section", { attrs: { id: "c-5-6" } }, [
       _c("h3", [_vm._v("Scrolling hints 滚动提示")]),
       _vm._v(" "),
-      _c("div", { attrs: { id: "c-5-6-1" } }, [
-        _c("ul", [
+      _c("div", { attrs: { id: "eg-5-6-1" } }, [
+        _c("ul", { staticClass: "list" }, [
           _c("li", [_vm._v("Ada Catlace")]),
           _vm._v(" "),
           _c("li", [_vm._v("Alan Purring")]),
@@ -19415,6 +19447,38 @@ var staticRenderFns = [
           _c("li", [_vm._v("Cat5")]),
           _vm._v(" "),
           _c("li", [_vm._v("Vector")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n        display: inline-block;\n        overflow: auto;\n        width: 12em;\n        height: 8em;\n        border: 1px solid silver;\n        padding: .3em .5em;\n        list-style: none;\n        font-size: 200%;\n        background: linear-gradient(#fff 15px,hsla(0,0%,100%,0)) 0 0,\n                    radial-gradient(at center top,rgba(0,0,0,0.2),transparent 70%) 0 0,\n                    linear-gradient(to top,white 15px,hsla(0,0%,100%,0)) bottom,\n                    radial-gradient(at center bottom, rgba(0,0,0,0.2),transparent 70%) bottom;\n        background-size: 100% 15px,100% 15px,100% 15px,100% 15px;\n        background-repeat: no-repeat;\n        background-attachment: local,scroll,local,scroll;\n        margin-top: 30px;\n      "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { attrs: { id: "c-5-7" } }, [
+      _c("h3", [_vm._v("Interactive image comparison 交互式的图片对比控件")]),
+      _vm._v(" "),
+      _c("h4", [_vm._v("CSS resize solution")]),
+      _vm._v(" "),
+      _c("div", { attrs: { id: "eg-5-7-1" } }, [
+        _c("div", { staticClass: "img-silder" }, [
+          _c("div", { staticClass: "slider" }, [
+            _c("img", { attrs: { src: "", alt: "" } })
+          ]),
+          _vm._v(" "),
+          _c("img", {
+            staticClass: "img",
+            attrs: {
+              src: "http://csssecrets.io/images/adamcatlace-before.jpg",
+              alt: ""
+            }
+          })
         ])
       ])
     ])

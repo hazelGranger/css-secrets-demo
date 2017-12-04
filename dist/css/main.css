@@ -376,3 +376,18 @@ code.inline {
   font: 26px bold;
   cursor: pointer;
 }
+#eg-5-6-1 .list {
+  display: inline-block;
+  overflow: auto;
+  width: 12em;
+  height: 8em;
+  border: 1px solid silver;
+  padding: .3em .5em;
+  list-style: none;
+  font-size: 200%;
+  background: linear-gradient(#fff 15px, rgba(255, 255, 255, 0)) 0 0, radial-gradient(at center top, rgba(0, 0, 0, 0.2), transparent 70%) 0 0, linear-gradient(to top, white 15px, rgba(255, 255, 255, 0)) bottom, radial-gradient(at center bottom, rgba(0, 0, 0, 0.2), transparent 70%) bottom;
+  background-size: 100% 15px,100% 15px,100% 15px,100% 15px;
+  background-repeat: no-repeat;
+  background-attachment: local,scroll,local,scroll;
+  margin-top: 30px;
+}
