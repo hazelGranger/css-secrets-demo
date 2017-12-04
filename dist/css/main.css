@@ -391,3 +391,51 @@ code.inline {
   background-attachment: local,scroll,local,scroll;
   margin-top: 30px;
 }
+#eg-5-7-1,
+#eg-5-7-2 {
+  width: auto;
+}
+#eg-5-7-1 div,
+#eg-5-7-2 div {
+  min-height: auto;
+  width: auto;
+}
+#eg-5-7-1 .img-slider,
+#eg-5-7-2 .img-slider {
+  display: inline-block;
+  position: relative;
+}
+#eg-5-7-1 .img-slider .slider,
+#eg-5-7-2 .img-slider .slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 200px;
+  max-width: 100%;
+  resize: horizontal;
+}
+#eg-5-7-1 .img-slider img,
+#eg-5-7-2 .img-slider img {
+  display: block;
+  user-select: none;
+}
+#eg-5-7-1 .img-slider .slider::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 12px;
+  height: 12px;
+  background-image: linear-gradient(-45deg, white 50%, transparent 0);
+  padding: 5px;
+  background-clip: content-box;
+  cursor: ew-resize;
+  box-sizing: content-box;
+}
+#eg-5-7-2 .img-slider .range {
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+  left: 0;
+}

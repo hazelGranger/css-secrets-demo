@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "e3bd9232e45b52c3ab5a"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "2fa331773d8a764e5215"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -19180,12 +19180,56 @@ if (true) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   data() {
     return {
       lightboxShow: false,
-      blurDialogShow: false
+      blurDialogShow: false,
+      imgSliderRange: 50
     };
   },
   methods: {
@@ -19281,7 +19325,68 @@ var render = function() {
       _vm._v(" "),
       _vm._m(4, false, false),
       _vm._v(" "),
-      _vm._m(5, false, false)
+      _c("section", { attrs: { id: "c-5-7" } }, [
+        _c("h3", [_vm._v("Interactive image comparison 交互式的图片对比控件")]),
+        _vm._v(" "),
+        _c("h4", [_vm._v("CSS resize solution")]),
+        _vm._v(" "),
+        _vm._m(5, false, false),
+        _vm._v(" "),
+        _c("code", [
+          _vm._v(
+            "\n        .image-slider {\n        \tposition:relative;\n        \tdisplay: inline-block;\n        }\n\n        .image-slider > .slider {\n        \tposition: absolute;\n        \ttop: 0; bottom: 0; left: 0;\n        \twidth: 50%;\n        \tmax-width: 100%;\n        \toverflow: hidden;\n        \tresize: horizontal;\n        }\n\n        .image-slider > .slider:before {\n        \tcontent: '';\n        \tposition: absolute;\n        \tright: 0; bottom: 0;\n        \twidth: 12px; height: 12px;\n        \tpadding: 5px;\n        \tbackground: linear-gradient(-45deg, white 50%, transparent 0);\n        \tbackground-clip: content-box;\n        \tcursor: ew-resize;\n        \t-webkit-filter: drop-shadow(0 0 2px black);\n        \tfilter: drop-shadow(0 0 2px black);\n        }\n\n        .image-slider img {\n        \tdisplay: block;\n        \tuser-select: none;\n        }\n      "
+          )
+        ]),
+        _vm._v(" "),
+        _c("h4", [_vm._v("Range input solution")]),
+        _vm._v(" "),
+        _c("div", { attrs: { id: "eg-5-7-2" } }, [
+          _c("div", { staticClass: "img-slider" }, [
+            _c(
+              "div",
+              {
+                staticClass: "slider",
+                style: { width: _vm.imgSliderRange + "%" }
+              },
+              [
+                _c("img", {
+                  attrs: {
+                    src: "http://csssecrets.io/images/adamcatlace-before.jpg",
+                    alt: "after"
+                  }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c("img", {
+              staticClass: "img",
+              attrs: {
+                src: "http://csssecrets.io/images/adamcatlace.jpg",
+                alt: "now"
+              }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.imgSliderRange,
+                  expression: "imgSliderRange"
+                }
+              ],
+              staticClass: "range",
+              attrs: { type: "range" },
+              domProps: { value: _vm.imgSliderRange },
+              on: {
+                __r: function($event) {
+                  _vm.imgSliderRange = $event.target.value
+                }
+              }
+            })
+          ])
+        ])
+      ])
     ])
   ])
 }
@@ -19461,25 +19566,24 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { attrs: { id: "c-5-7" } }, [
-      _c("h3", [_vm._v("Interactive image comparison 交互式的图片对比控件")]),
-      _vm._v(" "),
-      _c("h4", [_vm._v("CSS resize solution")]),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "eg-5-7-1" } }, [
-        _c("div", { staticClass: "img-silder" }, [
-          _c("div", { staticClass: "slider" }, [
-            _c("img", { attrs: { src: "", alt: "" } })
-          ]),
-          _vm._v(" "),
+    return _c("div", { attrs: { id: "eg-5-7-1" } }, [
+      _c("div", { staticClass: "img-slider" }, [
+        _c("div", { staticClass: "slider" }, [
           _c("img", {
-            staticClass: "img",
             attrs: {
               src: "http://csssecrets.io/images/adamcatlace-before.jpg",
-              alt: ""
+              alt: "after"
             }
           })
-        ])
+        ]),
+        _vm._v(" "),
+        _c("img", {
+          staticClass: "img",
+          attrs: {
+            src: "http://csssecrets.io/images/adamcatlace.jpg",
+            alt: "now"
+          }
+        })
       ])
     ])
   }
