@@ -1,0 +1,44 @@
+
+#eg-6-1-1{
+  width: auto;
+  border: 1px solid #ddd;
+  .figure{
+    max-width: 300px;
+    max-width: min-content;
+    margin: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+    .img{
+      max-width: inherit;
+    }
+  }
+}
+
+#eg-6-2-1{
+  width: auto;
+  table{
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    width: 100%;
+    margin-bottom: 1.5em;
+    table-layout: auto;
+    &.fixed{
+      table-layout: fixed;
+    }
+    td{
+      border: 1px dashed #ccc;
+      &.onethousand{
+        width: 1000px;
+      }
+      &.threethousand{
+        width: 3000px;
+      }
+      &.noWrapping{
+        white-space: pre;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        font-size: 2em;
+      }
+    }
+  }
+}

@@ -4,13 +4,9 @@ import VueRouter from 'vue-router';
 
 import App from './app.vue';
 // import routermaps from './router';
-require('./styles/common.less');
-require('./styles/bgAndBorders.css');
-require('./styles/shapes.css');
-require('./styles/visualEffects.css');
-require('./styles/typography.less');
-require('./styles/userExperience.less');
 
+// import style files
+require('./styles/main.less');
 
 import Index from './views/index.vue';
 import BgAndBorders from './views/bgAndBorders.vue'
@@ -19,6 +15,7 @@ import VisualEffects from './views/visualEffects.vue'
 import Typography from './views/typography.vue'
 import UserExperience from './views/userExperience.vue'
 import BlurDialog from './views/blurDialog.vue'
+import StructureAndLayout from './views/structureAndLayout.vue'
 
 Vue.use(VueRouter)
 // Vue.use(VueResource)
@@ -53,6 +50,9 @@ const routes = [{
 },{
   path: '/blurDialog',
   component: BlurDialog
+},{
+  path: '/structureAndLayout',
+  component: StructureAndLayout
 }]
 
 const scrollBehavior = (to,from,savedPosition) =>{

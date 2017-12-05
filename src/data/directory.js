@@ -65,7 +65,7 @@ const directory =  [{
     },
     {
       "chapter": "Structure & Layout 结构与布局",
-      "componentName": "bgAndBorders",
+      "componentName": "structureAndLayout",
       "sections": [
         "Intrinsic sizing 自适应内部元素",
         "Taming table column widths 精确控制表格列宽",

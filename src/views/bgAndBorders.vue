@@ -230,7 +230,7 @@
           <div id="eg-1-7-2">content</div>
           <code>
             @keyframes ants { to { background-position: 100% } }
-            
+
             #eg-1-7-2{
               &nbsp;padding: 1em;
               &nbsp;border: 1px solid transparent;
