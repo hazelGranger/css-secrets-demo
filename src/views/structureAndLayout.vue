@@ -60,6 +60,49 @@
           <p>如果想看表格到底多么长，可以审查元素将，content 的 <code class="inline">overflow：hideden</code>去掉</p>
         </div>
       </section>
+      <section id="c-6-3">
+        <h3>Styling by sibling count 根据兄弟元素的数量来设置样式</h3>
+        <h4>select a certain number of list</h4>
+        <div id="eg-6-3-1">
+          <ul class="list">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+          </ul>
+          <ul class="list">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+          </ul>
+          <ul class="list">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+          </ul>
+        </div>
+        <p>Here we use less to make our code become less verbose</p>
+        <code>
+          .nItems(@n,@content){
+            &amp;:first-child:nth-last-child(@{n}),
+            &amp;:first-child:nth-last-child(@{n}) ~ &amp; {
+              @content();
+            }
+          }
+
+          .nItems(4,{
+              content...
+          });
+
+          .nItems(6,{
+              content...
+          });
+        </code>
+        <p>Here the first items of lists which have 4 and 6 items are given different styles.</p>
+      </section>
     </section>
   </div>
 </template>

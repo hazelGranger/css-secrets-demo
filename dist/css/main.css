@@ -619,6 +619,11 @@ ul {
   margin: 0;
   padding: 0;
 }
+ul.explanation {
+  padding-left: 2em;
+  color: yellowgreen;
+  list-style: upper-roman;
+}
 .wrapper {
   height: 100%;
   width: 100%;
@@ -626,6 +631,8 @@ ul {
 }
 .wrapper .content {
   margin-left: 360px;
+  padding: 0 30px;
+  overflow: hidden;
 }
 .btn {
   padding: 0.4rem 0.8rem;
@@ -1022,7 +1029,6 @@ code.inline {
 #eg-6-1-1 {
   width: auto;
   border: 1px solid #ddd;
-  margin-right: 30px;
 }
 #eg-6-1-1 .figure {
   max-width: 300px;
@@ -1033,4 +1039,51 @@ code.inline {
 }
 #eg-6-1-1 .figure .img {
   max-width: inherit;
+}
+#eg-6-2-1 {
+  width: auto;
+}
+#eg-6-2-1 table {
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+  width: 100%;
+  margin-bottom: 1.5em;
+  table-layout: auto;
+}
+#eg-6-2-1 table.fixed {
+  table-layout: fixed;
+}
+#eg-6-2-1 table td {
+  border: 1px dashed #ccc;
+}
+#eg-6-2-1 table td.onethousand {
+  width: 1000px;
+}
+#eg-6-2-1 table td.threethousand {
+  width: 3000px;
+}
+#eg-6-2-1 table td.noWrapping {
+  white-space: pre;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 2em;
+}
+#eg-6-3-1 {
+  width: auto;
+}
+#eg-6-3-1 .list {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+#eg-6-3-1 .list li {
+  width: 4em;
+  height: 4em;
+  background: #d2407a;
+  color: #fff;
+  float: left;
+  line-height: 4em;
+  text-align: center;
+  margin-right: 10px;
+  border-radius: 15px;
 }

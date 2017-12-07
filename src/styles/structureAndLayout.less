@@ -42,3 +42,54 @@
     }
   }
 }
+
+.nItems(@n,@content){
+  &:first-child:nth-last-child(@{n}),
+  &:first-child:nth-last-child(@{n}) ~ & {
+    @content();
+  }
+}
+
+#eg-6-3-1{
+  width: auto;
+  .list{
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 15px;
+    padding: 6px 0;
+    li{
+      width: 4em;
+      height: 4em;
+      background: #d2407a;
+      color: #fff;
+      float: left;
+      text-align: center;
+      margin-right: 10px;
+      border-radius: 15px;
+      position: relative;
+      overflow: visible;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .nItems(4,{
+        background: yellowgreen;
+      });
+      .nItems(6,{
+        background: yellowgreen;
+        &::after{
+          content: '✓';
+          color: #fff;
+          background: #d2407a;
+          border-radius: 50%;
+          position: absolute;
+          display: block;
+          width: 1.5em;
+          height: 1.5em;
+          right: -.25em;
+          top: -.25em;
+          font-size: 12px;
+        }
+      });
+    }
+  }
+}

@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "e49481f55894d955f903"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "ae23a2404992949cd0f7"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -19213,7 +19213,57 @@ if (true) {(function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__data_c6s2table_js__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__data_c6s2table_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__data_c6s2table_js__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -19259,22 +19309,33 @@ if (true) {(function () {
 /* harmony default export */ __webpack_exports__["a"] = ({
   data() {
     return {
-      tables: __WEBPACK_IMPORTED_MODULE_0__data_c6s2table_js___default.a
+      tables: __WEBPACK_IMPORTED_MODULE_0__data_c6s2table_js__["a" /* default */]
     };
   }
 });
 
 /***/ }),
 /* 50 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 const tableContent = {
   "table1": [["If we don’t…", "specify a cell width, they will be assigned one that depends on their contents. Notice how the cell with the more content here is much wider."]],
   "table2": [["If we don’t…", "specify a cell width, they will be assigned one that depends on their contents. Notice how the cell with the more content here is much wider."], ["All rows take part in calculating the widths, not just the first one.", "Notice how the dimensions here are different than the previous example."]],
-  "table3": [["If we specify a width, it will not always be followed. I have a width of 1000px", "…and I have a width of <code>2000px</code>. Because there’s not enough space for <code>3000px</code>, they are reduced proportionally, to 33.3% and 66.6% of the total width."]],
-  "table4": [["If we prevent word wrapping, the table can become so wide it grows beyond its container.", "…and <code>text-overflow: ellipsis</code> doesn’t help either."]],
-  "table5": ["Large images and blocks of code can also cause the same issue.", ""]
+  "table3": [[{
+    "content": "If we specify a width, it will not always be followed. I have a width of 1000px",
+    "styles": "onethousand" }, {
+    "content": "…and I have a width of 2000px. Because there’s not enough space for 3000px, they are reduced proportionally, to 33.3% and 66.6% of the total width.",
+    "styles": "threethousand"
+  }]],
+  "table4": [["If we prevent word wrapping, the table can become so wide it grows beyond its container.", {
+    "content": "…and text-overflow: ellipsis doesn’t help either.",
+    "styles": "noWrapping"
+  }]],
+  "table5": [["Large images and blocks of code can also cause the same issue.", { "imgSrc": "http:\/\/lea.verou.me\/book\/panoramic.jpg" }]]
 };
+
+/* harmony default export */ __webpack_exports__["a"] = (tableContent);
 
 /***/ }),
 /* 51 */
@@ -19294,22 +19355,95 @@ var render = function() {
       _c("section", { attrs: { id: "c-6-2" } }, [
         _c("h3", [_vm._v("Taming table column widths 精确控制表格列宽")]),
         _vm._v(" "),
-        _c("div", { attrs: { id: "eg-6-2-1" } }, [
-          _c("table", [
-            _c(
-              "tbody",
-              _vm._l(_vm.tables.table1, function(tr, row) {
-                return _c(
-                  "tr",
-                  _vm._l(tr[row], function(td, column) {
-                    return _c("td", [_vm._v("td[column]")])
+        _c(
+          "div",
+          { attrs: { id: "eg-6-2-1" } },
+          [
+            _c("h4", [_vm._v("With table-layout: auto")]),
+            _vm._v(" "),
+            _vm._l(_vm.tables, function(table) {
+              return _c("table", [
+                _c(
+                  "tbody",
+                  _vm._l(table, function(tr) {
+                    return _c(
+                      "tr",
+                      [
+                        _vm._l(tr, function(td) {
+                          return !td.hasOwnProperty("styles")
+                            ? _c("td", [
+                                td.hasOwnProperty("imgSrc")
+                                  ? _c("img", {
+                                      attrs: { src: td.imgSrc, alt: "pics" }
+                                    })
+                                  : _c("span", [_vm._v(_vm._s(td))])
+                              ])
+                            : _vm._e()
+                        }),
+                        _vm._v(" "),
+                        _vm._l(tr, function(td) {
+                          return td.hasOwnProperty("styles")
+                            ? _c("td", { class: td.styles }, [
+                                _vm._v(_vm._s(td.content))
+                              ])
+                            : _vm._e()
+                        })
+                      ],
+                      2
+                    )
                   })
                 )
-              })
-            )
-          ])
-        ])
-      ])
+              ])
+            }),
+            _vm._v(" "),
+            _vm._m(1, false, false),
+            _vm._v(" "),
+            _c("h4", [_vm._v("With table-layout: fixed")]),
+            _vm._v(" "),
+            _vm._l(_vm.tables, function(table) {
+              return _c("table", { staticClass: "fixed" }, [
+                _c(
+                  "tbody",
+                  _vm._l(table, function(tr) {
+                    return _c(
+                      "tr",
+                      [
+                        _vm._l(tr, function(td) {
+                          return !td.hasOwnProperty("styles")
+                            ? _c("td", [
+                                td.hasOwnProperty("imgSrc")
+                                  ? _c("img", {
+                                      attrs: { src: td.imgSrc, alt: "pics" }
+                                    })
+                                  : _c("span", [_vm._v(_vm._s(td))])
+                              ])
+                            : _vm._e()
+                        }),
+                        _vm._v(" "),
+                        _vm._l(tr, function(td) {
+                          return td.hasOwnProperty("styles")
+                            ? _c("td", { class: td.styles }, [
+                                _vm._v(_vm._s(td.content))
+                              ])
+                            : _vm._e()
+                        })
+                      ],
+                      2
+                    )
+                  })
+                )
+              ])
+            }),
+            _vm._v(" "),
+            _c("code", [_vm._v("\n          table-layout: fixed")]),
+            _vm._v(" "),
+            _vm._m(2, false, false)
+          ],
+          2
+        )
+      ]),
+      _vm._v(" "),
+      _vm._m(3, false, false)
     ])
   ])
 }
@@ -19355,6 +19489,84 @@ var staticRenderFns = [
         _vm._v(
           "\n        figure {\n        \tmax-width: 300px;\n        \tmax-width: min-content;\n        \tmargin: auto;\n        }\n\n        figure > img { max-width: inherit }\n      "
         )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "explanation" }, [
+      _c("li", [
+        _vm._v(
+          "如果没有设置单元格宽度，宽度将会随着内容而分配。宽的单元格也较宽"
+        )
+      ]),
+      _vm._v(" "),
+      _c("li", [_vm._v("所有的行都会参与计算")]),
+      _vm._v(" "),
+      _c("li", [
+        _vm._v(
+          "当给两个单元格分别 1000px 和 2000px 的宽度，由于表格没有这么宽，表格最终的宽会按比例减少，分别变为33.3%和66.6%"
+        )
+      ]),
+      _vm._v(" "),
+      _c("li", [_vm._v("阻止自动换行 text-overflow: ellipsis 失效")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _vm._v("如果想看表格到底多么长，可以审查元素将，content 的 "),
+      _c("code", { staticClass: "inline" }, [_vm._v("overflow：hideden")]),
+      _vm._v("去掉")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { attrs: { id: "c-6-3" } }, [
+      _c("h3", [
+        _vm._v("Styling by sibling count 根据兄弟元素的数量来设置样式")
+      ]),
+      _vm._v(" "),
+      _c("div", { attrs: { id: "eg-6-3-1" } }, [
+        _c("ul", { staticClass: "list" }, [
+          _c("li", [_vm._v("1")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("2")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("3")])
+        ]),
+        _vm._v(" "),
+        _c("ul", { staticClass: "list" }, [
+          _c("li", [_vm._v("1")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("2")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("3")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("4")])
+        ]),
+        _vm._v(" "),
+        _c("ul", { staticClass: "list" }, [
+          _c("li", [_vm._v("1")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("2")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("3")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("4")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("5")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("6")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("7")])
+        ])
       ])
     ])
   }
