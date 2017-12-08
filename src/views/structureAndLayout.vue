@@ -62,20 +62,20 @@
       </section>
       <section id="c-6-3">
         <h3>Styling by sibling count 根据兄弟元素的数量来设置样式</h3>
-        <h4>select a certain number of list</h4>
+        <h4>select the first of a certain number of list</h4>
         <div id="eg-6-3-1">
-          <ul class="list">
+          <ul class="list first">
             <li>1</li>
             <li>2</li>
             <li>3</li>
           </ul>
-          <ul class="list">
+          <ul class="list first">
             <li>1</li>
             <li>2</li>
             <li>3</li>
             <li>4</li>
           </ul>
-          <ul class="list">
+          <ul class="list first">
             <li>1</li>
             <li>2</li>
             <li>3</li>
@@ -102,6 +102,52 @@
           });
         </code>
         <p>Here the first items of lists which have 4 and 6 items are given different styles.</p>
+        <p>这里有4项和6项的列表的首相有不同的样式。</p>
+        <h4>select a range of a certain number of list</h4>
+        <div id="eg-6-3-2">
+          <ul class="list second">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+          </ul>
+          <ul class="list second">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+          </ul>
+          <ul class="list second">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+          </ul>
+          <ul class="list second">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+          </ul>
+          <ul class="list second">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+          </ul>
+        </div>
+        <p>the Example above</p>
+        <p>lists which contains at most 4 items have yellow border.</p>
+        <p>不超过4项的列表有黄色边框。</p>
+        <p>lists which contains at least 4 items have a green background.</p>
+        <p>超过4项的有绿色背景</p>
+        <p>lists which contains 2-6 items have a check at the top-right corner.</p>
+        <p>项目数在2-6之间的有check标记。</p>
       </section>
     </section>
   </div>

@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "ae23a2404992949cd0f7"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "25116c3de4d46266ebe7"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -19304,6 +19304,47 @@ if (true) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -19533,8 +19574,10 @@ var staticRenderFns = [
         _vm._v("Styling by sibling count 根据兄弟元素的数量来设置样式")
       ]),
       _vm._v(" "),
+      _c("h4", [_vm._v("select a certain number of list")]),
+      _vm._v(" "),
       _c("div", { attrs: { id: "eg-6-3-1" } }, [
-        _c("ul", { staticClass: "list" }, [
+        _c("ul", { staticClass: "list first" }, [
           _c("li", [_vm._v("1")]),
           _vm._v(" "),
           _c("li", [_vm._v("2")]),
@@ -19542,7 +19585,7 @@ var staticRenderFns = [
           _c("li", [_vm._v("3")])
         ]),
         _vm._v(" "),
-        _c("ul", { staticClass: "list" }, [
+        _c("ul", { staticClass: "list first" }, [
           _c("li", [_vm._v("1")]),
           _vm._v(" "),
           _c("li", [_vm._v("2")]),
@@ -19552,7 +19595,59 @@ var staticRenderFns = [
           _c("li", [_vm._v("4")])
         ]),
         _vm._v(" "),
-        _c("ul", { staticClass: "list" }, [
+        _c("ul", { staticClass: "list first" }, [
+          _c("li", [_vm._v("1")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("2")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("3")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("4")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("5")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("6")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v("Here we use less to make our code become less verbose")
+      ]),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n        .nItems(@n,@content){\n          &:first-child:nth-last-child(@{n}),\n          &:first-child:nth-last-child(@{n}) ~ & {\n            @content();\n          }\n        }\n\n        .nItems(4,{\n            content...\n        });\n\n        .nItems(6,{\n            content...\n        });\n      "
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "Here the first items of lists which have 4 and 6 items are given different styles."
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { attrs: { id: "eg-6-3-2" } }, [
+        _c("ul", { staticClass: "list second" }, [
+          _c("li", [_vm._v("1")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("2")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("3")])
+        ]),
+        _vm._v(" "),
+        _c("ul", { staticClass: "list second" }, [
+          _c("li", [_vm._v("1")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("2")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("3")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("4")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("5")])
+        ]),
+        _vm._v(" "),
+        _c("ul", { staticClass: "list second" }, [
           _c("li", [_vm._v("1")]),
           _vm._v(" "),
           _c("li", [_vm._v("2")]),
