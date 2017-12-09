@@ -1092,16 +1092,16 @@ code.inline {
   justify-content: center;
   align-items: center;
 }
-#c-6-3 .list.first:first-child:nth-last-child(4),
-#c-6-3 .list.first:first-child:nth-last-child(4) ~ #c-6-3 .list.first {
+#c-6-3 .list.first li:first-child:nth-last-child(4),
+#c-6-3 .list.first li:first-child:nth-last-child(4) ~ l#c-6-3 .list.first li {
   background: yellowgreen;
 }
-#c-6-3 .list.first:first-child:nth-last-child(6),
-#c-6-3 .list.first:first-child:nth-last-child(6) ~ #c-6-3 .list.first {
+#c-6-3 .list.first li:first-child:nth-last-child(6),
+#c-6-3 .list.first li:first-child:nth-last-child(6) ~ l#c-6-3 .list.first li {
   background: yellowgreen;
 }
-#c-6-3 .list.first:first-child:nth-last-child(6)::after,
-#c-6-3 .list.first:first-child:nth-last-child(6) ~ #c-6-3 .list.first::after {
+#c-6-3 .list.first li:first-child:nth-last-child(6)::after,
+#c-6-3 .list.first li:first-child:nth-last-child(6) ~ l#c-6-3 .list.first li::after {
   content: '\2713';
   color: #fff;
   background: #d2407a;
@@ -1114,16 +1114,16 @@ code.inline {
   top: -0.25em;
   font-size: 12px;
 }
-#c-6-3 .list.second:first-child:nth-last-child(n + 4),
-#c-6-3 .list.second:first-child:nth-last-child(n + 4) ~ #c-6-3 .list.second {
+#c-6-3 .list.second li:first-child:nth-last-child(n + 4),
+#c-6-3 .list.second li:first-child:nth-last-child(n + 4) ~ li {
   background: yellowgreen;
 }
-#c-6-3 .list.second:first-child:nth-last-child(-n + 4),
-#c-6-3 .list.second:first-child:nth-last-child(-n + 4) ~ #c-6-3 .list.second {
-  border: 5px solid yellowgreen;
+#c-6-3 .list.second li:first-child:nth-last-child(-n + 4),
+#c-6-3 .list.second li:first-child:nth-last-child(-n + 4) ~ li {
+  border: 5px solid #FFEB3B;
 }
-#c-6-3 .list.second:first-child:nth-last-child(n + 2):nth-last-child(-n + 6)::after,
-#c-6-3 .list.second:first-child:nth-last-child(n + 2):nth-last-child(-n + 6) ~ #c-6-3 .list.second::after {
+#c-6-3 .list.second li:first-child:nth-last-child(n + 2):nth-last-child(-n + 6)::after,
+#c-6-3 .list.second li:first-child:nth-last-child(n + 2):nth-last-child(-n + 6) ~ li::after {
   content: '\2713';
   color: #fff;
   background: #d2407a;
@@ -1135,4 +1135,9 @@ code.inline {
   right: -0.25em;
   top: -0.25em;
   font-size: 12px;
+}
+#eg-6-3-1,
+#eg-6-3-2,
+#eg-6-3-3 {
+  width: auto;
 }

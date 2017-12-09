@@ -148,6 +148,33 @@
         <p>超过4项的有绿色背景</p>
         <p>lists which contains 2-6 items have a check at the top-right corner.</p>
         <p>项目数在2-6之间的有check标记。</p>
+        <h4>An Example from the book, using js to style sibling items.</h4>
+        <div id="eg-6-3-3">
+          <palette></palette>
+        </div>
+        <p>Here we only list related code</p>
+        <code>
+          /* Hide "color" 4 items or more */
+          /* 隐藏 "color" 字符 当有4项或以上时 */
+          .palette li:first-child:nth-last-child(n+4) .color-options a:after,
+          .palette li:first-child:nth-last-child(n+4) ~ li .color-options a:after {
+          	content: none;
+          }
+
+          /* Hide word when 6 items or more */
+          /* 隐藏文字，当有6项或更多时 */
+          .palette li:first-child:nth-last-child(n+6) .color-options a,
+          .palette li:first-child:nth-last-child(n+6) ~ li .color-options a {
+          	color: transparent;
+          	font-size: 0;
+          }
+
+          /* Hide “delete” button when only 1 items contained */
+          /* 隐藏删除按钮，只有一项时*/
+          .palette li:only-child .delete {
+          	display:none;
+          }
+        </code>
       </section>
     </section>
   </div>
@@ -155,11 +182,15 @@
 
 <script>
 import tables from '../data/c6s2table.js'
+import palette from '../components/Palette.vue'
 export default {
   data (){
     return {
       tables: tables
     }
+  },
+  components: {
+    palette
   }
 }
 </script>
