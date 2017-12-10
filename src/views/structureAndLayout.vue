@@ -176,6 +176,17 @@
           }
         </code>
       </section>
+      <section id="c-6-3">
+        <h3>Fluid background, fixed content 满幅的背景、定宽的内容</h3>
+        <router-link :to="{ path: '/fluidBg' }" target="_blank">查看示例</router-link>
+        <p>展示页面布局的单开一页。</p>
+        <p>这里想要表达的是，之前对于这样的布局通常是在外层元素内包裹一层元素，设置宽度，并给予
+          <code class="inline">margin: auto</code>，为了让我们的 code 更加 dry，省去包裹元素的做法，就是给外层元素一个计算的padding</p>
+        <code>
+          max-width: 900px;
+          padding: 1em calc(50% - 450px);
+        </code>
+      </section>
     </section>
   </div>
 </template>

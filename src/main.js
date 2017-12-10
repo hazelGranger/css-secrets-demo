@@ -16,6 +16,7 @@ import Typography from './views/typography.vue'
 import UserExperience from './views/userExperience.vue'
 import BlurDialog from './views/blurDialog.vue'
 import StructureAndLayout from './views/structureAndLayout.vue'
+import FluidBg from './views/fluidBg.vue'
 
 Vue.use(VueRouter)
 // Vue.use(VueResource)
@@ -52,7 +53,11 @@ const routes = [{
   component: BlurDialog
 },{
   path: '/structureAndLayout',
-  component: StructureAndLayout
+  component: StructureAndLayout,
+  meta: { scrollToTop: true }
+},{
+  path: '/fluidBg',
+  component: FluidBg
 }]
 
 const scrollBehavior = (to,from,savedPosition) =>{
