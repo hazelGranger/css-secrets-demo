@@ -17,6 +17,7 @@ import UserExperience from './views/userExperience.vue'
 import BlurDialog from './views/blurDialog.vue'
 import StructureAndLayout from './views/structureAndLayout.vue'
 import FluidBg from './views/fluidBg.vue'
+import VerticalCenter from './views/verticalCenter.vue'
 
 Vue.use(VueRouter)
 // Vue.use(VueResource)
@@ -58,6 +59,9 @@ const routes = [{
 },{
   path: '/fluidBg',
   component: FluidBg
+},{
+  path: '/verticalCenter/:id',
+  component: VerticalCenter
 }]
 
 const scrollBehavior = (to,from,savedPosition) =>{

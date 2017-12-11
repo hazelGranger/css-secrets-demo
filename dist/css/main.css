@@ -1141,3 +1141,10 @@ code.inline {
 #eg-6-3-3 {
   width: auto;
 }
+#c-6-4 a {
+  display: block;
+}
+#c-6-4 code {
+  margin-top: 15px;
+  margin-bottom: 30px;
+}

@@ -176,7 +176,7 @@
           }
         </code>
       </section>
-      <section id="c-6-3">
+      <section id="c-6-4">
         <h3>Fluid background, fixed content 满幅的背景、定宽的内容</h3>
         <router-link :to="{ path: '/fluidBg' }" target="_blank">查看示例</router-link>
         <p>展示页面布局的单开一页。</p>
@@ -185,6 +185,63 @@
         <code>
           max-width: 900px;
           padding: 1em calc(50% - 450px);
+        </code>
+      </section>
+      <section id="c-6-5">
+        <h3>Vertical centering 垂直居中</h3>
+        <h4>The absolute positioning solution</h4>
+        <router-link :to="{ path: '/verticalCenter/' + 'absPos1'}"  target="_blank"> 点击查看例子，运用 cal()</router-link>
+        <code>
+          .main1{
+            position: absolute;
+            top: calc(~"50% - 3em");
+            left: calc(~"50% - 6em");
+            width: 12em;
+            height: 6em;
+          }
+        </code>
+        <router-link :to="{ path: '/verticalCenter/' + 'absPos2' }" target="_blank">点击查看例子，运用 translate</router-link>
+        <code>
+          .main2{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+        </code>
+        <h4>The viewport unit solution</h4>
+        <router-link :to="{ path: '/verticalCenter/' + 'viewport' }" target="_blank">点击查看运用 viewpoint 的例子</router-link>
+        <code>
+          .main3{
+            width: 12em;
+            margin: 50vh auto 0;
+            transform: translateY(-50%);
+          }
+        </code>
+        <h4>The Flexbox solution </h4>
+        <router-link :to="{ path: '/verticalCenter/' + 'flexbox1' }" target="_blank">点击查看运用 flexbox 的例子</router-link>
+        <code>
+          .main4{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 12em;
+            margin: auto;
+          }
+          .bodyForFlex{
+            display: flex;
+          }
+        </code>
+        <router-link :to="{ path: '/verticalCenter/' + 'flexbox2' }" target="_blank">我觉得这样写更好～～A better flexbox solution I think</router-link>
+        <code>
+          .main5{
+            width: 12em;
+          }
+          .myFlexBody{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
         </code>
       </section>
     </section>
