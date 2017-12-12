@@ -244,6 +244,10 @@
           }
         </code>
       </section>
+      <section id="c-6-6">
+        <h3>Sticky footers 紧贴底部的页脚</h3>
+        <router-link :to="{ path: '/stickyFooter/' }" target="_blank">查看示例</router-link>
+      </section>
     </section>
   </div>
 </template>
