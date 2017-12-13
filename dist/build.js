@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "e777051f8690d776cc04"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "3d534cfa0db4b7786d4d"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -20907,8 +20907,113 @@ if (true) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-/* harmony default export */ __webpack_exports__["a"] = ({});
+/* harmony default export */ __webpack_exports__["a"] = ({
+  data() {
+    return {
+      typingText: 'CSS is awesome!',
+      typingStyles: {}
+    };
+  },
+  created() {
+    let length = this.typingText.length;
+    let styles = {
+      width: length + 'ch',
+      animationTimingFunction: "steps(" + length + "),steps(1)",
+      animationDuration: length / 2 + "s, 1s"
+    };
+    this.typingStyles = styles;
+  }
+});
 
 /***/ }),
 /* 74 */
@@ -20919,46 +21024,124 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0, false, false)
+  return _c("div", { staticClass: "content" }, [
+    _c("section", { staticClass: "c-7" }, [
+      _c("h2", [_vm._v("Transitions & Animations 过渡与动画")]),
+      _vm._v(" "),
+      _vm._m(0, false, false),
+      _vm._v(" "),
+      _vm._m(1, false, false),
+      _vm._v(" "),
+      _vm._m(2, false, false),
+      _vm._v(" "),
+      _c("section", { attrs: { id: "c-7-4" } }, [
+        _c("h3", [_vm._v("Typing animation 打字动画")]),
+        _vm._v(" "),
+        _c("div", { attrs: { id: "eg-7-4-1" } }, [
+          _c("h1", { style: _vm.typingStyles }, [
+            _vm._v(_vm._s(_vm.typingText))
+          ])
+        ]),
+        _vm._v(" "),
+        _c("code", [
+          _vm._v(
+            "\n        @keyframes typing {\n          from{\n            width: 0;\n          }\n        }\n\n        @keyframes caret {\n          50% {\n            border-right-color: transparent;\n          }\n        }\n\n        h1{\n          overflow: hidden;\n          border-right: .05em solid;\n          white-space: nowrap;\n          width: 15ch;\n          animation: typing 8s steps(15),caret 1s steps(1) infinite;\n        }\n      "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "If use js to calculate the animation params, the effect would be better."
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "Since I use vue in the whole project, the js code will not be displayed here! You can find it in the source code!"
+          )
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content" }, [
-      _c("section", { staticClass: "c-7" }, [
-        _c("h2", [_vm._v("Transitions & Animations 过渡与动画")]),
-        _vm._v(" "),
-        _c("section", { attrs: { id: "c-7-1" } }, [
-          _c("h3", [_vm._v("Elastic tranistions 缓动效果")]),
+    return _c("section", { attrs: { id: "c-7-1" } }, [
+      _c("h3", [_vm._v("Elastic tranistions 缓动效果")]),
+      _vm._v(" "),
+      _c("h4", [_vm._v("Bouncing Animations")]),
+      _vm._v(" "),
+      _c("div", { attrs: { id: "eg-7-1-1" } }, [
+        _c("div", { staticClass: "ball" })
+      ]),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n        @keyframes bounce {\n          60%, 80%, to {\n        \t\ttransform: translateY(280px);\n        \t\tanimation-timing-function: ease;\n        \t}\n        \t70% { transform: translateY(210px); }\n        \t90% { transform: translateY(250px); }\n        }\n        .ball{\n          animation: bounce 1.5s cubic-bezier(.1,.25,1,.25) forwards;\n        }\n      "
+        )
+      ]),
+      _vm._v(" "),
+      _c("h4", [_vm._v("Elastic tranistions")]),
+      _vm._v(" "),
+      _c("div", { attrs: { id: "eg-7-1-2" } }, [
+        _c("label", [
+          _c("input", { attrs: { type: "text", value: "NoOne" } }),
           _vm._v(" "),
-          _c("h4", [_vm._v("Bouncing Animations")]),
-          _vm._v(" "),
-          _c("div", { attrs: { id: "eg-7-1-1" } }, [
-            _c("div", { staticClass: "ball" })
-          ]),
-          _vm._v(" "),
-          _c("code", [
+          _c("span", { staticClass: "callout" }, [
             _vm._v(
-              "\n        @keyframes bounce {\n          60%, 80%, to {\n        \t\ttransform: translateY(280px);\n        \t\tanimation-timing-function: ease;\n        \t}\n        \t70% { transform: translateY(210px); }\n        \t90% { transform: translateY(250px); }\n        }\n        .ball{\n          animation: bounce 1.5s cubic-bezier(.1,.25,1,.25) forwards;\n        }\n      "
+              "Only letters, numbers, underscores (_) and hyphens (-) allowed!"
             )
-          ]),
-          _vm._v(" "),
-          _c("h4", [_vm._v("Elastic tranistions")]),
-          _vm._v(" "),
-          _c("div", { attrs: { id: "eg-7-1-2" } }, [
-            _c("label", [
-              _c("input", { attrs: { type: "text", value: "NoOne" } }),
-              _vm._v(" "),
-              _c("span", { staticClass: "callout" }, [
-                _vm._v(
-                  "Only letters, numbers, underscores (_) and hyphens (-) allowed!"
-                )
-              ])
-            ])
           ])
         ])
+      ]),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n        input:not(:focus) + .callout:not(:hover){\n          transform: scale(0);\n          transition: .25s transform;\n        }\n        .callout{\n          transition: .5s cubic-bezier(.25,.1,.3,1.5) transform;\n          transform-origin: 1em -.4em;\n        }\n      }\n      "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { attrs: { id: "c-7-2" } }, [
+      _c("h3", [_vm._v("Frame-by-frame animations 逐帧动画")]),
+      _vm._v(" "),
+      _c("div", { attrs: { id: "eg-7-2-1" } }, [
+        _c("div", { staticClass: "loader" })
+      ]),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n        @keyframes loader {\n          to {\n            background-position: -800px 0;\n          }\n        }\n\n        .loader{\n          animation: loader 1s infinite steps(8);\n        }\n      "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { attrs: { id: "c-7-3" } }, [
+      _c("h3", [_vm._v("Blinking 闪烁效果")]),
+      _vm._v(" "),
+      _c("div", { attrs: { id: "eg-7-3-1" } }, [
+        _c("p", { staticClass: "blink-smooth-1" }, [_vm._v("Pokemon!")]),
+        _vm._v(" "),
+        _c("p", { staticClass: "blink-smooth-2" }, [_vm._v("Pokemon!")]),
+        _vm._v(" "),
+        _c("p", { staticClass: "blink" }, [_vm._v("Pokemon!")])
+      ]),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n        @keyframes blink-1 {\n          50% {\n            color: transparent;\n          };\n        }\n\n        @keyframes blink-2 {\n          to {\n            color: transparent;\n          }\n        }\n\n        .blink-smooth-1{\n          animation: blink-1 1s 3;\n        }\n        .blink-smooth-2{\n          animation: blink-2 .5s 6;\n          animation-direction: alternate;\n        }\n        .blink{\n          animation: 1s blink-1 3 steps(1);\n        }\n      "
+        )
       ])
     ])
   }

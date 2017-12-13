@@ -58,3 +58,73 @@
     //选用尖角top和left值，既他们的坐标作为transform-origin
   }
 }
+@keyframes loader {
+  to {
+    background-position: -800px 0;
+  }
+}
+
+#eg-7-2-1{
+  .loader{
+    width: 100px;
+    height: 100px;
+    background-image: url('../img/loader.png');
+    animation: loader 1s infinite steps(8);
+  }
+}
+
+@keyframes blink-1 {
+  50% {
+    color: transparent;
+  };
+}
+
+@keyframes blink-2 {
+  to {
+    color: transparent;
+  }
+}
+
+#eg-7-3-1{
+  p{
+    background: #fffd6a;
+    padding: 10px;
+  }
+  .blink-smooth-1{
+    animation: blink-1 1s 3;
+  }
+  .blink-smooth-2{
+    animation: blink-2 .5s 6;
+    animation-direction: alternate;
+  }
+  .blink{
+    animation: 1s blink-1 3 steps(1);
+  }
+}
+
+@keyframes typing {
+  from{
+    width: 0;
+  }
+}
+
+@keyframes caret {
+  50% {
+    border-right-color: transparent;
+  }
+}
+
+#eg-7-4-1{
+  background: #000;
+  width: 70%;
+  padding: 15px;
+  h1{
+    font: bold 200% Consolas, Monaco, monospace;
+    color: #fff;
+    overflow: hidden;
+    border-right: .05em solid;
+    white-space: nowrap;
+    width: 15ch;
+    animation: typing 8s steps(15),caret 1s steps(1) infinite;
+  }
+}
