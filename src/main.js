@@ -19,6 +19,7 @@ import StructureAndLayout from './views/structureAndLayout.vue'
 import FluidBg from './views/fluidBg.vue'
 import VerticalCenter from './views/verticalCenter.vue'
 import StickyFooter from './views/stickyFooter.vue'
+import TransitionsAndAnimations from './views/transitionsAndAnimations.vue'
 
 Vue.use(VueRouter)
 // Vue.use(VueResource)
@@ -66,6 +67,9 @@ const routes = [{
 },{
   path: '/stickyFooter',
   component: StickyFooter
+},{
+  path: '/transitionsAndAnimations',
+  component: TransitionsAndAnimations
 }]
 
 const scrollBehavior = (to,from,savedPosition) =>{

@@ -76,10 +76,10 @@ const directory =  [{
       ]
     },
     {
-      "chapter": "Tranistions & Animations 过渡与动画",
-      "componentName": "bgAndBorders",
+      "chapter": "Transitions & Animations 过渡与动画",
+      "componentName": "transitionsAndAnimations",
       "sections": [
-        "Elastic tranistions 缓动效果",
+        "Elastic transitions 缓动效果",
         "Frame-by-frame animations 逐帧动画",
         "Blinking 闪烁效果",
         "Typing animation 打字动画",

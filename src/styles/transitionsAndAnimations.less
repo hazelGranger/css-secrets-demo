@@ -1,0 +1,60 @@
+@keyframes bounce {
+  60%, 80%, to {
+		transform: translateY(280px);
+		animation-timing-function: ease;
+	}
+	70% { transform: translateY(210px); }
+	90% { transform: translateY(250px); }
+}
+
+#eg-7-1-1{
+  background: linear-gradient(skyblue,white 80%,yellowgreen 0);
+  height: 400px;
+  .ball{
+    width: 0;
+    height: 0;
+    padding: 20px;
+    border-radius: 50%;
+    margin: auto;
+    background: #ff0066 radial-gradient(at 30% 30%,#fdd,#ff0066);
+    animation: bounce 1.5s cubic-bezier(.1,.25,1,.25) forwards;
+  }
+}
+
+#eg-7-1-2{
+  input{
+    display: block;
+    padding: .2em .4em;
+    font-size: 150%;
+  }
+  .callout{
+    position: absolute;
+    padding: 1em;
+    border-radius: .3em;
+    background: #fed;
+    border: 1px solid rgba(0,0,0,.3);
+    box-shadow: 0 .2em .6em rgba(0, 0, 0, .2);
+    margin-top: .4em;
+    &::before{
+      content: "";
+      position: absolute;
+      top: -.4em;
+      left: 1em;
+      padding: .3em;
+      background: inherit;
+      border: inherit;
+      border-right: 0;
+      border-bottom: 0;
+      transform: rotate(45deg);
+    }
+  }
+  input:not(:focus) + .callout:not(:hover){
+    transform: scale(0);
+    transition: .25s transform;
+  }
+  .callout{
+    transition: .5s cubic-bezier(.25,.1,.3,1.5) transform;
+    transform-origin: 1em -.4em;
+    //选用尖角top和left值，既他们的坐标作为transform-origin
+  }
+}
