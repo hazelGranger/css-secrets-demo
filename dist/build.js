@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "3d534cfa0db4b7786d4d"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "2e40f17d83ee28d50062"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -20996,6 +20996,12 @@ if (true) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   data() {
@@ -21060,7 +21066,9 @@ var render = function() {
             "Since I use vue in the whole project, the js code will not be displayed here! You can find it in the source code!"
           )
         ])
-      ])
+      ]),
+      _vm._v(" "),
+      _vm._m(3, false, false)
     ])
   ])
 }
@@ -21143,6 +21151,18 @@ var staticRenderFns = [
           "\n        @keyframes blink-1 {\n          50% {\n            color: transparent;\n          };\n        }\n\n        @keyframes blink-2 {\n          to {\n            color: transparent;\n          }\n        }\n\n        .blink-smooth-1{\n          animation: blink-1 1s 3;\n        }\n        .blink-smooth-2{\n          animation: blink-2 .5s 6;\n          animation-direction: alternate;\n        }\n        .blink{\n          animation: 1s blink-1 3 steps(1);\n        }\n      "
         )
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { attrs: { id: "c-7-5" } }, [
+      _c("h3", [_vm._v("Smooth state animations  状态平滑的动画")]),
+      _vm._v(" "),
+      _c("div", { attrs: { id: "eg-7-5-1" } }),
+      _vm._v(" "),
+      _c("code")
     ])
   }
 ]

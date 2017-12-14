@@ -128,3 +128,77 @@
     animation: typing 8s steps(15),caret 1s steps(1) infinite;
   }
 }
+
+@keyframes panoramic {
+  to {
+    background-position: 100% 0;
+  }
+}
+
+#eg-7-5-1{
+  background-image: url('http://lea.verou.me/book/panoramic.jpg');
+  height: 300px;
+  width: 300px;
+  background-size: auto 100%;
+  animation: panoramic 10s linear infinite alternate;
+  animation-play-state: paused;
+  &:hover,&:focus{
+    animation-play-state: running;
+  }
+}
+
+@keyframes spin {
+  to{
+    transform: rotate(1turn);
+  }
+}
+
+#eg-7-6-1,#eg-7-6-2{
+  .path{
+    width: 360px;
+    height: 360px;
+    background: #fffd6a;
+    border-radius: 50%;
+    box-sizing: content-box;
+    padding: 15px;
+  }
+}
+
+#eg-7-6-1{
+  .avatar{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    animation: spin 8s linear infinite;
+    transform-origin: 50% 180px;
+    margin: 0 auto;
+    & > img{
+      width: inherit;
+      height: inherit;
+      border-radius: inherit;
+      display: block;
+      animation: inherit;
+      animation-direction: reverse;
+    }
+  }
+}
+
+@keyframes spin-2 {
+  from {
+    transform: rotate(0turn) translateY(-180px) translateY(50%) rotate(1turn);
+  }
+  to {
+    transform: rotate(1turn) translateY(-180px) translateY(50%) rotate(0turn);
+  }
+}
+
+#eg-7-6-2{
+  .avatar{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: block;
+    margin: calc(~"50% - 30px") auto 0;
+    animation: spin-2 8s linear infinite;
+  }
+}

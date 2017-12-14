@@ -118,6 +118,77 @@
         <p>If use js to calculate the animation params, the effect would be better.</p>
         <p>Since I use vue in the whole project, the js code will not be displayed here! You can find it in the source code!</p>
       </section>
+      <section id="c-7-5">
+        <h3>Smooth state animations  状态平滑的动画</h3>
+        <div id="eg-7-5-1">
+        </div>
+        <code>
+          @keyframes panoramic {
+            to {
+              background-position: 100% 0;
+            }
+          }
+
+          #eg-7-5-1{
+            background-image: url('http://lea.verou.me/book/panoramic.jpg');
+            height: 300px;
+            width: 300px;
+            background-size: auto 100%;
+            animation: panoramic 10s linear infinite alternate;
+            animation-play-state: paused;
+            &amp;:hover,&amp;:focus{
+              animation-play-state: running;
+            }
+          }
+        </code>
+      </section>
+      <section id="c-7-6">
+        <h3>Animation along a circular path  沿环形路径平移的动画</h3>
+        <h4>Two element solution</h4>
+        <div id="eg-7-6-1">
+          <div class="path">
+            <div class="avatar">
+              <img src="http://csssecrets.io/images/adamcatlace.jpg" alt="avatar">
+            </div>
+          </div>
+        </div>
+        <code>
+          @keyframes spin {
+            to{
+              transform: rotate(1turn);
+            }
+          }
+          .avatar{
+            animation: spin 8s linear infinite;
+            transform-origin: 50% 180px;
+          }
+          .avatar > img{
+            animation: inherit;
+            animation-direction: reverse;
+          }
+        </code>
+        <h4>Single element solution</h4>
+        <div id="eg-7-6-2">
+          <div class="path">
+            <img class="avatar" src="http://csssecrets.io/images/adamcatlace.jpg" alt="avatar">
+          </div>
+        </div>
+        <code>
+          @keyframes spin-2 {
+            from {
+              transform: rotate(0turn) translateY(-180px) translateY(50%) rotate(1turn);
+            }
+            to {
+              transform: rotate(1turn) translateY(-180px) translateY(50%) rotate(0turn);
+            }
+          }
+
+          .avatar{
+            margin: calc(~"50% - 30px") auto 0;
+            animation: spin-2 8s linear infinite;
+          }
+        </code>
+      </section>
     </section>
   </div>
 </template>
