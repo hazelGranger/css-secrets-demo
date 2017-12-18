@@ -3,7 +3,7 @@ html{
 }
 body{
 	font-family: "Hiragino Sans GB","Helvetica Neue",Helvetica,Arial,Verdana,"Microsoft Yahei",sans-serif;
-	color:#333;
+	color: @black;
 	height: 100%;
 	margin: 0;
 }
@@ -30,8 +30,7 @@ a{
 }
 
 h1,h2,h3,h4{
-	color: #ff0066;
-  opacity: 0.8;
+	color: @pink;
 }
 p{
 	line-height: 2;
@@ -53,12 +52,6 @@ ul{
 	width: 100%;
 	position: relative;
 	.content{
-		//position: absolute;
-		// top: 0;
-		// left: 0;
-		// right: 0;
-		// bottom: 0;
-		// overflow-y: auto;
 		margin-left: 360px;
 		padding: 0 30px;
 		overflow: hidden;
@@ -70,15 +63,15 @@ ul{
 	font-size: 0.9rem;
 	display: inline-block;
 	margin-bottom: 1rem;
-	color: rgb(177, 218, 115);
-	border-color: rgb(177, 218, 115);
+	color: @green;
+	border-color: @green;
 	border-style: solid;
 	border-width: 1px;
 	border-radius: 0.3rem;
 	transition: color 0.2s, background-color 0.2s, border-color 0.2s;
 	&:hover{
 		color: #fff;
-		background-color: rgb(177, 218, 115);
+		background-color: @green;
 		text-decoration: none;
 	}
 }
@@ -97,7 +90,7 @@ section{
 
 code{
 	display: inline-block;
-	background-color: #FDEFDA;
+	background-color: @paleOrange;
 	font-family: "Menlo", "Liberation Mono", "Consolas", "DejaVu Sans Mono", "Ubuntu Mono", "Courier New", "andale mono", "lucida console", monospace;
 	padding: 1em;
 	padding: 0 1em 1em;

@@ -608,8 +608,7 @@ h1,
 h2,
 h3,
 h4 {
-  color: #ff0066;
-  opacity: 0.8;
+  color: #ea557f;
 }
 p {
   line-height: 2;
@@ -639,8 +638,8 @@ ul.explanation {
   font-size: 0.9rem;
   display: inline-block;
   margin-bottom: 1rem;
-  color: #b1da73;
-  border-color: #b1da73;
+  color: yellowgreen;
+  border-color: yellowgreen;
   border-style: solid;
   border-width: 1px;
   border-radius: 0.3rem;
@@ -648,7 +647,7 @@ ul.explanation {
 }
 .btn:hover {
   color: #fff;
-  background-color: #b1da73;
+  background-color: yellowgreen;
   text-decoration: none;
 }
 section {
@@ -664,7 +663,7 @@ section .ele-wrapper {
 }
 code {
   display: inline-block;
-  background-color: #FDEFDA;
+  background-color: #fed;
   font-family: "Menlo", "Liberation Mono", "Consolas", "DejaVu Sans Mono", "Ubuntu Mono", "Courier New", "andale mono", "lucida console", monospace;
   padding: 1em;
   padding: 0 1em 1em;
@@ -677,6 +676,47 @@ code {
 code.inline {
   padding: 0;
   margin: 0;
+}
+.navigator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  overflow-y: auto;
+  width: 350px;
+  background: #60524f;
+}
+.navigator .title {
+  text-indent: 15px;
+}
+.navigator .link {
+  color: #f5bb34;
+  padding: 15px;
+  display: block;
+  text-decoration: none;
+  transition: background 0.3s ease-in-out;
+}
+.navigator .chapter > li {
+  font-size: 16px;
+  overflow: hidden;
+}
+.navigator .chapter > li .link.active {
+  background: rgba(0, 0, 0, 0.3);
+}
+.navigator .chapter > li .link.active ~ .section {
+  height: auto;
+}
+.navigator .section {
+  height: 0;
+}
+.navigator .section > li {
+  font-size: 14px;
+  text-indent: 2em;
+}
+.navigator .section > li .link.active {
+  background: rgba(0, 0, 0, 0.2);
 }
 #eg-4-1-1 {
   width: 5em;
@@ -1267,4 +1307,67 @@ code.inline {
   white-space: nowrap;
   width: 15ch;
   animation: typing 8s steps(15), caret 1s steps(1) infinite;
+}
+@keyframes panoramic {
+  to {
+    background-position: 100% 0;
+  }
+}
+#eg-7-5-1 {
+  background-image: url('http://lea.verou.me/book/panoramic.jpg');
+  height: 300px;
+  width: 300px;
+  background-size: auto 100%;
+  animation: panoramic 10s linear infinite alternate;
+  animation-play-state: paused;
+}
+#eg-7-5-1:hover,
+#eg-7-5-1:focus {
+  animation-play-state: running;
+}
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+#eg-7-6-1 .path,
+#eg-7-6-2 .path {
+  width: 360px;
+  height: 360px;
+  background: #fffd6a;
+  border-radius: 50%;
+  box-sizing: content-box;
+  padding: 15px;
+}
+#eg-7-6-1 .avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  animation: spin 8s linear infinite;
+  transform-origin: 50% 180px;
+  margin: 0 auto;
+}
+#eg-7-6-1 .avatar > img {
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  display: block;
+  animation: inherit;
+  animation-direction: reverse;
+}
+@keyframes spin-2 {
+  from {
+    transform: rotate(0turn) translateY(-180px) translateY(50%) rotate(1turn);
+  }
+  to {
+    transform: rotate(1turn) translateY(-180px) translateY(50%) rotate(0turn);
+  }
+}
+#eg-7-6-2 .avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: block;
+  margin: calc(50% - 30px) auto 0;
+  animation: spin-2 8s linear infinite;
 }
