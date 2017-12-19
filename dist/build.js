@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "c2b9280ce91737ccba7c"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "9a5f3946115f94b91a93"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -12413,8 +12413,6 @@ __webpack_require__(25);
 
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
-// Vue.use(VueResource)
-
 
 const routes = [{
   path: '/',
@@ -15437,16 +15435,57 @@ if (true) {(function () {
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   data() {
     return {
-      title: "css-secret-demo"
+      title: "css-secret-demo",
+      scroll: false,
+      navActiveChapter: "",
+      navActiveSection: ""
     };
   },
   components: {
     navigator: __WEBPACK_IMPORTED_MODULE_0__components_Navigator_vue__["a" /* default */]
+  },
+  methods: {
+    handleScroll() {
+      this.scroll = window.scrollY;
+      let AllSections = document.querySelectorAll('.c-section');
+      let curChapter = document.querySelector('.c-chapter');
+      let AllSectionsOffsetY = [];
+
+      for (var i = 0; i < AllSections.length; i++) {
+        AllSectionsOffsetY.push(AllSections[i].offsetTop);
+      }
+
+      if (curChapter) {
+        this.navActiveChapter = curChapter.id;
+      } else {
+        return;
+      }
+
+      for (var j = 0; j < AllSectionsOffsetY.length; j++) {
+        if (this.scroll < AllSectionsOffsetY[j]) {
+          this.navActiveSection = j;
+          break;
+        } else if (this.scroll > AllSectionsOffsetY[AllSectionsOffsetY.length - 1]) {
+          this.navActiveSection = AllSectionsOffsetY.length;
+        }
+      }
+    }
+  },
+  created() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  updated() {
+    this.handleScroll();
+  },
+  distroyed() {
+    window.removeListener('scroll', this.handleScroll);
   }
 });
 
@@ -15525,6 +15564,8 @@ if (true) {(function () {
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -15532,7 +15573,8 @@ if (true) {(function () {
     return {
       dirs: __WEBPACK_IMPORTED_MODULE_0__data_directory_js__["a" /* default */]
     };
-  }
+  },
+  props: ['activeChapter', 'activeSection']
 });
 
 /***/ }),
@@ -15607,10 +15649,8 @@ var render = function() {
               "router-link",
               {
                 staticClass: "link",
-                attrs: {
-                  to: { path: dir.componentName },
-                  "active-class": "active"
-                }
+                class: { active: _vm.activeChapter === "c-" + (cIndex + 1) },
+                attrs: { to: { path: dir.componentName } }
               },
               [_vm._v(_vm._s(dir.chapter))]
             ),
@@ -15626,6 +15666,7 @@ var render = function() {
                       "router-link",
                       {
                         staticClass: "link",
+                        class: { active: _vm.activeSection === sIndex + 1 },
                         attrs: {
                           to: {
                             path:
@@ -15634,8 +15675,7 @@ var render = function() {
                               (cIndex + 1) +
                               "-" +
                               (sIndex + 1)
-                          },
-                          "active-class": "active"
+                          }
                         }
                       },
                       [_vm._v(_vm._s(sec))]
@@ -15675,7 +15715,16 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "wrapper" },
-    [_c("navigator"), _vm._v(" "), _c("router-view")],
+    [
+      _c("navigator", {
+        attrs: {
+          activeChapter: _vm.navActiveChapter,
+          activeSection: _vm.navActiveSection
+        }
+      }),
+      _vm._v(" "),
+      _c("router-view")
+    ],
     1
   )
 }
@@ -16226,10 +16275,10 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "content" }, [
-      _c("section", { staticClass: "c-1" }, [
+      _c("section", { staticClass: "c-chapter", attrs: { id: "c-1" } }, [
         _c("h2", [_vm._v("Backgrounds &Borders  背景与边框")]),
         _vm._v(" "),
-        _c("section", { attrs: { id: "c-1-1" } }, [
+        _c("section", { staticClass: "c-section", attrs: { id: "c-1-1" } }, [
           _c("h3", [_vm._v("Translucent borders 半透明边框")]),
           _vm._v(" "),
           _c("div", { attrs: { id: "eg-1-1" } }, [
@@ -16247,7 +16296,7 @@ var staticRenderFns = [
           ])
         ]),
         _vm._v(" "),
-        _c("section", { attrs: { id: "c-1-2" } }, [
+        _c("section", { staticClass: "c-section", attrs: { id: "c-1-2" } }, [
           _c("h3", [_vm._v("Multiple borders 多重边框")]),
           _vm._v(" "),
           _c("h4", [_vm._v("box-shadow solution")]),
@@ -16271,7 +16320,7 @@ var staticRenderFns = [
           ])
         ]),
         _vm._v(" "),
-        _c("section", { attrs: { id: "c-1-3" } }, [
+        _c("section", { staticClass: "c-section", attrs: { id: "c-1-3" } }, [
           _c("h3", [_vm._v("Flexible background positioning  灵活的背景定位")]),
           _vm._v(" "),
           _c("h4", [_vm._v("Extended background-position solution")]),
@@ -16305,7 +16354,7 @@ var staticRenderFns = [
           ])
         ]),
         _vm._v(" "),
-        _c("section", { attrs: { id: "c-1-4" } }, [
+        _c("section", { staticClass: "c-section", attrs: { id: "c-1-4" } }, [
           _c("h3", [_vm._v("Inner rounding 边框内圆角")]),
           _vm._v(" "),
           _c("div", { attrs: { id: "eg-1-4-1" } }),
@@ -16317,7 +16366,7 @@ var staticRenderFns = [
           ])
         ]),
         _vm._v(" "),
-        _c("section", { attrs: { id: "c-1-5" } }, [
+        _c("section", { staticClass: "c-section", attrs: { id: "c-1-5" } }, [
           _c("h3", [_vm._v("Striped backgrounds  条纹背景")]),
           _vm._v(" "),
           _c("section", [
@@ -16441,7 +16490,7 @@ var staticRenderFns = [
           ])
         ]),
         _vm._v(" "),
-        _c("section", { attrs: { id: "c-1-6" } }, [
+        _c("section", { staticClass: "c-section", attrs: { id: "c-1-6" } }, [
           _c("h3", [_vm._v("Complex background patterns   复杂的背景图案")]),
           _vm._v(" "),
           _c("section", [
@@ -16506,7 +16555,7 @@ var staticRenderFns = [
           ])
         ]),
         _vm._v(" "),
-        _c("section", { attrs: { id: "c-1-7" } }, [
+        _c("section", { staticClass: "c-section", attrs: { id: "c-1-7" } }, [
           _c("h3", [_vm._v("Continuous image borders 连续的图像边框")]),
           _vm._v(" "),
           _c("section", [
@@ -16886,7 +16935,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "content" }, [
-    _c("section", { attrs: { id: "c-2" } }, [
+    _c("section", { staticClass: "c-chapter", attrs: { id: "c-2" } }, [
       _c("h2", [_vm._v("Shapes 形状")]),
       _vm._v(" "),
       _vm._m(0, false, false),
@@ -16899,7 +16948,7 @@ var render = function() {
       _vm._v(" "),
       _vm._m(4, false, false),
       _vm._v(" "),
-      _c("section", { attrs: { id: "c-2-6" } }, [
+      _c("section", { staticClass: "c-section", attrs: { id: "c-2-6" } }, [
         _c("h3", [_vm._v("Simple pie charts")]),
         _vm._v(" "),
         _vm._m(5, false, false),
@@ -16956,7 +17005,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { attrs: { id: "c-2-1" } }, [
+    return _c("section", { staticClass: "c-section", attrs: { id: "c-2-1" } }, [
       _c("h3", [_vm._v("Flexible ellipses")]),
       _vm._v(" "),
       _c("div", { attrs: { id: "eg-2-1-1" } }),
@@ -16982,7 +17031,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { attrs: { id: "c-2-2" } }, [
+    return _c("section", { staticClass: "c-section", attrs: { id: "c-2-2" } }, [
       _c("h3", [_vm._v("Parallelograms")]),
       _vm._v(" "),
       _c("h4", [_vm._v("Nested elements solution")]),
@@ -17030,7 +17079,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { attrs: { id: "c-2-3" } }, [
+    return _c("section", { staticClass: "c-section", attrs: { id: "c-2-3" } }, [
       _c("h3", [_vm._v("Diamond images")]),
       _vm._v(" "),
       _c("section", [
@@ -17066,7 +17115,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { attrs: { id: "c-2-4" } }, [
+    return _c("section", { staticClass: "c-section", attrs: { id: "c-2-4" } }, [
       _c("h3", [_vm._v("Cutout corners")]),
       _vm._v(" "),
       _c("section", [
@@ -17134,7 +17183,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { attrs: { id: "c-2-5" } }, [
+    return _c("section", { staticClass: "c-section", attrs: { id: "c-2-5" } }, [
       _c("h3", [_vm._v("Trapezoid tabs")]),
       _vm._v(" "),
       _c("section", [
@@ -17398,10 +17447,10 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "content" }, [
-      _c("section", { attrs: { id: "c-3" } }, [
+      _c("section", { staticClass: "c-chapter", attrs: { id: "c-3" } }, [
         _c("h2", [_vm._v("Visual Effects")]),
         _vm._v(" "),
-        _c("section", { attrs: { id: "c-3-1" } }, [
+        _c("section", { staticClass: "c-section", attrs: { id: "c-3-1" } }, [
           _c("h3", [_vm._v("One-sided shadows")]),
           _vm._v(" "),
           _c("section", { attrs: { id: "eg-3-1-1" } }, [
@@ -17441,7 +17490,7 @@ var staticRenderFns = [
           ])
         ]),
         _vm._v(" "),
-        _c("section", { attrs: { id: "c-3-2" } }, [
+        _c("section", { staticClass: "c-section", attrs: { id: "c-3-2" } }, [
           _c("h3", [_vm._v("Irregular drop shadows")]),
           _vm._v(" "),
           _c("section", { attrs: { id: "eg-3-2-1" } }, [
@@ -17471,7 +17520,7 @@ var staticRenderFns = [
           ])
         ]),
         _vm._v(" "),
-        _c("section", { attrs: { id: "c-3-3" } }, [
+        _c("section", { staticClass: "c-section", attrs: { id: "c-3-3" } }, [
           _c("h3", [_vm._v("Color tinting")]),
           _vm._v(" "),
           _c("section", { attrs: { id: "eg-3-3-1" } }, [
@@ -17501,7 +17550,7 @@ var staticRenderFns = [
           ])
         ]),
         _vm._v(" "),
-        _c("section", { attrs: { id: "c-3-4" } }, [
+        _c("section", { staticClass: "c-section", attrs: { id: "c-3-4" } }, [
           _c("h3", [_vm._v("Frosted glass effect")]),
           _vm._v(" "),
           _c("section", { attrs: { id: "eg-3-4-1" } }, [
@@ -17535,7 +17584,7 @@ var staticRenderFns = [
           ])
         ]),
         _vm._v(" "),
-        _c("section", { attrs: { id: "c-3-5" } }, [
+        _c("section", { staticClass: "c-section", attrs: { id: "c-3-5" } }, [
           _c("h3", [_vm._v("Folded corner effect")]),
           _vm._v(" "),
           _c("section", { attrs: { id: "eg-3-5-1" } }, [
@@ -17943,7 +17992,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "content" }, [
-    _c("section", { attrs: { id: "c-4" } }, [
+    _c("section", { staticClass: "c-chapter", attrs: { id: "c-4" } }, [
       _c("h2", [_vm._v("Typography 字体排印")]),
       _vm._v(" "),
       _vm._m(0, false, false),
@@ -17960,7 +18009,7 @@ var render = function() {
       _vm._v(" "),
       _vm._m(6, false, false),
       _vm._v(" "),
-      _c("section", { attrs: { id: "c-4-8" } }, [
+      _c("section", { staticClass: "c-section", attrs: { id: "c-4-8" } }, [
         _c("h3", [_vm._v("Realistic text effects 现实中的文字效果")]),
         _vm._v(" "),
         _c("div", { attrs: { id: "eg-4-8-1" } }, [
@@ -18028,7 +18077,7 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("section", { attrs: { id: "c-4-9" } }, [
+      _c("section", { staticClass: "c-section", attrs: { id: "c-4-9" } }, [
         _c("h3", [_vm._v("Circular text 环形文字")]),
         _vm._v(" "),
         _c("div", { attrs: { id: "eg-4-9-1" } }, [
@@ -18063,7 +18112,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { attrs: { id: "c-4-1" } }, [
+    return _c("section", { staticClass: "c-section", attrs: { id: "c-4-1" } }, [
       _c("h3", [_vm._v("Hyphenation 连字符断行")]),
       _vm._v(" "),
       _c("p", [_vm._v("中文排版环境下一般不需要考虑连字符断行")]),
@@ -18083,7 +18132,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { attrs: { id: "c-4-2" } }, [
+    return _c("section", { staticClass: "c-section", attrs: { id: "c-4-2" } }, [
       _c("h3", [_vm._v("Inserting line breaks 插入换行")]),
       _vm._v(" "),
       _c("div", { attrs: { id: "eg-4-2-1" } }, [
@@ -18137,7 +18186,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { attrs: { id: "c-4-3" } }, [
+    return _c("section", { staticClass: "c-section", attrs: { id: "c-4-3" } }, [
       _c("h3", [_vm._v("Zebra-striped text lines 文本行的斑马条纹")]),
       _vm._v(" "),
       _c("p", [
@@ -18168,7 +18217,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { attrs: { id: "c-4-4" } }, [
+    return _c("section", { staticClass: "c-section", attrs: { id: "c-4-4" } }, [
       _c("h3", [_vm._v("Adjusting tab width 调整 Tab 的宽度")]),
       _vm._v(" "),
       _c("div", { attrs: { id: "eg-4-4-1" } }, [
@@ -18202,7 +18251,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { attrs: { id: "c-4-5" } }, [
+    return _c("section", { staticClass: "c-section", attrs: { id: "c-4-5" } }, [
       _c("h3", [_vm._v("Ligatures 连字")]),
       _vm._v(" "),
       _c("div", { attrs: { id: "eg-4-5-1" } }, [
@@ -18222,7 +18271,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { attrs: { id: "c-4-6" } }, [
+    return _c("section", { staticClass: "c-section", attrs: { id: "c-4-6" } }, [
       _c("h3", [_vm._v("Fancy ampersands 华丽的 & 符号")]),
       _vm._v(" "),
       _c("div", { attrs: { id: "eg-4-6-1" } }, [
@@ -18260,7 +18309,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { attrs: { id: "c-4-7" } }, [
+    return _c("section", { staticClass: "c-section", attrs: { id: "c-4-7" } }, [
       _c("h3", [_vm._v("Custom underlines 自定义下划线")]),
       _vm._v(" "),
       _c("div", { attrs: { id: "eg-4-7-1" } }, [
@@ -18671,7 +18720,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "content" }, [
-    _c("section", { attrs: { id: "c-5" } }, [
+    _c("section", { staticClass: "c-chapter", attrs: { id: "c-5" } }, [
       _c("h2", [_vm._v("User Experience 用户体验")]),
       _vm._v(" "),
       _vm._m(0, false, false),
@@ -18680,7 +18729,7 @@ var render = function() {
       _vm._v(" "),
       _vm._m(2, false, false),
       _vm._v(" "),
-      _c("section", { attrs: { id: "c-5-4" } }, [
+      _c("section", { staticClass: "c-section", attrs: { id: "c-5-4" } }, [
         _c("h3", [_vm._v("De-emphasize by dimming 通过阴影来弱化背景")]),
         _vm._v(" "),
         _c("h4", [_vm._v("box-shadow solution")]),
@@ -18729,7 +18778,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "section",
-        { attrs: { id: "c-5-5" } },
+        { staticClass: "c-section", attrs: { id: "c-5-5" } },
         [
           _c("h3", [_vm._v("De-emphasize by blurring 通过模糊来弱化背景")]),
           _vm._v(" "),
@@ -18744,7 +18793,7 @@ var render = function() {
       _vm._v(" "),
       _vm._m(4, false, false),
       _vm._v(" "),
-      _c("section", { attrs: { id: "c-5-7" } }, [
+      _c("section", { staticClass: "c-section", attrs: { id: "c-5-7" } }, [
         _c("h3", [_vm._v("Interactive image comparison 交互式的图片对比控件")]),
         _vm._v(" "),
         _c("h4", [_vm._v("CSS resize solution")]),
@@ -18814,7 +18863,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { attrs: { id: "c-5-1" } }, [
+    return _c("section", { staticClass: "c-section", attrs: { id: "c-5-1" } }, [
       _c("h3", [_vm._v("Picking the right cursor 选用合适的鼠标光标")]),
       _vm._v(" "),
       _c("div", { attrs: { id: "eg-5-1-1" } }, [
@@ -18834,7 +18883,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { attrs: { id: "c-5-2" } }, [
+    return _c("section", { staticClass: "c-section", attrs: { id: "c-5-2" } }, [
       _c("h3", [_vm._v("Extending the clickable area 扩大可点击区域")]),
       _vm._v(" "),
       _c("div", { attrs: { id: "eg-5-2-1" } }, [
@@ -18866,7 +18915,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { attrs: { id: "c-5-3" } }, [
+    return _c("section", { staticClass: "c-section", attrs: { id: "c-5-3" } }, [
       _c("h3", [_vm._v("Custom checkboxes 自定义复选框")]),
       _vm._v(" "),
       _c("h4", [_vm._v("checkboxes")]),
@@ -18945,7 +18994,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { attrs: { id: "c-5-6" } }, [
+    return _c("section", { staticClass: "c-section", attrs: { id: "c-5-6" } }, [
       _c("h3", [_vm._v("Scrolling hints 滚动提示")]),
       _vm._v(" "),
       _c("div", { attrs: { id: "eg-5-6-1" } }, [
@@ -19718,12 +19767,12 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "content" }, [
-    _c("section", { staticClass: "c-6" }, [
+    _c("section", { staticClass: "c-chapter", attrs: { id: "c-6" } }, [
       _c("h2", [_vm._v("Structure & Layout 结构与布局")]),
       _vm._v(" "),
       _vm._m(0, false, false),
       _vm._v(" "),
-      _c("section", { attrs: { id: "c-6-2" } }, [
+      _c("section", { staticClass: "c-section", attrs: { id: "c-6-2" } }, [
         _c("h3", [_vm._v("Taming table column widths 精确控制表格列宽")]),
         _vm._v(" "),
         _c(
@@ -19814,7 +19863,7 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("section", { attrs: { id: "c-6-3" } }, [
+      _c("section", { staticClass: "c-section", attrs: { id: "c-6-3" } }, [
         _c("h3", [
           _vm._v("Styling by sibling count 根据兄弟元素的数量来设置样式")
         ]),
@@ -19886,7 +19935,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "section",
-        { attrs: { id: "c-6-4" } },
+        { staticClass: "c-section", attrs: { id: "c-6-4" } },
         [
           _c("h3", [
             _vm._v("Fluid background, fixed content 满幅的背景、定宽的内容")
@@ -19913,7 +19962,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "section",
-        { attrs: { id: "c-6-5" } },
+        { staticClass: "c-section", attrs: { id: "c-6-5" } },
         [
           _c("h3", [_vm._v("Vertical centering 垂直居中")]),
           _vm._v(" "),
@@ -20013,7 +20062,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "section",
-        { attrs: { id: "c-6-6" } },
+        { staticClass: "c-section", attrs: { id: "c-6-6" } },
         [
           _c("h3", [_vm._v("Sticky footers 紧贴底部的页脚")]),
           _vm._v(" "),
@@ -20033,7 +20082,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { attrs: { id: "c-6-1" } }, [
+    return _c("section", { staticClass: "c-section", attrs: { id: "c-6-1" } }, [
       _c("h3", [_vm._v("Intrinsic sizing 自适应内部元素")]),
       _vm._v(" "),
       _c("div", { attrs: { id: "eg-6-1-1" } }, [
@@ -21056,7 +21105,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "content" }, [
-    _c("section", { staticClass: "c-7" }, [
+    _c("section", { staticClass: "c-chapter", attrs: { id: "c-7" } }, [
       _c("h2", [_vm._v("Transitions & Animations 过渡与动画")]),
       _vm._v(" "),
       _vm._m(0, false, false),
@@ -21065,7 +21114,7 @@ var render = function() {
       _vm._v(" "),
       _vm._m(2, false, false),
       _vm._v(" "),
-      _c("section", { attrs: { id: "c-7-4" } }, [
+      _c("section", { staticClass: "c-section", attrs: { id: "c-7-4" } }, [
         _c("h3", [_vm._v("Typing animation 打字动画")]),
         _vm._v(" "),
         _c("div", { attrs: { id: "eg-7-4-1" } }, [
@@ -21104,7 +21153,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { attrs: { id: "c-7-1" } }, [
+    return _c("section", { staticClass: "c-section", attrs: { id: "c-7-1" } }, [
       _c("h3", [_vm._v("Elastic tranistions 缓动效果")]),
       _vm._v(" "),
       _c("h4", [_vm._v("Bouncing Animations")]),
@@ -21144,7 +21193,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { attrs: { id: "c-7-2" } }, [
+    return _c("section", { staticClass: "c-section", attrs: { id: "c-7-2" } }, [
       _c("h3", [_vm._v("Frame-by-frame animations 逐帧动画")]),
       _vm._v(" "),
       _c("div", { attrs: { id: "eg-7-2-1" } }, [
@@ -21162,7 +21211,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { attrs: { id: "c-7-3" } }, [
+    return _c("section", { staticClass: "c-section", attrs: { id: "c-7-3" } }, [
       _c("h3", [_vm._v("Blinking 闪烁效果")]),
       _vm._v(" "),
       _c("div", { attrs: { id: "eg-7-3-1" } }, [
@@ -21184,7 +21233,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { attrs: { id: "c-7-5" } }, [
+    return _c("section", { staticClass: "c-section", attrs: { id: "c-7-5" } }, [
       _c("h3", [_vm._v("Smooth state animations  状态平滑的动画")]),
       _vm._v(" "),
       _c("div", { attrs: { id: "eg-7-5-1" } }),
@@ -21200,7 +21249,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { attrs: { id: "c-7-6" } }, [
+    return _c("section", { staticClass: "c-section", attrs: { id: "c-7-6" } }, [
       _c("h3", [
         _vm._v("Animation along a circular path  沿环形路径平移的动画")
       ]),

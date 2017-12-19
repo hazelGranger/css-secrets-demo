@@ -1,8 +1,8 @@
 <template lang="html">
   <div class="content">
-    <section class="c-7">
+    <section id="c-7" class="c-chapter">
       <h2>Transitions &amp; Animations 过渡与动画</h2>
-      <section id="c-7-1">
+      <section id="c-7-1" class="c-section">
         <h3>Elastic tranistions 缓动效果</h3>
         <h4>Bouncing Animations</h4>
         <div id="eg-7-1-1">
@@ -40,7 +40,7 @@
         }
         </code>
       </section>
-      <section id="c-7-2">
+      <section id="c-7-2" class="c-section">
         <h3>Frame-by-frame animations 逐帧动画</h3>
         <div id="eg-7-2-1">
           <div class="loader"></div>
@@ -57,7 +57,7 @@
           }
         </code>
       </section>
-      <section id="c-7-3">
+      <section id="c-7-3" class="c-section">
         <h3>Blinking 闪烁效果</h3>
         <div id="eg-7-3-1">
           <p class="blink-smooth-1">Pokemon!</p>
@@ -89,7 +89,7 @@
           }
         </code>
       </section>
-      <section id="c-7-4">
+      <section id="c-7-4" class="c-section">
         <h3>Typing animation 打字动画</h3>
         <div id="eg-7-4-1">
           <h1 v-bind:style="typingStyles">{{typingText}}</h1>
@@ -118,7 +118,7 @@
         <p>If use js to calculate the animation params, the effect would be better.</p>
         <p>Since I use vue in the whole project, the js code will not be displayed here! You can find it in the source code!</p>
       </section>
-      <section id="c-7-5">
+      <section id="c-7-5" class="c-section">
         <h3>Smooth state animations  状态平滑的动画</h3>
         <div id="eg-7-5-1">
         </div>
@@ -142,7 +142,7 @@
           }
         </code>
       </section>
-      <section id="c-7-6">
+      <section id="c-7-6" class="c-section">
         <h3>Animation along a circular path  沿环形路径平移的动画</h3>
         <h4>Two element solution</h4>
         <div id="eg-7-6-1">

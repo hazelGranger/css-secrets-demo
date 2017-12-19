@@ -1,8 +1,8 @@
 <template lang="html">
   <div class="content">
-    <section class="c-1">
+    <section id="c-1" class="c-chapter">
       <h2>Backgrounds &amp;Borders  背景与边框</h2>
-      <section id="c-1-1">
+      <section id="c-1-1" class="c-section">
         <h3>Translucent borders 半透明边框</h3>
         <div id="eg-1-1">
           <div id="eg-1-1-1">
@@ -16,7 +16,7 @@
           background-clip: padding-box;
         </code>
       </section>
-      <section id="c-1-2">
+      <section id="c-1-2" class="c-section">
         <h3>Multiple borders 多重边框</h3>
         <h4>box-shadow solution</h4>
         <div id="eg-1-2-1"></div>
@@ -34,7 +34,7 @@
           outline: 15px solid deeppink;
         </code>
       </section>
-      <section id="c-1-3">
+      <section id="c-1-3" class="c-section">
         <h3>Flexible background positioning  灵活的背景定位</h3>
         <h4>Extended background-position solution</h4>
         <div id="eg-1-3-1"></div>
@@ -57,7 +57,7 @@
           background-position: calc(100% - 20px) calc(100% - 20px);
         </code>
       </section>
-      <section id="c-1-4">
+      <section id="c-1-4" class="c-section">
         <h3>Inner rounding 边框内圆角</h3>
         <div id="eg-1-4-1"></div>
         <code>
@@ -68,7 +68,7 @@
           outline: .65em solid #655;
         </code>
       </section>
-      <section id="c-1-5">
+      <section id="c-1-5" class="c-section">
         <h3>Striped backgrounds  条纹背景</h3>
         <section>
           <div id="eg-1-5-1"></div>
@@ -151,7 +151,7 @@
           </code>
         </section>
       </section>
-      <section id="c-1-6">
+      <section id="c-1-6" class="c-section">
         <h3>Complex background patterns   复杂的背景图案</h3>
         <section>
           <div id="eg-1-6-1"></div>
@@ -210,7 +210,7 @@
           </p>
         </section>
       </section>
-      <section id="c-1-7">
+      <section id="c-1-7" class="c-section">
         <h3>Continuous image borders 连续的图像边框</h3>
         <section>
           <div id="eg-1-7-1">content</div>

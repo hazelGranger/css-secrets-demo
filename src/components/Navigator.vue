@@ -5,10 +5,12 @@
     </h2>
     <ul class="chapter">
       <li v-for="(dir,cIndex) in dirs">
-        <router-link :to="{path: dir.componentName}" class="link" active-class="active">{{dir.chapter}}</router-link>
+        <router-link :to="{path: dir.componentName}" class="link"
+          v-bind:class="{active: activeChapter === 'c-'+(cIndex+1)}" >{{dir.chapter}}</router-link>
         <ul class="section">
           <li v-for="(sec,sIndex) in dir.sections">
-            <router-link :to="{ path: dir.componentName+ '#c-' + (cIndex+1) + '-' + (sIndex+1)}" class="link" active-class="active">{{sec}}</router-link>
+            <router-link :to="{ path: dir.componentName+ '#c-' + (cIndex+1) + '-' + (sIndex+1)}" class="link"
+              v-bind:class="{active: activeSection === sIndex + 1}">{{sec}}</router-link>
           </li>
         </ul>
       </li>
@@ -23,6 +25,7 @@ export default {
     return {
       dirs: directory
     }
-  }
+  },
+  props: ['activeChapter','activeSection']
 }
 </script>

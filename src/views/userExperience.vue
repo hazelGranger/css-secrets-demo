@@ -1,8 +1,8 @@
 <template lang="html">
   <div class="content">
-    <section id="c-5">
+    <section id="c-5" class="c-chapter">
       <h2>User Experience 用户体验</h2>
-      <section id="c-5-1">
+      <section id="c-5-1" class="c-section">
         <h3>Picking the right cursor 选用合适的鼠标光标</h3>
         <div id="eg-5-1-1">
           <button >Button</button>
@@ -14,7 +14,7 @@
           }
         </code>
       </section>
-      <section id="c-5-2">
+      <section id="c-5-2" class="c-section">
         <h3>Extending the clickable area 扩大可点击区域</h3>
         <div id="eg-5-2-1">
           <h4>Border solution</h4>
@@ -60,7 +60,7 @@
           </code>
         </div>
       </section>
-      <section id="c-5-3">
+      <section id="c-5-3" class="c-section">
         <h3>Custom checkboxes 自定义复选框</h3>
         <h4>checkboxes</h4>
         <div id="eg-5-3-1">
@@ -142,7 +142,7 @@
           </code>
         </div>
       </section>
-      <section id="c-5-4">
+      <section id="c-5-4" class="c-section">
         <h3>De-emphasize by dimming 通过阴影来弱化背景</h3>
         <h4>box-shadow solution</h4>
         <div id="eg-5-4-1">
@@ -160,11 +160,11 @@
         <p>这种方法需要使用浏览器自带的 showModal() 方法，但是支持的浏览器有限，<br>
           并且需要直接操作DOM元素，在此不做展示</p>
       </section>
-      <section id="c-5-5">
+      <section id="c-5-5" class="c-section">
         <h3>De-emphasize by blurring 通过模糊来弱化背景</h3>
         <router-link :to="{ path: 'blurDialog' }" target ="_blank">查看示例</router-link>
       </section>
-      <section id="c-5-6">
+      <section id="c-5-6" class="c-section">
         <h3>Scrolling hints 滚动提示</h3>
         <div id="eg-5-6-1">
           <ul class="list">
@@ -200,7 +200,7 @@
           margin-top: 30px;
         </code>
       </section>
-      <section id="c-5-7">
+      <section id="c-5-7" class="c-section">
         <h3>Interactive image comparison 交互式的图片对比控件</h3>
         <h4>CSS resize solution</h4>
         <div id="eg-5-7-1">

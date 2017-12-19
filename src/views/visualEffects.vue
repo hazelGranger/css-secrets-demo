@@ -1,8 +1,8 @@
 <template lang="html">
   <div class="content">
-    <section id="c-3">
+    <section id="c-3" class="c-chapter">
 			<h2>Visual Effects</h2>
-			<section id="c-3-1">
+			<section id="c-3-1" class="c-section">
 				<h3>One-sided shadows</h3>
 				<section id="eg-3-1-1">
 					<h4>Shadow on one side</h4>
@@ -26,7 +26,7 @@
 					</code>
 				</section>
 			</section>
-			<section id="c-3-2">
+			<section id="c-3-2" class="c-section">
 				<h3>Irregular drop shadows</h3>
 				<section id="eg-3-2-1">
 					<div class="speech"></div>
@@ -47,7 +47,7 @@
 					</code>
 				</section>
 			</section>
-			<section id="c-3-3">
+			<section id="c-3-3" class="c-section">
 				<h3>Color tinting</h3>
 				<section id="eg-3-3-1">
 					<h4>Filter-based solution</h4>
@@ -66,7 +66,7 @@
 					</code>
 				</section>
 			</section>
-			<section id="c-3-4">
+			<section id="c-3-4" class="c-section">
 				<h3>Frosted glass effect</h3>
 				<section id="eg-3-4-1">
 					<div class="bg">
@@ -85,7 +85,7 @@
           </code>
 				</section>
 			</section>
-			<section id="c-3-5">
+			<section id="c-3-5" class="c-section">
 				<h3>Folded corner effect</h3>
 				<section id="eg-3-5-1">
 					<h4>The 45° solution</h4>

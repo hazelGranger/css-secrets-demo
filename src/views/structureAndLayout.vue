@@ -1,8 +1,8 @@
 <template lang="html">
   <div class="content">
-    <section class="c-6">
+    <section id="c-6" class="c-chapter">
       <h2>Structure &amp; Layout 结构与布局</h2>
-      <section id="c-6-1">
+      <section id="c-6-1" class="c-section">
         <h3>Intrinsic sizing 自适应内部元素</h3>
         <div id="eg-6-1-1">
           <p>Enjoy playing with this little kitty! Look at its tiny claws,its bright eys,pointed ears,and soft belly!</p>
@@ -22,7 +22,7 @@
           figure > img { max-width: inherit }
         </code>
       </section>
-      <section id="c-6-2">
+      <section id="c-6-2" class="c-section">
         <h3>Taming table column widths 精确控制表格列宽</h3>
         <div id="eg-6-2-1">
           <h4>With table-layout: auto</h4>
@@ -60,7 +60,7 @@
           <p>如果想看表格到底多么长，可以审查元素将，content 的 <code class="inline">overflow：hideden</code>去掉</p>
         </div>
       </section>
-      <section id="c-6-3">
+      <section id="c-6-3" class="c-section">
         <h3>Styling by sibling count 根据兄弟元素的数量来设置样式</h3>
         <h4>select the first of a certain number of list</h4>
         <div id="eg-6-3-1">
@@ -176,7 +176,7 @@
           }
         </code>
       </section>
-      <section id="c-6-4">
+      <section id="c-6-4" class="c-section">
         <h3>Fluid background, fixed content 满幅的背景、定宽的内容</h3>
         <router-link :to="{ path: '/fluidBg' }" target="_blank">查看示例</router-link>
         <p>展示页面布局的单开一页。</p>
@@ -187,7 +187,7 @@
           padding: 1em calc(50% - 450px);
         </code>
       </section>
-      <section id="c-6-5">
+      <section id="c-6-5" class="c-section">
         <h3>Vertical centering 垂直居中</h3>
         <h4>The absolute positioning solution</h4>
         <router-link :to="{ path: '/verticalCenter/' + 'absPos1'}"  target="_blank"> 点击查看例子，运用 cal()</router-link>
@@ -244,7 +244,7 @@
           }
         </code>
       </section>
-      <section id="c-6-6">
+      <section id="c-6-6" class="c-section">
         <h3>Sticky footers 紧贴底部的页脚</h3>
         <router-link :to="{ path: '/stickyFooter/' }" target="_blank">查看示例</router-link>
       </section>

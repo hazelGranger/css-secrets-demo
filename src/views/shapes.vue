@@ -1,8 +1,8 @@
 <template lang="html">
   <div class="content">
-    <section id="c-2">
+    <section id="c-2" class="c-chapter">
 			<h2>Shapes 形状</h2>
-			<section id="c-2-1">
+			<section id="c-2-1" class="c-section">
 				<h3>Flexible ellipses</h3>
 				<div id="eg-2-1-1"></div>
 				<code>
@@ -19,7 +19,7 @@
 					border-radius: 100% 0 0 0 ;
 				</code>
 			</section>
-			<section id="c-2-2">
+			<section id="c-2-2" class="c-section">
 				<h3>Parallelograms</h3>
 				<h4>Nested elements solution</h4>
 				<div id="eg-2-2-1">
@@ -64,7 +64,7 @@
 				</div>
 				<p><a href="https://www.oneasp.com/" target="_blink">点击查看我的应用案例</a></p>
 			</section>
-			<section id="c-2-3">
+			<section id="c-2-3" class="c-section">
 				<h3>Diamond images</h3>
 				<section>
 					<h4>transform-based solution</h4>
@@ -88,7 +88,7 @@
 					</code>
 				</section>
 			</section>
-			<section id="c-2-4">
+			<section id="c-2-4" class="c-section">
 				<h3>Cutout corners</h3>
 				<section>
 					<div id="eg-2-4-1">
@@ -174,7 +174,7 @@
 					</code>
 				</section>
 			</section>
-			<section id="c-2-5">
+			<section id="c-2-5" class="c-section">
 				<h3>Trapezoid tabs</h3>
 				<section>
 					<div id="eg-2-5-1"></div>
@@ -242,7 +242,7 @@
 					</code>
 				</section>
 			</section>
-			<section id="c-2-6">
+			<section id="c-2-6" class="c-section">
 				<h3>Simple pie charts</h3>
 				<section>
 					<h4>div solution</h4>

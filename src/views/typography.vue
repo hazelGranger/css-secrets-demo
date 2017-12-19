@@ -1,8 +1,8 @@
 <template lang="html">
   <div class="content">
-    <section id="c-4">
+    <section id="c-4" class="c-chapter">
       <h2>Typography 字体排印</h2>
-      <section id="c-4-1">
+      <section id="c-4-1" class="c-section">
         <h3>Hyphenation 连字符断行</h3>
         <p >中文排版环境下一般不需要考虑连字符断行</p>
         <div id="eg-4-1-1">“The only way to get rid of a temptation is to yield to it.”</div>
@@ -14,7 +14,7 @@
             height: auto;
           </code>
       </section>
-      <section id="c-4-2">
+      <section id="c-4-2" class="c-section">
         <h3>Inserting line breaks 插入换行</h3>
         <div id="eg-4-2-1">
           <dl>
@@ -65,7 +65,7 @@
           }
         </code>
       </section>
-      <section id="c-4-3">
+      <section id="c-4-3" class="c-section">
         <h3>Zebra-striped text lines 文本行的斑马条纹</h3>
         <p>条纹会随着字体的大小改变而自适应地变化，注意background-size 第二个参数是行高的 2倍</p>
         <div id="eg-4-3-1">
@@ -89,7 +89,7 @@
             </code>
         </div>
       </section>
-      <section id="c-4-4">
+      <section id="c-4-4" class="c-section">
         <h3>Adjusting tab width 调整 Tab 的宽度</h3>
         <div id="eg-4-4-1">
           <pre class="pre-2">
@@ -118,7 +118,7 @@
           </code>
         </div>
       </section>
-      <section id="c-4-5">
+      <section id="c-4-5" class="c-section">
         <h3>Ligatures 连字</h3>
         <div id="eg-4-5-1">
           <p>Common ligatures: fi ff fl ffi ffl</p>
@@ -129,7 +129,7 @@
           font-variant: common-ligatures discretionary-ligatures historical-ligatures;
         </code>
       </section>
-      <section id="c-4-6">
+      <section id="c-4-6" class="c-section">
         <h3>Fancy ampersands 华丽的 &amp; 符号</h3>
         <div id="eg-4-6-1">
           <p>HTML &amp; CSS</p>
@@ -152,7 +152,7 @@
           local() 里需要加 Italic，而不能用 font-style，因为只希望运用在符号上。
         </p>
       </section>
-      <section id="c-4-7">
+      <section id="c-4-7" class="c-section">
         <h3>Custom underlines 自定义下划线</h3>
         <div id="eg-4-7-1">
           <h4>Normal underlines 横线</h4>
@@ -181,7 +181,7 @@
           </code>
         </div>
       </section>
-      <section id="c-4-8">
+      <section id="c-4-8" class="c-section">
         <h3>Realistic text effects 现实中的文字效果</h3>
         <div id="eg-4-8-1">
           <h4>Letterpress</h4>
@@ -252,7 +252,7 @@
           </code>
         </div>
       </section>
-      <section id="c-4-9">
+      <section id="c-4-9" class="c-section">
         <h3>Circular text 环形文字</h3>
         <div id="eg-4-9-1">
           <div class="circle">

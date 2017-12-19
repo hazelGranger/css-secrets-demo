@@ -22,7 +22,6 @@ import StickyFooter from './views/stickyFooter.vue'
 import TransitionsAndAnimations from './views/transitionsAndAnimations.vue'
 
 Vue.use(VueRouter)
-// Vue.use(VueResource)
 
 
 const routes = [{
