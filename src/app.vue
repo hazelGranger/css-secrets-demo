@@ -14,7 +14,8 @@ export default {
       title: "css-secret-demo",
       scroll: false,
       navActiveChapter: "",
-      navActiveSection: ""
+      navActiveSection: "",
+      gap: 1
     }
   },
   components :{
@@ -38,7 +39,7 @@ export default {
       }
 
       for (var j = 0; j < AllSectionsOffsetY.length; j++) {
-        if(this.scroll < AllSectionsOffsetY[j]){
+        if(this.scroll + this.gap  < AllSectionsOffsetY[j]){
           this.navActiveSection = j;
           break;
         }else if (this.scroll > AllSectionsOffsetY[AllSectionsOffsetY.length-1]) {
