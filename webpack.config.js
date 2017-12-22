@@ -66,8 +66,9 @@ var config = {
   ],
   resolve: {
     alias: {
-      'vue': 'vue/dist/vue.js'
-    }
+      'vue': 'vue/dist/vue.js',
+    },
+    extensions: ['.js','.vue']
   },
   devServer: {
     contentBase: './dist/',

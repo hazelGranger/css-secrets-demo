@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "2d5a38484211907aafae"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "a5d3b326eba9881f6302"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -722,7 +722,7 @@
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire(14)(__webpack_require__.s = 14);
+/******/ 	return hotCreateRequire(15)(__webpack_require__.s = 15);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -11646,7 +11646,7 @@ return Vue$3;
 
 })));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12), __webpack_require__(15).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12), __webpack_require__(16).setImmediate))
 
 /***/ }),
 /* 2 */
@@ -12369,750 +12369,6 @@ process.umask = function() { return 0; };
 
 /***/ }),
 /* 14 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_vue__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__router___ = __webpack_require__(24);
-
-// import VueResource from 'vue-resource'
-
-
-
-
-// import style files
-__webpack_require__(74);
-
-new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
-  el: '#css-secrets-demo',
-  router: __WEBPACK_IMPORTED_MODULE_2__router___["a" /* default */],
-  template: '<App/>',
-  components: { App: __WEBPACK_IMPORTED_MODULE_1__app_vue__["a" /* default */] }
-});
-
-/***/ }),
-/* 15 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var apply = Function.prototype.apply;
-
-// DOM APIs, for completeness
-
-exports.setTimeout = function() {
-  return new Timeout(apply.call(setTimeout, window, arguments), clearTimeout);
-};
-exports.setInterval = function() {
-  return new Timeout(apply.call(setInterval, window, arguments), clearInterval);
-};
-exports.clearTimeout =
-exports.clearInterval = function(timeout) {
-  if (timeout) {
-    timeout.close();
-  }
-};
-
-function Timeout(id, clearFn) {
-  this._id = id;
-  this._clearFn = clearFn;
-}
-Timeout.prototype.unref = Timeout.prototype.ref = function() {};
-Timeout.prototype.close = function() {
-  this._clearFn.call(window, this._id);
-};
-
-// Does not start the time, just sets up the members needed.
-exports.enroll = function(item, msecs) {
-  clearTimeout(item._idleTimeoutId);
-  item._idleTimeout = msecs;
-};
-
-exports.unenroll = function(item) {
-  clearTimeout(item._idleTimeoutId);
-  item._idleTimeout = -1;
-};
-
-exports._unrefActive = exports.active = function(item) {
-  clearTimeout(item._idleTimeoutId);
-
-  var msecs = item._idleTimeout;
-  if (msecs >= 0) {
-    item._idleTimeoutId = setTimeout(function onTimeout() {
-      if (item._onTimeout)
-        item._onTimeout();
-    }, msecs);
-  }
-};
-
-// setimmediate attaches itself to the global object
-__webpack_require__(16);
-exports.setImmediate = setImmediate;
-exports.clearImmediate = clearImmediate;
-
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
-    "use strict";
-
-    if (global.setImmediate) {
-        return;
-    }
-
-    var nextHandle = 1; // Spec says greater than zero
-    var tasksByHandle = {};
-    var currentlyRunningATask = false;
-    var doc = global.document;
-    var registerImmediate;
-
-    function setImmediate(callback) {
-      // Callback can either be a function or a string
-      if (typeof callback !== "function") {
-        callback = new Function("" + callback);
-      }
-      // Copy function arguments
-      var args = new Array(arguments.length - 1);
-      for (var i = 0; i < args.length; i++) {
-          args[i] = arguments[i + 1];
-      }
-      // Store and register the task
-      var task = { callback: callback, args: args };
-      tasksByHandle[nextHandle] = task;
-      registerImmediate(nextHandle);
-      return nextHandle++;
-    }
-
-    function clearImmediate(handle) {
-        delete tasksByHandle[handle];
-    }
-
-    function run(task) {
-        var callback = task.callback;
-        var args = task.args;
-        switch (args.length) {
-        case 0:
-            callback();
-            break;
-        case 1:
-            callback(args[0]);
-            break;
-        case 2:
-            callback(args[0], args[1]);
-            break;
-        case 3:
-            callback(args[0], args[1], args[2]);
-            break;
-        default:
-            callback.apply(undefined, args);
-            break;
-        }
-    }
-
-    function runIfPresent(handle) {
-        // From the spec: "Wait until any invocations of this algorithm started before this one have completed."
-        // So if we're currently running a task, we'll need to delay this invocation.
-        if (currentlyRunningATask) {
-            // Delay by doing a setTimeout. setImmediate was tried instead, but in Firefox 7 it generated a
-            // "too much recursion" error.
-            setTimeout(runIfPresent, 0, handle);
-        } else {
-            var task = tasksByHandle[handle];
-            if (task) {
-                currentlyRunningATask = true;
-                try {
-                    run(task);
-                } finally {
-                    clearImmediate(handle);
-                    currentlyRunningATask = false;
-                }
-            }
-        }
-    }
-
-    function installNextTickImplementation() {
-        registerImmediate = function(handle) {
-            process.nextTick(function () { runIfPresent(handle); });
-        };
-    }
-
-    function canUsePostMessage() {
-        // The test against `importScripts` prevents this implementation from being installed inside a web worker,
-        // where `global.postMessage` means something completely different and can't be used for this purpose.
-        if (global.postMessage && !global.importScripts) {
-            var postMessageIsAsynchronous = true;
-            var oldOnMessage = global.onmessage;
-            global.onmessage = function() {
-                postMessageIsAsynchronous = false;
-            };
-            global.postMessage("", "*");
-            global.onmessage = oldOnMessage;
-            return postMessageIsAsynchronous;
-        }
-    }
-
-    function installPostMessageImplementation() {
-        // Installs an event handler on `global` for the `message` event: see
-        // * https://developer.mozilla.org/en/DOM/window.postMessage
-        // * http://www.whatwg.org/specs/web-apps/current-work/multipage/comms.html#crossDocumentMessages
-
-        var messagePrefix = "setImmediate$" + Math.random() + "$";
-        var onGlobalMessage = function(event) {
-            if (event.source === global &&
-                typeof event.data === "string" &&
-                event.data.indexOf(messagePrefix) === 0) {
-                runIfPresent(+event.data.slice(messagePrefix.length));
-            }
-        };
-
-        if (global.addEventListener) {
-            global.addEventListener("message", onGlobalMessage, false);
-        } else {
-            global.attachEvent("onmessage", onGlobalMessage);
-        }
-
-        registerImmediate = function(handle) {
-            global.postMessage(messagePrefix + handle, "*");
-        };
-    }
-
-    function installMessageChannelImplementation() {
-        var channel = new MessageChannel();
-        channel.port1.onmessage = function(event) {
-            var handle = event.data;
-            runIfPresent(handle);
-        };
-
-        registerImmediate = function(handle) {
-            channel.port2.postMessage(handle);
-        };
-    }
-
-    function installReadyStateChangeImplementation() {
-        var html = doc.documentElement;
-        registerImmediate = function(handle) {
-            // Create a <script> element; its readystatechange event will be fired asynchronously once it is inserted
-            // into the document. Do so, thus queuing up the task. Remember to clean up once it's been called.
-            var script = doc.createElement("script");
-            script.onreadystatechange = function () {
-                runIfPresent(handle);
-                script.onreadystatechange = null;
-                html.removeChild(script);
-                script = null;
-            };
-            html.appendChild(script);
-        };
-    }
-
-    function installSetTimeoutImplementation() {
-        registerImmediate = function(handle) {
-            setTimeout(runIfPresent, 0, handle);
-        };
-    }
-
-    // If supported, we should attach to the prototype of global, since that is where setTimeout et al. live.
-    var attachTo = Object.getPrototypeOf && Object.getPrototypeOf(global);
-    attachTo = attachTo && attachTo.setTimeout ? attachTo : global;
-
-    // Don't get fooled by e.g. browserify environments.
-    if ({}.toString.call(global.process) === "[object process]") {
-        // For Node.js before 0.9
-        installNextTickImplementation();
-
-    } else if (canUsePostMessage()) {
-        // For non-IE10 modern browsers
-        installPostMessageImplementation();
-
-    } else if (global.MessageChannel) {
-        // For web workers, where supported
-        installMessageChannelImplementation();
-
-    } else if (doc && "onreadystatechange" in doc.createElement("script")) {
-        // For IE 6–8
-        installReadyStateChangeImplementation();
-
-    } else {
-        // For older browsers
-        installSetTimeoutImplementation();
-    }
-
-    attachTo.setImmediate = setImmediate;
-    attachTo.clearImmediate = clearImmediate;
-}(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12), __webpack_require__(13)))
-
-/***/ }),
-/* 17 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_app_vue__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5ef48958_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_app_vue__ = __webpack_require__(23);
-var disposed = false
-var normalizeComponent = __webpack_require__(2)
-/* script */
-
-/* template */
-
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_app_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5ef48958_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_app_vue__["a" /* default */],
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "src/app.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
-
-/* hot reload */
-if (true) {(function () {
-  var hotAPI = __webpack_require__(0)
-  hotAPI.install(__webpack_require__(1), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-5ef48958", Component.options)
-  } else {
-    hotAPI.reload("data-v-5ef48958", Component.options)
-' + '  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-/* harmony default export */ __webpack_exports__["a"] = (Component.exports);
-
-
-/***/ }),
-/* 18 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Navigator_vue__ = __webpack_require__(19);
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-/* harmony default export */ __webpack_exports__["a"] = ({
-  data() {
-    return {
-      title: "css-secret-demo",
-      scroll: false,
-      navActiveChapter: "",
-      navActiveSection: "",
-      gap: 1
-    };
-  },
-  components: {
-    navigator: __WEBPACK_IMPORTED_MODULE_0__components_Navigator_vue__["a" /* default */]
-  },
-  methods: {
-    handleScroll() {
-      this.scroll = window.scrollY;
-      let AllSections = document.querySelectorAll('.c-section');
-      let curChapter = document.querySelector('.c-chapter');
-      let AllSectionsOffsetY = [];
-
-      for (var i = 0; i < AllSections.length; i++) {
-        AllSectionsOffsetY.push(AllSections[i].offsetTop);
-      }
-
-      if (curChapter) {
-        this.navActiveChapter = curChapter.id;
-      } else {
-        return;
-      }
-
-      for (var j = 0; j < AllSectionsOffsetY.length; j++) {
-        if (this.scroll + this.gap < AllSectionsOffsetY[j]) {
-          this.navActiveSection = j;
-          break;
-        } else if (this.scroll > AllSectionsOffsetY[AllSectionsOffsetY.length - 1]) {
-          this.navActiveSection = AllSectionsOffsetY.length;
-        }
-      }
-    }
-  },
-  created() {
-    window.addEventListener('scroll', this.handleScroll);
-  },
-  updated() {
-    this.handleScroll();
-  },
-  distroyed() {
-    window.removeListener('scroll', this.handleScroll);
-  }
-});
-
-/***/ }),
-/* 19 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_Navigator_vue__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_6331c252_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_Navigator_vue__ = __webpack_require__(22);
-var disposed = false
-var normalizeComponent = __webpack_require__(2)
-/* script */
-
-/* template */
-
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_Navigator_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_6331c252_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_Navigator_vue__["a" /* default */],
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "src/components/Navigator.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
-
-/* hot reload */
-if (true) {(function () {
-  var hotAPI = __webpack_require__(0)
-  hotAPI.install(__webpack_require__(1), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-6331c252", Component.options)
-  } else {
-    hotAPI.reload("data-v-6331c252", Component.options)
-' + '  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-/* harmony default export */ __webpack_exports__["a"] = (Component.exports);
-
-
-/***/ }),
-/* 20 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__data_directory_js__ = __webpack_require__(21);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-/* harmony default export */ __webpack_exports__["a"] = ({
-  data() {
-    return {
-      dirs: __WEBPACK_IMPORTED_MODULE_0__data_directory_js__["a" /* default */]
-    };
-  },
-  props: ['activeChapter', 'activeSection']
-});
-
-/***/ }),
-/* 21 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-
-const directory = [{
-  "chapter": "Backgrounds & Borders 背景与边框",
-  "componentName": "bgAndBorders",
-  "sections": ["Translucent borders 半透明边框", "Multiple borders 多重边框", "Flexible background positioning  灵活的背景定位", "Inner rounding 边框内圆角", "Striped backgrounds  条纹背景", "Complex background patterns   复杂的背景图案", "Continuous image borders 连续的图像边框"]
-}, {
-  "chapter": "Shapes 形状",
-  "componentName": "shapes",
-  "sections": ["Flexible ellipses 自适应的椭圆", "Parallelograms 平行四边形", "Diamond images 菱形图片", "Cutout corners 切角效果", "Trapezoid tabs 梯形标签页", "Simple pie charts 简单的饼图"]
-}, {
-  "chapter": "Visual Effects 视觉效果",
-  "componentName": "visualEffects",
-  "sections": ["One-sided shadows 单侧投影", "Irregular drop shadows 不规则投影", "Color tinting 染色效果", "Frosted glass effect 毛玻璃效果", "Folded corner effect 折角效果"]
-}, {
-  "chapter": "Typography 字体排印",
-  "componentName": "typography",
-  "sections": ["Hyphenation 连字符断行", "Inserting line breaks 插入换行", "Zebra-striped text lines 文本行的斑马条纹", "Adjusting tab width 调整 Tab 的宽度", "Ligatures 连字", "Fancy ampersands 华丽的 & 符号", "Custom underlines 自定义下划线", "Realistic text effects 现实中的文字效果", "Circular text 环形文字"]
-}, {
-  "chapter": "User Experience 用户体验",
-  "componentName": "userExperience",
-  "sections": ["Picking the right cursor 选用合适的鼠标光标", "Extending the clickable area 扩大可点击区域", "Custom checkboxes 自定义复选框", "De-emphasize by dimming 通过阴影来弱化背景", "De-emphasize by blurring 通过模糊来弱化背景", "Scrolling hints 滚动提示", "Interactive image comparison 交互式的图片对比控件"]
-}, {
-  "chapter": "Structure & Layout 结构与布局",
-  "componentName": "structureAndLayout",
-  "sections": ["Intrinsic sizing 自适应内部元素", "Taming table column widths 精确控制表格列宽", "Styling by sibling count 根据兄弟元素的数量来设置样式", "Fluid background, fixed content 满幅的背景、定宽的内容", "Vertical centering 垂直居中", "Sticky footers 紧贴底部的页脚"]
-}, {
-  "chapter": "Transitions & Animations 过渡与动画",
-  "componentName": "transitionsAndAnimations",
-  "sections": ["Elastic transitions 缓动效果", "Frame-by-frame animations 逐帧动画", "Blinking 闪烁效果", "Typing animation 打字动画", "Smooth state animations  状态平滑的动画", "Animation along a circular path  沿环形路径平移的动画"]
-}];
-
-/* harmony default export */ __webpack_exports__["a"] = (directory);
-
-/***/ }),
-/* 22 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "navigator" }, [
-    _c(
-      "h2",
-      { staticClass: "title" },
-      [
-        _c(
-          "router-link",
-          { staticClass: "link", attrs: { to: { path: "index" } } },
-          [_vm._v("Index 目录")]
-        )
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c(
-      "ul",
-      { staticClass: "chapter" },
-      _vm._l(_vm.dirs, function(dir, cIndex) {
-        return _c(
-          "li",
-          [
-            _c(
-              "router-link",
-              {
-                staticClass: "link",
-                class: { active: _vm.activeChapter === "c-" + (cIndex + 1) },
-                attrs: { to: { path: dir.componentName } }
-              },
-              [_vm._v(_vm._s(dir.chapter))]
-            ),
-            _vm._v(" "),
-            _c(
-              "ul",
-              { staticClass: "section" },
-              _vm._l(dir.sections, function(sec, sIndex) {
-                return _c(
-                  "li",
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "link",
-                        class: { active: _vm.activeSection === sIndex + 1 },
-                        attrs: {
-                          to: {
-                            path:
-                              dir.componentName +
-                              "#c-" +
-                              (cIndex + 1) +
-                              "-" +
-                              (sIndex + 1)
-                          }
-                        }
-                      },
-                      [_vm._v(_vm._s(sec))]
-                    )
-                  ],
-                  1
-                )
-              })
-            )
-          ],
-          1
-        )
-      })
-    )
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ __webpack_exports__["a"] = (esExports);
-if (true) {
-  module.hot.accept()
-  if (module.hot.data) {
-    __webpack_require__(0)      .rerender("data-v-6331c252", esExports)
-  }
-}
-
-/***/ }),
-/* 23 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "wrapper" },
-    [
-      _c("navigator", {
-        attrs: {
-          activeChapter: _vm.navActiveChapter,
-          activeSection: _vm.navActiveSection
-        }
-      }),
-      _vm._v(" "),
-      _c("router-view")
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ __webpack_exports__["a"] = (esExports);
-if (true) {
-  module.hot.accept()
-  if (module.hot.data) {
-    __webpack_require__(0)      .rerender("data-v-5ef48958", esExports)
-  }
-}
-
-/***/ }),
-/* 24 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__scrollBehavior__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__views_index_vue__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__views_bgAndBorders_vue__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__views_shapes_vue__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__views_visualEffects_vue__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__views_typography_vue__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__views_userExperience_vue__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__views_blurDialog_vue__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__views_structureAndLayout_vue__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__views_fluidBg_vue__ = __webpack_require__(59);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__views_verticalCenter_vue__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__views_stickyFooter_vue__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__views_transitionsAndAnimations_vue__ = __webpack_require__(71);
-
-
-
-// import routermaps from './routermaps'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const routermaps = [{
-  path: '/',
-  component: __WEBPACK_IMPORTED_MODULE_3__views_index_vue__["a" /* default */]
-}, {
-  path: '/index',
-  component: __WEBPACK_IMPORTED_MODULE_3__views_index_vue__["a" /* default */]
-}, {
-  path: '/bgAndBorders',
-  component: __WEBPACK_IMPORTED_MODULE_4__views_bgAndBorders_vue__["a" /* default */],
-  meta: { scrollToTop: true }
-}, {
-  path: '/shapes',
-  component: __WEBPACK_IMPORTED_MODULE_5__views_shapes_vue__["a" /* default */],
-  meta: { scrollToTop: true }
-}, {
-  path: '/visualEffects',
-  component: __WEBPACK_IMPORTED_MODULE_6__views_visualEffects_vue__["a" /* default */],
-  meta: { scrollToTop: true }
-}, {
-  path: '/typography',
-  component: __WEBPACK_IMPORTED_MODULE_7__views_typography_vue__["a" /* default */],
-  meta: { scrollToTop: true }
-}, {
-  path: '/userExperience',
-  component: __WEBPACK_IMPORTED_MODULE_8__views_userExperience_vue__["a" /* default */],
-  meta: { scrollToTop: true }
-}, {
-  path: '/blurDialog',
-  component: __WEBPACK_IMPORTED_MODULE_9__views_blurDialog_vue__["a" /* default */]
-}, {
-  path: '/structureAndLayout',
-  component: __WEBPACK_IMPORTED_MODULE_10__views_structureAndLayout_vue__["a" /* default */],
-  meta: { scrollToTop: true }
-}, {
-  path: '/fluidBg',
-  component: __WEBPACK_IMPORTED_MODULE_11__views_fluidBg_vue__["a" /* default */]
-}, {
-  path: '/verticalCenter/:id',
-  component: __WEBPACK_IMPORTED_MODULE_12__views_verticalCenter_vue__["a" /* default */]
-}, {
-  path: '/stickyFooter',
-  component: __WEBPACK_IMPORTED_MODULE_13__views_stickyFooter_vue__["a" /* default */]
-}, {
-  path: '/transitionsAndAnimations',
-  component: __WEBPACK_IMPORTED_MODULE_14__views_transitionsAndAnimations_vue__["a" /* default */]
-}];
-
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
-
-console.log(routermaps);
-
-const router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
-  routermaps,
-  scrollBehavior: __WEBPACK_IMPORTED_MODULE_2__scrollBehavior__["a" /* default */]
-});
-
-/* harmony default export */ __webpack_exports__["a"] = (router);
-
-/***/ }),
-/* 25 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -15743,27 +14999,753 @@ if (inBrowser && window.Vue) {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(13)))
 
 /***/ }),
+/* 15 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_vue__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__router___ = __webpack_require__(25);
+
+
+
+
+
+
+// import style files
+__webpack_require__(75);
+
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
+
+new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
+  el: '#css-secrets-demo',
+  router: __WEBPACK_IMPORTED_MODULE_3__router___["a" /* default */],
+  template: '<App/>',
+  components: { App: __WEBPACK_IMPORTED_MODULE_2__app_vue__["a" /* default */] }
+});
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var apply = Function.prototype.apply;
+
+// DOM APIs, for completeness
+
+exports.setTimeout = function() {
+  return new Timeout(apply.call(setTimeout, window, arguments), clearTimeout);
+};
+exports.setInterval = function() {
+  return new Timeout(apply.call(setInterval, window, arguments), clearInterval);
+};
+exports.clearTimeout =
+exports.clearInterval = function(timeout) {
+  if (timeout) {
+    timeout.close();
+  }
+};
+
+function Timeout(id, clearFn) {
+  this._id = id;
+  this._clearFn = clearFn;
+}
+Timeout.prototype.unref = Timeout.prototype.ref = function() {};
+Timeout.prototype.close = function() {
+  this._clearFn.call(window, this._id);
+};
+
+// Does not start the time, just sets up the members needed.
+exports.enroll = function(item, msecs) {
+  clearTimeout(item._idleTimeoutId);
+  item._idleTimeout = msecs;
+};
+
+exports.unenroll = function(item) {
+  clearTimeout(item._idleTimeoutId);
+  item._idleTimeout = -1;
+};
+
+exports._unrefActive = exports.active = function(item) {
+  clearTimeout(item._idleTimeoutId);
+
+  var msecs = item._idleTimeout;
+  if (msecs >= 0) {
+    item._idleTimeoutId = setTimeout(function onTimeout() {
+      if (item._onTimeout)
+        item._onTimeout();
+    }, msecs);
+  }
+};
+
+// setimmediate attaches itself to the global object
+__webpack_require__(17);
+exports.setImmediate = setImmediate;
+exports.clearImmediate = clearImmediate;
+
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
+    "use strict";
+
+    if (global.setImmediate) {
+        return;
+    }
+
+    var nextHandle = 1; // Spec says greater than zero
+    var tasksByHandle = {};
+    var currentlyRunningATask = false;
+    var doc = global.document;
+    var registerImmediate;
+
+    function setImmediate(callback) {
+      // Callback can either be a function or a string
+      if (typeof callback !== "function") {
+        callback = new Function("" + callback);
+      }
+      // Copy function arguments
+      var args = new Array(arguments.length - 1);
+      for (var i = 0; i < args.length; i++) {
+          args[i] = arguments[i + 1];
+      }
+      // Store and register the task
+      var task = { callback: callback, args: args };
+      tasksByHandle[nextHandle] = task;
+      registerImmediate(nextHandle);
+      return nextHandle++;
+    }
+
+    function clearImmediate(handle) {
+        delete tasksByHandle[handle];
+    }
+
+    function run(task) {
+        var callback = task.callback;
+        var args = task.args;
+        switch (args.length) {
+        case 0:
+            callback();
+            break;
+        case 1:
+            callback(args[0]);
+            break;
+        case 2:
+            callback(args[0], args[1]);
+            break;
+        case 3:
+            callback(args[0], args[1], args[2]);
+            break;
+        default:
+            callback.apply(undefined, args);
+            break;
+        }
+    }
+
+    function runIfPresent(handle) {
+        // From the spec: "Wait until any invocations of this algorithm started before this one have completed."
+        // So if we're currently running a task, we'll need to delay this invocation.
+        if (currentlyRunningATask) {
+            // Delay by doing a setTimeout. setImmediate was tried instead, but in Firefox 7 it generated a
+            // "too much recursion" error.
+            setTimeout(runIfPresent, 0, handle);
+        } else {
+            var task = tasksByHandle[handle];
+            if (task) {
+                currentlyRunningATask = true;
+                try {
+                    run(task);
+                } finally {
+                    clearImmediate(handle);
+                    currentlyRunningATask = false;
+                }
+            }
+        }
+    }
+
+    function installNextTickImplementation() {
+        registerImmediate = function(handle) {
+            process.nextTick(function () { runIfPresent(handle); });
+        };
+    }
+
+    function canUsePostMessage() {
+        // The test against `importScripts` prevents this implementation from being installed inside a web worker,
+        // where `global.postMessage` means something completely different and can't be used for this purpose.
+        if (global.postMessage && !global.importScripts) {
+            var postMessageIsAsynchronous = true;
+            var oldOnMessage = global.onmessage;
+            global.onmessage = function() {
+                postMessageIsAsynchronous = false;
+            };
+            global.postMessage("", "*");
+            global.onmessage = oldOnMessage;
+            return postMessageIsAsynchronous;
+        }
+    }
+
+    function installPostMessageImplementation() {
+        // Installs an event handler on `global` for the `message` event: see
+        // * https://developer.mozilla.org/en/DOM/window.postMessage
+        // * http://www.whatwg.org/specs/web-apps/current-work/multipage/comms.html#crossDocumentMessages
+
+        var messagePrefix = "setImmediate$" + Math.random() + "$";
+        var onGlobalMessage = function(event) {
+            if (event.source === global &&
+                typeof event.data === "string" &&
+                event.data.indexOf(messagePrefix) === 0) {
+                runIfPresent(+event.data.slice(messagePrefix.length));
+            }
+        };
+
+        if (global.addEventListener) {
+            global.addEventListener("message", onGlobalMessage, false);
+        } else {
+            global.attachEvent("onmessage", onGlobalMessage);
+        }
+
+        registerImmediate = function(handle) {
+            global.postMessage(messagePrefix + handle, "*");
+        };
+    }
+
+    function installMessageChannelImplementation() {
+        var channel = new MessageChannel();
+        channel.port1.onmessage = function(event) {
+            var handle = event.data;
+            runIfPresent(handle);
+        };
+
+        registerImmediate = function(handle) {
+            channel.port2.postMessage(handle);
+        };
+    }
+
+    function installReadyStateChangeImplementation() {
+        var html = doc.documentElement;
+        registerImmediate = function(handle) {
+            // Create a <script> element; its readystatechange event will be fired asynchronously once it is inserted
+            // into the document. Do so, thus queuing up the task. Remember to clean up once it's been called.
+            var script = doc.createElement("script");
+            script.onreadystatechange = function () {
+                runIfPresent(handle);
+                script.onreadystatechange = null;
+                html.removeChild(script);
+                script = null;
+            };
+            html.appendChild(script);
+        };
+    }
+
+    function installSetTimeoutImplementation() {
+        registerImmediate = function(handle) {
+            setTimeout(runIfPresent, 0, handle);
+        };
+    }
+
+    // If supported, we should attach to the prototype of global, since that is where setTimeout et al. live.
+    var attachTo = Object.getPrototypeOf && Object.getPrototypeOf(global);
+    attachTo = attachTo && attachTo.setTimeout ? attachTo : global;
+
+    // Don't get fooled by e.g. browserify environments.
+    if ({}.toString.call(global.process) === "[object process]") {
+        // For Node.js before 0.9
+        installNextTickImplementation();
+
+    } else if (canUsePostMessage()) {
+        // For non-IE10 modern browsers
+        installPostMessageImplementation();
+
+    } else if (global.MessageChannel) {
+        // For web workers, where supported
+        installMessageChannelImplementation();
+
+    } else if (doc && "onreadystatechange" in doc.createElement("script")) {
+        // For IE 6–8
+        installReadyStateChangeImplementation();
+
+    } else {
+        // For older browsers
+        installSetTimeoutImplementation();
+    }
+
+    attachTo.setImmediate = setImmediate;
+    attachTo.clearImmediate = clearImmediate;
+}(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12), __webpack_require__(13)))
+
+/***/ }),
+/* 18 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_app_vue__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5ef48958_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_app_vue__ = __webpack_require__(24);
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+
+/* template */
+
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_app_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5ef48958_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_app_vue__["a" /* default */],
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "src/app.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (true) {(function () {
+  var hotAPI = __webpack_require__(0)
+  hotAPI.install(__webpack_require__(1), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-5ef48958", Component.options)
+  } else {
+    hotAPI.reload("data-v-5ef48958", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+/* harmony default export */ __webpack_exports__["a"] = (Component.exports);
+
+
+/***/ }),
+/* 19 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Navigator_vue__ = __webpack_require__(20);
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  data() {
+    return {
+      title: "css-secret-demo",
+      scroll: false,
+      navActiveChapter: "",
+      navActiveSection: "",
+      gap: 1
+    };
+  },
+  components: {
+    navigator: __WEBPACK_IMPORTED_MODULE_0__components_Navigator_vue__["a" /* default */]
+  },
+  methods: {
+    handleScroll() {
+      this.scroll = window.scrollY;
+      let AllSections = document.querySelectorAll('.c-section');
+      let curChapter = document.querySelector('.c-chapter');
+      let AllSectionsOffsetY = [];
+
+      for (var i = 0; i < AllSections.length; i++) {
+        AllSectionsOffsetY.push(AllSections[i].offsetTop);
+      }
+
+      if (curChapter) {
+        this.navActiveChapter = curChapter.id;
+      } else {
+        return;
+      }
+
+      for (var j = 0; j < AllSectionsOffsetY.length; j++) {
+        if (this.scroll + this.gap < AllSectionsOffsetY[j]) {
+          this.navActiveSection = j;
+          break;
+        } else if (this.scroll > AllSectionsOffsetY[AllSectionsOffsetY.length - 1]) {
+          this.navActiveSection = AllSectionsOffsetY.length;
+        }
+      }
+    }
+  },
+  created() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  updated() {
+    this.handleScroll();
+  },
+  distroyed() {
+    window.removeListener('scroll', this.handleScroll);
+  }
+});
+
+/***/ }),
+/* 20 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_Navigator_vue__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_6331c252_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_Navigator_vue__ = __webpack_require__(23);
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+
+/* template */
+
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_Navigator_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_6331c252_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_Navigator_vue__["a" /* default */],
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "src/components/Navigator.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (true) {(function () {
+  var hotAPI = __webpack_require__(0)
+  hotAPI.install(__webpack_require__(1), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-6331c252", Component.options)
+  } else {
+    hotAPI.reload("data-v-6331c252", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+/* harmony default export */ __webpack_exports__["a"] = (Component.exports);
+
+
+/***/ }),
+/* 21 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__data_directory_js__ = __webpack_require__(22);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  data() {
+    return {
+      dirs: __WEBPACK_IMPORTED_MODULE_0__data_directory_js__["a" /* default */]
+    };
+  },
+  props: ['activeChapter', 'activeSection']
+});
+
+/***/ }),
+/* 22 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+
+const directory = [{
+  "chapter": "Backgrounds & Borders 背景与边框",
+  "componentName": "bgAndBorders",
+  "sections": ["Translucent borders 半透明边框", "Multiple borders 多重边框", "Flexible background positioning  灵活的背景定位", "Inner rounding 边框内圆角", "Striped backgrounds  条纹背景", "Complex background patterns   复杂的背景图案", "Continuous image borders 连续的图像边框"]
+}, {
+  "chapter": "Shapes 形状",
+  "componentName": "shapes",
+  "sections": ["Flexible ellipses 自适应的椭圆", "Parallelograms 平行四边形", "Diamond images 菱形图片", "Cutout corners 切角效果", "Trapezoid tabs 梯形标签页", "Simple pie charts 简单的饼图"]
+}, {
+  "chapter": "Visual Effects 视觉效果",
+  "componentName": "visualEffects",
+  "sections": ["One-sided shadows 单侧投影", "Irregular drop shadows 不规则投影", "Color tinting 染色效果", "Frosted glass effect 毛玻璃效果", "Folded corner effect 折角效果"]
+}, {
+  "chapter": "Typography 字体排印",
+  "componentName": "typography",
+  "sections": ["Hyphenation 连字符断行", "Inserting line breaks 插入换行", "Zebra-striped text lines 文本行的斑马条纹", "Adjusting tab width 调整 Tab 的宽度", "Ligatures 连字", "Fancy ampersands 华丽的 & 符号", "Custom underlines 自定义下划线", "Realistic text effects 现实中的文字效果", "Circular text 环形文字"]
+}, {
+  "chapter": "User Experience 用户体验",
+  "componentName": "userExperience",
+  "sections": ["Picking the right cursor 选用合适的鼠标光标", "Extending the clickable area 扩大可点击区域", "Custom checkboxes 自定义复选框", "De-emphasize by dimming 通过阴影来弱化背景", "De-emphasize by blurring 通过模糊来弱化背景", "Scrolling hints 滚动提示", "Interactive image comparison 交互式的图片对比控件"]
+}, {
+  "chapter": "Structure & Layout 结构与布局",
+  "componentName": "structureAndLayout",
+  "sections": ["Intrinsic sizing 自适应内部元素", "Taming table column widths 精确控制表格列宽", "Styling by sibling count 根据兄弟元素的数量来设置样式", "Fluid background, fixed content 满幅的背景、定宽的内容", "Vertical centering 垂直居中", "Sticky footers 紧贴底部的页脚"]
+}, {
+  "chapter": "Transitions & Animations 过渡与动画",
+  "componentName": "transitionsAndAnimations",
+  "sections": ["Elastic transitions 缓动效果", "Frame-by-frame animations 逐帧动画", "Blinking 闪烁效果", "Typing animation 打字动画", "Smooth state animations  状态平滑的动画", "Animation along a circular path  沿环形路径平移的动画"]
+}];
+
+/* harmony default export */ __webpack_exports__["a"] = (directory);
+
+/***/ }),
+/* 23 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "navigator" }, [
+    _c(
+      "h2",
+      { staticClass: "title" },
+      [
+        _c(
+          "router-link",
+          { staticClass: "link", attrs: { to: { path: "index" } } },
+          [_vm._v("Index 目录")]
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "ul",
+      { staticClass: "chapter" },
+      _vm._l(_vm.dirs, function(dir, cIndex) {
+        return _c(
+          "li",
+          [
+            _c(
+              "router-link",
+              {
+                staticClass: "link",
+                class: { active: _vm.activeChapter === "c-" + (cIndex + 1) },
+                attrs: { to: { path: dir.componentName } }
+              },
+              [_vm._v(_vm._s(dir.chapter))]
+            ),
+            _vm._v(" "),
+            _c(
+              "ul",
+              { staticClass: "section" },
+              _vm._l(dir.sections, function(sec, sIndex) {
+                return _c(
+                  "li",
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "link",
+                        class: { active: _vm.activeSection === sIndex + 1 },
+                        attrs: {
+                          to: {
+                            path:
+                              dir.componentName +
+                              "#c-" +
+                              (cIndex + 1) +
+                              "-" +
+                              (sIndex + 1)
+                          }
+                        }
+                      },
+                      [_vm._v(_vm._s(sec))]
+                    )
+                  ],
+                  1
+                )
+              })
+            )
+          ],
+          1
+        )
+      })
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+if (true) {
+  module.hot.accept()
+  if (module.hot.data) {
+    __webpack_require__(0)      .rerender("data-v-6331c252", esExports)
+  }
+}
+
+/***/ }),
+/* 24 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "wrapper" },
+    [
+      _c("navigator", {
+        attrs: {
+          activeChapter: _vm.navActiveChapter,
+          activeSection: _vm.navActiveSection
+        }
+      }),
+      _vm._v(" "),
+      _c("router-view")
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+if (true) {
+  module.hot.accept()
+  if (module.hot.data) {
+    __webpack_require__(0)      .rerender("data-v-5ef48958", esExports)
+  }
+}
+
+/***/ }),
+/* 25 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_router__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routermaps__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__scrollBehavior__ = __webpack_require__(74);
+
+
+
+
+
+const router = new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({
+  routes: __WEBPACK_IMPORTED_MODULE_1__routermaps__["a" /* default */],
+  //Here if we import routes as other names, we should use ' routes: othername  '
+  scrollBehavior: __WEBPACK_IMPORTED_MODULE_2__scrollBehavior__["a" /* default */]
+});
+
+/* harmony default export */ __webpack_exports__["a"] = (router);
+
+/***/ }),
 /* 26 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-const scrollBehavior = (to, from, savedPosition) => {
-  if (savedPosition) {
-    return savedPosition;
-  } else {
-    const position = {};
-    if (to.hash) {
-      position.selector = to.hash;
-    }
-    if (to.matched.some(m => m.meta.scrollToTop)) {
-      position.x = 0;
-      position.y = 0;
-    }
-    return position;
-  }
-};
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__views_index_vue__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__views_bgAndBorders_vue__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__views_shapes_vue__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__views_visualEffects_vue__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__views_typography_vue__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__views_userExperience_vue__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__views_blurDialog_vue__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__views_structureAndLayout_vue__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__views_fluidBg_vue__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__views_verticalCenter_vue__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__views_stickyFooter_vue__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__views_transitionsAndAnimations_vue__ = __webpack_require__(71);
 
-/* harmony default export */ __webpack_exports__["a"] = (scrollBehavior);
+
+
+
+
+
+
+
+
+
+
+
+
+const routermaps = [{
+  path: '/',
+  component: __WEBPACK_IMPORTED_MODULE_0__views_index_vue__["a" /* default */]
+}, {
+  path: '/index',
+  component: __WEBPACK_IMPORTED_MODULE_0__views_index_vue__["a" /* default */]
+}, {
+  path: '/bgAndBorders',
+  component: __WEBPACK_IMPORTED_MODULE_1__views_bgAndBorders_vue__["a" /* default */],
+  meta: { scrollToTop: true }
+}, {
+  path: '/shapes',
+  component: __WEBPACK_IMPORTED_MODULE_2__views_shapes_vue__["a" /* default */],
+  meta: { scrollToTop: true }
+}, {
+  path: '/visualEffects',
+  component: __WEBPACK_IMPORTED_MODULE_3__views_visualEffects_vue__["a" /* default */],
+  meta: { scrollToTop: true }
+}, {
+  path: '/typography',
+  component: __WEBPACK_IMPORTED_MODULE_4__views_typography_vue__["a" /* default */],
+  meta: { scrollToTop: true }
+}, {
+  path: '/userExperience',
+  component: __WEBPACK_IMPORTED_MODULE_5__views_userExperience_vue__["a" /* default */],
+  meta: { scrollToTop: true }
+}, {
+  path: '/blurDialog',
+  component: __WEBPACK_IMPORTED_MODULE_6__views_blurDialog_vue__["a" /* default */]
+}, {
+  path: '/structureAndLayout',
+  component: __WEBPACK_IMPORTED_MODULE_7__views_structureAndLayout_vue__["a" /* default */],
+  meta: { scrollToTop: true }
+}, {
+  path: '/fluidBg',
+  component: __WEBPACK_IMPORTED_MODULE_8__views_fluidBg_vue__["a" /* default */]
+}, {
+  path: '/verticalCenter/:id',
+  component: __WEBPACK_IMPORTED_MODULE_9__views_verticalCenter_vue__["a" /* default */]
+}, {
+  path: '/stickyFooter',
+  component: __WEBPACK_IMPORTED_MODULE_10__views_stickyFooter_vue__["a" /* default */]
+}, {
+  path: '/transitionsAndAnimations',
+  component: __WEBPACK_IMPORTED_MODULE_11__views_transitionsAndAnimations_vue__["a" /* default */]
+}];
+
+/* harmony default export */ __webpack_exports__["a"] = (routermaps);
 
 /***/ }),
 /* 27 */
@@ -21329,6 +21311,29 @@ if (true) {
 
 /***/ }),
 /* 74 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+const scrollBehavior = (to, from, savedPosition) => {
+  if (savedPosition) {
+    return savedPosition;
+  } else {
+    const position = {};
+    if (to.hash) {
+      position.selector = to.hash;
+    }
+    if (to.matched.some(m => m.meta.scrollToTop)) {
+      position.x = 0;
+      position.y = 0;
+    }
+    return position;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (scrollBehavior);
+
+/***/ }),
+/* 75 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

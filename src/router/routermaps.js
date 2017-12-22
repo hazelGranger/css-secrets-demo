@@ -1,15 +1,15 @@
-import Index from '../views/index.vue';
-import BgAndBorders from '../views/bgAndBorders.vue'
-import Shapes from '../views/shapes.vue'
-import VisualEffects from '../views/visualEffects.vue'
-import Typography from '../views/typography.vue'
-import UserExperience from '../views/userExperience.vue'
-import BlurDialog from '../views/blurDialog.vue'
-import StructureAndLayout from '../views/structureAndLayout.vue'
-import FluidBg from '../views/fluidBg.vue'
-import VerticalCenter from '../views/verticalCenter.vue'
-import StickyFooter from '../views/stickyFooter.vue'
-import TransitionsAndAnimations from '../views/transitionsAndAnimations.vue'
+import Index from '../views/index';
+import BgAndBorders from '../views/bgAndBorders'
+import Shapes from '../views/shapes'
+import VisualEffects from '../views/visualEffects'
+import Typography from '../views/typography'
+import UserExperience from '../views/userExperience'
+import BlurDialog from '../views/blurDialog'
+import StructureAndLayout from '../views/structureAndLayout'
+import FluidBg from '../views/fluidBg'
+import VerticalCenter from '../views/verticalCenter'
+import StickyFooter from '../views/stickyFooter'
+import TransitionsAndAnimations from '../views/transitionsAndAnimations'
 
 const routermaps = [{
   path: '/',
