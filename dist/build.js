@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "a5d3b326eba9881f6302"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "227ba905b248c9594f05"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -15007,7 +15007,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_vue__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__router___ = __webpack_require__(25);
 
 
@@ -15024,7 +15024,7 @@ new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
   el: '#css-secrets-demo',
   router: __WEBPACK_IMPORTED_MODULE_3__router___["a" /* default */],
   template: '<App/>',
-  components: { App: __WEBPACK_IMPORTED_MODULE_2__app_vue__["a" /* default */] }
+  components: { App: __WEBPACK_IMPORTED_MODULE_2__app__["a" /* default */] }
 });
 
 /***/ }),
@@ -15673,18 +15673,18 @@ const router = new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__views_index_vue__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__views_bgAndBorders_vue__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__views_shapes_vue__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__views_visualEffects_vue__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__views_typography_vue__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__views_userExperience_vue__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__views_blurDialog_vue__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__views_structureAndLayout_vue__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__views_fluidBg_vue__ = __webpack_require__(59);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__views_verticalCenter_vue__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__views_stickyFooter_vue__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__views_transitionsAndAnimations_vue__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__v_index__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__v_bgAndBorders__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__v_shapes__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__v_visualEffects__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__v_typography__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__v_userExperience__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__v_blurDialog__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__v_structureAndLayout__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__v_fluidBg__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__v_verticalCenter__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__v_stickyFooter__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__v_transitionsAndAnimations__ = __webpack_require__(71);
 
 
 
@@ -15700,49 +15700,49 @@ const router = new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({
 
 const routermaps = [{
   path: '/',
-  component: __WEBPACK_IMPORTED_MODULE_0__views_index_vue__["a" /* default */]
+  component: __WEBPACK_IMPORTED_MODULE_0__v_index__["a" /* default */]
 }, {
   path: '/index',
-  component: __WEBPACK_IMPORTED_MODULE_0__views_index_vue__["a" /* default */]
+  component: __WEBPACK_IMPORTED_MODULE_0__v_index__["a" /* default */]
 }, {
   path: '/bgAndBorders',
-  component: __WEBPACK_IMPORTED_MODULE_1__views_bgAndBorders_vue__["a" /* default */],
+  component: __WEBPACK_IMPORTED_MODULE_1__v_bgAndBorders__["a" /* default */],
   meta: { scrollToTop: true }
 }, {
   path: '/shapes',
-  component: __WEBPACK_IMPORTED_MODULE_2__views_shapes_vue__["a" /* default */],
+  component: __WEBPACK_IMPORTED_MODULE_2__v_shapes__["a" /* default */],
   meta: { scrollToTop: true }
 }, {
   path: '/visualEffects',
-  component: __WEBPACK_IMPORTED_MODULE_3__views_visualEffects_vue__["a" /* default */],
+  component: __WEBPACK_IMPORTED_MODULE_3__v_visualEffects__["a" /* default */],
   meta: { scrollToTop: true }
 }, {
   path: '/typography',
-  component: __WEBPACK_IMPORTED_MODULE_4__views_typography_vue__["a" /* default */],
+  component: __WEBPACK_IMPORTED_MODULE_4__v_typography__["a" /* default */],
   meta: { scrollToTop: true }
 }, {
   path: '/userExperience',
-  component: __WEBPACK_IMPORTED_MODULE_5__views_userExperience_vue__["a" /* default */],
+  component: __WEBPACK_IMPORTED_MODULE_5__v_userExperience__["a" /* default */],
   meta: { scrollToTop: true }
 }, {
   path: '/blurDialog',
-  component: __WEBPACK_IMPORTED_MODULE_6__views_blurDialog_vue__["a" /* default */]
+  component: __WEBPACK_IMPORTED_MODULE_6__v_blurDialog__["a" /* default */]
 }, {
   path: '/structureAndLayout',
-  component: __WEBPACK_IMPORTED_MODULE_7__views_structureAndLayout_vue__["a" /* default */],
+  component: __WEBPACK_IMPORTED_MODULE_7__v_structureAndLayout__["a" /* default */],
   meta: { scrollToTop: true }
 }, {
   path: '/fluidBg',
-  component: __WEBPACK_IMPORTED_MODULE_8__views_fluidBg_vue__["a" /* default */]
+  component: __WEBPACK_IMPORTED_MODULE_8__v_fluidBg__["a" /* default */]
 }, {
   path: '/verticalCenter/:id',
-  component: __WEBPACK_IMPORTED_MODULE_9__views_verticalCenter_vue__["a" /* default */]
+  component: __WEBPACK_IMPORTED_MODULE_9__v_verticalCenter__["a" /* default */]
 }, {
   path: '/stickyFooter',
-  component: __WEBPACK_IMPORTED_MODULE_10__views_stickyFooter_vue__["a" /* default */]
+  component: __WEBPACK_IMPORTED_MODULE_10__v_stickyFooter__["a" /* default */]
 }, {
   path: '/transitionsAndAnimations',
-  component: __WEBPACK_IMPORTED_MODULE_11__views_transitionsAndAnimations_vue__["a" /* default */]
+  component: __WEBPACK_IMPORTED_MODULE_11__v_transitionsAndAnimations__["a" /* default */]
 }];
 
 /* harmony default export */ __webpack_exports__["a"] = (routermaps);

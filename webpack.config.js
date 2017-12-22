@@ -67,6 +67,7 @@ var config = {
   resolve: {
     alias: {
       'vue': 'vue/dist/vue.js',
+      '@v': path.resolve(__dirname,'src/views/')
     },
     extensions: ['.js','.vue']
   },

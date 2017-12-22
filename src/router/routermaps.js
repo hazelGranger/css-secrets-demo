@@ -1,15 +1,15 @@
-import Index from '../views/index';
-import BgAndBorders from '../views/bgAndBorders'
-import Shapes from '../views/shapes'
-import VisualEffects from '../views/visualEffects'
-import Typography from '../views/typography'
-import UserExperience from '../views/userExperience'
-import BlurDialog from '../views/blurDialog'
-import StructureAndLayout from '../views/structureAndLayout'
-import FluidBg from '../views/fluidBg'
-import VerticalCenter from '../views/verticalCenter'
-import StickyFooter from '../views/stickyFooter'
-import TransitionsAndAnimations from '../views/transitionsAndAnimations'
+import Index from '@v/index';
+import BgAndBorders from '@v/bgAndBorders'
+import Shapes from '@v/shapes'
+import VisualEffects from '@v/visualEffects'
+import Typography from '@v/typography'
+import UserExperience from '@v/userExperience'
+import BlurDialog from '@v/blurDialog'
+import StructureAndLayout from '@v/structureAndLayout'
+import FluidBg from '@v/fluidBg'
+import VerticalCenter from '@v/verticalCenter'
+import StickyFooter from '@v/stickyFooter'
+import TransitionsAndAnimations from '@v/transitionsAndAnimations'
 
 const routermaps = [{
   path: '/',

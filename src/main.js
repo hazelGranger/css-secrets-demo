@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import App from './app.vue';
+import App from './app';
 import router from './router/';
 
 // import style files
