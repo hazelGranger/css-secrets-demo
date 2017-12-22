@@ -7,7 +7,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 
-var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
+// var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 
 
 var config = {
