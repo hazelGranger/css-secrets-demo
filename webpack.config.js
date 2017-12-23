@@ -9,12 +9,20 @@ var HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 
 // var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 
+var settings = {
+  'publicPath': '/'
+}
+
+if (process.env.ENV == 'production') {
+  settings.publicPath = '../'
+}
+
 
 var config = {
   entry: './src/main.js',
   output: {
     path: path.join(__dirname,'dist'),
-    publicPath: '/',//这个路径的设置居然还和实时修改更新有关。。。
+    publicPath: settings.publicPath,//这个路径的设置居然还和实时修改更新有关。。。
     filename: 'build.js'
   },
   module: {
