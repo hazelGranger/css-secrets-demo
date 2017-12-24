@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="navigator">
     <h2 class="title">
-      <router-link :to="{ path: 'index'}" class="link">Index 目录</router-link>
+      <router-link :to="{ path: 'index'}" class="link">{{ $t('lang.bookTitle') }}</router-link>
     </h2>
     <ul class="chapter">
       <li v-for="(dir,cIndex) in dirs">
@@ -23,7 +23,7 @@ import directory from '../data/directory.js'
 export default {
   data(){
     return {
-      dirs: directory
+      dirs: this.$i18n.t('lang.directory')
     }
   },
   props: ['activeChapter','activeSection']
