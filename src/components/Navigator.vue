@@ -3,6 +3,7 @@
     <h2 class="title">
       <router-link :to="{ path: 'index'}" class="link">{{ $t('lang.bookTitle') }}</router-link>
     </h2>
+    <langSelector v-on:getLangFromSelector="updateLang"></langSelector>
     <ul class="chapter">
       <li v-for="(dir,cIndex) in dirs">
         <router-link :to="{path: dir.componentName}" class="link"
@@ -19,13 +20,21 @@
 </template>
 
 <script>
-import directory from '../data/directory.js'
+import langSelector from './LangSelector.vue'
 export default {
   data(){
     return {
       dirs: this.$i18n.t('lang.directory')
     }
   },
-  props: ['activeChapter','activeSection']
+  components: {
+    langSelector
+  },
+  props: ['activeChapter','activeSection'],
+  methods: {
+    updateLang() {
+      this.dirs = this.$i18n.t('lang.directory');
+    }
+  }
 }
 </script>
