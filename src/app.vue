@@ -15,7 +15,7 @@ export default {
       scroll: false,
       navActiveChapter: "",
       navActiveSection: "",
-      gap: 1
+      gap: 10
     }
   },
   components :{

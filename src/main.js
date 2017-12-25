@@ -12,8 +12,6 @@ require('./styles/main.less');
 Vue.use(VueRouter);
 Vue.use(VueI18n);
 
-console.log(i18n);
-
 new Vue({
   el: '#css-secrets-demo',
   router,

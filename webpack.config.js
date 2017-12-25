@@ -14,9 +14,8 @@ var settings = {
 }
 
 if (process.env.ENV == 'production') {
-  settings.publicPath = '../'
+  settings.publicPath = 'https:\/\/hazelgranger.github.io\/css-secrets-demo\/dist\/'
 }
-
 
 var config = {
   entry: './src/main.js',

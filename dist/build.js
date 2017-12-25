@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "81cbe3a469792da2ff46"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "136d8635dac109903a35"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -716,7 +716,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "../";
+/******/ 	__webpack_require__.p = "https://hazelgranger.github.io/css-secrets-demo/dist/";
 /******/
 /******/ 	// __webpack_hash__
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
@@ -16571,8 +16571,6 @@ __webpack_require__(80);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vue_i18n__["a" /* default */]);
 
-console.log(__WEBPACK_IMPORTED_MODULE_5__i18n___["a" /* default */]);
-
 new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
   el: '#css-secrets-demo',
   router: __WEBPACK_IMPORTED_MODULE_4__router___["a" /* default */],
@@ -16907,7 +16905,7 @@ if (true) {(function () {
       scroll: false,
       navActiveChapter: "",
       navActiveSection: "",
-      gap: 1
+      gap: 10
     };
   },
   components: {
@@ -23035,7 +23033,7 @@ const messages = {
 };
 
 const i18n = new __WEBPACK_IMPORTED_MODULE_1_vue_i18n__["a" /* default */]({
-  locale: 'cn',
+  locale: "en",
   messages
 });
 
