@@ -1,9 +1,9 @@
 <template lang="html">
   <div class="content">
     <section id="c-2" class="c-chapter">
-			<h2>Shapes 形状</h2>
+			<h2>{{ $t("lang.directory[1].chapter") }}</h2>
 			<section id="c-2-1" class="c-section">
-				<h3>Flexible ellipses</h3>
+				<h3>{{ $t("lang.directory[1].sections[0]") }}</h3>
 				<div id="eg-2-1-1"></div>
 				<code>
 					background-color: #FFDD00;
@@ -20,7 +20,7 @@
 				</code>
 			</section>
 			<section id="c-2-2" class="c-section">
-				<h3>Parallelograms</h3>
+				<h3>{{ $t("lang.directory[1].sections[1]") }}</h3>
 				<h4>Nested elements solution</h4>
 				<div id="eg-2-2-1">
           <div class="ele-wrapper">
@@ -65,7 +65,7 @@
 				<p><a href="https://www.oneasp.com/" target="_blink">点击查看我的应用案例</a></p>
 			</section>
 			<section id="c-2-3" class="c-section">
-				<h3>Diamond images</h3>
+				<h3>{{ $t("lang.directory[1].sections[2]") }}</h3>
 				<section>
 					<h4>transform-based solution</h4>
 					<div id="eg-2-3-1">
@@ -89,7 +89,7 @@
 				</section>
 			</section>
 			<section id="c-2-4" class="c-section">
-				<h3>Cutout corners</h3>
+				<h3>{{ $t("lang.directory[1].sections[3]") }}</h3>
 				<section>
 					<div id="eg-2-4-1">
 					</div>
@@ -175,7 +175,7 @@
 				</section>
 			</section>
 			<section id="c-2-5" class="c-section">
-				<h3>Trapezoid tabs</h3>
+				<h3>{{ $t("lang.directory[1].sections[4]") }}</h3>
 				<section>
 					<div id="eg-2-5-1"></div>
 					<code>
@@ -243,7 +243,7 @@
 				</section>
 			</section>
 			<section id="c-2-6" class="c-section">
-				<h3>Simple pie charts</h3>
+				<h3>{{ $t("lang.directory[1].sections[5]") }}</h3>
 				<section>
 					<h4>div solution</h4>
 					<div id="eg-2-6-1">

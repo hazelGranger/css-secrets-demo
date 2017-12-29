@@ -1,9 +1,9 @@
 <template lang="html">
   <div class="content">
     <section id="c-6" class="c-chapter">
-      <h2>Structure &amp; Layout 结构与布局</h2>
+      <h2>{{ $t("lang.directory[5].chapter") }}</h2>
       <section id="c-6-1" class="c-section">
-        <h3>Intrinsic sizing 自适应内部元素</h3>
+        <h3>{{ $t("lang.directory[5].sections[0]") }}</h3>
         <div id="eg-6-1-1">
           <p>Enjoy playing with this little kitty! Look at its tiny claws,its bright eys,pointed ears,and soft belly!</p>
           <figure class="figure">
@@ -23,7 +23,7 @@
         </code>
       </section>
       <section id="c-6-2" class="c-section">
-        <h3>Taming table column widths 精确控制表格列宽</h3>
+        <h3>{{ $t("lang.directory[5].sections[1]") }}</h3>
         <div id="eg-6-2-1">
           <h4>With table-layout: auto</h4>
           <table v-for="table in tables">
@@ -61,7 +61,7 @@
         </div>
       </section>
       <section id="c-6-3" class="c-section">
-        <h3>Styling by sibling count 根据兄弟元素的数量来设置样式</h3>
+        <h3>{{ $t("lang.directory[5].sections[2]") }}</h3>
         <h4>select the first of a certain number of list</h4>
         <div id="eg-6-3-1">
           <ul class="list first">
@@ -177,7 +177,7 @@
         </code>
       </section>
       <section id="c-6-4" class="c-section">
-        <h3>Fluid background, fixed content 满幅的背景、定宽的内容</h3>
+        <h3>{{ $t("lang.directory[5].sections[3]") }}</h3>
         <router-link :to="{ path: '/fluidBg' }" target="_blank">查看示例</router-link>
         <p>展示页面布局的单开一页。</p>
         <p>这里想要表达的是，之前对于这样的布局通常是在外层元素内包裹一层元素，设置宽度，并给予
@@ -188,7 +188,7 @@
         </code>
       </section>
       <section id="c-6-5" class="c-section">
-        <h3>Vertical centering 垂直居中</h3>
+        <h3>{{ $t("lang.directory[5].sections[4]") }}</h3>
         <h4>The absolute positioning solution</h4>
         <router-link :to="{ path: '/verticalCenter/' + 'absPos1'}"  target="_blank"> 点击查看例子，运用 cal()</router-link>
         <code>
@@ -245,7 +245,7 @@
         </code>
       </section>
       <section id="c-6-6" class="c-section">
-        <h3>Sticky footers 紧贴底部的页脚</h3>
+        <h3>{{ $t("lang.directory[5].sections[5]") }}</h3>
         <router-link :to="{ path: '/stickyFooter/' }" target="_blank">查看示例</router-link>
       </section>
     </section>

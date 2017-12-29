@@ -1,9 +1,9 @@
 <template lang="html">
   <div class="content">
     <section id="c-3" class="c-chapter">
-			<h2>Visual Effects</h2>
+			<h2>{{ $t("lang.directory[2].chapter") }}</h2>
 			<section id="c-3-1" class="c-section">
-				<h3>One-sided shadows</h3>
+				<h3>{{ $t("lang.directory[2].sections[0]") }}</h3>
 				<section id="eg-3-1-1">
 					<h4>Shadow on one side</h4>
 					<div></div>
@@ -27,7 +27,7 @@
 				</section>
 			</section>
 			<section id="c-3-2" class="c-section">
-				<h3>Irregular drop shadows</h3>
+				<h3>{{ $t("lang.directory[2].sections[1]") }}</h3>
 				<section id="eg-3-2-1">
 					<div class="speech"></div>
 					<div class="dot"></div>
@@ -48,7 +48,7 @@
 				</section>
 			</section>
 			<section id="c-3-3" class="c-section">
-				<h3>Color tinting</h3>
+				<h3>{{ $t("lang.directory[2].sections[2]") }}</h3>
 				<section id="eg-3-3-1">
 					<h4>Filter-based solution</h4>
 					<img src="http://csssecrets.io/images/tiger.jpg" alt="">
@@ -67,7 +67,7 @@
 				</section>
 			</section>
 			<section id="c-3-4" class="c-section">
-				<h3>Frosted glass effect</h3>
+				<h3>{{ $t("lang.directory[2].sections[3]") }}</h3>
 				<section id="eg-3-4-1">
 					<div class="bg">
 						<div>This is an awesome paragraph.This is an awesome paragraph.This is an awesome paragraph.This is an awesome paragraph.This is an awesome paragraph.This is an awesome paragraph.</div>
@@ -86,7 +86,7 @@
 				</section>
 			</section>
 			<section id="c-3-5" class="c-section">
-				<h3>Folded corner effect</h3>
+				<h3>{{ $t("lang.directory[2].sections[4]") }}</h3>
 				<section id="eg-3-5-1">
 					<h4>The 45° solution</h4>
 					<div></div>

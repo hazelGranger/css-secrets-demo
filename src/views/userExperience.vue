@@ -1,9 +1,9 @@
 <template lang="html">
   <div class="content">
     <section id="c-5" class="c-chapter">
-      <h2>User Experience 用户体验</h2>
+      <h2>{{ $t("lang.directory[4].chapter") }}</h2>
       <section id="c-5-1" class="c-section">
-        <h3>Picking the right cursor 选用合适的鼠标光标</h3>
+        <h3>{{ $t("lang.directory[4].sections[0]") }}</h3>
         <div id="eg-5-1-1">
           <button >Button</button>
           <button disabled>Disabled Button</button>
@@ -15,7 +15,7 @@
         </code>
       </section>
       <section id="c-5-2" class="c-section">
-        <h3>Extending the clickable area 扩大可点击区域</h3>
+        <h3>{{ $t("lang.directory[4].sections[1]") }}</h3>
         <div id="eg-5-2-1">
           <h4>Border solution</h4>
           <button class="border">+</button><br/>
@@ -61,7 +61,7 @@
         </div>
       </section>
       <section id="c-5-3" class="c-section">
-        <h3>Custom checkboxes 自定义复选框</h3>
+        <h3>{{ $t("lang.directory[4].sections[2]") }}</h3>
         <h4>checkboxes</h4>
         <div id="eg-5-3-1">
           <input type="checkbox" id="checkbox1">
@@ -143,7 +143,7 @@
         </div>
       </section>
       <section id="c-5-4" class="c-section">
-        <h3>De-emphasize by dimming 通过阴影来弱化背景</h3>
+        <h3>{{ $t("lang.directory[4].sections[3]") }}</h3>
         <h4>box-shadow solution</h4>
         <div id="eg-5-4-1">
           <button v-on:click="showLightbox">Show Modal</button>
@@ -161,11 +161,11 @@
           并且需要直接操作DOM元素，在此不做展示</p>
       </section>
       <section id="c-5-5" class="c-section">
-        <h3>De-emphasize by blurring 通过模糊来弱化背景</h3>
+        <h3>{{ $t("lang.directory[4].sections[4]") }}</h3>
         <router-link :to="{ path: 'blurDialog' }" target ="_blank">查看示例</router-link>
       </section>
       <section id="c-5-6" class="c-section">
-        <h3>Scrolling hints 滚动提示</h3>
+        <h3>{{ $t("lang.directory[4].sections[5]") }}</h3>
         <div id="eg-5-6-1">
           <ul class="list">
             <li>Ada Catlace</li>
@@ -201,7 +201,7 @@
         </code>
       </section>
       <section id="c-5-7" class="c-section">
-        <h3>Interactive image comparison 交互式的图片对比控件</h3>
+        <h3>{{ $t("lang.directory[4].sections[6]") }}</h3>
         <h4>CSS resize solution</h4>
         <div id="eg-5-7-1">
           <div class="img-slider">

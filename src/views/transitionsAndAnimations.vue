@@ -1,9 +1,9 @@
 <template lang="html">
   <div class="content">
     <section id="c-7" class="c-chapter">
-      <h2>Transitions &amp; Animations 过渡与动画</h2>
+      <h2>{{ $t("lang.directory[6].chapter") }}</h2>
       <section id="c-7-1" class="c-section">
-        <h3>Elastic tranistions 缓动效果</h3>
+        <h3>{{ $t("lang.directory[6].sections[0]") }}</h3>
         <h4>Bouncing Animations</h4>
         <div id="eg-7-1-1">
           <div class="ball"></div>
@@ -41,7 +41,7 @@
         </code>
       </section>
       <section id="c-7-2" class="c-section">
-        <h3>Frame-by-frame animations 逐帧动画</h3>
+        <h3>{{ $t("lang.directory[6].sections[1]") }}</h3>
         <div id="eg-7-2-1">
           <div class="loader"></div>
         </div>
@@ -58,7 +58,7 @@
         </code>
       </section>
       <section id="c-7-3" class="c-section">
-        <h3>Blinking 闪烁效果</h3>
+        <h3>{{ $t("lang.directory[6].sections[2]") }}</h3>
         <div id="eg-7-3-1">
           <p class="blink-smooth-1">Pokemon!</p>
           <p class="blink-smooth-2">Pokemon!</p>
@@ -90,7 +90,7 @@
         </code>
       </section>
       <section id="c-7-4" class="c-section">
-        <h3>Typing animation 打字动画</h3>
+        <h3>{{ $t("lang.directory[6].sections[3]") }}</h3>
         <div id="eg-7-4-1">
           <h1 v-bind:style="typingStyles">{{typingText}}</h1>
         </div>
@@ -119,7 +119,7 @@
         <p>Since I use vue in the whole project, the js code will not be displayed here! You can find it in the source code!</p>
       </section>
       <section id="c-7-5" class="c-section">
-        <h3>Smooth state animations  状态平滑的动画</h3>
+        <h3>{{ $t("lang.directory[6].sections[4]") }}</h3>
         <div id="eg-7-5-1">
         </div>
         <code>
@@ -143,7 +143,7 @@
         </code>
       </section>
       <section id="c-7-6" class="c-section">
-        <h3>Animation along a circular path  沿环形路径平移的动画</h3>
+        <h3>{{ $t("lang.directory[6].sections[5]") }}</h3>
         <h4>Two element solution</h4>
         <div id="eg-7-6-1">
           <div class="path">

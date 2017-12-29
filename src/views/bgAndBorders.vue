@@ -1,9 +1,9 @@
 <template lang="html">
   <div class="content">
     <section id="c-1" class="c-chapter">
-      <h2>Backgrounds &amp;Borders  背景与边框</h2>
+      <h2>{{ $t("lang.directory[0].chapter") }}</h2>
       <section id="c-1-1" class="c-section">
-        <h3>Translucent borders 半透明边框</h3>
+        <h3>{{ $t("lang.directory[0].sections[0]") }}</h3>
         <div id="eg-1-1">
           <div id="eg-1-1-1">
             semitransparent borders
@@ -17,7 +17,7 @@
         </code>
       </section>
       <section id="c-1-2" class="c-section">
-        <h3>Multiple borders 多重边框</h3>
+        <h3>{{ $t("lang.directory[0].sections[1]") }}</h3>
         <h4>box-shadow solution</h4>
         <div id="eg-1-2-1"></div>
         <code>
@@ -35,7 +35,7 @@
         </code>
       </section>
       <section id="c-1-3" class="c-section">
-        <h3>Flexible background positioning  灵活的背景定位</h3>
+        <h3>{{ $t("lang.directory[0].sections[2]") }}</h3>
         <h4>Extended background-position solution</h4>
         <div id="eg-1-3-1"></div>
         <code>
@@ -58,7 +58,7 @@
         </code>
       </section>
       <section id="c-1-4" class="c-section">
-        <h3>Inner rounding 边框内圆角</h3>
+        <h3>{{ $t("lang.directory[0].sections[3]") }}</h3>
         <div id="eg-1-4-1"></div>
         <code>
           background: tan;
@@ -69,7 +69,7 @@
         </code>
       </section>
       <section id="c-1-5" class="c-section">
-        <h3>Striped backgrounds  条纹背景</h3>
+        <h3>{{ $t("lang.directory[0].sections[4]") }}</h3>
         <section>
           <div id="eg-1-5-1"></div>
           <code>
@@ -152,7 +152,7 @@
         </section>
       </section>
       <section id="c-1-6" class="c-section">
-        <h3>Complex background patterns   复杂的背景图案</h3>
+        <h3>{{ $t("lang.directory[0].sections[5]") }}</h3>
         <section>
           <div id="eg-1-6-1"></div>
           <code>
@@ -211,7 +211,7 @@
         </section>
       </section>
       <section id="c-1-7" class="c-section">
-        <h3>Continuous image borders 连续的图像边框</h3>
+        <h3>{{ $t("lang.directory[0].sections[6]") }}</h3>
         <section>
           <div id="eg-1-7-1">content</div>
           <code>

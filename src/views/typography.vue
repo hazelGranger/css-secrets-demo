@@ -1,9 +1,9 @@
 <template lang="html">
   <div class="content">
     <section id="c-4" class="c-chapter">
-      <h2>Typography 字体排印</h2>
+      <h2>{{ $t("lang.directory[3].chapter") }}</h2>
       <section id="c-4-1" class="c-section">
-        <h3>Hyphenation 连字符断行</h3>
+        <h3>{{ $t("lang.directory[3].sections[0]") }}</h3>
         <p >中文排版环境下一般不需要考虑连字符断行</p>
         <div id="eg-4-1-1">“The only way to get rid of a temptation is to yield to it.”</div>
           <code>
@@ -15,7 +15,7 @@
           </code>
       </section>
       <section id="c-4-2" class="c-section">
-        <h3>Inserting line breaks 插入换行</h3>
+        <h3>{{ $t("lang.directory[3].sections[1]") }}</h3>
         <div id="eg-4-2-1">
           <dl>
             <dt>Name:</dt>
@@ -66,7 +66,7 @@
         </code>
       </section>
       <section id="c-4-3" class="c-section">
-        <h3>Zebra-striped text lines 文本行的斑马条纹</h3>
+        <h3>{{ $t("lang.directory[3].sections[2]") }}</h3>
         <p>条纹会随着字体的大小改变而自适应地变化，注意background-size 第二个参数是行高的 2倍</p>
         <div id="eg-4-3-1">
           <pre>
@@ -90,7 +90,7 @@
         </div>
       </section>
       <section id="c-4-4" class="c-section">
-        <h3>Adjusting tab width 调整 Tab 的宽度</h3>
+        <h3>{{ $t("lang.directory[3].sections[3]") }}</h3>
         <div id="eg-4-4-1">
           <pre class="pre-2">
             <code class="code">while (true) {
@@ -119,7 +119,7 @@
         </div>
       </section>
       <section id="c-4-5" class="c-section">
-        <h3>Ligatures 连字</h3>
+        <h3>{{ $t("lang.directory[3].sections[4]") }}</h3>
         <div id="eg-4-5-1">
           <p>Common ligatures: fi ff fl ffi ffl</p>
           <p>Discretionary ligatures: st ct</p>
@@ -130,7 +130,7 @@
         </code>
       </section>
       <section id="c-4-6" class="c-section">
-        <h3>Fancy ampersands 华丽的 &amp; 符号</h3>
+        <h3>{{ $t("lang.directory[3].sections[5]") }}</h3>
         <div id="eg-4-6-1">
           <p>HTML &amp; CSS</p>
         </div>
@@ -153,7 +153,7 @@
         </p>
       </section>
       <section id="c-4-7" class="c-section">
-        <h3>Custom underlines 自定义下划线</h3>
+        <h3>{{ $t("lang.directory[3].sections[6]") }}</h3>
         <div id="eg-4-7-1">
           <h4>Normal underlines 横线</h4>
           <p class="normal">“The only way to <a>get rid of a temp­ta­tion</a> is to <a>yield</a> to it."</p>
@@ -182,7 +182,7 @@
         </div>
       </section>
       <section id="c-4-8" class="c-section">
-        <h3>Realistic text effects 现实中的文字效果</h3>
+        <h3>{{ $t("lang.directory[3].sections[7]") }}</h3>
         <div id="eg-4-8-1">
           <h4>Letterpress</h4>
           <p class="letterpress-1">CSS Secrets Demos</p>
@@ -253,7 +253,7 @@
         </div>
       </section>
       <section id="c-4-9" class="c-section">
-        <h3>Circular text 环形文字</h3>
+        <h3>{{ $t("lang.directory[3].sections[8]") }}</h3>
         <div id="eg-4-9-1">
           <div class="circle">
             <svg viewBox="0 0 100 100">
