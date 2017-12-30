@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "1a081ce20869e6467b01"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "0852f3b5b2a501296783"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -722,7 +722,7 @@
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire(16)(__webpack_require__.s = 16);
+/******/ 	return hotCreateRequire(17)(__webpack_require__.s = 17);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -11646,7 +11646,7 @@ return Vue$3;
 
 })));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13), __webpack_require__(17).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13), __webpack_require__(18).setImmediate))
 
 /***/ }),
 /* 2 */
@@ -11859,7 +11859,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(32)
+var listToStyles = __webpack_require__(33)
 
 /*
 type StyleObject = {
@@ -16549,14 +16549,98 @@ if (typeof window !== 'undefined' && window.Vue) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__v_index__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__v_bgAndBorders__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__v_shapes__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__v_visualEffects__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__v_typography__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__v_userExperience__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__v_blurDialog__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__v_structureAndLayout__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__v_fluidBg__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__v_verticalCenter__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__v_stickyFooter__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__v_transitionsAndAnimations__ = __webpack_require__(75);
+
+
+
+
+
+
+
+
+
+
+
+
+
+const routermaps = [{
+  path: '/',
+  component: __WEBPACK_IMPORTED_MODULE_0__v_index__["a" /* default */]
+}, {
+  path: '/index',
+  component: __WEBPACK_IMPORTED_MODULE_0__v_index__["a" /* default */]
+}, {
+  path: '/bgAndBorders',
+  component: __WEBPACK_IMPORTED_MODULE_1__v_bgAndBorders__["a" /* default */],
+  meta: { scrollToTop: true }
+}, {
+  path: '/shapes',
+  component: __WEBPACK_IMPORTED_MODULE_2__v_shapes__["a" /* default */],
+  meta: { scrollToTop: true }
+}, {
+  path: '/visualEffects',
+  component: __WEBPACK_IMPORTED_MODULE_3__v_visualEffects__["a" /* default */],
+  meta: { scrollToTop: true }
+}, {
+  path: '/typography',
+  component: __WEBPACK_IMPORTED_MODULE_4__v_typography__["a" /* default */],
+  meta: { scrollToTop: true }
+}, {
+  path: '/userExperience',
+  component: __WEBPACK_IMPORTED_MODULE_5__v_userExperience__["a" /* default */],
+  meta: { scrollToTop: true }
+}, {
+  path: '/blurDialog',
+  component: __WEBPACK_IMPORTED_MODULE_6__v_blurDialog__["a" /* default */]
+}, {
+  path: '/structureAndLayout',
+  component: __WEBPACK_IMPORTED_MODULE_7__v_structureAndLayout__["a" /* default */],
+  meta: { scrollToTop: true }
+}, {
+  path: '/fluidBg',
+  component: __WEBPACK_IMPORTED_MODULE_8__v_fluidBg__["a" /* default */]
+}, {
+  path: '/verticalCenter/:id',
+  component: __WEBPACK_IMPORTED_MODULE_9__v_verticalCenter__["a" /* default */]
+}, {
+  path: '/stickyFooter',
+  component: __WEBPACK_IMPORTED_MODULE_10__v_stickyFooter__["a" /* default */]
+}, {
+  path: '/transitionsAndAnimations',
+  component: __WEBPACK_IMPORTED_MODULE_11__v_transitionsAndAnimations__["a" /* default */]
+}];
+
+/* harmony default export */ __webpack_exports__["a"] = (routermaps);
+
+/***/ }),
+/* 17 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_i18n__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__router___ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__i18n___ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_analytics__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_analytics___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vue_analytics__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__router___ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__i18n___ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ga___ = __webpack_require__(81);
+
+
 
 
 
@@ -16566,21 +16650,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 // import style files
-__webpack_require__(80);
+__webpack_require__(82);
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vue_i18n__["a" /* default */]);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_3_vue_analytics___default.a, __WEBPACK_IMPORTED_MODULE_7__ga___["a" /* default */]);
 
 new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
   el: '#css-secrets-demo',
-  router: __WEBPACK_IMPORTED_MODULE_4__router___["a" /* default */],
-  i18n: __WEBPACK_IMPORTED_MODULE_5__i18n___["a" /* default */],
+  router: __WEBPACK_IMPORTED_MODULE_5__router___["a" /* default */],
+  i18n: __WEBPACK_IMPORTED_MODULE_6__i18n___["a" /* default */],
   template: '<App/>',
-  components: { App: __WEBPACK_IMPORTED_MODULE_3__app__["a" /* default */] }
+  components: { App: __WEBPACK_IMPORTED_MODULE_4__app__["a" /* default */] }
 });
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var apply = Function.prototype.apply;
@@ -16633,13 +16718,13 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(18);
+__webpack_require__(19);
 exports.setImmediate = setImmediate;
 exports.clearImmediate = clearImmediate;
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -16832,12 +16917,18 @@ exports.clearImmediate = clearImmediate;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13), __webpack_require__(5)))
 
 /***/ }),
-/* 19 */
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+!function(e,n){if(true)module.exports=n();else if("function"==typeof define&&define.amd)define([],n);else{var t=n();for(var r in t)("object"==typeof exports?exports:e)[r]=t[r]}}(this,function(){return function(e){function n(r){if(t[r])return t[r].exports;var o=t[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,n),o.l=!0,o.exports}var t={};return n.m=e,n.c=t,n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{configurable:!1,enumerable:!0,get:r})},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,n){return Object.prototype.hasOwnProperty.call(e,n)},n.p="",n(n.s=0)}([function(e,n,t){"use strict";function r(e){u(_,e)}function o(){return _.id?[].concat(_.id):[]}function i(){}function a(e){return new Promise(function(n,t){var r=document.head||document.getElementsByTagName("head")[0],o=document.createElement("script");o.async=!0,o.src=e,o.charset="utf8",r.appendChild(o),o.onload=n,o.onerror=t})}function c(e,n){var t=n.split("/"),r=e.split("/");return""===t[0]&&"/"===e[e.length-1]&&t.shift(),r.join("/")+t.join("/")}function u(e,n){return Object.keys(n).forEach(function(t){if(e[t]&&"object"==typeof e[t])return void u(e[t],n[t]);e[t]=n[t]}),e}function f(){return Array.prototype.slice.call(document.getElementsByTagName("script")).filter(function(e){return-1!==e.src.indexOf("analytics")}).length>0}function l(e){return e.replace(/-/gi,"")}function s(){return new Promise(function(e,n){var t=setInterval(function(){"undefined"!=typeof window&&window.ga&&(e(),clearInterval(t))},10)})}function d(e,n){if(o().length>1){return l(n)+"."+e}return e}function p(e){var n=Object.keys(e).reduce(function(n,t,r,o){var i=r===o.length-1;return n+=t+"="+e[t]+(i?"":"&")},"");return""!==n?"?"+n:""}function v(e){return-1!==B.ignoreRoutes.indexOf(e)}function g(e){return e.query&&e.params}function h(e){return e.currentRoute}function y(e){for(var n=arguments.length,t=Array(n>1?n-1:0),r=1;r<n;r++)t[r-1]=arguments[r];o().forEach(function(n){var r;if(void 0===window.ga||"string"!=typeof n)return void B.untracked.push({method:d(e,n),arguments:[].concat(t)});(r=window).ga.apply(r,[d(e,n)].concat(t))})}function m(){for(var e=arguments.length,n=Array(e),t=0;t<e;t++)n[t]=arguments[t];if("object"==typeof n[0]&&n[0].constructor===Object)return void y("set",n[0]);y("set",n[0],n[1])}function b(){var e=o();B.debug.enabled&&(window.ga_debug={trace:B.debug.trace}),e.forEach(function(n){var t=l(n),r=e.length>1?D({},B.fields,{name:t}):B.fields;window.ga("create",n,"auto",r)}),B.beforeFirstHit();var n=B.ecommerce;if(n.enabled){var t=n.enhanced?"ec":"ecommerce";n.options?y("require",t,n.options):y("require",t)}B.linkers.length>0&&(y("require","linker"),y("linker:autoLink",B.linkers)),B.debug.sendHitTask||m("sendHitTask",null)}function w(e){if(Array.isArray(e)){for(var n=0,t=Array(e.length);n<e.length;n++)t[n]=e[n];return t}return Array.from(e)}function k(){var e=B.untracked,n=B.autoTracking,t=e.length;if(t&&n.untracked)for(;t--;){var r=e[t];y.apply(void 0,[r.method].concat(w(r.arguments))),e.splice(t,1)}}function O(){for(var e=void 0,n=arguments.length,t=Array(n),r=0;r<n;r++)t[r]=arguments[r];if(h(t[0])&&(e=t[0].currentRoute),g(t[0])&&(e=t[0]),e){var o=B.router,i=B.autoTracking,a=i.transformQueryString,u=i.prependBase,f=p(e.query),l=o&&o.options.base,s=u&&l,d=e.path+(a?f:"");return d=s?c(l,d):d,m("page",d),void y("send","pageview",M({page:d,title:e.name,location:window.location.href},"function"==typeof t[1]&&{hitCallback:t[1]}))}y.apply(void 0,["send","pageview"].concat(t))}function j(e){if(!v(e)){var n=B.autoTracking,t=e.meta.analytics,r=void 0===t?{}:t,o=r.pageviewTemplate||n.pageviewTemplate;O(o?o(e):e)}}function x(){var e=B.router,n=B.autoTracking;n.page&&e&&(n.pageviewOnLoad&&j(e.currentRoute),B.router.afterEach(function(t,r){var o=n.skipSamePath,i=n.shouldRouterUpdate;o&&t.path===r.path||("function"!=typeof i||i(t,r))&&setTimeout(function(){j(e.currentRoute)},0)}))}function T(){if("undefined"!=typeof document){var e=B.id,n=B.debug,t=B.checkDuplicatedScript,r=B.disableScriptLoader,o=n.enabled?"analytics_debug":"analytics",i="https://www.google-analytics.com/"+o+".js";if(!e)throw new Error("[vue-analytics] Please enter a Google Analytics tracking ID");return new Promise(function(e,n){return t&&f(i)||r?e():a(i).then(function(){e()}).catch(function(){n("[vue-analytics] It's not possible to load Google Analytics script")})}).then(function(){return s()}).then(function(){return"function"==typeof e?e():e}).then(function(e){B.id=e,b(),G(),B.ready(),x(),k()}).catch(function(e){console.error(e)})}}function A(){for(var e=arguments.length,n=Array(e),t=0;t<e;t++)n[t]=arguments[t];y.apply(void 0,["send","event"].concat(n))}function P(e){y("send","exception",{exDescription:e,exFatal:arguments.length>1&&void 0!==arguments[1]&&arguments[1]})}function E(e,n){var t=B.autoTracking.exception,r=e.message||e;t&&n.$ga.exception(r,!0)}function q(){for(var e=arguments.length,n=Array(e),t=0;t<e;t++)n[t]=arguments[t];y.apply(void 0,["send","social"].concat(n))}function R(){for(var e=arguments.length,n=Array(e),t=0;t<e;t++)n[t]=arguments[t];y.apply(void 0,["send","timing"].concat(n))}function S(e,n,t){return n in e?Object.defineProperty(e,n,{value:t,enumerable:!0,configurable:!0,writable:!0}):e[n]=t,e}function H(e){r(arguments.length>1&&void 0!==arguments[1]?arguments[1]:{}),e.directive("ga",J),e.prototype.$ga=e.$ga=z,e.config.errorHandler||(e.config.errorHandler=E),T()}Object.defineProperty(n,"__esModule",{value:!0});var I=Object.assign||function(e){for(var n=1;n<arguments.length;n++){var t=arguments[n];for(var r in t)Object.prototype.hasOwnProperty.call(t,r)&&(e[r]=t[r])}return e},L={id:null,router:null,fields:{},ignoreRoutes:[],linkers:[],commands:{},set:[],require:[],ecommerce:{enabled:!1,options:null,enhanced:!1},autoTracking:{shouldRouterUpdate:null,skipSamePath:!1,exception:!1,page:!0,transformQueryString:!0,pageviewOnLoad:!0,pageviewTemplate:null,untracked:!0,prependBase:!0},debug:{enabled:!1,trace:!1,sendHitTask:!0},checkDuplicatedScript:!1,disableScriptLoader:!1,beforeFirstHit:i,ready:i,untracked:[]},_=I({},L),B=_,D=Object.assign||function(e){for(var n=1;n<arguments.length;n++){var t=arguments[n];for(var r in t)Object.prototype.hasOwnProperty.call(t,r)&&(e[r]=t[r])}return e},F=function(){if(2==arguments.length)return void y("require",arguments.length<=0?void 0:arguments[0],arguments.length<=1?void 0:arguments[1]);y("require",arguments.length<=0?void 0:arguments[0])},$=function(){B.set.forEach(function(e){var n=e.field,t=e.value;if(void 0===n||void 0===t)throw new Error('[vue-analytics] Wrong configuration in the plugin options.\nThe "set" array requires each item to have a "field" and a "value" property.');m(n,t)})},C=function(){var e=["ec","ecommerce"];B.require.forEach(function(n){if(-1!==e.indexOf(n)||-1!==e.indexOf(n.name))throw new Error("[vue-analytics] The ecommerce features are built-in in the plugin. \nFollow the ecommerce instructions available in the documentation.");if("string"!=typeof n&&"object"!=typeof n)throw new Error('[vue-analytics] Wrong configuration in the plugin options. \nThe "require" array requires each item to be a string or to have a "name" and an "options" property.');var t=n.name||n;if(n.options)return void F(t,n.options);F(t)})},G=function(){$(),C()},M=Object.assign||function(e){for(var n=1;n<arguments.length;n++){var t=arguments[n];for(var r in t)Object.prototype.hasOwnProperty.call(t,r)&&(e[r]=t[r])}return e},N=Object.assign||function(e){for(var n=1;n<arguments.length;n++){var t=arguments[n];for(var r in t)Object.prototype.hasOwnProperty.call(t,r)&&(e[r]=t[r])}return e},Q=function(e){return(B.ecommerce.enhanced?"ec":"ecommerce")+":"+e},U=["addItem","addTransaction","addProduct","addImpression","setAction","addPromo","send"],W=U.reduce(function(e,n){return N({},e,S({},n,function(){for(var e=arguments.length,t=Array(e),r=0;r<e;r++)t[r]=arguments[r];y.apply(void 0,[Q(n)].concat(t))}))},{}),z={event:A,exception:P,page:O,query:y,require:F,set:m,social:q,time:R,untracked:k,ecommerce:W,commands:B.commands},J={inserted:function(e,n,t){var r=n.value;e.addEventListener("click",function(){var e="string"==typeof r?B.commands[r]:r;if(!e)throw new Error("[vue-analytics] The value passed to v-ga is not defined in the commands list.");e.apply(t.context)})}};n.default=H,t.d(n,"onAnalyticsReady",function(){return s})}])});
+
+/***/ }),
+/* 21 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_app_vue__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5ef48958_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_app_vue__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_app_vue__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5ef48958_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_app_vue__ = __webpack_require__(29);
 var disposed = false
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -16883,11 +16974,11 @@ if (true) {(function () {
 
 
 /***/ }),
-/* 20 */
+/* 22 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Navigator_vue__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Navigator_vue__ = __webpack_require__(23);
 //
 //
 //
@@ -16950,12 +17041,12 @@ if (true) {(function () {
 });
 
 /***/ }),
-/* 21 */
+/* 23 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_Navigator_vue__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_6331c252_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_Navigator_vue__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_Navigator_vue__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_6331c252_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_Navigator_vue__ = __webpack_require__(28);
 var disposed = false
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -17001,11 +17092,11 @@ if (true) {(function () {
 
 
 /***/ }),
-/* 22 */
+/* 24 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__LangSelector_vue__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__LangSelector_vue__ = __webpack_require__(25);
 //
 //
 //
@@ -17047,12 +17138,12 @@ if (true) {(function () {
 });
 
 /***/ }),
-/* 23 */
+/* 25 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_LangSelector_vue__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_446ef19d_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_LangSelector_vue__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_LangSelector_vue__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_446ef19d_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_LangSelector_vue__ = __webpack_require__(27);
 var disposed = false
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -17098,7 +17189,7 @@ if (true) {(function () {
 
 
 /***/ }),
-/* 24 */
+/* 26 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17132,7 +17223,7 @@ if (true) {(function () {
 });
 
 /***/ }),
-/* 25 */
+/* 27 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17186,7 +17277,7 @@ if (true) {
 }
 
 /***/ }),
-/* 26 */
+/* 28 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17281,7 +17372,7 @@ if (true) {
 }
 
 /***/ }),
-/* 27 */
+/* 29 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17317,13 +17408,13 @@ if (true) {
 }
 
 /***/ }),
-/* 28 */
+/* 30 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_router__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routermaps__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__scrollBehavior__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routermaps__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__scrollBehavior__ = __webpack_require__(78);
 
 
 
@@ -17338,95 +17429,16 @@ const router = new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({
 /* harmony default export */ __webpack_exports__["a"] = (router);
 
 /***/ }),
-/* 29 */
+/* 31 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__v_index__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__v_bgAndBorders__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__v_shapes__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__v_visualEffects__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__v_typography__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__v_userExperience__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__v_blurDialog__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__v_structureAndLayout__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__v_fluidBg__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__v_verticalCenter__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__v_stickyFooter__ = __webpack_require__(70);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__v_transitionsAndAnimations__ = __webpack_require__(74);
-
-
-
-
-
-
-
-
-
-
-
-
-
-const routermaps = [{
-  path: '/',
-  component: __WEBPACK_IMPORTED_MODULE_0__v_index__["a" /* default */]
-}, {
-  path: '/index',
-  component: __WEBPACK_IMPORTED_MODULE_0__v_index__["a" /* default */]
-}, {
-  path: '/bgAndBorders',
-  component: __WEBPACK_IMPORTED_MODULE_1__v_bgAndBorders__["a" /* default */],
-  meta: { scrollToTop: true }
-}, {
-  path: '/shapes',
-  component: __WEBPACK_IMPORTED_MODULE_2__v_shapes__["a" /* default */],
-  meta: { scrollToTop: true }
-}, {
-  path: '/visualEffects',
-  component: __WEBPACK_IMPORTED_MODULE_3__v_visualEffects__["a" /* default */],
-  meta: { scrollToTop: true }
-}, {
-  path: '/typography',
-  component: __WEBPACK_IMPORTED_MODULE_4__v_typography__["a" /* default */],
-  meta: { scrollToTop: true }
-}, {
-  path: '/userExperience',
-  component: __WEBPACK_IMPORTED_MODULE_5__v_userExperience__["a" /* default */],
-  meta: { scrollToTop: true }
-}, {
-  path: '/blurDialog',
-  component: __WEBPACK_IMPORTED_MODULE_6__v_blurDialog__["a" /* default */]
-}, {
-  path: '/structureAndLayout',
-  component: __WEBPACK_IMPORTED_MODULE_7__v_structureAndLayout__["a" /* default */],
-  meta: { scrollToTop: true }
-}, {
-  path: '/fluidBg',
-  component: __WEBPACK_IMPORTED_MODULE_8__v_fluidBg__["a" /* default */]
-}, {
-  path: '/verticalCenter/:id',
-  component: __WEBPACK_IMPORTED_MODULE_9__v_verticalCenter__["a" /* default */]
-}, {
-  path: '/stickyFooter',
-  component: __WEBPACK_IMPORTED_MODULE_10__v_stickyFooter__["a" /* default */]
-}, {
-  path: '/transitionsAndAnimations',
-  component: __WEBPACK_IMPORTED_MODULE_11__v_transitionsAndAnimations__["a" /* default */]
-}];
-
-/* harmony default export */ __webpack_exports__["a"] = (routermaps);
-
-/***/ }),
-/* 30 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_index_vue__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_a83bd3b0_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_index_vue__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_index_vue__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_a83bd3b0_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_index_vue__ = __webpack_require__(35);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(31)
+  __webpack_require__(32)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -17472,7 +17484,7 @@ if (true) {(function () {
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
@@ -17498,7 +17510,7 @@ if(true) {
 }
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports) {
 
 /**
@@ -17531,7 +17543,7 @@ module.exports = function listToStyles (parentId, list) {
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17563,7 +17575,7 @@ module.exports = function listToStyles (parentId, list) {
 });
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17621,12 +17633,12 @@ if (true) {
 }
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_bgAndBorders_vue__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_356d1ea2_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_bgAndBorders_vue__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_bgAndBorders_vue__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_356d1ea2_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_bgAndBorders_vue__ = __webpack_require__(38);
 var disposed = false
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -17672,7 +17684,7 @@ if (true) {(function () {
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17930,7 +17942,7 @@ if (true) {(function () {
 /* harmony default export */ __webpack_exports__["a"] = ({});
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17938,317 +17950,435 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0, false, false)
+  return _c("div", { staticClass: "content" }, [
+    _c("section", { staticClass: "c-chapter", attrs: { id: "c-1" } }, [
+      _c("h2", [_vm._v(_vm._s(_vm.$t("lang.directory[0].chapter")))]),
+      _vm._v(" "),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-1-1" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[0].sections[0]")))]),
+        _vm._v(" "),
+        _vm._m(0, false, false),
+        _vm._v(" "),
+        _c("code", [
+          _vm._v(
+            "\n        border: 10px solid rgba(0, 0, 0, 0.3);\n        background: white;\n        background-clip: padding-box;\n      "
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-1-2" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[0].sections[1]")))]),
+        _vm._v(" "),
+        _c("h4", [_vm._v("box-shadow solution")]),
+        _vm._v(" "),
+        _c("div", { attrs: { id: "eg-1-2-1" } }),
+        _vm._v(" "),
+        _c("code", [
+          _vm._v(
+            "\n        background: yellowgreen;\n        box-shadow: 0 0 0 10px #655,\n        0 0 0 15px deeppink,\n        0 2px 5px 15px rgba(0,0,0,.6);\n      "
+          )
+        ]),
+        _vm._v(" "),
+        _c("h4", [_vm._v("outline solution")]),
+        _vm._v(" "),
+        _c("div", { attrs: { id: "eg-1-2-2" } }),
+        _vm._v(" "),
+        _c("code", [
+          _vm._v(
+            "\n        background: yellowgreen;\n        border: 10px solid #655;\n        outline: 15px solid deeppink;\n      "
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-1-3" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[0].sections[2]")))]),
+        _vm._v(" "),
+        _c("h4", [_vm._v("Extended background-position solution")]),
+        _vm._v(" "),
+        _c("div", { attrs: { id: "eg-1-3-1" } }),
+        _vm._v(" "),
+        _c("code", [
+          _vm._v(
+            "\n        background: url(img/water.svg) no-repeat bottom right #CEE2EF;\n        background-position: right 20px bottom 10px;\n      "
+          )
+        ]),
+        _vm._v(" "),
+        _c("h4", [_vm._v("background-origin solution")]),
+        _vm._v(" "),
+        _c("div", { attrs: { id: "eg-1-3-2" } }),
+        _vm._v(" "),
+        _c("code", [
+          _vm._v(
+            '\n        padding: 20px;\n        background: url("img/water.svg") no-repeat #CEE2EF\n        bottom right; /* or 100% 100% */\n        background-origin: content-box;\n      '
+          )
+        ]),
+        _vm._v(" "),
+        _c("h4", [_vm._v("calc() solution")]),
+        _vm._v(" "),
+        _c("div", { attrs: { id: "eg-1-3-3" } }),
+        _vm._v(" "),
+        _c("code", [
+          _vm._v(
+            '\n        background: url("img/water.svg") no-repeat #CEE2EF;\n        background-position: calc(100% - 20px) calc(100% - 20px);\n      '
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-1-4" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[0].sections[3]")))]),
+        _vm._v(" "),
+        _c("div", { attrs: { id: "eg-1-4-1" } }),
+        _vm._v(" "),
+        _c("code", [
+          _vm._v(
+            "\n        background: tan;\n        border-radius: .8em;\n        padding: 1em;\n        box-shadow: 0 0 0 .6em #655;\n        outline: .65em solid #655;\n      "
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-1-5" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[0].sections[4]")))]),
+        _vm._v(" "),
+        _vm._m(1, false, false),
+        _vm._v(" "),
+        _vm._m(2, false, false),
+        _vm._v(" "),
+        _vm._m(3, false, false),
+        _vm._v(" "),
+        _vm._m(4, false, false),
+        _vm._v(" "),
+        _vm._m(5, false, false),
+        _vm._v(" "),
+        _vm._m(6, false, false),
+        _vm._v(" "),
+        _vm._m(7, false, false),
+        _vm._v(" "),
+        _vm._m(8, false, false),
+        _vm._v(" "),
+        _vm._m(9, false, false),
+        _vm._v(" "),
+        _vm._m(10, false, false),
+        _vm._v(" "),
+        _vm._m(11, false, false),
+        _vm._v(" "),
+        _vm._m(12, false, false)
+      ]),
+      _vm._v(" "),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-1-6" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[0].sections[5]")))]),
+        _vm._v(" "),
+        _vm._m(13, false, false),
+        _vm._v(" "),
+        _vm._m(14, false, false),
+        _vm._v(" "),
+        _vm._m(15, false, false),
+        _vm._v(" "),
+        _vm._m(16, false, false),
+        _vm._v(" "),
+        _vm._m(17, false, false),
+        _vm._v(" "),
+        _vm._m(18, false, false)
+      ]),
+      _vm._v(" "),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-1-7" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[0].sections[6]")))]),
+        _vm._v(" "),
+        _vm._m(19, false, false),
+        _vm._v(" "),
+        _vm._m(20, false, false)
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content" }, [
-      _c("section", { staticClass: "c-chapter", attrs: { id: "c-1" } }, [
-        _c("h2", [_vm._v("Backgrounds &Borders  背景与边框")]),
-        _vm._v(" "),
-        _c("section", { staticClass: "c-section", attrs: { id: "c-1-1" } }, [
-          _c("h3", [_vm._v("Translucent borders 半透明边框")]),
-          _vm._v(" "),
-          _c("div", { attrs: { id: "eg-1-1" } }, [
-            _c("div", { attrs: { id: "eg-1-1-1" } }, [
-              _vm._v(
-                "\n          semitransparent borders\n          semitransparent borders\n        "
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("code", [
-            _vm._v(
-              "\n        border: 10px solid rgba(0, 0, 0, 0.3);\n        background: white;\n        background-clip: padding-box;\n      "
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("section", { staticClass: "c-section", attrs: { id: "c-1-2" } }, [
-          _c("h3", [_vm._v("Multiple borders 多重边框")]),
-          _vm._v(" "),
-          _c("h4", [_vm._v("box-shadow solution")]),
-          _vm._v(" "),
-          _c("div", { attrs: { id: "eg-1-2-1" } }),
-          _vm._v(" "),
-          _c("code", [
-            _vm._v(
-              "\n        background: yellowgreen;\n        box-shadow: 0 0 0 10px #655,\n        0 0 0 15px deeppink,\n        0 2px 5px 15px rgba(0,0,0,.6);\n      "
-            )
-          ]),
-          _vm._v(" "),
-          _c("h4", [_vm._v("outline solution")]),
-          _vm._v(" "),
-          _c("div", { attrs: { id: "eg-1-2-2" } }),
-          _vm._v(" "),
-          _c("code", [
-            _vm._v(
-              "\n        background: yellowgreen;\n        border: 10px solid #655;\n        outline: 15px solid deeppink;\n      "
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("section", { staticClass: "c-section", attrs: { id: "c-1-3" } }, [
-          _c("h3", [_vm._v("Flexible background positioning  灵活的背景定位")]),
-          _vm._v(" "),
-          _c("h4", [_vm._v("Extended background-position solution")]),
-          _vm._v(" "),
-          _c("div", { attrs: { id: "eg-1-3-1" } }),
-          _vm._v(" "),
-          _c("code", [
-            _vm._v(
-              "\n        background: url(img/water.svg) no-repeat bottom right #CEE2EF;\n        background-position: right 20px bottom 10px;\n      "
-            )
-          ]),
-          _vm._v(" "),
-          _c("h4", [_vm._v("background-origin solution")]),
-          _vm._v(" "),
-          _c("div", { attrs: { id: "eg-1-3-2" } }),
-          _vm._v(" "),
-          _c("code", [
-            _vm._v(
-              '\n        padding: 20px;\n        background: url("img/water.svg") no-repeat #CEE2EF\n        bottom right; /* or 100% 100% */\n        background-origin: content-box;\n      '
-            )
-          ]),
-          _vm._v(" "),
-          _c("h4", [_vm._v("calc() solution")]),
-          _vm._v(" "),
-          _c("div", { attrs: { id: "eg-1-3-3" } }),
-          _vm._v(" "),
-          _c("code", [
-            _vm._v(
-              '\n        background: url("img/water.svg") no-repeat #CEE2EF;\n        background-position: calc(100% - 20px) calc(100% - 20px);\n      '
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("section", { staticClass: "c-section", attrs: { id: "c-1-4" } }, [
-          _c("h3", [_vm._v("Inner rounding 边框内圆角")]),
-          _vm._v(" "),
-          _c("div", { attrs: { id: "eg-1-4-1" } }),
-          _vm._v(" "),
-          _c("code", [
-            _vm._v(
-              "\n        background: tan;\n        border-radius: .8em;\n        padding: 1em;\n        box-shadow: 0 0 0 .6em #655;\n        outline: .65em solid #655;\n      "
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("section", { staticClass: "c-section", attrs: { id: "c-1-5" } }, [
-          _c("h3", [_vm._v("Striped backgrounds  条纹背景")]),
-          _vm._v(" "),
-          _c("section", [
-            _c("div", { attrs: { id: "eg-1-5-1" } }),
-            _vm._v(" "),
-            _c("code", [
-              _vm._v(
-                "\n          background: linear-gradient(#fb3, #58a);\n          background: linear-gradient(#fb3 0%, #58a 100%);\n        "
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("section", [
-            _c("div", { attrs: { id: "eg-1-5-2" } }),
-            _vm._v(" "),
-            _c("code", [
-              _vm._v(
-                "\n          background: linear-gradient(#fb3 20%, #58a 80%);\n        "
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("section", [
-            _c("div", { attrs: { id: "eg-1-5-3" } }),
-            _vm._v(" "),
-            _c("code", [
-              _vm._v(
-                "\n          background: linear-gradient(#fb3 40%, #58a 60%);\n        "
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("section", [
-            _c("div", { attrs: { id: "eg-1-5-4" } }),
-            _vm._v(" "),
-            _c("code", [
-              _vm._v(
-                "\n          background: linear-gradient(#fb3 50%, #58a 50%);\n        "
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("section", [
-            _c("div", { attrs: { id: "eg-1-5-5" } }),
-            _vm._v(" "),
-            _c("code", [
-              _vm._v(
-                "\n          background: linear-gradient(#fb3 30%, #58a 0);\n          background-size: 100% 30px;\n        "
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("section", [
-            _c("div", { attrs: { id: "eg-1-5-6" } }),
-            _vm._v(" "),
-            _c("code", [
-              _vm._v(
-                "\n          background: linear-gradient(#fb3 33.3%,#58a 0, #58a 66.6%, yellowgreen 0);\n          background-size: 100% 45px;\n        "
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("section", [
-            _c("div", { attrs: { id: "eg-1-5-7" } }),
-            _vm._v(" "),
-            _c("code", [
-              _vm._v(
-                "\n          background: linear-gradient(to right,#fb3 50%, #58a 0);\n          background: linear-gradient(90deg,#fb3 50%, #58a 0);\n          background-size: 30px 100%;\n        "
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("section", [
-            _c("div", { attrs: { id: "eg-1-5-8" } }),
-            _vm._v(" "),
-            _c("code", [
-              _vm._v(
-                "\n          background: linear-gradient(45deg,#fb3 50%, #58a 0);\n          background-size: 30px 30px;\n        "
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("section", [
-            _c("div", { attrs: { id: "eg-1-5-9" } }),
-            _vm._v(" "),
-            _c("code", [
-              _vm._v(
-                "\n          background: linear-gradient(45deg,#fb3 25%, #58a 0, #58a 50%,#fb3 0, #fb3 75%, #58a 0);\n          background-size: 30px 30px;\n        "
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("section", [
-            _c("div", { attrs: { id: "eg-1-5-10" } }),
-            _vm._v(" "),
-            _c("code", [
-              _vm._v(
-                "\n          background: repeating-linear-gradient(45deg,#fb3, #58a 30px);\n        "
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("section", [
-            _c("div", { attrs: { id: "eg-1-5-11" } }),
-            _vm._v(" "),
-            _c("code", [
-              _vm._v(
-                "\n          background: repeating-linear-gradient(60deg,#fb3, #fb3 15px, #58a 0, #58a 30px);\n        "
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("section", [
-            _c("div", { attrs: { id: "eg-1-5-12" } }),
-            _vm._v(" "),
-            _c("code", [
-              _vm._v(
-                "\n          background: #58a;\n          background-image: repeating-linear-gradient(30deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,.1) 15px,transparent 0, transparent 30px);\n        "
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("section", { staticClass: "c-section", attrs: { id: "c-1-6" } }, [
-          _c("h3", [_vm._v("Complex background patterns   复杂的背景图案")]),
-          _vm._v(" "),
-          _c("section", [
-            _c("div", { attrs: { id: "eg-1-6-1" } }),
-            _vm._v(" "),
-            _c("code", [
-              _vm._v(
-                "\n          background: white;\n          background-image: linear-gradient(90deg,rgba(200,0,0,.5) 50%, transparent 0),linear-gradient(rgba(200,0,0,.5) 50%, transparent 0);\n          background-size: 31px 30px;\n        "
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("section", [
-            _c("div", { attrs: { id: "eg-1-6-2" } }),
-            _vm._v(" "),
-            _c("code", [
-              _vm._v(
-                "\n          background: white;\n          background-image: linear-gradient(90deg,rgba(200,0,0,.5) 50%, transparent 0),linear-gradient(rgba(200,0,0,.5) 50%, transparent 0);\n          background-size: 31px 30px;\n        "
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("section", [
-            _c("div", { attrs: { id: "eg-1-6-3" } }),
-            _vm._v(" "),
-            _c("code", [
-              _vm._v(
-                "\n          background: #58a;\n          background-image:linear-gradient(white 2px, transparent 0),\n          linear-gradient(90deg, white 2px, transparent 0),\n          linear-gradient(hsla(0,0%,100%,.3) 1px,transparent 0),\n          linear-gradient(90deg, hsla(0,0%,100%,.3) 1px,transparent 0);\n          background-size: 75px 75px, 75px 75px,15px 15px, 15px 15px;\n        "
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("section", [
-            _c("div", { attrs: { id: "eg-1-6-4" } }),
-            _vm._v(" "),
-            _c("code", [
-              _vm._v(
-                "\n          background: #655;\n          background-image: radial-gradient(tan 30%, transparent 0),\n          radial-gradient(tan 30%, transparent 0);\n          background-size: 30px 30px;\n          background-position: 0 0, 15px 15px;\n        "
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("section", [
-            _c("div", { attrs: { id: "eg-1-6-5" } }),
-            _vm._v(" "),
-            _c("code", [
-              _vm._v(
-                "\n          background: #eee;\n          background-image:\n          linear-gradient(45deg, #bbb 25%, transparent 0),\n          linear-gradient(45deg, transparent 75%, #bbb 0),\n          linear-gradient(45deg, #bbb 25%, transparent 0),\n          linear-gradient(45deg, transparent 75%, #bbb 0);\n          background-size: 30px 30px;\n          background-position: 0 0, 15px 15px,15px 15px,30px 30px;\n        "
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("section", [
-            _c("p", [
-              _vm._v("\n          复杂的背景参考：\n          "),
-              _c(
-                "a",
-                { attrs: { href: "http://bennettfeely.com/gradients/" } },
-                [_vm._v("http://bennettfeely.com/gradients/")]
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("section", { staticClass: "c-section", attrs: { id: "c-1-7" } }, [
-          _c("h3", [_vm._v("Continuous image borders 连续的图像边框")]),
-          _vm._v(" "),
-          _c("section", [
-            _c("div", { attrs: { id: "eg-1-7-1" } }, [_vm._v("content")]),
-            _vm._v(" "),
-            _c("code", [
-              _vm._v(
-                "\n          padding: 1em;\n          border: 1em solid transparent;\n          background: linear-gradient(white, white) padding-box,\n          repeating-linear-gradient(-45deg,\n          red 0, red 12.5%,\n          transparent 0, transparent 25%,\n          #58a 0, #58a 37.5%,\n          transparent 0, transparent 50%)\n          0 / 5em 5em;\n        "
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("section", [
-            _c("div", { attrs: { id: "eg-1-7-2" } }, [_vm._v("content")]),
-            _vm._v(" "),
-            _c("code", [
-              _vm._v(
-                "\n          @keyframes ants { to { background-position: 100% } }\n\n          #eg-1-7-2{\n             padding: 1em;\n             border: 1px solid transparent;\n             background:\n            linear-gradient(white, white) padding-box,\n            repeating-linear-gradient(-45deg,\n            black 0, black 25%, white 0, white 50%\n            ) 0 / .6em .6em;\n             animation: ants 12s linear infinite;\n          }\n        "
-              )
-            ])
-          ])
+    return _c("div", { attrs: { id: "eg-1-1" } }, [
+      _c("div", { attrs: { id: "eg-1-1-1" } }, [
+        _vm._v(
+          "\n          semitransparent borders\n          semitransparent borders\n        "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("div", { attrs: { id: "eg-1-5-1" } }),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n          background: linear-gradient(#fb3, #58a);\n          background: linear-gradient(#fb3 0%, #58a 100%);\n        "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("div", { attrs: { id: "eg-1-5-2" } }),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n          background: linear-gradient(#fb3 20%, #58a 80%);\n        "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("div", { attrs: { id: "eg-1-5-3" } }),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n          background: linear-gradient(#fb3 40%, #58a 60%);\n        "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("div", { attrs: { id: "eg-1-5-4" } }),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n          background: linear-gradient(#fb3 50%, #58a 50%);\n        "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("div", { attrs: { id: "eg-1-5-5" } }),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n          background: linear-gradient(#fb3 30%, #58a 0);\n          background-size: 100% 30px;\n        "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("div", { attrs: { id: "eg-1-5-6" } }),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n          background: linear-gradient(#fb3 33.3%,#58a 0, #58a 66.6%, yellowgreen 0);\n          background-size: 100% 45px;\n        "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("div", { attrs: { id: "eg-1-5-7" } }),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n          background: linear-gradient(to right,#fb3 50%, #58a 0);\n          background: linear-gradient(90deg,#fb3 50%, #58a 0);\n          background-size: 30px 100%;\n        "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("div", { attrs: { id: "eg-1-5-8" } }),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n          background: linear-gradient(45deg,#fb3 50%, #58a 0);\n          background-size: 30px 30px;\n        "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("div", { attrs: { id: "eg-1-5-9" } }),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n          background: linear-gradient(45deg,#fb3 25%, #58a 0, #58a 50%,#fb3 0, #fb3 75%, #58a 0);\n          background-size: 30px 30px;\n        "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("div", { attrs: { id: "eg-1-5-10" } }),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n          background: repeating-linear-gradient(45deg,#fb3, #58a 30px);\n        "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("div", { attrs: { id: "eg-1-5-11" } }),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n          background: repeating-linear-gradient(60deg,#fb3, #fb3 15px, #58a 0, #58a 30px);\n        "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("div", { attrs: { id: "eg-1-5-12" } }),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n          background: #58a;\n          background-image: repeating-linear-gradient(30deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,.1) 15px,transparent 0, transparent 30px);\n        "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("div", { attrs: { id: "eg-1-6-1" } }),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n          background: white;\n          background-image: linear-gradient(90deg,rgba(200,0,0,.5) 50%, transparent 0),linear-gradient(rgba(200,0,0,.5) 50%, transparent 0);\n          background-size: 31px 30px;\n        "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("div", { attrs: { id: "eg-1-6-2" } }),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n          background: white;\n          background-image: linear-gradient(90deg,rgba(200,0,0,.5) 50%, transparent 0),linear-gradient(rgba(200,0,0,.5) 50%, transparent 0);\n          background-size: 31px 30px;\n        "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("div", { attrs: { id: "eg-1-6-3" } }),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n          background: #58a;\n          background-image:linear-gradient(white 2px, transparent 0),\n          linear-gradient(90deg, white 2px, transparent 0),\n          linear-gradient(hsla(0,0%,100%,.3) 1px,transparent 0),\n          linear-gradient(90deg, hsla(0,0%,100%,.3) 1px,transparent 0);\n          background-size: 75px 75px, 75px 75px,15px 15px, 15px 15px;\n        "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("div", { attrs: { id: "eg-1-6-4" } }),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n          background: #655;\n          background-image: radial-gradient(tan 30%, transparent 0),\n          radial-gradient(tan 30%, transparent 0);\n          background-size: 30px 30px;\n          background-position: 0 0, 15px 15px;\n        "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("div", { attrs: { id: "eg-1-6-5" } }),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n          background: #eee;\n          background-image:\n          linear-gradient(45deg, #bbb 25%, transparent 0),\n          linear-gradient(45deg, transparent 75%, #bbb 0),\n          linear-gradient(45deg, #bbb 25%, transparent 0),\n          linear-gradient(45deg, transparent 75%, #bbb 0);\n          background-size: 30px 30px;\n          background-position: 0 0, 15px 15px,15px 15px,30px 30px;\n        "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("p", [
+        _vm._v("\n          复杂的背景参考：\n          "),
+        _c("a", { attrs: { href: "http://bennettfeely.com/gradients/" } }, [
+          _vm._v("http://bennettfeely.com/gradients/")
         ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("div", { attrs: { id: "eg-1-7-1" } }, [_vm._v("content")]),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n          padding: 1em;\n          border: 1em solid transparent;\n          background: linear-gradient(white, white) padding-box,\n          repeating-linear-gradient(-45deg,\n          red 0, red 12.5%,\n          transparent 0, transparent 25%,\n          #58a 0, #58a 37.5%,\n          transparent 0, transparent 50%)\n          0 / 5em 5em;\n        "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("div", { attrs: { id: "eg-1-7-2" } }, [_vm._v("content")]),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n          @keyframes ants { to { background-position: 100% } }\n\n          #eg-1-7-2{\n             padding: 1em;\n             border: 1px solid transparent;\n             background:\n            linear-gradient(white, white) padding-box,\n            repeating-linear-gradient(-45deg,\n            black 0, black 25%, white 0, white 50%\n            ) 0 / .6em .6em;\n             animation: ants 12s linear infinite;\n          }\n        "
+        )
       ])
     ])
   }
@@ -18264,12 +18394,12 @@ if (true) {
 }
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_shapes_vue__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_59b5dae8_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_shapes_vue__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_shapes_vue__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_59b5dae8_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_shapes_vue__ = __webpack_require__(41);
 var disposed = false
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -18315,7 +18445,7 @@ if (true) {(function () {
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18597,7 +18727,7 @@ if (true) {(function () {
 /* harmony default export */ __webpack_exports__["a"] = ({});
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18607,22 +18737,84 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "content" }, [
     _c("section", { staticClass: "c-chapter", attrs: { id: "c-2" } }, [
-      _c("h2", [_vm._v("Shapes 形状")]),
+      _c("h2", [_vm._v(_vm._s(_vm.$t("lang.directory[1].chapter")))]),
       _vm._v(" "),
-      _vm._m(0, false, false),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-2-1" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[1].sections[0]")))]),
+        _vm._v(" "),
+        _c("div", { attrs: { id: "eg-2-1-1" } }),
+        _vm._v(" "),
+        _c("code", [
+          _vm._v(
+            "\n\t\t\t\t\tbackground-color: #FFDD00;\n\t\t\t\t\tborder-radius: 50px / 10px;\n\t\t\t\t\tborder-radius: 50% / 50%;\n\t\t\t\t"
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { attrs: { id: "eg-2-1-2" } }),
+        _vm._v(" "),
+        _c("code", [
+          _vm._v("\n\t\t\t\t\tborder-radius: 100% 0 0 100% / 50%;\n\t\t\t\t")
+        ]),
+        _vm._v(" "),
+        _c("div", { attrs: { id: "eg-2-1-3" } }),
+        _vm._v(" "),
+        _c("code", [
+          _vm._v("\n\t\t\t\t\tborder-radius: 100% 0 0 0 ;\n\t\t\t\t")
+        ])
+      ]),
       _vm._v(" "),
-      _vm._m(1, false, false),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-2-2" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[1].sections[1]")))]),
+        _vm._v(" "),
+        _c("h4", [_vm._v("Nested elements solution")]),
+        _vm._v(" "),
+        _vm._m(0, false, false),
+        _vm._v(" "),
+        _c("h4", [_vm._v("Pseudo-element solution")]),
+        _vm._v(" "),
+        _vm._m(1, false, false),
+        _vm._v(" "),
+        _vm._m(2, false, false)
+      ]),
       _vm._v(" "),
-      _vm._m(2, false, false),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-2-3" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[1].sections[2]")))]),
+        _vm._v(" "),
+        _vm._m(3, false, false),
+        _vm._v(" "),
+        _vm._m(4, false, false)
+      ]),
       _vm._v(" "),
-      _vm._m(3, false, false),
-      _vm._v(" "),
-      _vm._m(4, false, false),
-      _vm._v(" "),
-      _c("section", { staticClass: "c-section", attrs: { id: "c-2-6" } }, [
-        _c("h3", [_vm._v("Simple pie charts")]),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-2-4" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[1].sections[3]")))]),
         _vm._v(" "),
         _vm._m(5, false, false),
+        _vm._v(" "),
+        _vm._m(6, false, false),
+        _vm._v(" "),
+        _vm._m(7, false, false),
+        _vm._v(" "),
+        _vm._m(8, false, false),
+        _vm._v(" "),
+        _vm._m(9, false, false),
+        _vm._v(" "),
+        _vm._m(10, false, false)
+      ]),
+      _vm._v(" "),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-2-5" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[1].sections[4]")))]),
+        _vm._v(" "),
+        _vm._m(11, false, false),
+        _vm._v(" "),
+        _vm._m(12, false, false),
+        _vm._v(" "),
+        _vm._m(13, false, false)
+      ]),
+      _vm._v(" "),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-2-6" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[1].sections[5]")))]),
+        _vm._v(" "),
+        _vm._m(14, false, false),
         _vm._v(" "),
         _c("section", [
           _c("h4", [_vm._v("svg solution")]),
@@ -18676,72 +18868,34 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "c-section", attrs: { id: "c-2-1" } }, [
-      _c("h3", [_vm._v("Flexible ellipses")]),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "eg-2-1-1" } }),
+    return _c("div", { attrs: { id: "eg-2-2-1" } }, [
+      _c("div", { staticClass: "ele-wrapper" }, [
+        _c("a", { staticClass: "button", attrs: { href: "#yolo" } }, [
+          _c("div", [_vm._v("Click me")])
+        ])
+      ]),
       _vm._v(" "),
       _c("code", [
         _vm._v(
-          "\n\t\t\t\t\tbackground-color: #FFDD00;\n\t\t\t\t\tborder-radius: 50px / 10px;\n\t\t\t\t\tborder-radius: 50% / 50%;\n\t\t\t\t"
+          "\n\t\t\t\t\t\t.button{\n\t\t\t\t\t\t\ttransform: skewX(-45deg);\n\t\t\t\t\t\t\tdisplay: inline-block;\n\t\t\t\t\t\t\tbackground: #0066aa;\n\t\t\t\t\t\t\ttext-decoration: none;\n\t\t\t\t\t\t}\n\n\t\t\t\t\t\t.button > div{\n\t\t\t\t\t\t\ttransform: skewX(45deg);\n\t\t\t\t\t\t}\n\t\t\t\t\t"
         )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "eg-2-2-2" } }, [
+      _c("div", { staticClass: "ele-wrapper" }, [
+        _c("a", { staticClass: "button", attrs: { href: "#yolo" } }, [
+          _vm._v("\n  \t\t\t\t\t\tClick me\n  \t\t\t\t\t")
+        ])
       ]),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "eg-2-1-2" } }),
       _vm._v(" "),
       _c("code", [
-        _vm._v("\n\t\t\t\t\tborder-radius: 100% 0 0 100% / 50%;\n\t\t\t\t")
-      ]),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "eg-2-1-3" } }),
-      _vm._v(" "),
-      _c("code", [_vm._v("\n\t\t\t\t\tborder-radius: 100% 0 0 0 ;\n\t\t\t\t")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "c-section", attrs: { id: "c-2-2" } }, [
-      _c("h3", [_vm._v("Parallelograms")]),
-      _vm._v(" "),
-      _c("h4", [_vm._v("Nested elements solution")]),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "eg-2-2-1" } }, [
-        _c("div", { staticClass: "ele-wrapper" }, [
-          _c("a", { staticClass: "button", attrs: { href: "#yolo" } }, [
-            _c("div", [_vm._v("Click me")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("code", [
-          _vm._v(
-            "\n\t\t\t\t\t\t.button{\n\t\t\t\t\t\t\ttransform: skewX(-45deg);\n\t\t\t\t\t\t\tdisplay: inline-block;\n\t\t\t\t\t\t\tbackground: #0066aa;\n\t\t\t\t\t\t\ttext-decoration: none;\n\t\t\t\t\t\t}\n\n\t\t\t\t\t\t.button > div{\n\t\t\t\t\t\t\ttransform: skewX(45deg);\n\t\t\t\t\t\t}\n\t\t\t\t\t"
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("h4", [_vm._v("Pseudo-element solution")]),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "eg-2-2-2" } }, [
-        _c("div", { staticClass: "ele-wrapper" }, [
-          _c("a", { staticClass: "button", attrs: { href: "#yolo" } }, [
-            _vm._v("\n  \t\t\t\t\t\tClick me\n  \t\t\t\t\t")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("code", [
-          _vm._v(
-            "\n\t\t\t\t\t\t.button {\n\t\t\t\t\t\tposition: relative;\n\t\t\t\t\t\t}\n\t\t\t\t\t\t.button::before {\n\t\t\t\t\t\tcontent: '';\n\t\t\t\t\t\tposition: absolute;\n\t\t\t\t\t\ttop: 0; right: 0; bottom: 0; left: 0;\n\t\t\t\t\t\tz-index: -1;\n\t\t\t\t\t\tbackground: #58a;\n\t\t\t\t\t\ttransform: skew(45deg);\n\t\t\t\t\t\t}\n\t\t\t\t\t"
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _c(
-          "a",
-          { attrs: { href: "https://www.oneasp.com/", target: "_blink" } },
-          [_vm._v("点击查看我的应用案例")]
+        _vm._v(
+          "\n\t\t\t\t\t\t.button {\n\t\t\t\t\t\tposition: relative;\n\t\t\t\t\t\t}\n\t\t\t\t\t\t.button::before {\n\t\t\t\t\t\tcontent: '';\n\t\t\t\t\t\tposition: absolute;\n\t\t\t\t\t\ttop: 0; right: 0; bottom: 0; left: 0;\n\t\t\t\t\t\tz-index: -1;\n\t\t\t\t\t\tbackground: #58a;\n\t\t\t\t\t\ttransform: skew(45deg);\n\t\t\t\t\t\t}\n\t\t\t\t\t"
         )
       ])
     ])
@@ -18750,35 +18904,29 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "c-section", attrs: { id: "c-2-3" } }, [
-      _c("h3", [_vm._v("Diamond images")]),
+    return _c("p", [
+      _c(
+        "a",
+        { attrs: { href: "https://www.oneasp.com/", target: "_blink" } },
+        [_vm._v("点击查看我的应用案例")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("h4", [_vm._v("transform-based solution")]),
       _vm._v(" "),
-      _c("section", [
-        _c("h4", [_vm._v("transform-based solution")]),
-        _vm._v(" "),
-        _c("div", { attrs: { id: "eg-2-3-1" } }, [
-          _c("img", { attrs: { src: __webpack_require__(7) } })
-        ]),
-        _vm._v(" "),
-        _c("code", [
-          _vm._v(
-            "\n\t\t\t\t\t\twidth: 180px;\n\t\t\t\t\t\ttransform: rotate(45deg);\n\t\t\t\t\t\toverflow: hidden;\n\t\t\t\t\t"
-          )
-        ])
+      _c("div", { attrs: { id: "eg-2-3-1" } }, [
+        _c("img", { attrs: { src: __webpack_require__(7) } })
       ]),
       _vm._v(" "),
-      _c("section", [
-        _c("h4", [_vm._v("Clipping path solution")]),
-        _vm._v(" "),
-        _c("div", { attrs: { id: "eg-2-3-2" } }, [
-          _c("img", { attrs: { src: __webpack_require__(7) } })
-        ]),
-        _vm._v(" "),
-        _c("code", [
-          _vm._v(
-            "\n\t\t\t\t\t\t-webkit-clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);\n\t\t\t\t\t\tclip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);\n\t\t\t\t\t"
-          )
-        ])
+      _c("code", [
+        _vm._v(
+          "\n\t\t\t\t\t\twidth: 180px;\n\t\t\t\t\t\ttransform: rotate(45deg);\n\t\t\t\t\t\toverflow: hidden;\n\t\t\t\t\t"
+        )
       ])
     ])
   },
@@ -18786,67 +18934,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "c-section", attrs: { id: "c-2-4" } }, [
-      _c("h3", [_vm._v("Cutout corners")]),
+    return _c("section", [
+      _c("h4", [_vm._v("Clipping path solution")]),
       _vm._v(" "),
-      _c("section", [
-        _c("div", { attrs: { id: "eg-2-4-1" } }),
-        _vm._v(" "),
-        _c("code", [
-          _vm._v(
-            "\n\t\t\t\t\t\tbackground: #58a;\n\t\t\t\t\t\tbackground: linear-gradient(-45deg, transparent 15px, #58a 0);\n\t\t\t\t\t"
-          )
-        ])
+      _c("div", { attrs: { id: "eg-2-3-2" } }, [
+        _c("img", { attrs: { src: __webpack_require__(7) } })
       ]),
       _vm._v(" "),
-      _c("section", [
-        _c("div", { attrs: { id: "eg-2-4-2" } }),
-        _vm._v(" "),
-        _c("code", [
-          _vm._v(
-            "\n\t\t\t\t\t\tbackground: #58a;\n\t\t\t\t\t\tbackground:\n\t\t\t\t\t\tlinear-gradient(-45deg, transparent 15px, #58a 0)\n\t\t\t\t\t\tright,\n\t\t\t\t\t\tlinear-gradient(45deg, transparent 15px, #655 0)\n\t\t\t\t\t\tleft;\n\t\t\t\t\t\tbackground-size: 50% 100%;\n\t\t\t\t\t"
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("section", [
-        _c("div", { attrs: { id: "eg-2-4-3" } }),
-        _vm._v(" "),
-        _c("code", [
-          _vm._v(
-            "\n\t\t\t\t\t\tbackground: #58a;\n\t\t\t\t\t\tbackground:\n\t\t\t\t\t\tlinear-gradient(-45deg, transparent 15px, #58a 0)\n\t\t\t\t\t\tright,\n\t\t\t\t\t\tlinear-gradient(45deg, transparent 15px, #655 0)\n\t\t\t\t\t\tleft;\n\t\t\t\t\t\tbackground-size: 50% 100%;\n\t\t\t\t\t\tbackground-repeat: no-repeat;\n\t\t\t\t\t"
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("section", [
-        _c("div", { attrs: { id: "eg-2-4-4" } }),
-        _vm._v(" "),
-        _c("code", [
-          _vm._v(
-            "\n\t\t\t\t\t\tbackground: #58a;\n\t\t\t\t\t\tbackground:\n\t\t\t\t\t\tlinear-gradient(135deg, transparent 15px, #58a 0)\n\t\t\t\t\t\ttop left,\n\t\t\t\t\t\tlinear-gradient(-135deg, transparent 15px, #655 0)\n\t\t\t\t\t\ttop right,\n\t\t\t\t\t\tlinear-gradient(-45deg, transparent 15px, #58a 0)\n\t\t\t\t\t\tbottom right,\n\t\t\t\t\t\tlinear-gradient(45deg, transparent 15px, #655 0)\n\t\t\t\t\t\tbottom left;\n\t\t\t\t\t\tbackground-size: 50% 50%;\n\t\t\t\t\t\tbackground-repeat: no-repeat;\n\t\t\t\t\t"
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("section", [
-        _c("div", { attrs: { id: "eg-2-4-5" } }),
-        _vm._v(" "),
-        _c("code", [
-          _vm._v(
-            "\n\t\t\t\t\t\tbackground: #58a;\n\t\t\t\t\t\tbackground:\n\t\t\t\t\t\tradial-gradient(circle at top left,\n\t\t\t\t\t\ttransparent 15px, #58a 0) top left,\n\t\t\t\t\t\tradial-gradient(circle at top right,\n\t\t\t\t\t\ttransparent 15px, #58a 0) top right,\n\t\t\t\t\t\tradial-gradient(circle at bottom right,\n\t\t\t\t\t\ttransparent 15px, #58a 0) bottom right,\n\t\t\t\t\t\tradial-gradient(circle at bottom left,\n\t\t\t\t\t\ttransparent 15px, #58a 0) bottom left;\n\t\t\t\t\t\tbackground-size: 50% 50%;\n\t\t\t\t\t\tbackground-repeat: no-repeat;\n\t\t\t\t\t"
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("section", [
-        _c("div", { attrs: { id: "eg-2-4-6" } }),
-        _vm._v(" "),
-        _c("code", [
-          _vm._v(
-            "\n\t\t\t\t\t\tbackground: #58a;\n\t\t\t\t\t\t-webkit-clip-path: polygon(\n\t\t\t\t\t\t20px 0, calc(100% - 20px) 0, 100% 20px,\n\t\t\t\t\t\t100% calc(100% - 20px), calc(100% - 20px) 100%,\n\t\t\t\t\t\t20px 100%, 0 calc(100% - 20px), 0 20px\n\t\t\t\t\t\t);\n\t\t\t\t\t\tclip-path: polygon(\n\t\t\t\t\t\t20px 0, calc(100% - 20px) 0, 100% 20px,\n\t\t\t\t\t\t100% calc(100% - 20px), calc(100% - 20px) 100%,\n\t\t\t\t\t\t20px 100%, 0 calc(100% - 20px), 0 20px\n\t\t\t\t\t\t);\n\t\t\t\t\t"
-          )
-        ])
+      _c("code", [
+        _vm._v(
+          "\n\t\t\t\t\t\t-webkit-clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);\n\t\t\t\t\t\tclip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);\n\t\t\t\t\t"
+        )
       ])
     ])
   },
@@ -18854,49 +18952,137 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "c-section", attrs: { id: "c-2-5" } }, [
-      _c("h3", [_vm._v("Trapezoid tabs")]),
+    return _c("section", [
+      _c("div", { attrs: { id: "eg-2-4-1" } }),
       _vm._v(" "),
-      _c("section", [
-        _c("div", { attrs: { id: "eg-2-5-1" } }),
-        _vm._v(" "),
-        _c("code", [
-          _vm._v(
-            "\n\t\t\t\t\t\ttransform: perspective(5em) rotateX(5deg);\n\t\t\t\t\t\tbackground: #58a;\n\t\t\t\t\t"
-          )
-        ])
+      _c("code", [
+        _vm._v(
+          "\n\t\t\t\t\t\tbackground: #58a;\n\t\t\t\t\t\tbackground: linear-gradient(-45deg, transparent 15px, #58a 0);\n\t\t\t\t\t"
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("div", { attrs: { id: "eg-2-4-2" } }),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n\t\t\t\t\t\tbackground: #58a;\n\t\t\t\t\t\tbackground:\n\t\t\t\t\t\tlinear-gradient(-45deg, transparent 15px, #58a 0)\n\t\t\t\t\t\tright,\n\t\t\t\t\t\tlinear-gradient(45deg, transparent 15px, #655 0)\n\t\t\t\t\t\tleft;\n\t\t\t\t\t\tbackground-size: 50% 100%;\n\t\t\t\t\t"
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("div", { attrs: { id: "eg-2-4-3" } }),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n\t\t\t\t\t\tbackground: #58a;\n\t\t\t\t\t\tbackground:\n\t\t\t\t\t\tlinear-gradient(-45deg, transparent 15px, #58a 0)\n\t\t\t\t\t\tright,\n\t\t\t\t\t\tlinear-gradient(45deg, transparent 15px, #655 0)\n\t\t\t\t\t\tleft;\n\t\t\t\t\t\tbackground-size: 50% 100%;\n\t\t\t\t\t\tbackground-repeat: no-repeat;\n\t\t\t\t\t"
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("div", { attrs: { id: "eg-2-4-4" } }),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n\t\t\t\t\t\tbackground: #58a;\n\t\t\t\t\t\tbackground:\n\t\t\t\t\t\tlinear-gradient(135deg, transparent 15px, #58a 0)\n\t\t\t\t\t\ttop left,\n\t\t\t\t\t\tlinear-gradient(-135deg, transparent 15px, #655 0)\n\t\t\t\t\t\ttop right,\n\t\t\t\t\t\tlinear-gradient(-45deg, transparent 15px, #58a 0)\n\t\t\t\t\t\tbottom right,\n\t\t\t\t\t\tlinear-gradient(45deg, transparent 15px, #655 0)\n\t\t\t\t\t\tbottom left;\n\t\t\t\t\t\tbackground-size: 50% 50%;\n\t\t\t\t\t\tbackground-repeat: no-repeat;\n\t\t\t\t\t"
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("div", { attrs: { id: "eg-2-4-5" } }),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n\t\t\t\t\t\tbackground: #58a;\n\t\t\t\t\t\tbackground:\n\t\t\t\t\t\tradial-gradient(circle at top left,\n\t\t\t\t\t\ttransparent 15px, #58a 0) top left,\n\t\t\t\t\t\tradial-gradient(circle at top right,\n\t\t\t\t\t\ttransparent 15px, #58a 0) top right,\n\t\t\t\t\t\tradial-gradient(circle at bottom right,\n\t\t\t\t\t\ttransparent 15px, #58a 0) bottom right,\n\t\t\t\t\t\tradial-gradient(circle at bottom left,\n\t\t\t\t\t\ttransparent 15px, #58a 0) bottom left;\n\t\t\t\t\t\tbackground-size: 50% 50%;\n\t\t\t\t\t\tbackground-repeat: no-repeat;\n\t\t\t\t\t"
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("div", { attrs: { id: "eg-2-4-6" } }),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n\t\t\t\t\t\tbackground: #58a;\n\t\t\t\t\t\t-webkit-clip-path: polygon(\n\t\t\t\t\t\t20px 0, calc(100% - 20px) 0, 100% 20px,\n\t\t\t\t\t\t100% calc(100% - 20px), calc(100% - 20px) 100%,\n\t\t\t\t\t\t20px 100%, 0 calc(100% - 20px), 0 20px\n\t\t\t\t\t\t);\n\t\t\t\t\t\tclip-path: polygon(\n\t\t\t\t\t\t20px 0, calc(100% - 20px) 0, 100% 20px,\n\t\t\t\t\t\t100% calc(100% - 20px), calc(100% - 20px) 100%,\n\t\t\t\t\t\t20px 100%, 0 calc(100% - 20px), 0 20px\n\t\t\t\t\t\t);\n\t\t\t\t\t"
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("div", { attrs: { id: "eg-2-5-1" } }),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n\t\t\t\t\t\ttransform: perspective(5em) rotateX(5deg);\n\t\t\t\t\t\tbackground: #58a;\n\t\t\t\t\t"
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("div", { attrs: { id: "eg-2-5-2" } }, [
+        _c("div", { staticClass: "tab" })
       ]),
       _vm._v(" "),
-      _c("section", [
-        _c("div", { attrs: { id: "eg-2-5-2" } }, [
-          _c("div", { staticClass: "tab" })
-        ]),
-        _vm._v(" "),
-        _c("code", [
-          _vm._v(
-            "\n\t\t\t\t\t\t.tab{\n\t\t\t\t\t\t\tposition: relative;\n\t\t\t\t\t\t\tdisplay: inline-block;\n\t\t\t\t\t\t\tpadding: .5em 1em .35em;\n\t\t\t\t\t\t\tcolor: white;\n\t\t\t\t\t\t}\n\n\t\t\t\t\t\t.tab:before{\n\t\t\t\t\t\t\tcontent: '';\n\t\t\t\t\t\t\tposition: absolute;\n\t\t\t\t\t\t\ttop: 0; right: 0; bottom: 0; left: 0;\n\t\t\t\t\t\t\tz-index: -1;\n\t\t\t\t\t\t\tbackground: #58a;\n\t\t\t\t\t\t\ttransform: scaleY(1.3) perspective(.5em) rotateX(5deg);\n\t\t\t\t\t\t\ttransform-origin: bottom;\n\t\t\t\t\t\t}\n\t\t\t\t\t"
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("section", [
-        _c("div", { attrs: { id: "eg-2-5-3" } }, [
-          _c("nav", [
-            _c("a", [_vm._v("home")]),
-            _vm._v(" "),
-            _c("a", [_vm._v("A")]),
-            _vm._v(" "),
-            _c("a", [_vm._v("B")])
-          ]),
+      _c("code", [
+        _vm._v(
+          "\n\t\t\t\t\t\t.tab{\n\t\t\t\t\t\t\tposition: relative;\n\t\t\t\t\t\t\tdisplay: inline-block;\n\t\t\t\t\t\t\tpadding: .5em 1em .35em;\n\t\t\t\t\t\t\tcolor: white;\n\t\t\t\t\t\t}\n\n\t\t\t\t\t\t.tab:before{\n\t\t\t\t\t\t\tcontent: '';\n\t\t\t\t\t\t\tposition: absolute;\n\t\t\t\t\t\t\ttop: 0; right: 0; bottom: 0; left: 0;\n\t\t\t\t\t\t\tz-index: -1;\n\t\t\t\t\t\t\tbackground: #58a;\n\t\t\t\t\t\t\ttransform: scaleY(1.3) perspective(.5em) rotateX(5deg);\n\t\t\t\t\t\t\ttransform-origin: bottom;\n\t\t\t\t\t\t}\n\t\t\t\t\t"
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", [
+      _c("div", { attrs: { id: "eg-2-5-3" } }, [
+        _c("nav", [
+          _c("a", [_vm._v("home")]),
           _vm._v(" "),
-          _c("div", { staticStyle: { background: "#eee", width: "240px" } })
+          _c("a", [_vm._v("A")]),
+          _vm._v(" "),
+          _c("a", [_vm._v("B")])
         ]),
         _vm._v(" "),
-        _c("code", [
-          _vm._v(
-            "\n\t\t\t\t\t\tnav > a{\n\t\t\t\t\t\t\tposition: relative;\n\t\t\t\t\t\t\tdisplay: inline-block;\n\t\t\t\t\t\t\tpadding: .3em 1em 0;\n\t\t\t\t\t\t\tcursor: pointer;\n\t\t\t\t\t\t}\n\n\t\t\t\t\t\tnav > a:before{\n\t\t\t\t\t\t\tcontent: '';\n\t\t\t\t\t\t\tposition: absolute;\n\t\t\t\t\t\t\ttop: 0; right: 0; bottom: 0; left: 0;\n\t\t\t\t\t\t\tz-index: -1;\n\t\t\t\t\t\t\tbackground: #ccc;\n\t\t\t\t\t\t\tbackground-image: linear-gradient(\n\t\t\t\t\t\t\thsla(0,0%,100%,.6),\n\t\t\t\t\t\t\thsla(0,0%,100%,0));\n\t\t\t\t\t\t\tborder: 1px solid rgba(0,0,0,.4);\n\t\t\t\t\t\t\tborder-bottom: none;\n\t\t\t\t\t\t\tborder-radius: .5em .5em 0 0;\n\t\t\t\t\t\t\tbox-shadow: 0 .15em white inset;\n\t\t\t\t\t\t\ttransform: perspective(.5em) rotateX(5deg);\n\t\t\t\t\t\t\ttransform-origin: bottom;\n\t\t\t\t\t\t}\n\t\t\t\t\t"
-          )
-        ])
+        _c("div", { staticStyle: { background: "#eee", width: "240px" } })
+      ]),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n\t\t\t\t\t\tnav > a{\n\t\t\t\t\t\t\tposition: relative;\n\t\t\t\t\t\t\tdisplay: inline-block;\n\t\t\t\t\t\t\tpadding: .3em 1em 0;\n\t\t\t\t\t\t\tcursor: pointer;\n\t\t\t\t\t\t}\n\n\t\t\t\t\t\tnav > a:before{\n\t\t\t\t\t\t\tcontent: '';\n\t\t\t\t\t\t\tposition: absolute;\n\t\t\t\t\t\t\ttop: 0; right: 0; bottom: 0; left: 0;\n\t\t\t\t\t\t\tz-index: -1;\n\t\t\t\t\t\t\tbackground: #ccc;\n\t\t\t\t\t\t\tbackground-image: linear-gradient(\n\t\t\t\t\t\t\thsla(0,0%,100%,.6),\n\t\t\t\t\t\t\thsla(0,0%,100%,0));\n\t\t\t\t\t\t\tborder: 1px solid rgba(0,0,0,.4);\n\t\t\t\t\t\t\tborder-bottom: none;\n\t\t\t\t\t\t\tborder-radius: .5em .5em 0 0;\n\t\t\t\t\t\t\tbox-shadow: 0 .15em white inset;\n\t\t\t\t\t\t\ttransform: perspective(.5em) rotateX(5deg);\n\t\t\t\t\t\t\ttransform-origin: bottom;\n\t\t\t\t\t\t}\n\t\t\t\t\t"
+        )
       ])
     ])
   },
@@ -18924,12 +19110,12 @@ if (true) {
 }
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_visualEffects_vue__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_394a48f8_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_visualEffects_vue__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_visualEffects_vue__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_394a48f8_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_visualEffects_vue__ = __webpack_require__(44);
 var disposed = false
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -18975,7 +19161,7 @@ if (true) {(function () {
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19102,7 +19288,7 @@ if (true) {(function () {
 /* harmony default export */ __webpack_exports__["a"] = ({});
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19110,178 +19296,232 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0, false, false)
+  return _c("div", { staticClass: "content" }, [
+    _c("section", { staticClass: "c-chapter", attrs: { id: "c-3" } }, [
+      _c("h2", [_vm._v(_vm._s(_vm.$t("lang.directory[2].chapter")))]),
+      _vm._v(" "),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-3-1" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[2].sections[0]")))]),
+        _vm._v(" "),
+        _vm._m(0, false, false),
+        _vm._v(" "),
+        _vm._m(1, false, false),
+        _vm._v(" "),
+        _vm._m(2, false, false)
+      ]),
+      _vm._v(" "),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-3-2" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[2].sections[1]")))]),
+        _vm._v(" "),
+        _vm._m(3, false, false),
+        _vm._v(" "),
+        _vm._m(4, false, false)
+      ]),
+      _vm._v(" "),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-3-3" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[2].sections[2]")))]),
+        _vm._v(" "),
+        _vm._m(5, false, false),
+        _vm._v(" "),
+        _vm._m(6, false, false)
+      ]),
+      _vm._v(" "),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-3-4" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[2].sections[3]")))]),
+        _vm._v(" "),
+        _vm._m(7, false, false),
+        _vm._v(" "),
+        _vm._m(8, false, false)
+      ]),
+      _vm._v(" "),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-3-5" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[2].sections[4]")))]),
+        _vm._v(" "),
+        _vm._m(9, false, false),
+        _vm._v(" "),
+        _vm._m(10, false, false)
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content" }, [
-      _c("section", { staticClass: "c-chapter", attrs: { id: "c-3" } }, [
-        _c("h2", [_vm._v("Visual Effects")]),
-        _vm._v(" "),
-        _c("section", { staticClass: "c-section", attrs: { id: "c-3-1" } }, [
-          _c("h3", [_vm._v("One-sided shadows")]),
-          _vm._v(" "),
-          _c("section", { attrs: { id: "eg-3-1-1" } }, [
-            _c("h4", [_vm._v("Shadow on one side")]),
-            _vm._v(" "),
-            _c("div"),
-            _vm._v(" "),
-            _c("code", [
-              _vm._v(
-                "\n\t\t\t\t\t\tbox-shadow: 0 5px 4px -4px black;\n\t\t\t\t\t"
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("section", { attrs: { id: "eg-3-1-2" } }, [
-            _c("h4", [_vm._v("Shadow on two adjacent sides")]),
-            _vm._v(" "),
-            _c("div"),
-            _vm._v(" "),
-            _c("code", [
-              _vm._v(
-                "\n\t\t\t\t\t\tbox-shadow: 3px 3px 6px -3px black;\n\t\t\t\t\t"
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("section", { attrs: { id: "eg-3-1-3" } }, [
-            _c("h4", [_vm._v("Shadow on two opposite sides")]),
-            _vm._v(" "),
-            _c("div"),
-            _vm._v(" "),
-            _c("code", [
-              _vm._v(
-                "\n\t\t\t\t\t\tbox-shadow: 5px 0 5px -5px black,-5px 0 5px -5px black;\n\t\t\t\t\t"
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("section", { staticClass: "c-section", attrs: { id: "c-3-2" } }, [
-          _c("h3", [_vm._v("Irregular drop shadows")]),
-          _vm._v(" "),
-          _c("section", { attrs: { id: "eg-3-2-1" } }, [
-            _c("div", { staticClass: "speech" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "dot" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "cutout" }),
-            _vm._v(" "),
-            _c("code", [
-              _vm._v(
-                "\n\t\t\t\t\t\t-webkit-filter: drop-shadow(.1em .1em .1em rgba(0,0,0,.5));\n\t\t\t\t\t\tfilter: drop-shadow(.1em .1em .1em rgba(0,0,0,.5));\n\t\t\t\t\t"
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("section", { attrs: { id: "eg-3-2-2" } }, [
-            _c("h4", [_vm._v("shadow's shadow")]),
-            _vm._v(" "),
-            _c("div", [_vm._v("shadows")]),
-            _vm._v(" "),
-            _c("code", [
-              _vm._v(
-                "\n\t\t\t\t\t\ttext-shadow: .1em .2em yellow;\n\t\t\t\t\t\t-webkit-filter: drop-shadow(.1em .1em .1em rgba(0,0,0,.5));\n\t\t\t\t\t\tfilter: drop-shadow(.1em .1em .1em rgba(0,0,0,.5));\n\t\t\t\t\t"
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("section", { staticClass: "c-section", attrs: { id: "c-3-3" } }, [
-          _c("h3", [_vm._v("Color tinting")]),
-          _vm._v(" "),
-          _c("section", { attrs: { id: "eg-3-3-1" } }, [
-            _c("h4", [_vm._v("Filter-based solution")]),
-            _vm._v(" "),
-            _c("img", {
-              attrs: { src: "http://csssecrets.io/images/tiger.jpg", alt: "" }
-            }),
-            _vm._v(" "),
-            _c("code", [
-              _vm._v(
-                "\n\t\t\t\t\t\tfilter: sepia() saturate(4) hue-rotate(295deg);\n\t\t\t\t\t\t-webkit-filter: sepia() saturate(4) hue-rotate(295deg);\n\t\t\t\t\t"
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("section", { attrs: { id: "eg-3-3-2" } }, [
-            _c("h4", [_vm._v("Blending mode solution")]),
-            _vm._v(" "),
-            _c("div"),
-            _vm._v(" "),
-            _c("code", [
-              _vm._v(
-                "\n\t\t\t\t\t\tbackground-color: hsl(335, 100%, 50%);\n\t\t\t\t\t\tbackground-blend-mode: luminosity;\n\t\t\t\t\t"
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("section", { staticClass: "c-section", attrs: { id: "c-3-4" } }, [
-          _c("h3", [_vm._v("Frosted glass effect")]),
-          _vm._v(" "),
-          _c("section", { attrs: { id: "eg-3-4-1" } }, [
-            _c("div", { staticClass: "bg" }, [
-              _c("div", [
-                _vm._v(
-                  "This is an awesome paragraph.This is an awesome paragraph.This is an awesome paragraph.This is an awesome paragraph.This is an awesome paragraph.This is an awesome paragraph."
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("code", [
-              _vm._v(
-                "\n            background-color: rgba(255,255,255,0.5);\n          "
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("section", { attrs: { id: "eg-3-4-2" } }, [
-            _c("div", { staticClass: "bg" }, [
-              _c("div", [
-                _vm._v(
-                  "This is an awesome paragraph.This is an awesome paragraph.This is an awesome paragraph.This is an awesome paragraph.This is an awesome paragraph.This is an awesome paragraph."
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("code", [
-              _vm._v("\n            filter: blur(20px);\n          ")
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("section", { staticClass: "c-section", attrs: { id: "c-3-5" } }, [
-          _c("h3", [_vm._v("Folded corner effect")]),
-          _vm._v(" "),
-          _c("section", { attrs: { id: "eg-3-5-1" } }, [
-            _c("h4", [_vm._v("The 45° solution")]),
-            _vm._v(" "),
-            _c("div"),
-            _vm._v(" "),
-            _c("code", [
-              _vm._v(
-                "\n\t\t\t\t\t\tbackground: #58a; /* Fallback */\n\t\t\t\t\t\tbackground:\n\t\t\t\t\t\t    linear-gradient(to left bottom,\n\t\t\t\t\t\t        transparent 50%, rgba(0,0,0,.4) 0)\n\t\t\t\t\t\t        no-repeat 100% 0 / 2em 2em,\n\t\t\t\t\t\t    linear-gradient(-135deg,\n\t\t\t\t\t\t        transparent 1.4em, #58a 0);\n\t\t\t\t\t"
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("section", { attrs: { id: "eg-3-5-2" } }, [
-            _c("h4", [_vm._v("Solution for other angles")]),
-            _vm._v(" "),
-            _c("div"),
-            _vm._v(" "),
-            _c("code", [
-              _vm._v(
-                "\n\t\t\t\t\t\tbackground: #58a; /* Fallback */\n\t\t\t\t\t\tlinear-gradient(to left bottom,\n\t        transparent 50%, rgba(0,0,0,.4) 0)\n\t        no-repeat 100% 0 / 3em 1.73em,\n\t    linear-gradient(-150deg,\n\t        transparent 1.5em, #58a 0)\n\t\t\t\t\t"
-              )
-            ])
-          ])
+    return _c("section", { attrs: { id: "eg-3-1-1" } }, [
+      _c("h4", [_vm._v("Shadow on one side")]),
+      _vm._v(" "),
+      _c("div"),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v("\n\t\t\t\t\t\tbox-shadow: 0 5px 4px -4px black;\n\t\t\t\t\t")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { attrs: { id: "eg-3-1-2" } }, [
+      _c("h4", [_vm._v("Shadow on two adjacent sides")]),
+      _vm._v(" "),
+      _c("div"),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v("\n\t\t\t\t\t\tbox-shadow: 3px 3px 6px -3px black;\n\t\t\t\t\t")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { attrs: { id: "eg-3-1-3" } }, [
+      _c("h4", [_vm._v("Shadow on two opposite sides")]),
+      _vm._v(" "),
+      _c("div"),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n\t\t\t\t\t\tbox-shadow: 5px 0 5px -5px black,-5px 0 5px -5px black;\n\t\t\t\t\t"
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { attrs: { id: "eg-3-2-1" } }, [
+      _c("div", { staticClass: "speech" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "dot" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "cutout" }),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n\t\t\t\t\t\t-webkit-filter: drop-shadow(.1em .1em .1em rgba(0,0,0,.5));\n\t\t\t\t\t\tfilter: drop-shadow(.1em .1em .1em rgba(0,0,0,.5));\n\t\t\t\t\t"
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { attrs: { id: "eg-3-2-2" } }, [
+      _c("h4", [_vm._v("shadow's shadow")]),
+      _vm._v(" "),
+      _c("div", [_vm._v("shadows")]),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n\t\t\t\t\t\ttext-shadow: .1em .2em yellow;\n\t\t\t\t\t\t-webkit-filter: drop-shadow(.1em .1em .1em rgba(0,0,0,.5));\n\t\t\t\t\t\tfilter: drop-shadow(.1em .1em .1em rgba(0,0,0,.5));\n\t\t\t\t\t"
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { attrs: { id: "eg-3-3-1" } }, [
+      _c("h4", [_vm._v("Filter-based solution")]),
+      _vm._v(" "),
+      _c("img", {
+        attrs: { src: "http://csssecrets.io/images/tiger.jpg", alt: "" }
+      }),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n\t\t\t\t\t\tfilter: sepia() saturate(4) hue-rotate(295deg);\n\t\t\t\t\t\t-webkit-filter: sepia() saturate(4) hue-rotate(295deg);\n\t\t\t\t\t"
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { attrs: { id: "eg-3-3-2" } }, [
+      _c("h4", [_vm._v("Blending mode solution")]),
+      _vm._v(" "),
+      _c("div"),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n\t\t\t\t\t\tbackground-color: hsl(335, 100%, 50%);\n\t\t\t\t\t\tbackground-blend-mode: luminosity;\n\t\t\t\t\t"
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { attrs: { id: "eg-3-4-1" } }, [
+      _c("div", { staticClass: "bg" }, [
+        _c("div", [
+          _vm._v(
+            "This is an awesome paragraph.This is an awesome paragraph.This is an awesome paragraph.This is an awesome paragraph.This is an awesome paragraph.This is an awesome paragraph."
+          )
         ])
+      ]),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n            background-color: rgba(255,255,255,0.5);\n          "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { attrs: { id: "eg-3-4-2" } }, [
+      _c("div", { staticClass: "bg" }, [
+        _c("div", [
+          _vm._v(
+            "This is an awesome paragraph.This is an awesome paragraph.This is an awesome paragraph.This is an awesome paragraph.This is an awesome paragraph.This is an awesome paragraph."
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("code", [_vm._v("\n            filter: blur(20px);\n          ")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { attrs: { id: "eg-3-5-1" } }, [
+      _c("h4", [_vm._v("The 45° solution")]),
+      _vm._v(" "),
+      _c("div"),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n\t\t\t\t\t\tbackground: #58a; /* Fallback */\n\t\t\t\t\t\tbackground:\n\t\t\t\t\t\t    linear-gradient(to left bottom,\n\t\t\t\t\t\t        transparent 50%, rgba(0,0,0,.4) 0)\n\t\t\t\t\t\t        no-repeat 100% 0 / 2em 2em,\n\t\t\t\t\t\t    linear-gradient(-135deg,\n\t\t\t\t\t\t        transparent 1.4em, #58a 0);\n\t\t\t\t\t"
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { attrs: { id: "eg-3-5-2" } }, [
+      _c("h4", [_vm._v("Solution for other angles")]),
+      _vm._v(" "),
+      _c("div"),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n\t\t\t\t\t\tbackground: #58a; /* Fallback */\n\t\t\t\t\t\tlinear-gradient(to left bottom,\n\t        transparent 50%, rgba(0,0,0,.4) 0)\n\t        no-repeat 100% 0 / 3em 1.73em,\n\t    linear-gradient(-150deg,\n\t        transparent 1.5em, #58a 0)\n\t\t\t\t\t"
+        )
       ])
     ])
   }
@@ -19297,12 +19537,12 @@ if (true) {
 }
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_typography_vue__ = __webpack_require__(45);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_08dcab49_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_typography_vue__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_typography_vue__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_08dcab49_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_typography_vue__ = __webpack_require__(47);
 var disposed = false
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -19348,7 +19588,7 @@ if (true) {(function () {
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19654,7 +19894,7 @@ if (true) {(function () {
 /* harmony default export */ __webpack_exports__["a"] = ({});
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19664,24 +19904,96 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "content" }, [
     _c("section", { staticClass: "c-chapter", attrs: { id: "c-4" } }, [
-      _c("h2", [_vm._v("Typography 字体排印")]),
+      _c("h2", [_vm._v(_vm._s(_vm.$t("lang.directory[3].chapter")))]),
       _vm._v(" "),
-      _vm._m(0, false, false),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-4-1" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[3].sections[0]")))]),
+        _vm._v(" "),
+        _c("p", [_vm._v("中文排版环境下一般不需要考虑连字符断行")]),
+        _vm._v(" "),
+        _c("div", { attrs: { id: "eg-4-1-1" } }, [
+          _vm._v("“The only way to get rid of a temptation is to yield to it.”")
+        ]),
+        _vm._v(" "),
+        _c("code", [
+          _vm._v(
+            "\n            width: 5em;\n            font-size: 18px;\n            text-align: justify;\n            hyphens: auto;\n            height: auto;\n          "
+          )
+        ])
+      ]),
       _vm._v(" "),
-      _vm._m(1, false, false),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-4-2" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[3].sections[1]")))]),
+        _vm._v(" "),
+        _vm._m(0, false, false),
+        _vm._v(" "),
+        _c("code", [
+          _vm._v(
+            "\n          dt,dd{\n            display: inline;\n          }\n          dd{\n            margin: 0;\n            font-weight: bold;\n            &ammp;::after{\n              content: '\\A';\n              white-space: pre;\n          }\n        "
+          )
+        ]),
+        _vm._v(" "),
+        _vm._m(1, false, false),
+        _vm._v(" "),
+        _c("code", [
+          _vm._v(
+            "\n          dd + dt::before{\n            content: '\\A';\n            white-space: pre;\n          }\n          dd + dd::before{\n            content: ', ';\n            font-weight: normal;\n            margin-left: -.25em;\n          }\n        "
+          )
+        ])
+      ]),
       _vm._v(" "),
-      _vm._m(2, false, false),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-4-3" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[3].sections[2]")))]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "条纹会随着字体的大小改变而自适应地变化，注意background-size 第二个参数是行高的 2倍"
+          )
+        ]),
+        _vm._v(" "),
+        _vm._m(2, false, false)
+      ]),
       _vm._v(" "),
-      _vm._m(3, false, false),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-4-4" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[3].sections[3]")))]),
+        _vm._v(" "),
+        _vm._m(3, false, false)
+      ]),
       _vm._v(" "),
-      _vm._m(4, false, false),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-4-5" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[3].sections[4]")))]),
+        _vm._v(" "),
+        _vm._m(4, false, false),
+        _vm._v(" "),
+        _c("code", [
+          _vm._v(
+            '\n          font: 150%/1.6 "Adobe Caslon Pro", Baskerville, serif;\n          font-variant: common-ligatures discretionary-ligatures historical-ligatures;\n        '
+          )
+        ])
+      ]),
       _vm._v(" "),
-      _vm._m(5, false, false),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-4-6" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[3].sections[5]")))]),
+        _vm._v(" "),
+        _vm._m(5, false, false),
+        _vm._v(" "),
+        _c("code", [
+          _vm._v(
+            "\n          font-family: Ampersand;\n          src: local('Baskerville-Italic'),\n               local('GoudyOldStyleT-Italic'),\n               local('Palatino-Italic'),\n               local('BookAntiqua-Italic');\n          unicode-range: U+26;\n\n          p{\n            font-family: Ampersand, Helvetica, sans-serif;\n          }\n        "
+          )
+        ]),
+        _vm._v(" "),
+        _vm._m(6, false, false)
+      ]),
       _vm._v(" "),
-      _vm._m(6, false, false),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-4-7" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[3].sections[6]")))]),
+        _vm._v(" "),
+        _vm._m(7, false, false)
+      ]),
       _vm._v(" "),
       _c("section", { staticClass: "c-section", attrs: { id: "c-4-8" } }, [
-        _c("h3", [_vm._v("Realistic text effects 现实中的文字效果")]),
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[3].sections[7]")))]),
         _vm._v(" "),
         _c("div", { attrs: { id: "eg-4-8-1" } }, [
           _c("h4", [_vm._v("Letterpress")]),
@@ -19749,7 +20061,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("section", { staticClass: "c-section", attrs: { id: "c-4-9" } }, [
-        _c("h3", [_vm._v("Circular text 环形文字")]),
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[3].sections[8]")))]),
         _vm._v(" "),
         _c("div", { attrs: { id: "eg-4-9-1" } }, [
           _c("div", { staticClass: "circle" }, [
@@ -19783,157 +20095,61 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "c-section", attrs: { id: "c-4-1" } }, [
-      _c("h3", [_vm._v("Hyphenation 连字符断行")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("中文排版环境下一般不需要考虑连字符断行")]),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "eg-4-1-1" } }, [
-        _vm._v("“The only way to get rid of a temptation is to yield to it.”")
-      ]),
-      _vm._v(" "),
-      _c("code", [
-        _vm._v(
-          "\n            width: 5em;\n            font-size: 18px;\n            text-align: justify;\n            hyphens: auto;\n            height: auto;\n          "
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "c-section", attrs: { id: "c-4-2" } }, [
-      _c("h3", [_vm._v("Inserting line breaks 插入换行")]),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "eg-4-2-1" } }, [
-        _c("dl", [
-          _c("dt", [_vm._v("Name:")]),
-          _vm._v(" "),
-          _c("dd", [_vm._v("Hazel")]),
-          _vm._v(" "),
-          _c("dt", [_vm._v("Email:")]),
-          _vm._v(" "),
-          _c("dd", [_vm._v("css-secrets-demo@gmail.com")]),
-          _vm._v(" "),
-          _c("dt", [_vm._v("Location:")]),
-          _vm._v(" "),
-          _c("dd", [_vm._v("Earth")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("code", [
-        _vm._v(
-          "\n          dt,dd{\n            display: inline;\n          }\n          dd{\n            margin: 0;\n            font-weight: bold;\n            &ammp;::after{\n              content: '\\A';\n              white-space: pre;\n          }\n        "
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "eg-4-2-2" } }, [
-        _c("dl", [
-          _c("dt", [_vm._v("Name:")]),
-          _vm._v(" "),
-          _c("dd", [_vm._v("Hazel")]),
-          _vm._v(" "),
-          _c("dt", [_vm._v("Email:")]),
-          _vm._v(" "),
-          _c("dd", [_vm._v("css-secrets-demo@gmail.com")]),
-          _vm._v(" "),
-          _c("dd", [_vm._v("css@edu.cn")]),
-          _vm._v(" "),
-          _c("dt", [_vm._v("Location:")]),
-          _vm._v(" "),
-          _c("dd", [_vm._v("Earth")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("code", [
-        _vm._v(
-          "\n          dd + dt::before{\n            content: '\\A';\n            white-space: pre;\n          }\n          dd + dd::before{\n            content: ', ';\n            font-weight: normal;\n            margin-left: -.25em;\n          }\n        "
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "c-section", attrs: { id: "c-4-3" } }, [
-      _c("h3", [_vm._v("Zebra-striped text lines 文本行的斑马条纹")]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          "条纹会随着字体的大小改变而自适应地变化，注意background-size 第二个参数是行高的 2倍"
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "eg-4-3-1" } }, [
-        _c("pre", [
-          _vm._v("            "),
-          _c("code", { staticClass: "code" }, [
-            _vm._v(
-              'while (true) {\n  var d = new Date();\n  if (d.getDate()==1 &&\n      d.getMonth()==3) {\n    alert("TROLOLOL");\n  }\n}'
-            )
-          ])
-        ]),
+    return _c("div", { attrs: { id: "eg-4-2-1" } }, [
+      _c("dl", [
+        _c("dt", [_vm._v("Name:")]),
         _vm._v(" "),
-        _c("code", [
+        _c("dd", [_vm._v("Hazel")]),
+        _vm._v(" "),
+        _c("dt", [_vm._v("Email:")]),
+        _vm._v(" "),
+        _c("dd", [_vm._v("css-secrets-demo@gmail.com")]),
+        _vm._v(" "),
+        _c("dt", [_vm._v("Location:")]),
+        _vm._v(" "),
+        _c("dd", [_vm._v("Earth")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "eg-4-2-2" } }, [
+      _c("dl", [
+        _c("dt", [_vm._v("Name:")]),
+        _vm._v(" "),
+        _c("dd", [_vm._v("Hazel")]),
+        _vm._v(" "),
+        _c("dt", [_vm._v("Email:")]),
+        _vm._v(" "),
+        _c("dd", [_vm._v("css-secrets-demo@gmail.com")]),
+        _vm._v(" "),
+        _c("dd", [_vm._v("css@edu.cn")]),
+        _vm._v(" "),
+        _c("dt", [_vm._v("Location:")]),
+        _vm._v(" "),
+        _c("dd", [_vm._v("Earth")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "eg-4-3-1" } }, [
+      _c("pre", [
+        _vm._v("            "),
+        _c("code", { staticClass: "code" }, [
           _vm._v(
-            "\n              font-size: 20px;\n              padding: 0.5em;\n              line-height: 1.5;\n              background: beige;\n              background-size: auto 3em;\n              background-image: linear-gradient(rgba(0, 0, 0, 0.2) 50%, transparent 0);\n              background-origin: content-box;\n              white-space: pre;\n            "
+            'while (true) {\n  var d = new Date();\n  if (d.getDate()==1 &&\n      d.getMonth()==3) {\n    alert("TROLOLOL");\n  }\n}'
           )
         ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "c-section", attrs: { id: "c-4-4" } }, [
-      _c("h3", [_vm._v("Adjusting tab width 调整 Tab 的宽度")]),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "eg-4-4-1" } }, [
-        _c("pre", { staticClass: "pre-2" }, [
-          _vm._v("            "),
-          _c("code", { staticClass: "code" }, [
-            _vm._v(
-              'while (true) {\n\tvar d = new Date();\n\tif (d.getDate()==1 &&\n\t    d.getMonth()==3) {\n\t\talert("TROLOLOL");\n\t}\n}'
-            )
-          ]),
-          _vm._v("\n          ")
-        ]),
-        _vm._v(" "),
-        _c("code", [_vm._v("\n            tab-size: 2;\n          ")]),
-        _vm._v(" "),
-        _c("pre", { staticClass: "pre-4" }, [
-          _vm._v("            "),
-          _c("code", { staticClass: "code" }, [
-            _vm._v(
-              'while (true) {\n\tvar d = new Date();\n\tif (d.getDate()==1 &&\n\t    d.getMonth()==3) {\n\t\talert("TROLOLOL");\n\t}\n}'
-            )
-          ]),
-          _vm._v("\n          ")
-        ]),
-        _vm._v(" "),
-        _c("code", [_vm._v("\n            tab-size: 4;\n          ")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "c-section", attrs: { id: "c-4-5" } }, [
-      _c("h3", [_vm._v("Ligatures 连字")]),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "eg-4-5-1" } }, [
-        _c("p", [_vm._v("Common ligatures: fi ff fl ffi ffl")]),
-        _vm._v(" "),
-        _c("p", [_vm._v("Discretionary ligatures: st ct")])
       ]),
       _vm._v(" "),
       _c("code", [
         _vm._v(
-          '\n          font: 150%/1.6 "Adobe Caslon Pro", Baskerville, serif;\n          font-variant: common-ligatures discretionary-ligatures historical-ligatures;\n        '
+          "\n              font-size: 20px;\n              padding: 0.5em;\n              line-height: 1.5;\n              background: beige;\n              background-size: auto 3em;\n              background-image: linear-gradient(rgba(0, 0, 0, 0.2) 50%, transparent 0);\n              background-origin: content-box;\n              white-space: pre;\n            "
         )
       ])
     ])
@@ -19942,95 +20158,125 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "c-section", attrs: { id: "c-4-6" } }, [
-      _c("h3", [_vm._v("Fancy ampersands 华丽的 & 符号")]),
+    return _c("div", { attrs: { id: "eg-4-4-1" } }, [
+      _c("pre", { staticClass: "pre-2" }, [
+        _vm._v("            "),
+        _c("code", { staticClass: "code" }, [
+          _vm._v(
+            'while (true) {\n\tvar d = new Date();\n\tif (d.getDate()==1 &&\n\t    d.getMonth()==3) {\n\t\talert("TROLOLOL");\n\t}\n}'
+          )
+        ]),
+        _vm._v("\n          ")
+      ]),
       _vm._v(" "),
-      _c("div", { attrs: { id: "eg-4-6-1" } }, [
-        _c("p", [_vm._v("HTML & CSS")])
+      _c("code", [_vm._v("\n            tab-size: 2;\n          ")]),
+      _vm._v(" "),
+      _c("pre", { staticClass: "pre-4" }, [
+        _vm._v("            "),
+        _c("code", { staticClass: "code" }, [
+          _vm._v(
+            'while (true) {\n\tvar d = new Date();\n\tif (d.getDate()==1 &&\n\t    d.getMonth()==3) {\n\t\talert("TROLOLOL");\n\t}\n}'
+          )
+        ]),
+        _vm._v("\n          ")
+      ]),
+      _vm._v(" "),
+      _c("code", [_vm._v("\n            tab-size: 4;\n          ")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "eg-4-5-1" } }, [
+      _c("p", [_vm._v("Common ligatures: fi ff fl ffi ffl")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Discretionary ligatures: st ct")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "eg-4-6-1" } }, [
+      _c("p", [_vm._v("HTML & CSS")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _vm._v(
+        "unicode-range不是css属性，但是它能告诉浏览器，只把字体应用在某个编码范围内；"
+      ),
+      _c("br"),
+      _vm._v(
+        "\n          如果需要下载远程的字体文件，有的浏览器甚至只会下载会运用的那一部分；"
+      ),
+      _c("br"),
+      _vm._v("\n          26是 "),
+      _c("code", { staticClass: "inline" }, [
+        _vm._v('"&".charCodeAt(0).toString(16);')
+      ]),
+      _vm._v(" 这么来的；"),
+      _c("br"),
+      _vm._v(
+        "\n          local() 里需要加 Italic，而不能用 font-style，因为只希望运用在符号上。\n        "
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "eg-4-7-1" } }, [
+      _c("h4", [_vm._v("Normal underlines 横线")]),
+      _vm._v(" "),
+      _c("p", { staticClass: "normal" }, [
+        _vm._v("“The only way to "),
+        _c("a", [_vm._v("get rid of a temp­ta­tion")]),
+        _vm._v(" is to "),
+        _c("a", [_vm._v("yield")]),
+        _vm._v(' to it."')
       ]),
       _vm._v(" "),
       _c("code", [
         _vm._v(
-          "\n          font-family: Ampersand;\n          src: local('Baskerville-Italic'),\n               local('GoudyOldStyleT-Italic'),\n               local('Palatino-Italic'),\n               local('BookAntiqua-Italic');\n          unicode-range: U+26;\n\n          p{\n            font-family: Ampersand, Helvetica, sans-serif;\n          }\n        "
+          "\n            background: linear-gradient(gray, gray) no-repeat;\n            background-size: 100% 1px;\n            background-position: 0 1.05em;\n            text-shadow: .05em 0 white, -.05em 0 white;\n          "
         )
       ]),
       _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          "unicode-range不是css属性，但是它能告诉浏览器，只把字体应用在某个编码范围内；"
-        ),
-        _c("br"),
-        _vm._v(
-          "\n          如果需要下载远程的字体文件，有的浏览器甚至只会下载会运用的那一部分；"
-        ),
-        _c("br"),
-        _vm._v("\n          26是 "),
-        _c("code", { staticClass: "inline" }, [
-          _vm._v('"&".charCodeAt(0).toString(16);')
-        ]),
-        _vm._v(" 这么来的；"),
-        _c("br"),
-        _vm._v(
-          "\n          local() 里需要加 Italic，而不能用 font-style，因为只希望运用在符号上。\n        "
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "c-section", attrs: { id: "c-4-7" } }, [
-      _c("h3", [_vm._v("Custom underlines 自定义下划线")]),
+      _c("h4", [_vm._v("Dashed underlines 虚线")]),
       _vm._v(" "),
-      _c("div", { attrs: { id: "eg-4-7-1" } }, [
-        _c("h4", [_vm._v("Normal underlines 横线")]),
-        _vm._v(" "),
-        _c("p", { staticClass: "normal" }, [
-          _vm._v("“The only way to "),
-          _c("a", [_vm._v("get rid of a temp­ta­tion")]),
-          _vm._v(" is to "),
-          _c("a", [_vm._v("yield")]),
-          _vm._v(' to it."')
-        ]),
-        _vm._v(" "),
-        _c("code", [
-          _vm._v(
-            "\n            background: linear-gradient(gray, gray) no-repeat;\n            background-size: 100% 1px;\n            background-position: 0 1.05em;\n            text-shadow: .05em 0 white, -.05em 0 white;\n          "
-          )
-        ]),
-        _vm._v(" "),
-        _c("h4", [_vm._v("Dashed underlines 虚线")]),
-        _vm._v(" "),
-        _c("p", { staticClass: "dashed" }, [
-          _vm._v("“The only way to "),
-          _c("a", [_vm._v("get rid of a temp­ta­tion")]),
-          _vm._v(" is to "),
-          _c("a", [_vm._v("yield")]),
-          _vm._v(' to it."')
-        ]),
-        _vm._v(" "),
-        _c("code", [
-          _vm._v(
-            "\n            background: linear-gradient(90deg,gray 66%, transparent 0) repeat-x;\n            background-size: .2em 2px;\n            background-position: 0 1.05em;\n            text-shadow: .05em 0 white, -.05em 0 white;\n          "
-          )
-        ]),
-        _vm._v(" "),
-        _c("h4", [_vm._v("Wavy underlines 波浪线")]),
-        _vm._v(" "),
-        _c("p", { staticClass: "wavy" }, [
-          _vm._v("“The only way to "),
-          _c("a", [_vm._v("get rid of a temp­ta­tion")]),
-          _vm._v(" is to "),
-          _c("a", [_vm._v("yield")]),
-          _vm._v(' to it."')
-        ]),
-        _vm._v(" "),
-        _c("code", [
-          _vm._v(
-            "\n            background: linear-gradient(90deg,gray 66%, transparent 0) repeat-x;\n            background-size: .2em 2px;\n            background-position: 0 1.05em;\n            text-shadow: .05em 0 white, -.05em 0 white;\n          "
-          )
-        ])
+      _c("p", { staticClass: "dashed" }, [
+        _vm._v("“The only way to "),
+        _c("a", [_vm._v("get rid of a temp­ta­tion")]),
+        _vm._v(" is to "),
+        _c("a", [_vm._v("yield")]),
+        _vm._v(' to it."')
+      ]),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n            background: linear-gradient(90deg,gray 66%, transparent 0) repeat-x;\n            background-size: .2em 2px;\n            background-position: 0 1.05em;\n            text-shadow: .05em 0 white, -.05em 0 white;\n          "
+        )
+      ]),
+      _vm._v(" "),
+      _c("h4", [_vm._v("Wavy underlines 波浪线")]),
+      _vm._v(" "),
+      _c("p", { staticClass: "wavy" }, [
+        _vm._v("“The only way to "),
+        _c("a", [_vm._v("get rid of a temp­ta­tion")]),
+        _vm._v(" is to "),
+        _c("a", [_vm._v("yield")]),
+        _vm._v(' to it."')
+      ]),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n            background: linear-gradient(90deg,gray 66%, transparent 0) repeat-x;\n            background-size: .2em 2px;\n            background-position: 0 1.05em;\n            text-shadow: .05em 0 white, -.05em 0 white;\n          "
+        )
       ])
     ])
   }
@@ -20046,12 +20292,12 @@ if (true) {
 }
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_userExperience_vue__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5cd061af_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_userExperience_vue__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_userExperience_vue__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5cd061af_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_userExperience_vue__ = __webpack_require__(50);
 var disposed = false
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -20097,7 +20343,7 @@ if (true) {(function () {
 
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20382,7 +20628,7 @@ if (true) {(function () {
 });
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20392,16 +20638,46 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "content" }, [
     _c("section", { staticClass: "c-chapter", attrs: { id: "c-5" } }, [
-      _c("h2", [_vm._v("User Experience 用户体验")]),
+      _c("h2", [_vm._v(_vm._s(_vm.$t("lang.directory[4].chapter")))]),
       _vm._v(" "),
-      _vm._m(0, false, false),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-5-1" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[4].sections[0]")))]),
+        _vm._v(" "),
+        _vm._m(0, false, false),
+        _vm._v(" "),
+        _c("code", [
+          _vm._v(
+            '\n        :disabled, [disabled], [aria-disabled="true"]{\n          cursor: not-allowed;\n        }\n      '
+          )
+        ])
+      ]),
       _vm._v(" "),
-      _vm._m(1, false, false),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-5-2" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[4].sections[1]")))]),
+        _vm._v(" "),
+        _vm._m(1, false, false)
+      ]),
       _vm._v(" "),
-      _vm._m(2, false, false),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-5-3" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[4].sections[2]")))]),
+        _vm._v(" "),
+        _c("h4", [_vm._v("checkboxes")]),
+        _vm._v(" "),
+        _vm._m(2, false, false),
+        _vm._v(" "),
+        _c("code", [
+          _vm._v(
+            '\n        input[type="checkbox"] {\n        \tposition: absolute;\n        \tclip: rect(0,0,0,0);\n        }\n\n        input[type="checkbox"] + label::before {\n        \tcontent: \'\\a0\';\n        \tdisplay: inline-block;\n        \tvertical-align: .2em;\n        \twidth: .8em;\n        \theight: .8em;\n        \tmargin-right: .2em;\n        \tborder-radius: .2em;\n        \tbackground: silver;\n        \ttext-indent: .15em;\n        \tline-height: .65;\n        }\n\n        input[type="checkbox"]:checked + label::before {\n        \tcontent: \'\\2713\';\n        \tbackground: yellowgreen;\n        }\n\n        input[type="checkbox"]:focus + label::before {\n        \tbox-shadow: 0 0 .1em .1em #58a;\n        }\n\n        input[type="checkbox"]:disabled + label::before {\n        \tbackground: gray;\n        \tbox-shadow: none;\n        \tcolor: #555;\n        \tcursor: not-allowed;\n        }\n      '
+          )
+        ]),
+        _vm._v(" "),
+        _c("h4", [_vm._v("Toggle buttons")]),
+        _vm._v(" "),
+        _vm._m(3, false, false)
+      ]),
       _vm._v(" "),
       _c("section", { staticClass: "c-section", attrs: { id: "c-5-4" } }, [
-        _c("h3", [_vm._v("De-emphasize by dimming 通过阴影来弱化背景")]),
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[4].sections[3]")))]),
         _vm._v(" "),
         _c("h4", [_vm._v("box-shadow solution")]),
         _vm._v(" "),
@@ -20444,14 +20720,14 @@ var render = function() {
         _vm._v(" "),
         _c("h4", [_vm._v("backdrop solution")]),
         _vm._v(" "),
-        _vm._m(3, false, false)
+        _vm._m(4, false, false)
       ]),
       _vm._v(" "),
       _c(
         "section",
         { staticClass: "c-section", attrs: { id: "c-5-5" } },
         [
-          _c("h3", [_vm._v("De-emphasize by blurring 通过模糊来弱化背景")]),
+          _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[4].sections[4]")))]),
           _vm._v(" "),
           _c(
             "router-link",
@@ -20462,14 +20738,24 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _vm._m(4, false, false),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-5-6" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[4].sections[5]")))]),
+        _vm._v(" "),
+        _vm._m(5, false, false),
+        _vm._v(" "),
+        _c("code", [
+          _vm._v(
+            "\n        display: inline-block;\n        overflow: auto;\n        width: 12em;\n        height: 8em;\n        border: 1px solid silver;\n        padding: .3em .5em;\n        list-style: none;\n        font-size: 200%;\n        background: linear-gradient(#fff 15px,hsla(0,0%,100%,0)) 0 0,\n                    radial-gradient(at center top,rgba(0,0,0,0.2),transparent 70%) 0 0,\n                    linear-gradient(to top,white 15px,hsla(0,0%,100%,0)) bottom,\n                    radial-gradient(at center bottom, rgba(0,0,0,0.2),transparent 70%) bottom;\n        background-size: 100% 15px,100% 15px,100% 15px,100% 15px;\n        background-repeat: no-repeat;\n        background-attachment: local,scroll,local,scroll;\n        margin-top: 30px;\n      "
+          )
+        ])
+      ]),
       _vm._v(" "),
       _c("section", { staticClass: "c-section", attrs: { id: "c-5-7" } }, [
-        _c("h3", [_vm._v("Interactive image comparison 交互式的图片对比控件")]),
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[4].sections[6]")))]),
         _vm._v(" "),
         _c("h4", [_vm._v("CSS resize solution")]),
         _vm._v(" "),
-        _vm._m(5, false, false),
+        _vm._m(6, false, false),
         _vm._v(" "),
         _c("code", [
           _vm._v(
@@ -20534,18 +20820,36 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "c-section", attrs: { id: "c-5-1" } }, [
-      _c("h3", [_vm._v("Picking the right cursor 选用合适的鼠标光标")]),
+    return _c("div", { attrs: { id: "eg-5-1-1" } }, [
+      _c("button", [_vm._v("Button")]),
       _vm._v(" "),
-      _c("div", { attrs: { id: "eg-5-1-1" } }, [
-        _c("button", [_vm._v("Button")]),
-        _vm._v(" "),
-        _c("button", { attrs: { disabled: "" } }, [_vm._v("Disabled Button")])
-      ]),
+      _c("button", { attrs: { disabled: "" } }, [_vm._v("Disabled Button")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "eg-5-2-1" } }, [
+      _c("h4", [_vm._v("Border solution")]),
+      _vm._v(" "),
+      _c("button", { staticClass: "border" }, [_vm._v("+")]),
+      _c("br"),
       _vm._v(" "),
       _c("code", [
         _vm._v(
-          '\n        :disabled, [disabled], [aria-disabled="true"]{\n          cursor: not-allowed;\n        }\n      '
+          "\n          button{\n            background: #58a;\n            color: #fff;\n            cursor: pointer;\n            border-radius: 50%;\n            padding: .3em .5em;\n            font: 150% bold;\n            line-height: 1;\n            border: 10px solid transparent;\n            background-clip: padding-box;\n            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset;\n          }\n        "
+        )
+      ]),
+      _vm._v(" "),
+      _c("h4", [_vm._v("Pseudo-elements solution")]),
+      _vm._v(" "),
+      _c("button", { staticClass: "pseudo" }, [_vm._v("+")]),
+      _c("br"),
+      _vm._v(" "),
+      _c("code", [
+        _vm._v(
+          "\n          button{\n            position: relative;\n            background: #58a;\n            color: #fff;\n            cursor: pointer;\n            border-radius: 50%;\n            padding: .3em .5em;\n            font: 150% bold;\n            line-height: 1;\n            border: 10px solid transparent;\n            background-clip: padding-box;\n            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset;\n          }\n          button::before{\n            position: absolute;\n            content: '';\n            top: -10px;\n            right: -10px;\n            bottom: -10px;\n            left: -10px;\n          }\n        "
         )
       ])
     ])
@@ -20554,98 +20858,51 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "c-section", attrs: { id: "c-5-2" } }, [
-      _c("h3", [_vm._v("Extending the clickable area 扩大可点击区域")]),
+    return _c("div", { attrs: { id: "eg-5-3-1" } }, [
+      _c("input", { attrs: { type: "checkbox", id: "checkbox1" } }),
       _vm._v(" "),
-      _c("div", { attrs: { id: "eg-5-2-1" } }, [
-        _c("h4", [_vm._v("Border solution")]),
-        _vm._v(" "),
-        _c("button", { staticClass: "border" }, [_vm._v("+")]),
-        _c("br"),
-        _vm._v(" "),
-        _c("code", [
-          _vm._v(
-            "\n          button{\n            background: #58a;\n            color: #fff;\n            cursor: pointer;\n            border-radius: 50%;\n            padding: .3em .5em;\n            font: 150% bold;\n            line-height: 1;\n            border: 10px solid transparent;\n            background-clip: padding-box;\n            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset;\n          }\n        "
-          )
-        ]),
-        _vm._v(" "),
-        _c("h4", [_vm._v("Pseudo-elements solution")]),
-        _vm._v(" "),
-        _c("button", { staticClass: "pseudo" }, [_vm._v("+")]),
-        _c("br"),
-        _vm._v(" "),
-        _c("code", [
-          _vm._v(
-            "\n          button{\n            position: relative;\n            background: #58a;\n            color: #fff;\n            cursor: pointer;\n            border-radius: 50%;\n            padding: .3em .5em;\n            font: 150% bold;\n            line-height: 1;\n            border: 10px solid transparent;\n            background-clip: padding-box;\n            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset;\n          }\n          button::before{\n            position: absolute;\n            content: '';\n            top: -10px;\n            right: -10px;\n            bottom: -10px;\n            left: -10px;\n          }\n        "
-          )
-        ])
-      ])
+      _c("label", { attrs: { for: "checkbox1" } }, [_vm._v("option 1")]),
+      _c("br"),
+      _vm._v(" "),
+      _c("input", {
+        attrs: { type: "checkbox", id: "checkbox2", checked: "" }
+      }),
+      _vm._v(" "),
+      _c("label", { attrs: { for: "checkbox2" } }, [_vm._v("option 2")]),
+      _c("br"),
+      _vm._v(" "),
+      _c("input", {
+        attrs: { type: "checkbox", id: "checkbox3", disabled: "" }
+      }),
+      _vm._v(" "),
+      _c("label", { attrs: { for: "checkbox3" } }, [_vm._v("option 3")]),
+      _c("br"),
+      _vm._v(" "),
+      _c("input", {
+        attrs: { type: "checkbox", id: "checkbox4", checked: "", disabled: "" }
+      }),
+      _vm._v(" "),
+      _c("label", { attrs: { for: "checkbox4" } }, [_vm._v("option 4")]),
+      _c("br")
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "c-section", attrs: { id: "c-5-3" } }, [
-      _c("h3", [_vm._v("Custom checkboxes 自定义复选框")]),
+    return _c("div", { attrs: { id: "eg-5-3-2" } }, [
+      _c("input", { attrs: { type: "checkbox", id: "btn1" } }),
       _vm._v(" "),
-      _c("h4", [_vm._v("checkboxes")]),
+      _c("label", { attrs: { for: "btn1" } }, [_vm._v("Button 1")]),
       _vm._v(" "),
-      _c("div", { attrs: { id: "eg-5-3-1" } }, [
-        _c("input", { attrs: { type: "checkbox", id: "checkbox1" } }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "checkbox1" } }, [_vm._v("option 1")]),
-        _c("br"),
-        _vm._v(" "),
-        _c("input", {
-          attrs: { type: "checkbox", id: "checkbox2", checked: "" }
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "checkbox2" } }, [_vm._v("option 2")]),
-        _c("br"),
-        _vm._v(" "),
-        _c("input", {
-          attrs: { type: "checkbox", id: "checkbox3", disabled: "" }
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "checkbox3" } }, [_vm._v("option 3")]),
-        _c("br"),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            type: "checkbox",
-            id: "checkbox4",
-            checked: "",
-            disabled: ""
-          }
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "checkbox4" } }, [_vm._v("option 4")]),
-        _c("br")
-      ]),
+      _c("input", { attrs: { type: "checkbox", id: "btn2" } }),
+      _vm._v(" "),
+      _c("label", { attrs: { for: "btn2" } }, [_vm._v("Button 2")]),
       _vm._v(" "),
       _c("code", [
         _vm._v(
-          '\n        input[type="checkbox"] {\n        \tposition: absolute;\n        \tclip: rect(0,0,0,0);\n        }\n\n        input[type="checkbox"] + label::before {\n        \tcontent: \'\\a0\';\n        \tdisplay: inline-block;\n        \tvertical-align: .2em;\n        \twidth: .8em;\n        \theight: .8em;\n        \tmargin-right: .2em;\n        \tborder-radius: .2em;\n        \tbackground: silver;\n        \ttext-indent: .15em;\n        \tline-height: .65;\n        }\n\n        input[type="checkbox"]:checked + label::before {\n        \tcontent: \'\\2713\';\n        \tbackground: yellowgreen;\n        }\n\n        input[type="checkbox"]:focus + label::before {\n        \tbox-shadow: 0 0 .1em .1em #58a;\n        }\n\n        input[type="checkbox"]:disabled + label::before {\n        \tbackground: gray;\n        \tbox-shadow: none;\n        \tcolor: #555;\n        \tcursor: not-allowed;\n        }\n      '
+          '\n          input[type="checkbox"]{\n            position: absolute;\n            clip: rect(0,0,0,0);\n          }\n\n          input[type="checkbox"]& + label{\n            display: inline-block;\n            padding: .3em .5em;\n            background: yellowgreen;\n            background-image: linear-gradient(yellowgreen, #6fa600);\n            border-radius: 10px;\n            border: 1px solid #6fa600;\n            box-shadow: 0 1px white inset;\n            text-align: center;\n            text-shadow: 0 1px 1px white;\n            cursor: pointer;\n            transition: all .3s ease-in-out;\n          }\n\n          input[type="checkbox"]&:checked + label{\n            box-shadow: 0 0 .2em .2em rgba(6, 114, 0, 0.6) inset;\n            background: #6fa600;\n            border: 1px solid rgba(0,0,0,.3);\n          }\n        '
         )
-      ]),
-      _vm._v(" "),
-      _c("h4", [_vm._v("Toggle buttons")]),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "eg-5-3-2" } }, [
-        _c("input", { attrs: { type: "checkbox", id: "btn1" } }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "btn1" } }, [_vm._v("Button 1")]),
-        _vm._v(" "),
-        _c("input", { attrs: { type: "checkbox", id: "btn2" } }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "btn2" } }, [_vm._v("Button 2")]),
-        _vm._v(" "),
-        _c("code", [
-          _vm._v(
-            '\n          input[type="checkbox"]{\n            position: absolute;\n            clip: rect(0,0,0,0);\n          }\n\n          input[type="checkbox"]& + label{\n            display: inline-block;\n            padding: .3em .5em;\n            background: yellowgreen;\n            background-image: linear-gradient(yellowgreen, #6fa600);\n            border-radius: 10px;\n            border: 1px solid #6fa600;\n            box-shadow: 0 1px white inset;\n            text-align: center;\n            text-shadow: 0 1px 1px white;\n            cursor: pointer;\n            transition: all .3s ease-in-out;\n          }\n\n          input[type="checkbox"]&:checked + label{\n            box-shadow: 0 0 .2em .2em rgba(6, 114, 0, 0.6) inset;\n            background: #6fa600;\n            border: 1px solid rgba(0,0,0,.3);\n          }\n        '
-          )
-        ])
       ])
     ])
   },
@@ -20665,39 +20922,29 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "c-section", attrs: { id: "c-5-6" } }, [
-      _c("h3", [_vm._v("Scrolling hints 滚动提示")]),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "eg-5-6-1" } }, [
-        _c("ul", { staticClass: "list" }, [
-          _c("li", [_vm._v("Ada Catlace")]),
-          _vm._v(" "),
-          _c("li", [_vm._v("Alan Purring")]),
-          _vm._v(" "),
-          _c("li", [_vm._v("Schrödingcat")]),
-          _vm._v(" "),
-          _c("li", [_vm._v("Tim Purrners-Lee")]),
-          _vm._v(" "),
-          _c("li", [_vm._v("Webkitty")]),
-          _vm._v(" "),
-          _c("li", [_vm._v("Json")]),
-          _vm._v(" "),
-          _c("li", [_vm._v("Void")]),
-          _vm._v(" "),
-          _c("li", [_vm._v("Neko")]),
-          _vm._v(" "),
-          _c("li", [_vm._v("NaN")]),
-          _vm._v(" "),
-          _c("li", [_vm._v("Cat5")]),
-          _vm._v(" "),
-          _c("li", [_vm._v("Vector")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("code", [
-        _vm._v(
-          "\n        display: inline-block;\n        overflow: auto;\n        width: 12em;\n        height: 8em;\n        border: 1px solid silver;\n        padding: .3em .5em;\n        list-style: none;\n        font-size: 200%;\n        background: linear-gradient(#fff 15px,hsla(0,0%,100%,0)) 0 0,\n                    radial-gradient(at center top,rgba(0,0,0,0.2),transparent 70%) 0 0,\n                    linear-gradient(to top,white 15px,hsla(0,0%,100%,0)) bottom,\n                    radial-gradient(at center bottom, rgba(0,0,0,0.2),transparent 70%) bottom;\n        background-size: 100% 15px,100% 15px,100% 15px,100% 15px;\n        background-repeat: no-repeat;\n        background-attachment: local,scroll,local,scroll;\n        margin-top: 30px;\n      "
-        )
+    return _c("div", { attrs: { id: "eg-5-6-1" } }, [
+      _c("ul", { staticClass: "list" }, [
+        _c("li", [_vm._v("Ada Catlace")]),
+        _vm._v(" "),
+        _c("li", [_vm._v("Alan Purring")]),
+        _vm._v(" "),
+        _c("li", [_vm._v("Schrödingcat")]),
+        _vm._v(" "),
+        _c("li", [_vm._v("Tim Purrners-Lee")]),
+        _vm._v(" "),
+        _c("li", [_vm._v("Webkitty")]),
+        _vm._v(" "),
+        _c("li", [_vm._v("Json")]),
+        _vm._v(" "),
+        _c("li", [_vm._v("Void")]),
+        _vm._v(" "),
+        _c("li", [_vm._v("Neko")]),
+        _vm._v(" "),
+        _c("li", [_vm._v("NaN")]),
+        _vm._v(" "),
+        _c("li", [_vm._v("Cat5")]),
+        _vm._v(" "),
+        _c("li", [_vm._v("Vector")])
       ])
     ])
   },
@@ -20738,16 +20985,16 @@ if (true) {
 }
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_blurDialog_vue__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_eaa712ae_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_blurDialog_vue__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_blurDialog_vue__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_eaa712ae_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_blurDialog_vue__ = __webpack_require__(54);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(51)
+  __webpack_require__(52)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -20793,7 +21040,7 @@ if (true) {(function () {
 
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
@@ -20819,7 +21066,7 @@ if(true) {
 }
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20857,7 +21104,7 @@ if(true) {
 });
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20914,12 +21161,12 @@ if (true) {
 }
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_structureAndLayout_vue__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_310c8448_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_structureAndLayout_vue__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_structureAndLayout_vue__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_310c8448_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_structureAndLayout_vue__ = __webpack_require__(62);
 var disposed = false
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -20965,12 +21212,12 @@ if (true) {(function () {
 
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__data_c6s2table_js__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Palette_vue__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__data_c6s2table_js__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Palette_vue__ = __webpack_require__(58);
 //
 //
 //
@@ -21240,7 +21487,7 @@ if (true) {(function () {
 });
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -21263,16 +21510,16 @@ const tableContent = {
 /* harmony default export */ __webpack_exports__["a"] = (tableContent);
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_Palette_vue__ = __webpack_require__(59);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_d31dda0a_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_Palette_vue__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_Palette_vue__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_d31dda0a_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_Palette_vue__ = __webpack_require__(61);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(58)
+  __webpack_require__(59)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -21318,7 +21565,7 @@ if (true) {(function () {
 
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
@@ -21344,7 +21591,7 @@ if(true) {
 }
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -21382,7 +21629,7 @@ if(true) {
 });
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -21429,7 +21676,7 @@ if (true) {
 }
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -21439,12 +21686,22 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "content" }, [
     _c("section", { staticClass: "c-chapter", attrs: { id: "c-6" } }, [
-      _c("h2", [_vm._v("Structure & Layout 结构与布局")]),
+      _c("h2", [_vm._v(_vm._s(_vm.$t("lang.directory[5].chapter")))]),
       _vm._v(" "),
-      _vm._m(0, false, false),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-6-1" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[5].sections[0]")))]),
+        _vm._v(" "),
+        _vm._m(0, false, false),
+        _vm._v(" "),
+        _c("code", [
+          _vm._v(
+            "\n        figure {\n        \tmax-width: 300px;\n        \tmax-width: min-content;\n        \tmargin: auto;\n        }\n\n        figure > img { max-width: inherit }\n      "
+          )
+        ])
+      ]),
       _vm._v(" "),
       _c("section", { staticClass: "c-section", attrs: { id: "c-6-2" } }, [
-        _c("h3", [_vm._v("Taming table column widths 精确控制表格列宽")]),
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[5].sections[1]")))]),
         _vm._v(" "),
         _c(
           "div",
@@ -21535,9 +21792,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("section", { staticClass: "c-section", attrs: { id: "c-6-3" } }, [
-        _c("h3", [
-          _vm._v("Styling by sibling count 根据兄弟元素的数量来设置样式")
-        ]),
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[5].sections[2]")))]),
         _vm._v(" "),
         _c("h4", [_vm._v("select the first of a certain number of list")]),
         _vm._v(" "),
@@ -21608,9 +21863,7 @@ var render = function() {
         "section",
         { staticClass: "c-section", attrs: { id: "c-6-4" } },
         [
-          _c("h3", [
-            _vm._v("Fluid background, fixed content 满幅的背景、定宽的内容")
-          ]),
+          _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[5].sections[3]")))]),
           _vm._v(" "),
           _c(
             "router-link",
@@ -21635,7 +21888,7 @@ var render = function() {
         "section",
         { staticClass: "c-section", attrs: { id: "c-6-5" } },
         [
-          _c("h3", [_vm._v("Vertical centering 垂直居中")]),
+          _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[5].sections[4]")))]),
           _vm._v(" "),
           _c("h4", [_vm._v("The absolute positioning solution")]),
           _vm._v(" "),
@@ -21735,7 +21988,7 @@ var render = function() {
         "section",
         { staticClass: "c-section", attrs: { id: "c-6-6" } },
         [
-          _c("h3", [_vm._v("Sticky footers 紧贴底部的页脚")]),
+          _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[5].sections[5]")))]),
           _vm._v(" "),
           _c(
             "router-link",
@@ -21753,42 +22006,32 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "c-section", attrs: { id: "c-6-1" } }, [
-      _c("h3", [_vm._v("Intrinsic sizing 自适应内部元素")]),
+    return _c("div", { attrs: { id: "eg-6-1-1" } }, [
+      _c("p", [
+        _vm._v(
+          "Enjoy playing with this little kitty! Look at its tiny claws,its bright eys,pointed ears,and soft belly!"
+        )
+      ]),
       _vm._v(" "),
-      _c("div", { attrs: { id: "eg-6-1-1" } }, [
-        _c("p", [
-          _vm._v(
-            "Enjoy playing with this little kitty! Look at its tiny claws,its bright eys,pointed ears,and soft belly!"
-          )
-        ]),
+      _c("figure", { staticClass: "figure" }, [
+        _c("img", {
+          staticClass: "img",
+          attrs: {
+            src: "http://csssecrets.io/images/adamcatlace-before.jpg",
+            alt: "kitty"
+          }
+        }),
         _vm._v(" "),
-        _c("figure", { staticClass: "figure" }, [
-          _c("img", {
-            staticClass: "img",
-            attrs: {
-              src: "http://csssecrets.io/images/adamcatlace-before.jpg",
-              alt: "kitty"
-            }
-          }),
-          _vm._v(" "),
-          _c("figcaption", [
-            _vm._v(
-              "Enjoy playing with this little kitty! Look at its tiny claws,its bright eys,pointed ears,and soft belly!"
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("p", [
+        _c("figcaption", [
           _vm._v(
             "Enjoy playing with this little kitty! Look at its tiny claws,its bright eys,pointed ears,and soft belly!"
           )
         ])
       ]),
       _vm._v(" "),
-      _c("code", [
+      _c("p", [
         _vm._v(
-          "\n        figure {\n        \tmax-width: 300px;\n        \tmax-width: min-content;\n        \tmargin: auto;\n        }\n\n        figure > img { max-width: inherit }\n      "
+          "Enjoy playing with this little kitty! Look at its tiny claws,its bright eys,pointed ears,and soft belly!"
         )
       ])
     ])
@@ -21955,16 +22198,16 @@ if (true) {
 }
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_fluidBg_vue__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_0bb53705_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_fluidBg_vue__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_fluidBg_vue__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_0bb53705_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_fluidBg_vue__ = __webpack_require__(66);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(63)
+  __webpack_require__(64)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -22010,7 +22253,7 @@ if (true) {(function () {
 
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
@@ -22036,7 +22279,7 @@ if(true) {
 }
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22066,7 +22309,7 @@ if(true) {
 /* harmony default export */ __webpack_exports__["a"] = ({});
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22137,16 +22380,16 @@ if (true) {
 }
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_verticalCenter_vue__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_6f639685_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_verticalCenter_vue__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_verticalCenter_vue__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_6f639685_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_verticalCenter_vue__ = __webpack_require__(70);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(67)
+  __webpack_require__(68)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -22192,7 +22435,7 @@ if (true) {(function () {
 
 
 /***/ }),
-/* 67 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
@@ -22218,7 +22461,7 @@ if(true) {
 }
 
 /***/ }),
-/* 68 */
+/* 69 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22253,7 +22496,7 @@ if(true) {
 });
 
 /***/ }),
-/* 69 */
+/* 70 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22315,16 +22558,16 @@ if (true) {
 }
 
 /***/ }),
-/* 70 */
+/* 71 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_stickyFooter_vue__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_4b7e9bfe_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_stickyFooter_vue__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_stickyFooter_vue__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_4b7e9bfe_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_stickyFooter_vue__ = __webpack_require__(74);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(71)
+  __webpack_require__(72)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -22370,7 +22613,7 @@ if (true) {(function () {
 
 
 /***/ }),
-/* 71 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
@@ -22396,7 +22639,7 @@ if(true) {
 }
 
 /***/ }),
-/* 72 */
+/* 73 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22438,7 +22681,7 @@ if(true) {
 });
 
 /***/ }),
-/* 73 */
+/* 74 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22497,12 +22740,12 @@ if (true) {
 }
 
 /***/ }),
-/* 74 */
+/* 75 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_transitionsAndAnimations_vue__ = __webpack_require__(75);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_408390bc_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_transitionsAndAnimations_vue__ = __webpack_require__(76);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_transitionsAndAnimations_vue__ = __webpack_require__(76);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_408390bc_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_transitionsAndAnimations_vue__ = __webpack_require__(77);
 var disposed = false
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -22548,7 +22791,7 @@ if (true) {(function () {
 
 
 /***/ }),
-/* 75 */
+/* 76 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22767,7 +23010,7 @@ if (true) {(function () {
 });
 
 /***/ }),
-/* 76 */
+/* 77 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22777,16 +23020,58 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "content" }, [
     _c("section", { staticClass: "c-chapter", attrs: { id: "c-7" } }, [
-      _c("h2", [_vm._v("Transitions & Animations 过渡与动画")]),
+      _c("h2", [_vm._v(_vm._s(_vm.$t("lang.directory[6].chapter")))]),
       _vm._v(" "),
-      _vm._m(0, false, false),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-7-1" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[6].sections[0]")))]),
+        _vm._v(" "),
+        _c("h4", [_vm._v("Bouncing Animations")]),
+        _vm._v(" "),
+        _vm._m(0, false, false),
+        _vm._v(" "),
+        _c("code", [
+          _vm._v(
+            "\n        @keyframes bounce {\n          60%, 80%, to {\n        \t\ttransform: translateY(280px);\n        \t\tanimation-timing-function: ease;\n        \t}\n        \t70% { transform: translateY(210px); }\n        \t90% { transform: translateY(250px); }\n        }\n        .ball{\n          animation: bounce 1.5s cubic-bezier(.1,.25,1,.25) forwards;\n        }\n      "
+          )
+        ]),
+        _vm._v(" "),
+        _c("h4", [_vm._v("Elastic tranistions")]),
+        _vm._v(" "),
+        _vm._m(1, false, false),
+        _vm._v(" "),
+        _c("code", [
+          _vm._v(
+            "\n        input:not(:focus) + .callout:not(:hover){\n          transform: scale(0);\n          transition: .25s transform;\n        }\n        .callout{\n          transition: .5s cubic-bezier(.25,.1,.3,1.5) transform;\n          transform-origin: 1em -.4em;\n        }\n      }\n      "
+          )
+        ])
+      ]),
       _vm._v(" "),
-      _vm._m(1, false, false),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-7-2" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[6].sections[1]")))]),
+        _vm._v(" "),
+        _vm._m(2, false, false),
+        _vm._v(" "),
+        _c("code", [
+          _vm._v(
+            "\n        @keyframes loader {\n          to {\n            background-position: -800px 0;\n          }\n        }\n\n        .loader{\n          animation: loader 1s infinite steps(8);\n        }\n      "
+          )
+        ])
+      ]),
       _vm._v(" "),
-      _vm._m(2, false, false),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-7-3" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[6].sections[2]")))]),
+        _vm._v(" "),
+        _vm._m(3, false, false),
+        _vm._v(" "),
+        _c("code", [
+          _vm._v(
+            "\n        @keyframes blink-1 {\n          50% {\n            color: transparent;\n          };\n        }\n\n        @keyframes blink-2 {\n          to {\n            color: transparent;\n          }\n        }\n\n        .blink-smooth-1{\n          animation: blink-1 1s 3;\n        }\n        .blink-smooth-2{\n          animation: blink-2 .5s 6;\n          animation-direction: alternate;\n        }\n        .blink{\n          animation: 1s blink-1 3 steps(1);\n        }\n      "
+          )
+        ])
+      ]),
       _vm._v(" "),
       _c("section", { staticClass: "c-section", attrs: { id: "c-7-4" } }, [
-        _c("h3", [_vm._v("Typing animation 打字动画")]),
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[6].sections[3]")))]),
         _vm._v(" "),
         _c("div", { attrs: { id: "eg-7-4-1" } }, [
           _c("h1", { style: _vm.typingStyles }, [
@@ -22813,9 +23098,41 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _vm._m(3, false, false),
+      _c("section", { staticClass: "c-section", attrs: { id: "c-7-5" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[6].sections[4]")))]),
+        _vm._v(" "),
+        _c("div", { attrs: { id: "eg-7-5-1" } }),
+        _vm._v(" "),
+        _c("code", [
+          _vm._v(
+            "\n        @keyframes panoramic {\n          to {\n            background-position: 100% 0;\n          }\n        }\n\n        #eg-7-5-1{\n          background-image: url('http://lea.verou.me/book/panoramic.jpg');\n          height: 300px;\n          width: 300px;\n          background-size: auto 100%;\n          animation: panoramic 10s linear infinite alternate;\n          animation-play-state: paused;\n          &:hover,&:focus{\n            animation-play-state: running;\n          }\n        }\n      "
+          )
+        ])
+      ]),
       _vm._v(" "),
-      _vm._m(4, false, false)
+      _c("section", { staticClass: "c-section", attrs: { id: "c-7-6" } }, [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("lang.directory[6].sections[5]")))]),
+        _vm._v(" "),
+        _c("h4", [_vm._v("Two element solution")]),
+        _vm._v(" "),
+        _vm._m(4, false, false),
+        _vm._v(" "),
+        _c("code", [
+          _vm._v(
+            "\n        @keyframes spin {\n          to{\n            transform: rotate(1turn);\n          }\n        }\n        .avatar{\n          animation: spin 8s linear infinite;\n          transform-origin: 50% 180px;\n        }\n        .avatar > img{\n          animation: inherit;\n          animation-direction: reverse;\n        }\n      "
+          )
+        ]),
+        _vm._v(" "),
+        _c("h4", [_vm._v("Single element solution")]),
+        _vm._v(" "),
+        _vm._m(5, false, false),
+        _vm._v(" "),
+        _c("code", [
+          _vm._v(
+            '\n        @keyframes spin-2 {\n          from {\n            transform: rotate(0turn) translateY(-180px) translateY(50%) rotate(1turn);\n          }\n          to {\n            transform: rotate(1turn) translateY(-180px) translateY(50%) rotate(0turn);\n          }\n        }\n\n        .avatar{\n          margin: calc(~"50% - 30px") auto 0;\n          animation: spin-2 8s linear infinite;\n        }\n      '
+          )
+        ])
+      ])
     ])
   ])
 }
@@ -22824,146 +23141,76 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "c-section", attrs: { id: "c-7-1" } }, [
-      _c("h3", [_vm._v("Elastic tranistions 缓动效果")]),
-      _vm._v(" "),
-      _c("h4", [_vm._v("Bouncing Animations")]),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "eg-7-1-1" } }, [
-        _c("div", { staticClass: "ball" })
-      ]),
-      _vm._v(" "),
-      _c("code", [
-        _vm._v(
-          "\n        @keyframes bounce {\n          60%, 80%, to {\n        \t\ttransform: translateY(280px);\n        \t\tanimation-timing-function: ease;\n        \t}\n        \t70% { transform: translateY(210px); }\n        \t90% { transform: translateY(250px); }\n        }\n        .ball{\n          animation: bounce 1.5s cubic-bezier(.1,.25,1,.25) forwards;\n        }\n      "
-        )
-      ]),
-      _vm._v(" "),
-      _c("h4", [_vm._v("Elastic tranistions")]),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "eg-7-1-2" } }, [
-        _c("label", [
-          _c("input", { attrs: { type: "text", value: "NoOne" } }),
-          _vm._v(" "),
-          _c("span", { staticClass: "callout" }, [
-            _vm._v(
-              "Only letters, numbers, underscores (_) and hyphens (-) allowed!"
-            )
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("code", [
-        _vm._v(
-          "\n        input:not(:focus) + .callout:not(:hover){\n          transform: scale(0);\n          transition: .25s transform;\n        }\n        .callout{\n          transition: .5s cubic-bezier(.25,.1,.3,1.5) transform;\n          transform-origin: 1em -.4em;\n        }\n      }\n      "
-        )
-      ])
+    return _c("div", { attrs: { id: "eg-7-1-1" } }, [
+      _c("div", { staticClass: "ball" })
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "c-section", attrs: { id: "c-7-2" } }, [
-      _c("h3", [_vm._v("Frame-by-frame animations 逐帧动画")]),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "eg-7-2-1" } }, [
-        _c("div", { staticClass: "loader" })
-      ]),
-      _vm._v(" "),
-      _c("code", [
-        _vm._v(
-          "\n        @keyframes loader {\n          to {\n            background-position: -800px 0;\n          }\n        }\n\n        .loader{\n          animation: loader 1s infinite steps(8);\n        }\n      "
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "c-section", attrs: { id: "c-7-3" } }, [
-      _c("h3", [_vm._v("Blinking 闪烁效果")]),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "eg-7-3-1" } }, [
-        _c("p", { staticClass: "blink-smooth-1" }, [_vm._v("Pokemon!")]),
+    return _c("div", { attrs: { id: "eg-7-1-2" } }, [
+      _c("label", [
+        _c("input", { attrs: { type: "text", value: "NoOne" } }),
         _vm._v(" "),
-        _c("p", { staticClass: "blink-smooth-2" }, [_vm._v("Pokemon!")]),
-        _vm._v(" "),
-        _c("p", { staticClass: "blink" }, [_vm._v("Pokemon!")])
-      ]),
-      _vm._v(" "),
-      _c("code", [
-        _vm._v(
-          "\n        @keyframes blink-1 {\n          50% {\n            color: transparent;\n          };\n        }\n\n        @keyframes blink-2 {\n          to {\n            color: transparent;\n          }\n        }\n\n        .blink-smooth-1{\n          animation: blink-1 1s 3;\n        }\n        .blink-smooth-2{\n          animation: blink-2 .5s 6;\n          animation-direction: alternate;\n        }\n        .blink{\n          animation: 1s blink-1 3 steps(1);\n        }\n      "
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "c-section", attrs: { id: "c-7-5" } }, [
-      _c("h3", [_vm._v("Smooth state animations  状态平滑的动画")]),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "eg-7-5-1" } }),
-      _vm._v(" "),
-      _c("code", [
-        _vm._v(
-          "\n        @keyframes panoramic {\n          to {\n            background-position: 100% 0;\n          }\n        }\n\n        #eg-7-5-1{\n          background-image: url('http://lea.verou.me/book/panoramic.jpg');\n          height: 300px;\n          width: 300px;\n          background-size: auto 100%;\n          animation: panoramic 10s linear infinite alternate;\n          animation-play-state: paused;\n          &:hover,&:focus{\n            animation-play-state: running;\n          }\n        }\n      "
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "c-section", attrs: { id: "c-7-6" } }, [
-      _c("h3", [
-        _vm._v("Animation along a circular path  沿环形路径平移的动画")
-      ]),
-      _vm._v(" "),
-      _c("h4", [_vm._v("Two element solution")]),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "eg-7-6-1" } }, [
-        _c("div", { staticClass: "path" }, [
-          _c("div", { staticClass: "avatar" }, [
-            _c("img", {
-              attrs: {
-                src: "http://csssecrets.io/images/adamcatlace.jpg",
-                alt: "avatar"
-              }
-            })
-          ])
+        _c("span", { staticClass: "callout" }, [
+          _vm._v(
+            "Only letters, numbers, underscores (_) and hyphens (-) allowed!"
+          )
         ])
-      ]),
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "eg-7-2-1" } }, [
+      _c("div", { staticClass: "loader" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "eg-7-3-1" } }, [
+      _c("p", { staticClass: "blink-smooth-1" }, [_vm._v("Pokemon!")]),
       _vm._v(" "),
-      _c("code", [
-        _vm._v(
-          "\n        @keyframes spin {\n          to{\n            transform: rotate(1turn);\n          }\n        }\n        .avatar{\n          animation: spin 8s linear infinite;\n          transform-origin: 50% 180px;\n        }\n        .avatar > img{\n          animation: inherit;\n          animation-direction: reverse;\n        }\n      "
-        )
-      ]),
+      _c("p", { staticClass: "blink-smooth-2" }, [_vm._v("Pokemon!")]),
       _vm._v(" "),
-      _c("h4", [_vm._v("Single element solution")]),
-      _vm._v(" "),
-      _c("div", { attrs: { id: "eg-7-6-2" } }, [
-        _c("div", { staticClass: "path" }, [
+      _c("p", { staticClass: "blink" }, [_vm._v("Pokemon!")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "eg-7-6-1" } }, [
+      _c("div", { staticClass: "path" }, [
+        _c("div", { staticClass: "avatar" }, [
           _c("img", {
-            staticClass: "avatar",
             attrs: {
               src: "http://csssecrets.io/images/adamcatlace.jpg",
               alt: "avatar"
             }
           })
         ])
-      ]),
-      _vm._v(" "),
-      _c("code", [
-        _vm._v(
-          '\n        @keyframes spin-2 {\n          from {\n            transform: rotate(0turn) translateY(-180px) translateY(50%) rotate(1turn);\n          }\n          to {\n            transform: rotate(1turn) translateY(-180px) translateY(50%) rotate(0turn);\n          }\n        }\n\n        .avatar{\n          margin: calc(~"50% - 30px") auto 0;\n          animation: spin-2 8s linear infinite;\n        }\n      '
-        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "eg-7-6-2" } }, [
+      _c("div", { staticClass: "path" }, [
+        _c("img", {
+          staticClass: "avatar",
+          attrs: {
+            src: "http://csssecrets.io/images/adamcatlace.jpg",
+            alt: "avatar"
+          }
+        })
       ])
     ])
   }
@@ -22979,7 +23226,7 @@ if (true) {
 }
 
 /***/ }),
-/* 77 */
+/* 78 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -23002,14 +23249,14 @@ const scrollBehavior = (to, from, savedPosition) => {
 /* harmony default export */ __webpack_exports__["a"] = (scrollBehavior);
 
 /***/ }),
-/* 78 */
+/* 79 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_i18n__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_directory_js__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_directory_js__ = __webpack_require__(80);
 
 
 
@@ -23040,7 +23287,7 @@ const i18n = new __WEBPACK_IMPORTED_MODULE_1_vue_i18n__["a" /* default */]({
 /* harmony default export */ __webpack_exports__["a"] = (i18n);
 
 /***/ }),
-/* 79 */
+/* 80 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -23109,7 +23356,26 @@ const directory = {
 /* harmony default export */ __webpack_exports__["a"] = (directory);
 
 /***/ }),
-/* 80 */
+/* 81 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router_routermaps__ = __webpack_require__(16);
+
+
+
+const gaSettings = {
+  id: 'UA-111721364-1',
+  routes: __WEBPACK_IMPORTED_MODULE_0__router_routermaps__["a" /* default */],
+  autoTracking: {
+    pageviewOnLoad: false
+  }
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (gaSettings);
+
+/***/ }),
+/* 82 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
