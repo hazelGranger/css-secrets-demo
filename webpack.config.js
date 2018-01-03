@@ -10,11 +10,13 @@ var HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 // var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 
 var settings = {
-  'publicPath': '/'
+  'publicPath': '/',
+  'resolveAliasVue': 'vue/dist/vue.js'
 }
 
-if (process.env.ENV == 'production') {
-  settings.publicPath = 'https:\/\/hazelgranger.github.io\/css-secrets-demo\/dist\/'
+if (process.env.NODE_ENV == 'production') {
+  settings.publicPath = 'https:\/\/hazelgranger.github.io\/css-secrets-demo\/dist\/';
+  settings.resolveAliasVue = 'vue/dist/vue.min.js'
 }
 
 var config = {
@@ -73,7 +75,7 @@ var config = {
   ],
   resolve: {
     alias: {
-      'vue': 'vue/dist/vue.js',
+      'vue': settings.resolveAliasVue,
       '@v': path.resolve(__dirname,'src/views/')
     },
     extensions: ['.js','.vue']
@@ -87,5 +89,22 @@ var config = {
     quiet: false
   }
 }
+
+if (process.env.NODE_ENV == 'production') {
+  config.plugins.concat([
+    new webpack.DefinePlugin({
+    'process.env': {
+      NODE_ENV: '"production"'
+    }
+  })],[
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    })
+  ])
+}
+
+console.log(config);
 
 module.exports = config;
