@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "52e64c183cffc96bfddc"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "ff199e041f670733841b"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -9113,7 +9113,13 @@ const gaSettings = {
   id: 'UA-111721364-1',
   routes: __WEBPACK_IMPORTED_MODULE_0__router_routermaps__["a" /* default */],
   autoTracking: {
-    pageviewOnLoad: false
+    pageviewTemplate(route) {
+      return {
+        page: route.path,
+        title: document.title,
+        location: window.location.href
+      };
+    }
   }
 };
 

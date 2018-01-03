@@ -5,7 +5,13 @@ const gaSettings = {
   id: 'UA-111721364-1',
   routes,
   autoTracking: {
-    pageviewOnLoad: false
+    pageviewTemplate (route) {
+      return {
+        page: route.path,
+        title: document.title,
+        location: window.location.href
+      }
+    }
   }
 }
 
