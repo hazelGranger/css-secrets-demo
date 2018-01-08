@@ -699,6 +699,9 @@ code.inline {
   text-decoration: none;
   transition: background 0.3s ease-in-out;
 }
+.navigator .link:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
 .navigator .chapter > li {
   font-size: 16px;
   overflow: hidden;
