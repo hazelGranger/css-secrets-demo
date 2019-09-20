@@ -24,38 +24,40 @@
   </div>
   <script src="./build.js"></script>
   <script type="text/javascript">
-  var timeoutID;
-  var inActiveTime = 10000;
- 
-  function setup() {
-    window.addEventListener("mousemove", resetTimer, false);
-    window.addEventListener("mousedown", resetTimer, false);
-    window.addEventListener("keypress", resetTimer, false);
-    window.addEventListener("DOMMouseScroll", resetTimer, false);
-    window.addEventListener("mousewheel", resetTimer, false);
-    window.addEventListener("touchmove", resetTimer, false);
-    window.addEventListener("MSPointerMove", resetTimer, false);
-      startTimer();
-  }
-  setup();
-   
-  function startTimer() {
-      timeoutID = window.setTimeout(goInactive, inActiveTime);
-  }
-   
-  function resetTimer(e) {
-      window.clearTimeout(timeoutID);
-      goActive();
-  }
+      window.run = function (dmc) {
+        var timeoutID;
+        var inActiveTime = 1000;
 
-  function goInactive() {
-      console.log("dmc.stop");
-  }
+        function setup() {
+          window.addEventListener("mousemove", resetTimer, false);
+          window.addEventListener("mousedown", resetTimer, false);
+          window.addEventListener("keypress", resetTimer, false);
+          window.addEventListener("DOMMouseScroll", resetTimer, false);
+          window.addEventListener("mousewheel", resetTimer, false);
+          window.addEventListener("touchmove", resetTimer, false);
+          window.addEventListener("MSPointerMove", resetTimer, false);
+            startTimer();
+        }
+        setup();
 
-  function goActive() {
-      startTimer();
-  }
- 
-</script>
+        function startTimer() {
+            timeoutID = window.setTimeout(goInactive, inActiveTime);
+        }
+
+        function resetTimer(e) {
+            window.clearTimeout(timeoutID);
+            goActive();
+        }
+
+        function goInactive() {
+            console.log("dmc.stop");
+            dmc.stop();
+        }
+
+        function goActive() {
+            startTimer();
+        }
+      }
+  </script>
 </body>
 </html>
